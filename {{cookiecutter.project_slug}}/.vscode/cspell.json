@@ -1,0 +1,46 @@
+// cSpell Settings
+{
+    // Version of the setting file.  Always 0.2
+    "version": "0.2",
+    // language - current active spelling language
+    "language": "en",
+    // Controls the maximum number of spelling errors per document.
+    "maxNumberOfProblems": 100,
+    // Controls the number of suggestions shown.
+    "numSuggestions": 8,
+    // The minimum length of a word before checking it against a dictionary.
+    "minWordLength": 4,
+    // Specify file types to spell check.
+    "enabledLanguageIds": [
+        "python",
+        "markdown",
+        "php",
+        "plaintext",
+        "yml"
+    ],
+    // words - list of words to be always considered correct
+    "words": [
+        "mkdirp",
+        "tsmerge",
+        "githubusercontent",
+        "streetsidesoftware",
+        "vsmarketplacebadge",
+        "visualstudio"
+    ],
+    // flagWords - list of words to be always considered incorrect
+    // This is useful for offensive words and common spelling errors.
+    // For example "hte" should be "the"
+    "flagWords": [
+        "hte"
+    ],
+    "dictionaryDefinitions": [
+        { "name": "dataSciece", "path": "./.vscode/dictionaries/data-science-en.txt"}
+    ],
+    "dictionaries": [
+        "dataSciece"
+    ]
+    //"languageSettings": [
+    //    { "languageId": "markdown", "dictionaries": ["medicalTerms"] },
+    //    { "languageId": "plaintext", "dictionaries": ["medicalTerms"] }
+    //]
+}

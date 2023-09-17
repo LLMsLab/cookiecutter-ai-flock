@@ -1,0 +1,472 @@
+// Curated VSCode settings to use wtih Python
+// -----------------------------------------------------
+// Version: 01
+{
+    // #############################
+    // ### Automatically Activate Project's Python Virtual Environment  ###
+    // #############################
+    // Automatically Activate Python Virtual Environment in VScode
+    // NOTE: Conda cds39 must be active first. See TECH_NOTE_03
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    // Select default interpreter for working_on_cookiecutter project
+    "python.defaultInterpreterPath": "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python",
+    // Ensure integrated terinal load .bashrc or .bash_profile files
+    // https://stackoverflow.com/questions/51820921/vscode-integrated-terminal-doesnt-load-bashrc-or-bash-profile
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "bash",
+          "args": ["-l"]
+        }
+      },
+    // #############################
+    // ### COLOR AND ICONE THEME ###
+    // #############################
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.productIconTheme": "Default",
+    // #############################
+    // ### Linting ####
+    // #############################
+    // Use PyLint as lintern
+    // "python.linting.pylintEnabled": true,
+    // Lint Python files
+    // "python.linting.enabled": true,
+    // #############################
+    // ### Docstring ####
+    // #############################
+    // Use Numpy format for docstrings
+    "autoDocstring.docstringFormat": "numpy",
+    // Include Extender Summary section
+    "autoDocstring.includeExtendedSummary": true,
+    // Include function name at the start of docstrings
+    "autoDocstring.includeName": false,
+    // #############################
+    // ### IMPORTS ###
+    // #############################
+    // BUG: Note activated due to issue with RUNNER.
+    // NOTE: Workaround using terminal (Makefile).
+    // Sorting works. Remove unsused imports don't.
+    // Remove duplicated keys
+    // "autoflake.removeDuplicateKeys": true,
+    // Remove unused variables
+    // "autoflake.removeAllUnusedVariables": true,
+    // Remove unsuded imports
+    // "autoflake.removeAllUnusedImports": true,
+    // Sort imports
+    // "autoflake.sortImports": true,
+    // #############################
+    // ### FONT TYPE AND SIZE ###
+    // #############################
+    // default font family in Windows is: Consolas, 'Courier New', monospace
+    "editor.fontSize": 15,
+    "terminal.integrated.fontSize": 14,
+    // "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    // "terminal.integrated.fontFamily": "'Meslo LG S for Powerline'",
+    // #############################
+    // ### CODE COMMENTARIES ###
+    // #############################
+    "rewrap.wholeComment": false,
+    "rewrap.autoWrap.enabled": true,
+    "rewrap.reformat": true,
+    "rewrap.doubleSentenceSpacing": true,
+    // Create a rule at 72 characters for comments and 79 for code
+    "rewrap.wrappingColumn": 72,
+    "editor.rulers": [
+        72,
+        79
+    ],
+    // ################################
+    // ### Python formatter (Black) ###
+    // ################################
+    // Set Black Formatter as the default formatter
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": false
+    },
+    "[jupyter]": {
+        "editor.formatOnSave": false
+    },
+    // Load formatter from Python environment first
+    "black-formatter.importStrategy": "fromEnvironment",
+
+    // #############################
+    // ### Python linter (Ruff)  ###
+    // #############################
+    // Path to the pyproject.toml
+    "ruff.args": [
+        "--config=pyproject.toml"
+    ],
+    // Path to a custom ruff executable
+    "ruff.path": [
+        "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python/ruff"
+    ],
+    // Path to the Python interpreter use to run the linter sever
+    "ruff.interpreter": [
+        "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python"
+    ],
+    // #############################
+    // ### BRAKET PAIR COLORIZATION ###
+    // #############################
+    // Rainbow brackes extension is deprecated as this functionality is
+    // now built-in to VS Code
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": false,
+    // #############################
+    // ### CODETAGS ###
+    // #############################
+    "todohighlight.keywords": [
+        {
+            "text": "BUG:",
+            "color": "black",
+            "backgroundColor": "#e34a33",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "NOBUG:",
+            "color": "black",
+            "backgroundColor": "#756bb1",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "RFE:",
+            "color": "black",
+            "backgroundColor": "#dfc27d",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "IDEA:",
+            "color": "#d6604d",
+            "backgroundColor": "#ffffcc",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "???:",
+            "color": "#5aae61",
+            "backgroundColor": "#762a83",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "!!!:",
+            "color": "#de77ae",
+            "backgroundColor": "yellow",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "PORT:",
+            "color": "#b8e186",
+            "backgroundColor": "#de77ae",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "CAVEAT:",
+            "color": "#d6604d",
+            "backgroundColor": "#5aae61",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "FAQ:",
+            "color": "#5aae61",
+            "backgroundColor": "#d6604d",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "GLOSS:",
+            "color": "#5aae61",
+            "backgroundColor": "#d6604d",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "SEE:",
+            "color": "#5aae61",
+            "backgroundColor": "#de77ae",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "TODOC:",
+            "color": "#a6bddb",
+            "backgroundColor": "#000",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "CRED:",
+            "color": "#000",
+            "backgroundColor": "#a6bddb",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "STAT:",
+            "color": "#de77ae",
+            "backgroundColor": "#d6604d",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "RVD:",
+            "color": "#de77ae",
+            "backgroundColor": "#d6604d",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "NOTE:",
+            "color": "#b2182b",
+            "backgroundColor": "#d1e5f0",
+            "overviewRulerColor": "grey",
+            "borderRadius": "2px",
+        },
+        {
+            "text": "HACK:",
+            "color": "#000",
+            "isWholeLine": false,
+            "borderRadius": "2px",
+        },
+        {
+            "text": "TODO:",
+            "color": "#000",
+            //"border": "1px #fee0b6",
+            "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
+            //"backgroundColor": "rgba(0,0,0,.2)",
+            //other styling properties goes here ...
+        }
+    ],
+    "codetags.custom": [
+        {
+            "name": "see",
+            "body": "Pointers to other code, web link, etc."
+        },
+        {
+            "name": "nobug",
+            "body": "Problems that are well-known but will never be addressed due to design problems or domain limitations."
+        },
+        {
+            "name": "req",
+            "body": "Satisfactions of specific, formal requirements"
+        },
+        {
+            "name": "rfe",
+            "body": "Requests For Enhancement: Roadmap items not yet implemented."
+        },
+        {
+            "name": "!!!",
+            "body": "Alerts: In need of immediate attention."
+        },
+        {
+            "name": "port",
+            "body": "Portability: Workarounds specific to OS, language version, etc."
+        },
+        {
+            "name": "caveat",
+            "body": "Caveats: Implementation details/gotchas that stand out as non-intuitive."
+        },
+        {
+            "name": "faq",
+            "body": "Frequently Asked Questions: Interesting areas that require external explanation."
+        },
+        {
+            "name": "gloss",
+            "body": "Frequently Asked Questions: Interesting areas that require external explanation."
+        },
+        {
+            "name": "todoc",
+            "body": "Needs Documentation: Areas of code that still need to be documented."
+        },
+        {
+            "name": "cred",
+            "body": "Credits: Accreditations for external provision of enlightenment."
+        },
+        {
+            "name": "stat",
+            "body": "Status: File-level statistical indicator of maturity of this file."
+        },
+        {
+            "name": "rvd",
+            "body": "Reviewed: File-level indicator that review was conducted."
+        }
+    ],
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss",
+        "**/*.py"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**"
+    ],
+    "todohighlight.defaultStyle": {},
+// #############################
+// ### OTHER ###
+// #############################
+"files.associations": {
+    ".gitignore": "bat"
+},
+// #############################
+// ### GIT HUB ENTERPRISE  ###
+// #############################
+"github-enterprise.uri": "https://git.nylcloud.com/",
+"terminal.integrated.tabs.defaultColor": null,
+// #############################
+// ### Code Spell Checker Configuration  ###
+// TODO: https://youtube.com/watch?v=Ix5bMd0kZeY&si=EnSIkaIECMiOmarE
+// #############################
+// The Language locale to use when spell checking. "en", "en-US" and
+// "en-GB" are currently supported by default.
+"cSpell.language": "en",
+// Controls the maximum number of spelling errors per document.
+"cSpell.maxNumberOfProblems": 100,
+// Controls the number of suggestions shown.
+"cSpell.numSuggestions": 8,
+// The minimum length of a word before checking it against a dictionary.
+"cSpell.minWordLength": 4,
+// Specify file types to spell check.
+"cSpell.enabledLanguageIds": [
+    "csharp",
+    "go",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "php",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "yml",
+    "python",
+    "R",
+],
+// Enable / Disable the spell checker.
+"cSpell.enabled": true,
+// Display the spell checker status on the status bar.
+"cSpell.showStatus": true,
+// Words to add to dictionary for a workspace.
+"cSpell.words": [
+    "autoflake"
+],
+// Enable / Disable compound words like 'errormessage'
+"cSpell.allowCompoundWords": false,
+// Words to be ignored and not suggested.
+"cSpell.ignoreWords": [
+    "behaviour"
+],
+// User words to add to dictionary.  Should only be in the user settings.
+"cSpell.userWords": [
+    "arange",
+    "iloc",
+    "interquartile",
+    "lineplot",
+    "subseting",
+    "yhat",
+    "astype",
+    "bytree",
+    "cnty",
+    "colsample",
+    "colwidth",
+    "dataframe",
+    "dateutil",
+    "dtype",
+    "finfo",
+    "fips",
+    "grps",
+    "isin",
+    "isort",
+    "joblib",
+    "mamimo",
+    "MAPE",
+    "matplotlib",
+    "nonbrand",
+    "nthread",
+    "pyplot",
+    "rcvm",
+    "rcvq",
+    "relativedelta",
+    "RMSE",
+    "savefig",
+    "scikit",
+    "scipy",
+    "shap",
+    "SHAP",
+    "Shapley",
+    "sklearn",
+    "softmax",
+    "statsmodels",
+    "tweedie",
+    "xgboost"
+],
+// Specify paths/files to ignore.
+"cSpell.ignorePaths": [
+    "node_modules", // this will ignore anything the node_modules directory
+    "**/node_modules", // the same for this one
+    "**/node_modules/**", // the same for this one
+    "node_modules/**", // Doesn't currently work due to how the current working directory is determined.
+    "vscode-extension", //
+    ".git", // Ignore the .git directory
+    "*.dll", // Ignore all .dll files.
+    "**/*.dll" // Ignore all .dll files
+],
+// flagWords - list of words to be always considered incorrect
+// This is useful for offensive words and common spelling errors.
+// For example "hte" should be "the"`
+"cSpell.flagWords": [
+    "hte"
+],
+// Set the delay before spell checking the document. Default is 50.
+"cSpell.spellCheckDelayMs": 50,
+// Congiguration for Badges Snippets extension
+"[markdown]": {
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true,
+    }
+},
+// MarkdownLint ignores the following rules
+"markdownlint.config": {
+    // too common in MkDocs Markdown docs.
+    "MD046": false,
+    // To allow specific HTML elements.
+    // Too common in MkDocs Markdown docs.
+    //"MD033": {"allowed_elements":["html_elements"]}
+    "MD033": false
+},
+// Stop sending data to Redhat from YAML extension
+"redhat.telemetry.enabled": false,
+// Prospector linter
+//"python.linting.prospectorEnabled": false,
+// Notebook Markup Font Size
+// Controls the font size in pixels of the rendered markup in
+// notebooks. When set to 0, 120% of Editor: Font Size is used
+"notebook.markup.fontSize": 16,
+// Controls wheather the lines in the notebook's output should
+// be wrap
+"notebook.output.wordWrap": true,
+// format notebook on execution
+"notebook.formatOnCellExecution": false,
+// format notebook on save
+"notebook.formatOnSave.enabled": false,
+// Use audio-preview extension to play & preview audio files
+"workbench.editorAssociations": {
+    "*.m4a": "wavPreview.audioPreview"
+},
+// Fix Code Runner extension bug while using Python.
+// To make it possible to use Code Runner with Python use the below
+// approach.
+// "code-runner.executorMap": {
+//     "javascript": "node",
+//     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+//     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+//     "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+//     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+//     "php": "php",
+//     "python": "\"$pythonPath\" $fullFileName",} // instead of "python": "python -u",
+}

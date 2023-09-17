@@ -1,0 +1,11 @@
+{
+    "project_name": "Project Name",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '') }}",
+    "environment_name": "{{ cookiecutter.project_slug }}-env",
+    "author_name": "Your name (or your organization/company/team)",
+    "author_email": "youremail@example.com",
+    "description": "A short description of the project.",
+    "independent_reviewer": "github_username_of_independent_reviewer",
+    "site_name": "{{ cookiecutter.project_name }} Docs"
+}

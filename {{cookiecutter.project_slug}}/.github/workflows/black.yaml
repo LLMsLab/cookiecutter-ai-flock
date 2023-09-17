@@ -1,0 +1,33 @@
+name: Black Code Formatter
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install Black with Jupyter support
+      run: pip install "black[jupyter]"
+
+    - name: Auto-format .py files in src/ with Black
+      run: |
+        echo "Formatting .py files in src/"
+        find src/ -type f -name "*.py" -exec black {} +
+    - name: Auto-format .ipynb files in notebooks/ with Black
+      run: |
+        echo "Formatting .ipynb files in notebooks/"
+        find notebooks/ -type f -name "*.ipynb" -exec black {} +
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff --exit-code && git commit -m "Apply Black formatting" && git push

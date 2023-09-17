@@ -1,0 +1,83 @@
+# See https://pre-commit.com/ for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  ###########################################################################
+  ### Python formatter - Black
+  ###########################################################################
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+        args:
+          - --config=pyproject.toml
+          - --verbose
+          - --preview
+
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black-jupyter
+        args:
+          - --config=pyproject.toml
+          - --verbose
+          - --preview
+
+  # ###########################################################################
+  # ### Python linter - Ruff
+  # ###########################################################################
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   # Ruff version.
+  #   rev: v0.0.285
+  #   hooks:
+  #     - id: ruff
+
+  # ###########################################################################
+  # ### Markdonw linter - Pymarkdown
+  # ###########################################################################
+  # # Markdown lintern
+  # # GitHub main page: https://github.com/jackdewinter/pymarkdown
+  # # GitHub pre-commit set up page:
+  # # https://github.com/jackdewinter/pymarkdown/blob/main/docs/pre-commit.md
+  # - repo: https://github.com/jackdewinter/pymarkdown
+  #   rev: v0.9.7
+  #   hooks:
+  #     - id: pymarkdown
+  #       args:
+  #         # Disable rule MD046 (code-block-style) to avoid confilict
+  #         # with MkDocs admonitions
+  #         - --disable-rules
+  #         - code-block-style
+  #         - scan
+
+  # ###########################################################################
+  # ### Pre-commit hooks
+  # ###########################################################################
+  # # Pre-commit hooks
+  # - repo: https://github.com/pre-commit/pre-commit-hooks
+  #   rev: v4.1.0
+  #   hooks:
+  #     # BUG: Reported defects -@t93kqi0 at 12/29/2022, 5:09:44 PM
+  #     # Too old Git vesion https://github.com/pre-commit/pre-commit-hooks/issues/718
+  #     # - id: check-added-large-files # prevents giant files from being
+  #     #   committed.
+  #     # TODO: Tasks pending completion -@t93kqi0 at 2/3/2023, 1:17:50 PM
+  #     # Create an ad-hoc commit for large issues.
+  #     # checks for files that would conflict in case-insensitive filesystems.
+  #     - id: check-case-conflict
+  #     # checks for files that contain merge conflict strings.
+  #     - id: check-merge-conflict
+  #     # checks yaml files for parseable syntax.
+  #     - id: check-yaml
+  #     # detects the presence of private keys.
+  #     - id: detect-private-key
+  #     # ensures that a file is either empty, or ends with one newline.
+  #     - id: end-of-file-fixer
+  #     # removes utf-8 byte order marker.
+  #     - id: fix-byte-order-marker
+  #     # replaces or checks mixed line ending.
+  #     - id: mixed-line-ending
+  #     # sorts entries in requirements.txt.
+  #     - id: requirements-txt-fixer
+  #     # trims trailing whitespace.
+  #     - id: trailing-whitespace
