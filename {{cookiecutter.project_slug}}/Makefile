@@ -53,7 +53,7 @@ poetry_install: # Install Poetry on the system
 
 poetry_setup_path: # Add Poetry's bin directory to PATH environment variable
 	@echo "Setting up Poetry PATH..."
-	echo 'export PATH="/home/azureuser/.local/bin:$PATH"' >> ~/.bashrc
+	echo 'export PATH="/home/azureuser/.local/bin:$$PATH"' >> ~/.bashrc
 	source ~/.bashrc
 
 poetry_verify: # Verify that Poetry is correctly installed
