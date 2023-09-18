@@ -51,10 +51,14 @@ poetry_install: # Install Poetry on the system
 	@echo "Installing Poetry..."
 	curl -sSL https://install.python-poetry.org | python3 -
 
-poetry_setup_path: # Add Poetry's bin directory to PATH environment variable
-	@echo "Setting up Poetry PATH..."
-	echo 'export PATH="/home/azureuser/.local/bin:$$PATH"' >> ~/.bashrc
-	source ~/.bashrc
+# FIXME: Needing refactor or cleanup -@markeyser at 9/18/2023, 1:14:06 PM
+# The following command has compatibility issues with Azure ML.
+# As a temporary measure, instructions have been added to the README.md.
+# Execute this command directly from the Bash terminal for now.
+update_path: # Update PATH to include Poetry's bin directory
+	@echo "Adding Poetry's bin directory to PATH in ~/.bashrc..."
+	@echo 'export PATH="/home/azureuser/.local/bin:$$PATH"' >> ~/.bashrc
+	@echo "PATH updated in ~/.bashrc for future sessions."
 
 poetry_verify: # Verify that Poetry is correctly installed
 	@echo "Verifying Poetry installation..."

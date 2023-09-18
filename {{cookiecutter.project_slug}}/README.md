@@ -88,22 +88,7 @@
    4. For each recommended extension, click the `Install` button to add it to
       your VS Code setup.
 
-2. **Clone the Repository**:
-   ```bash 
-   git clone https://github.com/your_username/your_repository.git 
-   cd your_repository
-   ```
-
-3. **Create and Activate a Conda's Python Virtual Environment**:
-   ```bash
-   make conda_create
-   conda activate {{cookiecutter.environment_name}}
-   ```
-   > We utilize `conda` for creating environments and managing packages,
-   > as it is the preferred Python package tool in Azure. Notably, `pip`
-   > encounters issues in this context and may not function properly.
-
-4. **Install Poetry**
+2. **Install Poetry**
 
    For this project, we utilize **Poetry** for Python dependency
    management and packaging. We've chosen Poetry over `pip` or `conda`
@@ -125,7 +110,7 @@
 
    2. **Set up Poetry PATH**:
       ```bash
-      make poetry_setup_path
+      export PATH="/home/azureuser/.local/bin:$$PATH"
       ```
       This ensures that Poetry's bin directory
       (`/home/azureuser/.local/bin`) is included in your `PATH` environment
@@ -139,7 +124,16 @@
       configured correctly. This command should display the current version
       of Poetry.
 
-5. **Install Dependencies**:
+3. **Create and Activate a Conda's Python Virtual Environment**:
+   ```bash
+   make conda_create
+   conda activate {{cookiecutter.environment_name}}
+   ```
+   > We utilize `conda` for creating environments and managing packages,
+   > as it is the preferred Python package tool in Azure. Notably, `pip`
+   > encounters issues in this context and may not function properly.
+
+4. **Install Dependencies**:
    ```bash
    make poetry_dependencies
    ```
@@ -148,25 +142,23 @@
    > package installations and avoids certain build-related issues
    > encountered with Conda's environment creation process.
 
-6. **Deactivate the Virtual Environment** (when done working):
-   ```bash
-   conda deactivate
-   ```
-
-### Additional Setup
-
-7. **Setting Up Essential Bash Tools**: Install a curated list of
+5. **Setting Up Essential Bash Tools**: Install a curated list of
    essential Bash tools for data science and general tasks:
    ```bash
    make bash_install_ds
    ```
 
-8. **Build Documentation**:
+6. **Build Documentation**:
    ```bash
    make docs_build
    ```
 
-9. **CSpell Checker: Extracting Terms from Python Libraries**: Enhance
+7. **Start the live-reloading docs server**:
+   ```bash
+   make docs_serve
+   ```
+
+8.  **CSpell Checker: Extracting Terms from Python Libraries**: Enhance
    the CSpell checker's dictionary with terms from the Python libraries:
    ```bash
    make cspell_dictionary
@@ -174,8 +166,7 @@
 
 ### Notes
 
-- Remember to activate the virtual environment every time you work on
-  the project and deactivate it when you're done.
+- Remember deactivate it when you're done using `conda deactivate`.
 - This guide assumes the use of `make` commands defined in a `Makefile`.
   If you aren't using a Makefile, replace the `make` commands with the
   corresponding Python commands.
