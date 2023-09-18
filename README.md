@@ -36,7 +36,7 @@ pip install cookiecutter
 To generate a new project, run:
 
 ```shell
-cookiecutter gh:markeyser/cookiecutter-rag
+cookiecutter gh:LLMsLab/cookiecutter-rag
 ```
 
 Follow the prompts to enter your project details.
