@@ -21,7 +21,7 @@ Notes
 
 Author:
 -------
-Marcos Aguilera Keyser <{{marcosak@gmail.com}}>
+Marcos Aguilera Keyser <marcosak@gmail.com>
 
 """  # noqa: EXE002
 
