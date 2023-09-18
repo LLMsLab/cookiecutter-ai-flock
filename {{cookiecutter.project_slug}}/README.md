@@ -97,7 +97,7 @@
 3. **Create and Activate a Conda's Python Virtual Environment**:
    ```bash
    make conda_create
-   conda activate env_name
+   conda activate {{cookiecutter.environment_name}}
    ```
    > We utilize `conda` for creating environments and managing packages,
    > as it is the preferred Python package tool in Azure. Notably, `pip`
