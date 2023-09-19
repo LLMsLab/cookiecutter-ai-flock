@@ -219,6 +219,14 @@ bash_install_ds: # Install essential Bash tools for data science and general tas
 		sudo apt install -y $$package; \
 	done
 
+bash_verify_tools: # Verify the availability of each tool
+	@for package in $(PACKAGES); do \
+		if command -v $$package > /dev/null 2>&1; then \
+			echo "$$package is installed."; \
+		else \
+			echo "$$package is NOT installed."; \
+		fi \
+	done
 #-----------------------------------------------------------------------
 # CSpell Checker: Extract terms from Python libraries listed in requirements.txt
 #-----------------------------------------------------------------------

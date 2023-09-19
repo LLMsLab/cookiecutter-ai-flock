@@ -142,11 +142,36 @@
    > package installations and avoids certain build-related issues
    > encountered with Conda's environment creation process.
 
-5. **Setting Up Essential Bash Tools**: Install a curated list of
-   essential Bash tools for data science and general tasks:
+5. **Setting Up Essential Bash Tools**: Install a curated list of essential Bash
+   tools for data science and general tasks:
    ```bash
    make bash_install_ds
    ```
+   
+   Verify the availability of each tool
+
+   ```bash
+   make bash_verify_tools 
+   ```
+
+   For the tools reported as missing:
+
+   1. Try running the tool with the `--version` flag, for instance, `pdftotext
+   --version`. 
+   2. Ubuntu is generally helpful and will suggest the apt package that contains
+   the missing tool, if it's available.
+   3. Proceed with the suggested `sudo apt install [package-name]` command to
+   get the tool installed.
+
+   An example:
+
+   ```
+   Command 'pdftotext' not found, but can be installed with:
+   sudo apt install poppler-utils
+   ```
+
+   Follow the system's advice (`sudo apt install poppler-utils` in this case) to
+   install the necessary tool.
 
 6. **Build Documentation**:
    ```bash
