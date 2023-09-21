@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "Cookiecutter RAG"
+version = "0.1.0"
+description = "A Cookiecutter template for Retreival-Agumented Generation projects"
+authors = ["Marcos Aguilera Keyser <marcosak@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+black = { version = "23.7.0", extras = ["jupyter"] }
+hydra-core = "1.3.2"
+ipykernel = "6.24.0"
+mkdocs = "1.4.3"
+mkdocs-git-revision-date-localized-plugin = "1.2.0"
+mkdocs-material = "9.1.19"
+mkdocs-mermaid2-plugin = "1.0.1"
+mkdocstrings-python = "1.2.0"
+pre-commit = "3.3.3"
+pymarkdownlnt = "0.9.13.4"
+pytest = "7.4.0"
+pytest-benchmark = "4.0.0"
+pytest-xdist = "3.3.1"
+rope = "1.9.0"
+ruff = "0.0.278"
+
+[tool.poetry.group.dev.dependencies]
+toml = "^0.10.2"
+nbconvert = "^7.8.0"
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+target-version = ['py311']
+include = """
+(
+    ^notebooks/.*\\.ipynb$
+  | ^src/.*\\.py$
+)
+"""
+
+[tool.ruff]
+select = ["ALL"]
+# To ignore all rules with a common pre-fix use *
+ignore = ["ANN001", "ANN002", "ANN003", "ANN101", "ANN102", "ANN201", "ANN202",
+"ANN204", "ANN205", "ANN206", "ANN401"]
+
+# Decrease the maximum line length to 79 characters.
+line-length = 79
+# To opt in to linting Jupyter Notebook
+# The include parameter is for Jupyter Notebooks and not
+# for Jupyter Notebook in VS Code. Jupyter Notebook in
+# VSCode isn't supported yet:
+# https://github.com/astral-sh/ruff-vscode/issues/256
+# See also discussion on Discord
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+
+[tool.pymarkdown]
+disable-rules = ["MD046"]
