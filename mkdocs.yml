@@ -79,6 +79,7 @@ nav:
   - Tutorials:
     - Introduction: tutorials/turorials-intro.md
     - Black Formatter: tutorials/black-formatter.md
+    - Poetry Dependency Management: tutorials/poetry.md
   - How-To Guides: how-to-guides.md
   - API Reference: api-reference.md
   - Explanation: explanation.md
