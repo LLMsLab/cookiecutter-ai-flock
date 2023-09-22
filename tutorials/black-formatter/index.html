@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-rag/tutorials/black-formatter/" rel="canonical"/>
+<link href="../turorials-intro/" rel="prev"/>
+<link href="../../how-to-guides/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
+<title>Black Formatter - Cookiecutter RAG</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#using-black-code-formatter-in-your-project">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter RAG" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter RAG
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Black Formatter
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter RAG" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Cookiecutter RAG
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Black Formatter
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Black Formatter
+      </a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vs-code-integration">
+    VS Code Integration
+  </a>
+<nav aria-label="VS Code Integration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formatting-python-scripts-and-jupyter-notebooks-with-black">
+    Formatting Python scripts and Jupyter Notebooks with Black
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#command-line-formatting">
+    Command Line Formatting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-commit-hooks-in-git">
+    Pre-commit Hooks in Git
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated-formatting-with-github-actions">
+    Automated Formatting with GitHub Actions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#skipping-formatting-using-black">
+    Skipping Formatting Using Black
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+        How-To Guides
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+        API Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+        Explanation
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vs-code-integration">
+    VS Code Integration
+  </a>
+<nav aria-label="VS Code Integration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formatting-python-scripts-and-jupyter-notebooks-with-black">
+    Formatting Python scripts and Jupyter Notebooks with Black
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#command-line-formatting">
+    Command Line Formatting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-commit-hooks-in-git">
+    Pre-commit Hooks in Git
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated-formatting-with-github-actions">
+    Automated Formatting with GitHub Actions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#skipping-formatting-using-black">
+    Skipping Formatting Using Black
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="using-black-code-formatter-in-your-project">Using Black Code Formatter in Your Project<a class="headerlink" href="#using-black-code-formatter-in-your-project" title="Permanent link">¶</a></h1>
+<p>Black is an uncompromising code formatter. It ensures that your Python
+code adheres to a consistent, readable style. The setup you have thanks
+to the Cookiecutter template makes it even more convenient to use Black
+in various contexts: Python scripts, Jupyter notebooks, and during git
+operations. Below are the key points and examples to help you understand
+how to use Black in these scenarios.</p>
+<h2 id="vs-code-integration">VS Code Integration<a class="headerlink" href="#vs-code-integration" title="Permanent link">¶</a></h2>
+<p>When you're writing code in VS Code, Black can manually format your
+code. Here's how:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this Cookiecutter template, we've configured Black to be executed
+manually rather than the default automatic approach upon saving.
+This decision offers users greater precision and control, especially
+in Jupyter notebooks where maintaining context and flow is crucial.</p>
+</div>
+<h3 id="formatting-python-scripts-and-jupyter-notebooks-with-black">Formatting Python scripts and Jupyter Notebooks with Black<a class="headerlink" href="#formatting-python-scripts-and-jupyter-notebooks-with-black" title="Permanent link">¶</a></h3>
+<p>When working with Python scripts and Jupyter notebooks in VS Code, you
+can manually format it by pressing <code>Shift + Opt + F</code>
+or right-click and select <code>Format Document</code>, <code>Format Cell</code> or <code>Format
+Notebook</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Black Formatting in Action</p>
+<p><strong>Before Formatting</strong>:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span><span class="n">result</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></p>
+<p><strong>After Formatting</strong>: 
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">VS Code Output Window Log</p>
+<p>When Black formats a script or a notebook, the VS Code output window for the Black
+Formatter provides a detailed log of the operation. </p>
+</div>
+<p>Here's an example of what you might see:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.934<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span><span class="s1">'textDocument/formatting - (5)'</span>.
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.936<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Received<span class="w"> </span>notification<span class="w"> </span><span class="s1">'window/logMessage'</span>.
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.936<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Running:<span class="w"> </span>/Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11/bin/python<span class="w"> </span>-m<span class="w"> </span>black<span class="w"> </span>--stdin-filename<span class="w"> </span>/Users/markeyser/Projects/cookiecutter-rag/checkformatter.py
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.938<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>CWD<span class="w"> </span>formatter:<span class="w"> </span>/Users/markeyser/Projects/cookiecutter-rag
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.938<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>reformatted<span class="w"> </span>/Users/markeyser/Projects/cookiecutter-rag/checkformatter.py
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>reformatted.
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.940<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Sending<span class="w"> </span>notification<span class="w"> </span><span class="s1">'textDocument/didChange'</span>.
+</code></pre></div>
+<p>This log provides insights into the formatting process, including the
+file being formatted, the Black command being executed, and the result
+of the formatting operation.</p>
+<h2 id="command-line-formatting">Command Line Formatting<a class="headerlink" href="#command-line-formatting" title="Permanent link">¶</a></h2>
+<p>For those who prefer using the terminal or need to format multiple files
+at once, Black can be run directly from the command line.</p>
+<div class="admonition info">
+<p class="admonition-title">Formatting Commands</p>
+<ul>
+<li>
+<p>For Python scripts, run:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>black<span class="w"> </span>your_script.py
+</code></pre></div></p>
+</li>
+<li>
+<p>For Jupyter notebooks, run: 
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>black<span class="w"> </span>your_notebook.ipynb
+</code></pre></div></p>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Formatting with Black from the Terminal</p>
+<p>Suppose you've written a Python script named <code>sample_script.py</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span><span class="n">result</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<p>To format <code>sample_script.py</code> using Black, navigate to the directory
+containing the script and run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>black<span class="w"> </span>sample_script.py
+</code></pre></div>
+<p><strong>Terminal Output</strong>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>reformatted sample_script.py
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>All done! ✨ 🍰 ✨
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>1 file reformatted.
+</code></pre></div>
+<p><strong>Formatted Code</strong>:</p>
+<p>After running the command, your <code>sample_script.py</code> will be updated to:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<h2 id="pre-commit-hooks-in-git">Pre-commit Hooks in Git<a class="headerlink" href="#pre-commit-hooks-in-git" title="Permanent link">¶</a></h2>
+<p>Thanks to the pre-configured hooks, any attempt to commit unformatted
+Python code will trigger Black to automatically format the code for you.</p>
+<div class="admonition example">
+<p class="admonition-title">Git Commit with Black</p>
+<p>Suppose you've written the following code in <code>sample_script.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span><span class="n">result</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<p>You decide to commit your changes:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>sample_script.py
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add example function"</span>
+</code></pre></div>
+</div>
+<p>The pre-commit hook will detect the unformatted code and output a message:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>black....................................................................Failed
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>- hook id: black
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>- files were modified by this hook
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>reformatted sample_script.py
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>All done! ✨ 🍰 ✨
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>1 file reformatted.
+</code></pre></div>
+<p>Your commit will be halted, but Black will have automatically formatted
+your file. You can simply run the commit command again, and this time it
+will succeed with the newly formatted code.</p>
+<h2 id="automated-formatting-with-github-actions">Automated Formatting with GitHub Actions<a class="headerlink" href="#automated-formatting-with-github-actions" title="Permanent link">¶</a></h2>
+<p>Upon utilizing the pre-commit hooks for Black, our repository takes an
+extra step to ensure code consistency. We've integrated a GitHub Action,
+defined in <code>.github/workflows/black.yml</code>, that automatically checks and
+formats the code whenever new changes are introduced, be it through a
+push or a pull request.</p>
+<p>This GitHub Action serves a dual purpose:</p>
+<ol>
+<li>
+<p><strong>Automated Code Review</strong>: Before any code merges into the main
+   branch, the action ensures it adheres to our predefined formatting
+   standards. This guarantees a consistent code style across the
+   repository, irrespective of the number of contributors or their
+   individual coding environments.</p>
+</li>
+<li>
+<p><strong>Auto-Fixing Formatting Issues</strong>: If the action detects any code
+   that doesn't align with our formatting standards, it doesn't just
+   stop at notifying the discrepancy. Instead, it takes a proactive step
+   by automatically formatting the code using Black. Once formatted, it
+   commits these changes back to the repository. This automation
+   minimizes manual interventions, offering a smoother development
+   experience. However, a side effect to be aware of is the potential
+   addition of extra commits to the git history. While this might make
+   the commit log appear denser, we believe the trade-off is worth the
+   convenience and consistency it brings to the development process.</p>
+</li>
+</ol>
+<p>When the GitHub Action runs, you might see an output similar to the
+following in the action's log:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>reformatted sample_script.py
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>All done! ✨ 🍰 ✨
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>1 file reformatted.
+</code></pre></div>
+<p>This output confirms that the action has successfully reformatted the
+code to adhere to our standards.</p>
+<h2 id="skipping-formatting-using-black">Skipping Formatting Using Black<a class="headerlink" href="#skipping-formatting-using-black" title="Permanent link">¶</a></h2>
+<p>If for some reason you need a section of your code to remain unformatted
+by Black (for example, due to alignment preferences or specific
+readability concerns), you can tell Black to skip that section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Black Directives for Skipping Formatting</p>
+<p>To skip formatting for a particular section, you can wrap that
+section of code between <code># fmt: off</code> and <code># fmt: on</code> comments.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span> <span class="nf">transformation_matrix</span><span class="p">():</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="c1"># fmt: off</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="p">]</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="c1"># fmt: on</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="k">return</span> <span class="n">matrix</span>
+</code></pre></div>
+</div>
+<p>When you run Black on this snippet, the matrix remains untouched, while
+the rest of your code (if there were any other parts) would still get
+formatted.</p>
+<p>If you were to format the above with Black without using the comments,
+it might put the entire matrix on a single line if it's short enough, or
+it might space things out differently.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">def</span> <span class="nf">transformation_matrix</span><span class="p">():</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="k">return</span> <span class="n">matrix</span>
+</code></pre></div>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
+<p>Black ensures consistency and readability across your codebase. With the
+integrations provided by the Cookiecutter template, it's easier than
+ever to maintain a clean code style, whether you're working in Python
+scripts, Jupyter notebooks, or committing changes via git. Remember, a
+consistent code style not only makes your codebase look professional but
+also reduces cognitive load, making it easier for you and others to
+understand and collaborate on the project.</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
