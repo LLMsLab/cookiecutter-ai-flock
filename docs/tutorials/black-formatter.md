@@ -229,3 +229,17 @@ consistent code style not only makes your codebase look professional but
 also reduces cognitive load, making it easier for you and others to
 understand and collaborate on the project.
 
+## Further Reading and Resources
+
+For a deeper dive into the functionalities and best practices of using
+Black, the following resource is highly recommended:
+
+
+- [Official Black Documentation](https://black.readthedocs.io/en/stable/)
+
+The official documentation provides a comprehensive guide to Black's
+features, configuration options, and integration methods. It's an
+excellent resource for understanding the philosophy behind Black and how
+to make the most out of this powerful code formatter. Whether you're new
+to Black or looking to explore its more advanced features, the official
+documentation is a valuable resource.
