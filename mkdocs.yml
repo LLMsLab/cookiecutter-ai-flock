@@ -1,4 +1,5 @@
 site_name: Cookiecutter RAG
+site_url: "https://llmslab.github.io/cookiecutter-rag/"
 
 theme:
   name: "material" #readthedocs
@@ -76,7 +77,9 @@ extra_css:
 nav:
   - Home: index.md
   - Tutorials:
+    - Introduction: tutorials/turorials-intro.md
     - Black Formatter: tutorials/black-formatter.md
   - How-To Guides: how-to-guides.md
   - API Reference: api-reference.md
   - Explanation: explanation.md
+
