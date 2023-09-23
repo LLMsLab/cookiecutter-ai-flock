@@ -458,6 +458,13 @@
 "workbench.editorAssociations": {
     "*.m4a": "wavPreview.audioPreview"
 },
+// CodeGPT
+"CodeGPT.apiKey": "OpenAI",
+"CodeGPT.maxTokens":1000,
+"CodeGPT.model": "gpt-4",
+"CodeGPT.query.language": "English",
+"CodeGPT.temperature": 0.3
+
 // Fix Code Runner extension bug while using Python.
 // To make it possible to use Code Runner with Python use the below
 // approach.

@@ -95,6 +95,8 @@
         // Manage, view and authoring your workflows
         "github.vscode-github-actions",
         // Azure Machine Learning
-        "ms-toolsai.vscode-ai"
+        "ms-toolsai.vscode-ai",
+        // Code GPT - chat and AI agents
+        "danielsanmedium.dscodegpt"
     ]
 }
