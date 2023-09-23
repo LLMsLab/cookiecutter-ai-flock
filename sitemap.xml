@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/hydra-config/</loc>
+         <lastmod>2023-09-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/mkdocs-docs/</loc>
          <lastmod>2023-09-23</lastmod>
          <changefreq>daily</changefreq>
