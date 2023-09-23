@@ -1,5 +1,8 @@
 site_name: Cookiecutter RAG
 site_url: "https://llmslab.github.io/cookiecutter-rag/"
+repo_url: "https://github.com/LLMsLab/cookiecutter-rag"
+repo_name: llmslab.github.io/cookiecutter-rag/
+edit_uri: edit/main/docs/
 
 theme:
   name: "material" #readthedocs
@@ -21,6 +24,10 @@ theme:
         name: Switch to light mode
   features:
     - content.code.annotate
+extra:
+  social:
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/LLMsLab/cookiecutter-rag"
 
 markdown_extensions:
   # Include admonitions https://squidfunk.github.io/mkdocs-material/reference/admonitions/
