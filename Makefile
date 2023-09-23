@@ -80,9 +80,15 @@ poetry_show: # Show project dependencies
 	@echo "Listing project dependencies..."
 	@poetry show
 
-# Get the path to the Poetry virtual environment
-poetry_env_path:
+poetry_env_info: # Display Poetry environment information
+	@echo "Fetching Poetry environment information..."
+	@poetry env info
+
+poetry_env_path: # Get the path to the Poetry virtual environment
+	@echo "Fetching Poetry environment information..."
 	@poetry env info --path
+
+
 
 #-----------------------------------------------------------------------
 # Git

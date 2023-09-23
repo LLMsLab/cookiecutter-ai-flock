@@ -120,6 +120,14 @@ poetry_show: # Show project dependencies
 	@echo "Listing project dependencies..."
 	@poetry show
 
+poetry_env_info: # Display Poetry environment information
+	@echo "Fetching Poetry environment information..."
+	@poetry env info
+
+poetry_env_path: # Get the path to the Poetry virtual environment
+	@echo "Fetching Poetry environment information..."
+	@poetry env info --path
+
 #-----------------------------------------------------------------------
 # Pip
 #-----------------------------------------------------------------------
@@ -273,6 +281,10 @@ docs_new: # Create a new project
 	@mkdocs new {{cookiecutter.project_slug}}
 docs_serve: # Start the live-reloading docs server
 	@mkdocs serve
+docs_serve_alt_port: # Start the live-reloading docs server on an alternative port (macOS)
+	@mkdocs serve --dev-addr=127.0.0.1:8001
+docs_kill_port: # Kill the process occupying port 8000 (macOS)
+	@lsof -ti :8000 | xargs kill -9
 docs_build: # Build the documentation site
 	@mkdocs build
 docs_deploy: # Deploy Your Documentation to GitHub
