@@ -88,6 +88,7 @@ nav:
     - Black: tutorials/black-formatter.md
     - Poetry: tutorials/poetry.md
     - MkDocs: tutorials/mkdocs-docs.md
+    - Hydra: tutorials/hydra-config.md
   - How-To Guides: how-to-guides.md
   - API Reference: api-reference.md
   - Explanation: explanation.md
