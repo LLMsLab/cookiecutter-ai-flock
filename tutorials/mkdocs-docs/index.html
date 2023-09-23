@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-rag/tutorials/mkdocs-docs/" rel="canonical"/>
+<link href="../poetry/" rel="prev"/>
+<link href="../../how-to-guides/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
+<title>MkDocs - Cookiecutter RAG</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#project-documentation-with-mkdocs">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter RAG" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter RAG
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              MkDocs
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter RAG" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Cookiecutter RAG
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+        TOC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../black-formatter/">
+        Black
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../poetry/">
+        Poetry
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          MkDocs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        MkDocs
+      </a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-development-with-mkdocs">
+    Local Development with MkDocs
+  </a>
+<nav aria-label="Local Development with MkDocs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#building-and-serving-your-documentation">
+    Building and Serving Your Documentation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-to-github-pages">
+    Deploying to GitHub Pages
+  </a>
+<nav aria-label="Deploying to GitHub Pages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-github-pages-on-github">
+    Setting Up GitHub Pages on GitHub
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-your-documentation">
+    Deploying Your Documentation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-mkdocsyml">
+    Understanding mkdocs.yml
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#further-reading-and-resources">
+    Further Reading and Resources
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+        How-To Guides
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+        API Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+        Explanation
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-development-with-mkdocs">
+    Local Development with MkDocs
+  </a>
+<nav aria-label="Local Development with MkDocs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#building-and-serving-your-documentation">
+    Building and Serving Your Documentation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-to-github-pages">
+    Deploying to GitHub Pages
+  </a>
+<nav aria-label="Deploying to GitHub Pages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-github-pages-on-github">
+    Setting Up GitHub Pages on GitHub
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-your-documentation">
+    Deploying Your Documentation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-mkdocsyml">
+    Understanding mkdocs.yml
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#further-reading-and-resources">
+    Further Reading and Resources
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="project-documentation-with-mkdocs">Project Documentation With MkDocs<a class="headerlink" href="#project-documentation-with-mkdocs" title="Permanent link">¶</a></h1>
+<p>MkDocs is a powerful tool for building project documentation. With the
+Materials theme, it becomes even more robust, offering a plethora of
+features to make your documentation stand out. This tutorial focuses on
+key commands and features to help you build and deploy your
+documentation effectively.</p>
+<h2 id="local-development-with-mkdocs">Local Development with MkDocs<a class="headerlink" href="#local-development-with-mkdocs" title="Permanent link">¶</a></h2>
+<p>When you're working on documentation in VS Code, MkDocs provides
+commands to build and serve your site locally. Here's how:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial assumes that all necessary libraries and extensions are already installed as per the provided <code>pyproject.toml</code> and <code>mkdocs.yml</code> files.</p>
+</div>
+<h3 id="building-and-serving-your-documentation">Building and Serving Your Documentation<a class="headerlink" href="#building-and-serving-your-documentation" title="Permanent link">¶</a></h3>
+<p>To build your documentation locally, you can run the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>mkdocs<span class="w"> </span>build
+</code></pre></div>
+<p>This command will generate a <code>site</code> folder containing the HTML files for
+your documentation.</p>
+<p>To serve your documentation and view it in a web browser, use:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Local Development in Action</p>
+<p><strong>Before Running Commands</strong>:
+Your <code>docs</code> folder contains Markdown files.</p>
+<p><strong>After Running Commands</strong>: 
+You'll have a <code>site</code> folder containing HTML files, and you can view your documentation at <code>http://127.0.0.1:8000/</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Stopping the Local MkDocs Server</p>
+<p>To stop the local MkDocs server, simply press <code>Ctrl + C</code> in the terminal window where <code>mkdocs serve</code> is running. This will shut down the site and free up the port it was using.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Alternative Commands for Unix-like Systems</p>
+<p>If you want to run the MkDocs server on an alternative port or need to kill the process occupying port 8000, you can use the following commands from the Makefile:</p>
+<ul>
+<li>
+<p><strong>Start MkDocs on an Alternative Port</strong>: 
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>make<span class="w"> </span>docs_serve_alt_port
+</code></pre></div>
+  This command starts the MkDocs server on port 8001.</p>
+</li>
+<li>
+<p><strong>Kill Process on Port 8000</strong>: 
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>make<span class="w"> </span>docs_kill_port
+</code></pre></div>
+  This command kills any process that is occupying port 8000.</p>
+</li>
+</ul>
+<p>These commands are useful if you encounter port conflicts or need to run multiple instances of the MkDocs server. They should work on Unix-like systems, including both macOS and Linux.</p>
+</div>
+<h2 id="deploying-to-github-pages">Deploying to GitHub Pages<a class="headerlink" href="#deploying-to-github-pages" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-github-pages-on-github">Setting Up GitHub Pages on GitHub<a class="headerlink" href="#setting-up-github-pages-on-github" title="Permanent link">¶</a></h3>
+<p>Before deploying your documentation, you'll need to configure GitHub Pages.</p>
+<div class="admonition info">
+<p class="admonition-title">Steps to Configure GitHub Pages</p>
+<ol>
+<li><strong>Make sure the <code>gh-pages</code> branch exists</strong>: Create it by running <code>git checkout -b gh-pages</code> if it doesn't exist.</li>
+<li><strong>Navigate to your GitHub repository</strong>: Go to the repository where your MkDocs project is hosted.</li>
+<li><strong>Access Repository Settings</strong>: Click on the "Settings" tab.</li>
+<li><strong>Go to Pages Settings</strong>: In the sidebar, click on "Pages."</li>
+<li><strong>Select Publishing Source</strong>: Choose <code>gh-pages</code> from the branch dropdown menu.</li>
+<li><strong>Select Folder</strong>: Choose <code>docs</code> from the folder dropdown menu.</li>
+<li><strong>Save Changes</strong>: Click "Save."</li>
+</ol>
+</div>
+<h3 id="deploying-your-documentation">Deploying Your Documentation<a class="headerlink" href="#deploying-your-documentation" title="Permanent link">¶</a></h3>
+<p>To deploy your documentation to GitHub Pages, run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Deployment in Action</p>
+<p>After running the command, your site will be available at <code>https://&lt;your-github-username&gt;.github.io/&lt;repository-name&gt;/</code>.</p>
+</div>
+<h2 id="understanding-mkdocsyml">Understanding <code>mkdocs.yml</code><a class="headerlink" href="#understanding-mkdocsyml" title="Permanent link">¶</a></h2>
+<p>Your <code>mkdocs.yml</code> file is the backbone of your MkDocs project. It specifies the theme, plugins, and other settings.</p>
+<div class="admonition info">
+<p class="admonition-title">Key Components of <code>mkdocs.yml</code></p>
+<ul>
+<li><code>theme</code>: Specifies the theme, in this case, Materials.</li>
+<li><code>markdown_extensions</code>: Lists the Markdown extensions used.</li>
+<li><code>plugins</code>: Lists the plugins used in the project.</li>
+</ul>
+</div>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
+<p>MkDocs with the Materials theme offers a robust solution for building
+and deploying beautiful, functional documentation. Whether you're
+working locally in VS Code or deploying to GitHub Pages, the process is
+streamlined and efficient.</p>
+<h2 id="further-reading-and-resources">Further Reading and Resources<a class="headerlink" href="#further-reading-and-resources" title="Permanent link">¶</a></h2>
+<p>For a deeper understanding of MkDocs and its various features, the
+following resources are highly recommended:</p>
+<ul>
+<li><a href="https://www.mkdocs.org/">Official MkDocs Documentation</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/">Materials for MkDocs</a></li>
+<li><a href="https://realpython.com/python-project-documentation-with-mkdocs/">Python Project Documentation with MkDocs - Real Python</a></li>
+</ul>
+<p>These resources provide comprehensive guides to MkDocs' features,
+configuration options, and methods for extending its capabilities. They
+are valuable for both newcomers and those looking to explore more
+advanced features.</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
