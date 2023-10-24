@@ -124,11 +124,17 @@ def copy_os_specific_readme():
     shutil.copy(source_filename, target_filename)
 
 if __name__ == "__main__":
+    # Define the template_dir and output_dir variables
+    template_dir = r'C:\Users\T93KQI0\.cookiecutters\cookiecutter-rag'  # Specify the path to your cookiecutter template directory
+    output_dir = r'C:\Users\T93KQI0\OneDrive - New York Life\Documents\Projects'  # updated line
+
     # Ensure the script is executable
     ensure_script_executable()
 
     # Modify the VS Code settings
-    modify_vscode_settings()
+    cookiecutter_env_name = '{{ cookiecutter.environment_name }}'
+    modify_vscode_settings(cookiecutter_env_name)
 
     # Copy the OS-specific README.md file
-    copy_os_specific_readme()
+    copy_os_specific_readme(template_dir, output_dir)
+
