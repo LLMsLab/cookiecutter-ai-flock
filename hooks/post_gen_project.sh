@@ -7,7 +7,11 @@ exec > >(tee -a script_output.log) 2>&1
 os_type="{{ cookiecutter.os_type }}"
 project_slug="{{ cookiecutter.project_slug }}"
 target_directory="{{ cookiecutter._output_dir }}"
-template_dir="C:/Users/T93KQI0/.cookiecutters/cookiecutter-rag"  # Updated path
+# Get the username from the environment
+username=$(echo "$USERPROFILE" | awk -F'\\' '{print $NF}')
+
+# Construct the template directory path
+template_dir="C:/Users/$username/.cookiecutters/cookiecutter-rag"
 
 # Construct the source filename
 source_filename="$template_dir/READMEs/README_${os_type,,}.md"
