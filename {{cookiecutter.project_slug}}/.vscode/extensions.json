@@ -95,6 +95,10 @@
         // Manage, view and authoring your workflows
         "github.vscode-github-actions",
         // Azure Machine Learning
-        "ms-toolsai.vscode-ai"
+        "ms-toolsai.vscode-ai",
+        // Easily Connect to Top AI Providers Using Their Official APIs 
+        "danielsanmedium.dscodegpt",
+        // Edit commit messages in a convenient way
+        "adam-bender.commit-message-editor"
     ]
 }
