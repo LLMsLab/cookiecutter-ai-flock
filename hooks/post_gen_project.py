@@ -3,27 +3,30 @@ import platform
 import os
 import subprocess
 import shutil
+import logging
 from cookiecutter.main import cookiecutter
+from pathlib import Path
 
-def modify_vscode_settings():
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+
+def modify_vscode_settings(cookiecutter_env_name):
     """
     Modify the VS Code settings file to set the correct Python
     interpreter path based on the OS.
-
-    This function reads the .vscode/settings.json file, modifies the
-    python.defaultInterpreterPath setting based on the user's operating
-    system, and then writes the modified settings back to the file.
     """
-    print(f"Current working directory: {os.getcwd()}") 
+    logging.info(f"Current working directory: {os.getcwd()}") 
     # Define the path to the settings.json file
     settings_path = os.path.join('.vscode', 'settings.json')
-    print(f"Settings path: {settings_path}")
+    logging.info(f"Settings path: {settings_path}")
 
     # Open and read the settings.json file
-    with open(settings_path, 'r', encoding='utf-8') as f:
-        print(f"File contents: {f.read()}")  # This line is for debugging
-        f.seek(0)  # Reset file pointer to the beginning
-        settings = json.load(f)
+    try:
+        with open(settings_path, 'r', encoding='utf-8') as f:
+            settings = json.load(f)
+    except FileNotFoundError:
+        logging.error(f"File not found: {settings_path}")
+        return
 
     # Check the operating system
     if platform.system() == 'Windows':
@@ -31,13 +34,13 @@ def modify_vscode_settings():
         username = os.environ.get('USERNAME')
         if username:
             # Set the correct Python interpreter path for Windows
-            settings["python.defaultInterpreterPath"] = f"C:\\Users\\{username}\\Anaconda3\\envs\\{{cookiecutter.environment_name}}\\python.exe"
+            settings["python.defaultInterpreterPath"] = f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python.exe"
         else:
-            # Print a warning if the username could not be obtained
-            print("Could not obtain username from environment. You may need to manually update the settings.json file.")
+            # Log a warning if the username could not be obtained
+            logging.warning("Could not obtain username from environment. You may need to manually update the settings.json file.")
     else:
         # Set the correct Python interpreter path for MacOS
-        settings["python.defaultInterpreterPath"] = "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python"
+        settings["python.defaultInterpreterPath"] = f"/anaconda/envs/{cookiecutter_env_name}/bin/python"
 
     # Open and write the modified settings to the settings.json file
     with open(settings_path, 'w') as f:
@@ -46,10 +49,48 @@ def modify_vscode_settings():
 def ensure_script_executable():
     """
     Ensure that this script is executable.
-
-    This function uses the subprocess module to run a chmod command that
-    sets the executable permission on this script file.
     """
+    # Check if the operating system is Unix-like
+    if platform.system() in ["Linux", "Darwin"]:
+        # Get the absolute path to this script file
+        script_path = os.path.abspath(__file__)
+
+        # Run the chmod command to set the executable permission
+        subprocess.run(["chmod", "+x", script_path])
+
+def copy_os_specific_readme(template_dir, output_dir):
+    os_type = '{{ cookiecutter.os_type }}'
+    project_slug = '{{ cookiecutter.project_slug }}'
+    
+    # Use the pathlib module to handle paths
+    source_filename = Path(template_dir) / 'READMEs' / f'README_{os_type.lower()}.md'
+    
+    # Use the _output_dir variable to get the path to the generated project
+    target_directory = output_dir
+    target_filename = Path(target_directory) / 'README.md'
+    logging.info(f"Target directory: {target_directory}")
+    logging.info(f"Target filename: {target_filename}")
+    
+    # Ensure the target directory exists
+    os.makedirs(target_directory, exist_ok=True)
+    
+    shutil.copy(str(source_filename), str(target_filename))
+
+if __name__ == "__main__":
+    # Define the template_dir and output_dir variables
+    template_dir = ...  # Specify the path to your cookiecutter template directory
+    output_dir = '{{ cookiecutter._output_dir }}'
+
+    # Ensure the script is executable
+    ensure_script_executable()
+
+    # Modify the VS Code settings
+    cookiecutter_env_name = '{{ cookiecutter.environment_name }}'
+    modify_vscode_settings(cookiecutter_env_name)
+
+    # Copy the OS-specific README.md file
+    copy_os_specific_readme(template_dir, output_dir)
+
 
     # Check if the operating system is Unix-like
     if platform.system() in ["Linux", "Darwin"]:  # Darwin is the OS name for MacOS
