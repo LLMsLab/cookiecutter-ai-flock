@@ -66,7 +66,7 @@ def copy_os_specific_readme():
     
     # Specify the correct path to your cookiecutter template directory
     username = os.getenv('USERNAME')
-    target_directory = "C:\\Users\\{username}\\OneDrive - New York Life\\Documents\\Projects".format(username=username)
+    target_directory = os.path.join("C:", "Users", username, "OneDrive - New York Life", "Documents", "Projects")
     source_filename = os.path.join(template_dir, f'READMEs\\README_{os_type.lower()}.md')
     
     # Use the _output_dir variable to get the path to the generated project
