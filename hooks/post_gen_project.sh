@@ -25,12 +25,13 @@ mkdir -p "$target_directory"
 
 # Check if the source file exists and is readable
 if [[ -r "$source_filename" ]]; then
-    # Copy the file with verbose output
-    cp -v "$source_filename" "$target_filename"
+    # Copy the file content
+    cat "$source_filename" > "$target_filename"
 else
     echo "Source file $source_filename not found or not readable"
     exit 1
 fi
+
 
 
 
