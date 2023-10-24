@@ -110,9 +110,19 @@ def copy_os_specific_readme():
     with open(dest_readme_path, 'r', encoding='utf-8') as file:
         file_contents = file.read()
 
-    # Get the project name and description from the cookiecutter context
-    project_name = cookiecutter_context['project_name']
-    description = cookiecutter_context['description']
+    # Get the project name and description from the environment variables
+    project_name = os.environ.get('COOKIECUTTER_PROJECT_NAME')
+    description = os.environ.get('COOKIECUTTER_DESCRIPTION')
+
+    # Ensure that the project name and description were obtained successfully
+    if project_name is None or description is None:
+        print("Could not obtain project name or description from environment variables.")
+        return  # Exit the function if the values could not be obtained
+
+    # Now read the contents of the README file, substitute the placeholders,
+    # and write it back to the file.
+    with open(dest_readme_path, 'r', encoding='utf-8') as file:
+        file_contents = file.read()
 
     # Substitute placeholders
     file_contents = file_contents.replace('{{cookiecutter.project_name}}', project_name)
@@ -121,7 +131,7 @@ def copy_os_specific_readme():
     # Write the modified contents back to the file
     with open(dest_readme_path, 'w', encoding='utf-8') as file:
         file.write(file_contents)
-    
+
 if __name__ == "__main__":
     # Ensure the script is executable
     ensure_script_executable()
