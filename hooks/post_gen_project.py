@@ -61,25 +61,26 @@ def ensure_script_executable():
 def copy_os_specific_readme():
     """
     Copy the correct README.md file to the project root based on the OS.
-
-    This function determines the user's operating system, and then
-    copies the appropriate README.md file from the os_specific_files
-    directory to the root of the generated project.
     """
+    # Get the username from the environment
+    username = os.environ.get('USERNAME')
+    if not username:
+        print("Could not obtain username from environment. You may need to manually copy the README file.")
+        return  # Exit the function if the username could not be obtained
+    
+    # Construct the base directory path
+    base_dir = f'C:\\Users\\{username}\\.cookiecutters\\cookiecutter-rag'
 
     # Determine the operating system
     os_type = 'windows' if platform.system() == 'Windows' else 'macos'
 
-    # Get the absolute path to the current working directory
-    cwd = os.path.abspath(os.getcwd())
-
     # Define the paths to the source and destination README.md files
-    src_readme_path = os.path.join(cwd, '..', 'os_specific_files', f'README_{os_type}.md')
-    dest_readme_path = os.path.join(cwd, '{{cookiecutter.project_slug}}', 'README.md')
+    src_readme_path = os.path.join(base_dir, 'os_specific_files', f'README_{os_type}.md')
+    dest_readme_path = os.path.join('{{cookiecutter.project_slug}}', 'README.md')
 
     print(f"Src README: {src_readme_path}")  # Debugging line
     print(f"Dest README: {dest_readme_path}")  # Debugging line
-    
+
     # Ensure the source README file exists before attempting to copy
     if not os.path.exists(src_readme_path):
         print(f"Source file does not exist: {src_readme_path}")
