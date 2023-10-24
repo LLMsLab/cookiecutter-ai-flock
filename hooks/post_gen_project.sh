@@ -6,17 +6,13 @@ exec > >(tee -a script_output.log) 2>&1
 # Assign values from Cookiecutter variables
 os_type="{{ cookiecutter.os_type }}"
 project_slug="{{ cookiecutter.project_slug }}"
+project_name="{{ cookiecutter.project_name }}"
 target_directory="{{ cookiecutter._output_dir }}"
-# Get the username from the environment
 username=$(echo "$USERPROFILE" | awk -F'\\' '{print $NF}')
-
-# Construct the template directory path
 template_dir="C:/Users/$username/.cookiecutters/cookiecutter-rag"
 
-# Construct the source filename
+# Construct the source and target filenames
 source_filename="$template_dir/READMEs/README_${os_type,,}.md"
-
-# Construct the target filename
 target_filename="$target_directory/$project_slug/README.md"
 
 # Print the directories and filenames for debugging
@@ -25,18 +21,16 @@ echo "Source Filename: $source_filename"
 echo "Target Filename: $target_filename"
 
 # Ensure the target directory exists
-mkdir -p "$target_directory"
+mkdir -p "$target_directory/$project_slug"
 
 # Check if the source file exists and is readable
 if [[ -r "$source_filename" ]]; then
     # Copy the file content
-    dd if="$source_filename" of="$target_filename"
+    cat "$source_filename" > "$target_filename"
 else
     echo "Source file $source_filename not found or not readable"
     exit 1
 fi
 
-
-
-
-
+# Replace the placeholder with the actual project name
+sed -i "s/{{cookiecutter.project_name}}/$project_name/g" "$target_filename"
