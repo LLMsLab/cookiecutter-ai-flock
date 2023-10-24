@@ -61,8 +61,10 @@ def ensure_script_executable():
 
 def copy_os_specific_readme():
     """
-    Copy the correct README.md file to the project root based on the OS.
+    Copy the correct README.md file to the project root based on the OS,
+    and replace placeholders with actual values.
     """
+
     # Get the username from the environment
     username = os.environ.get('USERNAME')
     if not username:
@@ -72,17 +74,29 @@ def copy_os_specific_readme():
     # Construct the base directory path
     base_dir = f'C:\\Users\\{username}\\.cookiecutters\\cookiecutter-rag'
 
+    # Path to the cookiecutter.json file in the template directory
+    cookiecutter_json_path = os.path.join(base_dir, 'cookiecutter.json')
+
+    # Load the cookiecutter.json file to get the default values
+    with open(cookiecutter_json_path, 'r', encoding='utf-8') as file:
+        cookiecutter_defaults = json.load(file)
+
+    # Get the project name and description
+    project_name = cookiecutter_defaults.get('project_name')
+    description = cookiecutter_defaults.get('description')
+
+    # Ensure that the project name and description were obtained successfully
+    if project_name is None or description is None:
+        print("Could not obtain project name or description from cookiecutter.json.")
+        return  # Exit the function if the values could not be obtained
+
     # Determine the operating system
     os_type = 'windows' if platform.system() == 'Windows' else 'macos'
 
     # Define the paths to the source and destination README.md files
     src_readme_path = os.path.join(base_dir, 'os_specific_files', f'README_{os_type}.md')
-    
-    # Get the current working directory
-    cwd = os.getcwd()
-    
-    # The destination directory is the current working directory
-    dest_readme_path = os.path.join(cwd, 'README.md')
+    dest_dir = os.path.abspath('{{cookiecutter.project_slug}}')
+    dest_readme_path = os.path.join(dest_dir, 'README.md')
 
     print(f"Src README: {src_readme_path}")  # Debugging line
     print(f"Dest README: {dest_readme_path}")  # Debugging line
@@ -93,31 +107,10 @@ def copy_os_specific_readme():
         return  # Exit the function if the file does not exist
 
     # Ensure the destination directory exists
-    os.makedirs(cwd, exist_ok=True)
+    os.makedirs(dest_dir, exist_ok=True)
 
     # Copy the appropriate README.md file to the project root
     shutil.copy(src_readme_path, dest_readme_path)
-
-    # Path to the cookiecutter.json file in the generated project
-    cookiecutter_json_path = os.path.join(os.path.abspath('{{cookiecutter.project_slug}}'), 'cookiecutter.json')
-
-    # Load the cookiecutter context from the cookiecutter.json file
-    with open(cookiecutter_json_path, 'r', encoding='utf-8') as file:
-        cookiecutter_context = json.load(file)
-
-    # Now read the contents of the README file, substitute the placeholders,
-    # and write it back to the file.
-    with open(dest_readme_path, 'r', encoding='utf-8') as file:
-        file_contents = file.read()
-
-    # Get the project name and description from the environment variables
-    project_name = os.environ.get('COOKIECUTTER_PROJECT_NAME')
-    description = os.environ.get('COOKIECUTTER_DESCRIPTION')
-
-    # Ensure that the project name and description were obtained successfully
-    if project_name is None or description is None:
-        print("Could not obtain project name or description from environment variables.")
-        return  # Exit the function if the values could not be obtained
 
     # Now read the contents of the README file, substitute the placeholders,
     # and write it back to the file.
