@@ -101,27 +101,27 @@ if __name__ == "__main__":
         subprocess.run(["chmod", "+x", script_path])
 
 
-def copy_os_specific_readme():
-    os_type = '{{ cookiecutter.os_type }}'
-    project_slug = '{{ cookiecutter.project_slug }}'
+# def copy_os_specific_readme():
+#     os_type = '{{ cookiecutter.os_type }}'
+#     project_slug = '{{ cookiecutter.project_slug }}'
     
-    # Specify the correct path to your cookiecutter template directory
-    username = os.getenv('USERNAME')
-    #target_directory = os.path.join("C:", "Users", username, "OneDrive - New York Life", "Documents", "Projects")
-    target_directory = "\"C:/Users/T93KQI0/OneDrive - New York Life/Documents/Projects\""
+#     # Specify the correct path to your cookiecutter template directory
+#     username = os.getenv('USERNAME')
+#     #target_directory = os.path.join("C:", "Users", username, "OneDrive - New York Life", "Documents", "Projects")
+#     target_directory = "\"C:/Users/T93KQI0/OneDrive - New York Life/Documents/Projects\""
 
-    source_filename = os.path.join(template_dir, f'READMEs\\README_{os_type.lower()}.md')
+#     source_filename = os.path.join(template_dir, f'READMEs\\README_{os_type.lower()}.md')
     
-    # Use the _output_dir variable to get the path to the generated project
-    target_directory = '{{ cookiecutter._output_dir }}'
-    target_filename = os.path.join(target_directory, 'README.md')
-    print(target_directory)
-    print(target_filename)
+#     # Use the _output_dir variable to get the path to the generated project
+#     target_directory = '{{ cookiecutter._output_dir }}'
+#     target_filename = os.path.join(target_directory, 'README.md')
+#     print(target_directory)
+#     print(target_filename)
     
-    # Ensure the target directory exists
-    os.makedirs(target_directory, exist_ok=True)
+#     # Ensure the target directory exists
+#     os.makedirs(target_directory, exist_ok=True)
     
-    shutil.copy(source_filename, target_filename)
+#     shutil.copy(source_filename, target_filename)
 
 if __name__ == "__main__":
     # Define the template_dir and output_dir variables
@@ -136,5 +136,5 @@ if __name__ == "__main__":
     modify_vscode_settings(cookiecutter_env_name)
 
     # Copy the OS-specific README.md file
-    copy_os_specific_readme(template_dir, output_dir)
+    # copy_os_specific_readme(template_dir, output_dir)
 
