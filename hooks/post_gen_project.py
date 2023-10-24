@@ -13,7 +13,7 @@ def modify_vscode_settings():
     python.defaultInterpreterPath setting based on the user's operating
     system, and then writes the modified settings back to the file.
     """
-
+    print(f"Current working directory: {os.getcwd()}") 
     # Define the path to the settings.json file
     settings_path = os.path.join('{{cookiecutter.project_slug}}', '.vscode', 'settings.json')
     print(f"Settings path: {settings_path}")
