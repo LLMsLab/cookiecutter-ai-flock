@@ -7,6 +7,7 @@ exec > >(tee -a script_output.log) 2>&1
 os_type="{{ cookiecutter.os_type }}"
 project_slug="{{ cookiecutter.project_slug }}"
 project_name="{{ cookiecutter.project_name }}"
+description="{{ cookiecutter.description }}"
 target_directory="{{ cookiecutter._output_dir }}"
 username=$(echo "$USERPROFILE" | awk -F'\\' '{print $NF}')
 template_dir="C:/Users/$username/.cookiecutters/cookiecutter-rag"
@@ -32,5 +33,8 @@ else
     exit 1
 fi
 
-# Replace the placeholder with the actual project name
-sed -i "s/{{cookiecutter.project_name}}/$project_name/g" "$target_filename"
+# Replace the placeholders with the actual project name and description
+awk -v project_name="$project_name" -v description="$description" \
+'{gsub("{{cookiecutter.project_name}}", project_name); gsub("{{cookiecutter.description}}", description); print}' \
+"$target_filename" > temp.md && mv temp.md "$target_filename"
+
