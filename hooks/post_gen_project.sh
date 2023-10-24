@@ -33,8 +33,8 @@ else
     exit 1
 fi
 
-# Replace the placeholders with the actual project name and description
-# Replace the placeholders with the actual project name and description
-sed -i.bak -e "s/{{cookiecutter.project_name}}/$project_name/g" -e "s/{{cookiecutter.description}}/$description/g" "$target_filename"
-"$target_filename" > temp.md && mv temp.md "$target_filename"
+# Replace the placeholders with the actual project name and description using perl
+perl -pi -e "s/{{cookiecutter.project_name}}/$project_name/g" "$target_filename"
+perl -pi -e "s/{{cookiecutter.description}}/$description/g" "$target_filename"
+
 
