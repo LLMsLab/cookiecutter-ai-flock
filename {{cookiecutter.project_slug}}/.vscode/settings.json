@@ -49,109 +49,109 @@
             "text": "BUG:",
             "color": "black",
             "backgroundColor": "#e34a33",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "NOBUG:",
             "color": "black",
             "backgroundColor": "#756bb1",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "RFE:",
             "color": "black",
             "backgroundColor": "#dfc27d",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "IDEA:",
             "color": "#d6604d",
             "backgroundColor": "#ffffcc",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "???:",
             "color": "#5aae61",
             "backgroundColor": "#762a83",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "!!!:",
             "color": "#de77ae",
             "backgroundColor": "yellow",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "PORT:",
             "color": "#b8e186",
             "backgroundColor": "#de77ae",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "CAVEAT:",
             "color": "#d6604d",
             "backgroundColor": "#5aae61",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "FAQ:",
             "color": "#5aae61",
             "backgroundColor": "#d6604d",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "GLOSS:",
             "color": "#5aae61",
             "backgroundColor": "#d6604d",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "SEE:",
             "color": "#5aae61",
             "backgroundColor": "#de77ae",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "TODOC:",
             "color": "#a6bddb",
             "backgroundColor": "#000",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "CRED:",
             "color": "#000",
             "backgroundColor": "#a6bddb",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "STAT:",
             "color": "#de77ae",
             "backgroundColor": "#d6604d",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "RVD:",
             "color": "#de77ae",
             "backgroundColor": "#d6604d",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "NOTE:",
             "color": "#b2182b",
             "backgroundColor": "#d1e5f0",
             "overviewRulerColor": "grey",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "HACK:",
             "color": "#000",
             "isWholeLine": false,
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         },
         {
             "text": "TODO:",
             "color": "#000",
-            "borderRadius": "2px",
+            "borderRadius": "2px"
         }
     ],
     "codetags.custom": [
