@@ -102,9 +102,13 @@ def copy_os_specific_readme():
     with open(dest_readme_path, 'r', encoding='utf-8') as file:
         file_contents = file.read()
 
+    # Get the project name and description from environment variables
+    project_name = os.environ.get('COOKIECUTTER_project_name')
+    description = os.environ.get('COOKIECUTTER_description')
+
     # Substitute placeholders
-    file_contents = file_contents.replace('{{cookiecutter.project_name}}', '{{cookiecutter.project_name}}')
-    file_contents = file_contents.replace('{{cookiecutter.description}}', '{{cookiecutter.description}}')
+    file_contents = file_contents.replace('{{cookiecutter.project_name}}', project_name)
+    file_contents = file_contents.replace('{{cookiecutter.description}}', description)
 
     # Write the modified contents back to the file
     with open(dest_readme_path, 'w', encoding='utf-8') as file:
