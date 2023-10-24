@@ -66,8 +66,14 @@ def copy_os_specific_readme():
     
     # Specify the correct path to your cookiecutter template directory
     template_dir = 'C:\\Users\\T93KQI0\\.cookiecutters\\cookiecutter-rag'
-    source_filename = os.path.join(template_dir, f'READMEs/README_{os_type.lower()}.md')
-    target_filename = os.path.join(os.getcwd(), f'{project_slug}/README.md')
+    source_filename = os.path.join(template_dir, f'READMEs\\README_{os_type.lower()}.md')
+    
+    # Assume the generated project directory is within the current working directory
+    target_directory = os.getcwd()  
+    target_filename = os.path.join(target_directory, f'{project_slug}\\README.md')
+    
+    # Ensure the target directory exists
+    os.makedirs(target_directory, exist_ok=True)
     
     shutil.copy(source_filename, target_filename)
 
