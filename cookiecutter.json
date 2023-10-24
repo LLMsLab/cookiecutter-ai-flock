@@ -1,5 +1,6 @@
 {
     "project_name": "Project Name",
+    "os_type": "Windows",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '') }}",
     "environment_name": "{{ cookiecutter.project_slug }}-env",
@@ -9,3 +10,4 @@
     "independent_reviewer": "github_username_of_independent_reviewer",
     "site_name": "{{ cookiecutter.project_name }} Docs"
 }
+

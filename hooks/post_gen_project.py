@@ -59,33 +59,15 @@ def ensure_script_executable():
         # Run the chmod command to set the executable permission
         subprocess.run(["chmod", "+x", script_path])
 
+
 def copy_os_specific_readme():
-    """
-    Copy the correct README.md file to the project root based on the OS.
-    """
-    # Determine the operating system
-    os_type = 'windows' if platform.system() == 'Windows' else 'macos'
-
-    # Define the paths to the source and destination README.md files
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    project_dir = os.path.join(current_dir, '..')
-
-    src_readme_path = os.path.join(project_dir, os_type, f'README_{os_type}.md')
-    dest_readme_path = os.path.join(project_dir, '{{cookiecutter.project_slug}}', 'README.md')
-
-    print(f"Src README: {src_readme_path}")  # Debugging line
-    print(f"Dest README: {dest_readme_path}")  # Debugging line
-
-    # Ensure the source README file exists before attempting to copy
-    if not os.path.exists(src_readme_path):
-        print(f"Source file does not exist: {src_readme_path}")
-        return  # Exit the function if the file does not exist
-
-    # Ensure the destination directory exists
-    os.makedirs(os.path.dirname(dest_readme_path), exist_ok=True)
-
-    # Copy the appropriate README.md file to the project root
-    shutil.copy(src_readme_path, dest_readme_path)
+    os_type = '{{ cookiecutter.os_type }}'
+    project_slug = '{{ cookiecutter.project_slug }}'
+    
+    source_filename = f'READMEs/README_{os_type.lower()}.md'
+    target_filename = f'{project_slug}/README.md'
+    
+    shutil.copy(source_filename, target_filename)
 
 if __name__ == "__main__":
     # Ensure the script is executable
