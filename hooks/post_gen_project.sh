@@ -12,12 +12,20 @@ source_filename="$template_dir/READMEs/README_${os_type,,}.md"
 # Construct the target filename
 target_filename="$target_directory/README.md"
 
-# Print the directories for debugging
+# Print the directories and filenames for debugging
 echo "Target Directory: $target_directory"
+echo "Source Filename: $source_filename"
 echo "Target Filename: $target_filename"
 
 # Ensure the target directory exists
 mkdir -p "$target_directory"
 
-# Copy the file
-cp "$source_filename" "$target_filename"
+# Check if the source file exists and is readable
+if [[ -r "$source_filename" ]]; then
+    # Copy the file with verbose output
+    cp -v "$source_filename" "$target_filename"
+else
+    echo "Source file $source_filename not found or not readable"
+    exit 1
+fi
+
