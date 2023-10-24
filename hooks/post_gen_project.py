@@ -61,30 +61,27 @@ def ensure_script_executable():
 def copy_os_specific_readme():
     """
     Copy the correct README.md file to the project root based on the OS.
-
-    This function determines the user's operating system, and then
-    copies the appropriate README.md file from the os_specific_files
-    directory to the root of the generated project.
     """
 
     # Determine the operating system
     os_type = 'windows' if platform.system() == 'Windows' else 'macos'
 
+    # Get the directory of this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
     # Define the paths to the source and destination README.md files
-    src_readme_path = os.path.abspath(os.path.join('os_specific_files', f'README_{os_type}.md'))
+    src_readme_path = os.path.join(script_dir, 'os_specific_files', f'README_{os_type}.md')
+    dest_readme_path = os.path.join(script_dir, '{{cookiecutter.project_slug}}', 'README.md')
+
     print(f"Src README: {src_readme_path}")
-    dest_readme_path = os.path.abspath(os.path.join('{{cookiecutter.project_slug}}', 'README.md'))
     print(f"Dest README: {dest_readme_path}")
 
-    if not os.path.exists(src_readme_path):
+    # Check if the source file exists before attempting to copy
+    if os.path.exists(src_readme_path):
+        # Copy the appropriate README.md file to the project root
+        shutil.copy(src_readme_path, dest_readme_path)
+    else:
         print(f"Source file does not exist: {src_readme_path}")
-        return
-    if not os.path.exists(os.path.dirname(dest_readme_path)):
-        print(f"Destination directory does not exist: {os.path.dirname(dest_readme_path)}")
-        return
-
-    # Copy the appropriate README.md file to the project root
-    shutil.copy(src_readme_path, dest_readme_path)
 
 if __name__ == "__main__":
     # Ensure the script is executable
