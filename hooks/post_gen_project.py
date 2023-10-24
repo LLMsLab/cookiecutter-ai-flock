@@ -74,7 +74,7 @@ def copy_os_specific_readme():
     cwd = os.path.abspath(os.getcwd())
 
     # Define the paths to the source and destination README.md files
-    src_readme_path = os.path.join(cwd, 'os_specific_files', f'README_{os_type}.md')
+    src_readme_path = os.path.join(cwd, '..', 'os_specific_files', f'README_{os_type}.md')
     dest_readme_path = os.path.join(cwd, '{{cookiecutter.project_slug}}', 'README.md')
 
     print(f"Src README: {src_readme_path}")  # Debugging line
@@ -87,19 +87,6 @@ def copy_os_specific_readme():
 
     # Copy the appropriate README.md file to the project root
     shutil.copy(src_readme_path, dest_readme_path)
-
-# Other functions and code...
-
-if __name__ == "__main__":
-    # Ensure the script is executable
-    ensure_script_executable()
-
-    # Modify the VS Code settings
-    modify_vscode_settings()
-
-    # Copy the OS-specific README.md file
-    copy_os_specific_readme()
-
 
 if __name__ == "__main__":
     # Ensure the script is executable
