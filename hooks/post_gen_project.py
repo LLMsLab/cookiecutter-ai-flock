@@ -76,8 +76,12 @@ def copy_os_specific_readme():
 
     # Define the paths to the source and destination README.md files
     src_readme_path = os.path.join(base_dir, 'os_specific_files', f'README_{os_type}.md')
-    dest_dir = os.path.abspath('{{cookiecutter.project_slug}}')
-    dest_readme_path = os.path.join(dest_dir, 'README.md')
+    
+    # Get the current working directory
+    cwd = os.getcwd()
+    
+    # The destination directory is the current working directory
+    dest_readme_path = os.path.join(cwd, 'README.md')
 
     print(f"Src README: {src_readme_path}")  # Debugging line
     print(f"Dest README: {dest_readme_path}")  # Debugging line
@@ -88,7 +92,7 @@ def copy_os_specific_readme():
         return  # Exit the function if the file does not exist
 
     # Ensure the destination directory exists
-    os.makedirs(dest_dir, exist_ok=True)
+    os.makedirs(cwd, exist_ok=True)
 
     # Copy the appropriate README.md file to the project root
     shutil.copy(src_readme_path, dest_readme_path)
