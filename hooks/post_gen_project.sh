@@ -13,7 +13,7 @@ template_dir="C:/Users/T93KQI0/.cookiecutters/cookiecutter-rag"  # Updated path
 source_filename="$template_dir/READMEs/README_${os_type,,}.md"
 
 # Construct the target filename
-target_filename="$target_directory/README.md"
+target_filename="$target_directory/$project_slug/README.md"
 
 # Print the directories and filenames for debugging
 echo "Target Directory: $target_directory"
