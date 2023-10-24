@@ -64,10 +64,10 @@ def copy_os_specific_readme():
     os_type = '{{ cookiecutter.os_type }}'
     project_slug = '{{ cookiecutter.project_slug }}'
     
-    # Assume the script is being run from the root of the Cookiecutter template directory
-    template_dir = os.getcwd()
+    # Specify the correct path to your cookiecutter template directory
+    template_dir = 'C:\\Users\\T93KQI0\\.cookiecutters\\cookiecutter-rag'
     source_filename = os.path.join(template_dir, f'READMEs/README_{os_type.lower()}.md')
-    target_filename = os.path.join(template_dir, f'{project_slug}/README.md')
+    target_filename = os.path.join(os.getcwd(), f'{project_slug}/README.md')
     
     shutil.copy(source_filename, target_filename)
 
