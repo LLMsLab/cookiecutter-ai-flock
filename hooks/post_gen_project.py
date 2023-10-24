@@ -96,6 +96,19 @@ def copy_os_specific_readme():
 
     # Copy the appropriate README.md file to the project root
     shutil.copy(src_readme_path, dest_readme_path)
+
+    # Now read the contents of the README file, substitute the placeholders,
+    # and write it back to the file.
+    with open(dest_readme_path, 'r') as file:
+        file_contents = file.read()
+
+    # Substitute placeholders
+    file_contents = file_contents.replace('{{cookiecutter.project_name}}', '{{cookiecutter.project_name}}')
+    file_contents = file_contents.replace('{{cookiecutter.description}}', '{{cookiecutter.description}}')
+
+    # Write the modified contents back to the file
+    with open(dest_readme_path, 'w') as file:
+        file.write(file_contents)
     
 if __name__ == "__main__":
     # Ensure the script is executable
