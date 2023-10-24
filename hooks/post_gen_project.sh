@@ -34,7 +34,7 @@ else
 fi
 
 # Replace the placeholders with the actual project name and description
-awk -v project_name="$project_name" -v description="$description" \
-'{gsub("{{cookiecutter.project_name}}", project_name); gsub("{{cookiecutter.description}}", description); print}' \
+# Replace the placeholders with the actual project name and description
+sed -i.bak -e "s/{{cookiecutter.project_name}}/$project_name/g" -e "s/{{cookiecutter.description}}/$description/g" "$target_filename"
 "$target_filename" > temp.md && mv temp.md "$target_filename"
 
