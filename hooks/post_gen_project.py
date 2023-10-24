@@ -64,7 +64,8 @@ def copy_os_specific_readme():
     os_type = '{{ cookiecutter.os_type }}'
     project_slug = '{{ cookiecutter.project_slug }}'
     
-    template_dir = os.path.dirname(os.path.abspath(__file__))
+    # Assume the script is being run from the root of the Cookiecutter template directory
+    template_dir = os.getcwd()
     source_filename = os.path.join(template_dir, f'READMEs/README_{os_type.lower()}.md')
     target_filename = os.path.join(template_dir, f'{project_slug}/README.md')
     
