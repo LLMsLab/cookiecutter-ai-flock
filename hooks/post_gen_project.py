@@ -16,6 +16,7 @@ def modify_vscode_settings():
 
     # Define the path to the settings.json file
     settings_path = os.path.join('{{cookiecutter.project_slug}}', '.vscode', 'settings.json')
+    print(f"Settings path: {settings_path}")
 
     # Open and read the settings.json file
     with open(settings_path, 'r') as f:
