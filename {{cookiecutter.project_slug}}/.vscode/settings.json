@@ -9,7 +9,7 @@
     // NOTE: Conda cds39 must be active first. See TECH_NOTE_03
     "python.terminal.activateEnvInCurrentTerminal": true,
     // Select default interpreter for working_on_cookiecutter project
-    "python.defaultInterpreterPath": "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python",
+    "python.defaultInterpreterPath": "",
     // Ensure integrated terinal load .bashrc or .bash_profile files
     // https://stackoverflow.com/questions/51820921/vscode-integrated-terminal-doesnt-load-bashrc-or-bash-profile
     "terminal.integrated.defaultProfile.linux": "bash",
