@@ -47,11 +47,13 @@ def ensure_script_executable():
     sets the executable permission on this script file.
     """
 
-    # Get the absolute path to this script file
-    script_path = os.path.abspath(__file__)
+    # Check if the operating system is Unix-like
+    if platform.system() in ["Linux", "Darwin"]:  # Darwin is the OS name for MacOS
+        # Get the absolute path to this script file
+        script_path = os.path.abspath(__file__)
 
-    # Run the chmod command to set the executable permission
-    subprocess.run(["chmod", "+x", script_path])
+        # Run the chmod command to set the executable permission
+        subprocess.run(["chmod", "+x", script_path])
 
 def copy_os_specific_readme():
     """
