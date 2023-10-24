@@ -19,8 +19,9 @@ def modify_vscode_settings():
     print(f"Settings path: {settings_path}")
 
     # Open and read the settings.json file
-    with open(settings_path, 'r') as f:
+    with open(settings_path, 'r', encoding='utf-8') as f:
         print(f"File contents: {f.read()}")  # This line is for debugging
+        f.seek(0)  # Reset file pointer to the beginning
         settings = json.load(f)
 
     # Check the operating system
