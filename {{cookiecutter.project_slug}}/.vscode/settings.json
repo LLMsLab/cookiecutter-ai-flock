@@ -253,7 +253,7 @@
     "typescriptreact",
     "yml",
     "python",
-    "R",
+    "R"
 ],
 "cSpell.enabled": true,
 "cSpell.showStatus": true,
@@ -325,7 +325,7 @@
     "editor.quickSuggestions": {
         "other": true,
         "comments": true,
-        "strings": true,
+        "strings": true
     }
 },
 "markdownlint.config": {
