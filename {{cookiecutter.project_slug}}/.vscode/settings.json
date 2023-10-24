@@ -347,5 +347,5 @@
     "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
-    "python": "\"$pythonPath\" $fullFileName",}
+    "python": "\"$pythonPath\" $fullFileName"},
 }
