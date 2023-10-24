@@ -99,7 +99,7 @@ def copy_os_specific_readme():
 
     # Now read the contents of the README file, substitute the placeholders,
     # and write it back to the file.
-    with open(dest_readme_path, 'r') as file:
+    with open(dest_readme_path, 'r', encoding='utf-8') as file:
         file_contents = file.read()
 
     # Substitute placeholders
@@ -107,7 +107,7 @@ def copy_os_specific_readme():
     file_contents = file_contents.replace('{{cookiecutter.description}}', '{{cookiecutter.description}}')
 
     # Write the modified contents back to the file
-    with open(dest_readme_path, 'w') as file:
+    with open(dest_readme_path, 'w', encoding='utf-8') as file:
         file.write(file_contents)
     
 if __name__ == "__main__":
