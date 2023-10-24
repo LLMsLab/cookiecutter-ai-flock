@@ -64,8 +64,9 @@ def copy_os_specific_readme():
     os_type = '{{ cookiecutter.os_type }}'
     project_slug = '{{ cookiecutter.project_slug }}'
     
-    source_filename = f'READMEs/README_{os_type.lower()}.md'
-    target_filename = f'{project_slug}/README.md'
+    template_dir = os.path.dirname(os.path.abspath(__file__))
+    source_filename = os.path.join(template_dir, f'READMEs/README_{os_type.lower()}.md')
+    target_filename = os.path.join(template_dir, f'{project_slug}/README.md')
     
     shutil.copy(source_filename, target_filename)
 
