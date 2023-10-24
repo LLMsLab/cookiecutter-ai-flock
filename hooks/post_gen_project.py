@@ -98,14 +98,21 @@ def copy_os_specific_readme():
     # Copy the appropriate README.md file to the project root
     shutil.copy(src_readme_path, dest_readme_path)
 
+    # Path to the cookiecutter.json file in the generated project
+    cookiecutter_json_path = os.path.join(os.path.abspath('{{cookiecutter.project_slug}}'), 'cookiecutter.json')
+
+    # Load the cookiecutter context from the cookiecutter.json file
+    with open(cookiecutter_json_path, 'r', encoding='utf-8') as file:
+        cookiecutter_context = json.load(file)
+
     # Now read the contents of the README file, substitute the placeholders,
     # and write it back to the file.
     with open(dest_readme_path, 'r', encoding='utf-8') as file:
         file_contents = file.read()
 
-    # Get the project name and description from cookiecutter dictionary
-    project_name = cookiecutter['project_name']
-    description = cookiecutter['description']
+    # Get the project name and description from the cookiecutter context
+    project_name = cookiecutter_context['project_name']
+    description = cookiecutter_context['description']
 
     # Substitute placeholders
     file_contents = file_contents.replace('{{cookiecutter.project_name}}', project_name)
