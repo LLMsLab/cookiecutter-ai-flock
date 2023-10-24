@@ -1,29 +1,58 @@
 # Cookiecutter for Retrieval-Augmented Generation
 
-_Dive into a meticulously crafted, yet adaptable blueprint tailored for cutting-edge artificial intelligence projects._
+_Dive into a meticulously crafted, yet adaptable blueprint tailored for
+cutting-edge artificial intelligence projects._
 
-Welcome to a [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/readme.html) template that's more than just a starting point. It's a statement of best practices, a commitment to industry standards, and a toolkit for success. Whether you're developing, testing, linting, documenting, or setting up continuous integration, this template ensures you're on the front foot, right from the get-go.
+Welcome to a
+[Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/readme.html)
+template that's more than just a starting point. It's a statement of
+best practices, a commitment to industry standards, and a toolkit for
+success. Whether you're developing, testing, linting, documenting, or
+setting up continuous integration, this template ensures you're on the
+front foot, right from the get-go.
 
 ## 🌟 Features
 
-- **Poetry Integration**: Streamlined Python dependency management and packaging, ensuring consistency and reproducibility.
-- **Conda Environments**: Reliable and isolated environments for your project, ensuring compatibility and stability.
-- **Black & Ruff**: Elegant code formatting with Black, complemented by the comprehensive linting capabilities of Ruff.
-- **Automated Workflows**: Pre-configured pre-commit hooks and GitHub Actions to maintain code quality and standards effortlessly.
-- **VS Code Ready**: Dive right into coding with our curated list of extensions and settings tailored for this project.
-- **Intelligent Spell Checking**: A custom dictionary for the code spell checker, dynamically generated based on your project's Python dependencies.
-- **Hydra**: Simplify and manage your configuration files with the power of Hydra.
-- **Professional Documentation**: MkDocs combined with the Material theme provides a sleek and responsive documentation site, right out of the box. Plus, we've included a handpicked configuration to get you started.
-- **Git-Ready**: A meticulously crafted `.gitignore` file to keep your repository clean.
+- **Poetry Integration**: Streamlined Python dependency management and
+  packaging, ensuring consistency and reproducibility.
+- **Conda Environments**: Reliable and isolated environments for your
+  project, ensuring compatibility and stability.
+- **Black & Ruff**: Elegant code formatting with Black, complemented by
+  the comprehensive linting capabilities of Ruff.
+- **Automated Workflows**: Pre-configured pre-commit hooks and GitHub
+  Actions to maintain code quality and standards effortlessly.
+- **VS Code Ready**: Dive right into coding with our curated list of
+  extensions and settings tailored for this project.
+- **Cross-Platform Support**: Seamlessly switch between Windows and
+  MacOS with auto-configured VS Code settings and OS-specific README
+  files, ensuring a smooth setup and development experience on both
+  platforms.
+- **Intelligent Spell Checking**: A custom dictionary for the code spell
+  checker, dynamically generated based on your project's Python
+  dependencies.
+- **Hydra**: Simplify and manage your configuration files with the power
+  of Hydra.
+- **Professional Documentation**: MkDocs combined with the Material
+  theme provides a sleek and responsive documentation site, right out of
+  the box. Plus, we've included a handpicked configuration to get you
+  started.
+- **Git-Ready**: A meticulously crafted `.gitignore` file to keep your
+  repository clean.
 
 ## 🛠 Requirements to Use the Cookiecutter Template
 
-- **Editor**: Visual Studio Code, the modern and extensible editor loved by many.
+- **Editor**: Visual Studio Code, the modern and extensible editor loved
+  by many.
 - **Version Control**: GitHub, the heart of open-source collaboration.
 - **Language**: Python 3, the lingua franca of data science and AI.
-- **Operating System**: Currently tailored for Linux Ubuntu, but stay tuned for support for more OSs in upcoming releases!
-- **Cloud Integration**: Designed with Azure Machine Learning in mind. Future releases will broaden horizons to other cloud platforms and local setups.
-- **Tooling**: [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/readme.html) Python package, the foundation of this template.
+- **Operating System**: Now supporting both Linux Ubuntu, Windows, and
+  MacOS to cater to a wider range of development environments!
+- **Cloud Integration**: Designed with Azure Machine Learning in mind.
+  Future releases will broaden horizons to other cloud platforms and
+  local setups.
+- **Tooling**:
+  [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/readme.html)
+  Python package, the foundation of this template.
 
 ## Usage
 
