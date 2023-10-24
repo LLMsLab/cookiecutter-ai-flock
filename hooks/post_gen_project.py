@@ -3,6 +3,7 @@ import platform
 import os
 import subprocess
 import shutil
+import cookiecutter
 
 def modify_vscode_settings():
     """
@@ -102,9 +103,9 @@ def copy_os_specific_readme():
     with open(dest_readme_path, 'r', encoding='utf-8') as file:
         file_contents = file.read()
 
-    # Get the project name and description from environment variables
-    project_name = os.environ.get('COOKIECUTTER_project_name')
-    description = os.environ.get('COOKIECUTTER_description')
+    # Get the project name and description from cookiecutter variables
+    project_name = cookiecutter.project_name
+    description = cookiecutter.description
 
     # Substitute placeholders
     file_contents = file_contents.replace('{{cookiecutter.project_name}}', project_name)
