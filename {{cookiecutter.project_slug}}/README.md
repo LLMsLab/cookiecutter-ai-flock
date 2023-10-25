@@ -456,15 +456,17 @@ make poetry_dependencies
 make docs_build
 ```
 
-> Stop the server using Ctrl + C
-
 #### ✅ Start the live-reloading docs server
 
 ```bash
 make docs_serve
 ```
 
-> At this point, close and reopen the VS Code project.
+Ensure that the documentation is being served at:
+`http://127.0.0.1:8000/{{cookiecutter.project_slug}}/`
+
+- Terminate the server by pressing `Ctrl + C`.
+- Once done, close the current VS Code session and reopen the project.
 
 #### ✅ CSpell Checker: Extracting Terms from Python Libraries
 
