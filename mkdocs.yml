@@ -89,6 +89,7 @@ nav:
     - Poetry: tutorials/poetry.md
     - MkDocs: tutorials/mkdocs-docs.md
     - Hydra: tutorials/hydra-config.md
+    - Windows OS: tutorials/windows-os-setup.md
   - How-To Guides: how-to-guides.md
   - API Reference: api-reference.md
   - Explanation: explanation.md
