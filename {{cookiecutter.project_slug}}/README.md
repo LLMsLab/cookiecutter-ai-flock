@@ -132,7 +132,9 @@ Once you have installed these prerequisites, you'll be ready to set up
 and run this project on your Windows 10 machine, even without admin
 rights.
 
-### 🔧Setting Up the Development Environment
+---
+
+### 🛠️ One-Time Setup Instructions
 
 #### ✅ Install Recommended VS Code Extensions
 
@@ -427,7 +429,11 @@ Poetry (version 1.6.1)
 > Notice that it is not necessary to update the project's `Makefile` to
 > execute Poetry commands using Make.
 
-To install all project's dependencies using Poetry we continue with VPN
+---
+
+### 🔄 Per-Project Instructions
+
+To install all project's dependencies using Poetry we continue without VPN
 
 #### ✅ Create and Activate a Conda's Python Virtual Environment
 
