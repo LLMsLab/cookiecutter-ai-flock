@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/" rel="canonical"/>
+<link href="../hydra-config/" rel="prev"/>
+<link href="../../how-to-guides/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
+<title>Windows OS - Cookiecutter RAG</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#setting-up-a-python-environment-on-windows-os">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter RAG" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter RAG
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Windows OS
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-rag" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/cookiecutter-rag/
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter RAG" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter RAG">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Cookiecutter RAG
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-rag" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/cookiecutter-rag/
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+        TOC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../black-formatter/">
+        Black
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../poetry/">
+        Poetry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mkdocs-docs/">
+        MkDocs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hydra-config/">
+        Hydra
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Windows OS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Windows OS
+      </a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instructions">
+    Instructions
+  </a>
+<nav aria-label="Instructions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-recommended-vs-code-extensions">
+    Install Recommended VS Code Extensions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enable-the-usage-of-conda-commands-from-the-git-bash-terminal-in-vs-code">
+    Enable the Usage of Conda Commands from the Git Bash Terminal in VS Code
+  </a>
+<nav aria-label="Enable the Usage of Conda Commands from the Git Bash Terminal in VS Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-identify-anaconda-installation-path">
+    1. Identify Anaconda Installation Path
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-activate-conda-in-git-bash">
+    2. Activate Conda in Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-automate-conda-activation">
+    3. Automate Conda Activation
+  </a>
+<nav aria-label="3. Automate Conda Activation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determine-bashrc-and-bash_profile-location">
+    Determine .bashrc and .bash_profile location
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#if-these-files-are-absent-in-your-home-directory">
+    If these files are absent in your home directory:
+  </a>
+<nav aria-label="If these files are absent in your home directory:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-open-git-bash">
+    a. Open Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b-create-the-bashrc-file">
+    b. Create the .bashrc File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c-create-the-bash_profile-file">
+    c. Create the .bash_profile File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#d-edit-the-bash_profile-file">
+    d. Edit the .bash_profile File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#e-edit-the-bashrc-file">
+    e. Edit the .bashrc File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#f-apply-the-changes">
+    f. Apply the Changes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-verify-conda-activation">
+    4. Verify Conda Activation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-linux-tools-on-git-bash">
+    Install Linux Tools on Git Bash
+  </a>
+<nav aria-label="Install Linux Tools on Git Bash" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-make">
+    What is make?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-to-add-make-to-git-bash">
+    Steps to Add make to Git Bash
+  </a>
+<nav aria-label="Steps to Add make to Git Bash" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-download-the-tool">
+    1. Download the Tool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-extract-the-download">
+    2. Extract the Download
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-update-the-path-in-git-bash">
+    3. Update the $PATH in Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-verify-installation">
+    4. Verify Installation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#important-notes">
+    Important Notes
+  </a>
+<nav aria-label="Important Notes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-poetry-for-dependency-management">
+    Install Poetry for Dependency Management
+  </a>
+<nav aria-label="Install Poetry for Dependency Management" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#disconnect-vpn">
+    Disconnect VPN
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-conda">
+    Update Conda
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-poetry-for-package-management">
+    Install Poetry for Package Management
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+        How-To Guides
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+        API Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+        Explanation
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instructions">
+    Instructions
+  </a>
+<nav aria-label="Instructions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-recommended-vs-code-extensions">
+    Install Recommended VS Code Extensions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enable-the-usage-of-conda-commands-from-the-git-bash-terminal-in-vs-code">
+    Enable the Usage of Conda Commands from the Git Bash Terminal in VS Code
+  </a>
+<nav aria-label="Enable the Usage of Conda Commands from the Git Bash Terminal in VS Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-identify-anaconda-installation-path">
+    1. Identify Anaconda Installation Path
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-activate-conda-in-git-bash">
+    2. Activate Conda in Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-automate-conda-activation">
+    3. Automate Conda Activation
+  </a>
+<nav aria-label="3. Automate Conda Activation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determine-bashrc-and-bash_profile-location">
+    Determine .bashrc and .bash_profile location
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#if-these-files-are-absent-in-your-home-directory">
+    If these files are absent in your home directory:
+  </a>
+<nav aria-label="If these files are absent in your home directory:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-open-git-bash">
+    a. Open Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b-create-the-bashrc-file">
+    b. Create the .bashrc File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c-create-the-bash_profile-file">
+    c. Create the .bash_profile File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#d-edit-the-bash_profile-file">
+    d. Edit the .bash_profile File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#e-edit-the-bashrc-file">
+    e. Edit the .bashrc File
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#f-apply-the-changes">
+    f. Apply the Changes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-verify-conda-activation">
+    4. Verify Conda Activation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-linux-tools-on-git-bash">
+    Install Linux Tools on Git Bash
+  </a>
+<nav aria-label="Install Linux Tools on Git Bash" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-make">
+    What is make?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-to-add-make-to-git-bash">
+    Steps to Add make to Git Bash
+  </a>
+<nav aria-label="Steps to Add make to Git Bash" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-download-the-tool">
+    1. Download the Tool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-extract-the-download">
+    2. Extract the Download
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-update-the-path-in-git-bash">
+    3. Update the $PATH in Git Bash
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-verify-installation">
+    4. Verify Installation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#important-notes">
+    Important Notes
+  </a>
+<nav aria-label="Important Notes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-poetry-for-dependency-management">
+    Install Poetry for Dependency Management
+  </a>
+<nav aria-label="Install Poetry for Dependency Management" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#disconnect-vpn">
+    Disconnect VPN
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-conda">
+    Update Conda
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-poetry-for-package-management">
+    Install Poetry for Package Management
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="setting-up-a-python-environment-on-windows-os">Setting Up a Python Environment on Windows OS<a class="headerlink" href="#setting-up-a-python-environment-on-windows-os" title="Permanent link">¶</a></h1>
+<p>Welcome to the setup guide for creating a Python environment on a
+Windows 10 OS machine without admin rights and behind a firewall. This
+guide will walk you through all the prerequisites and steps required to
+set up a Python development environment, ensuring you can work
+seamlessly even with limited permissions on your Windows machine.</p>
+<p>In the following sections, you will find instructions on installing
+essential tools like Visual Studio Code, Anaconda, and Git Bash without
+requiring administrative privileges. We'll also provide guidance on
+configuring your environment behind a firewall, ensuring a smooth setup
+process for your project.</p>
+<p>Follow these steps carefully to get your Python environment up and
+running, and you'll be well-equipped to dive into your project. Let's
+get started!</p>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before you can get started with this project, you'll need to
+have the following software installed on your Windows 10 machine.</p>
+</div>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Visual Studio Code (VS Code):</strong></li>
+<li>Download and install VS Code by following the instructions on the
+     official website: <a href="https://code.visualstudio.com/download">VS Code
+     Download</a></li>
+<li>
+<p>During the installation process, choose an installation location
+     within a directory where you have write permissions, typically
+     within your user directory, <code>C:/Users/[Username]/</code>. You should not
+     encounter any admin rights issues during the installation of VS
+     Code.</p>
+</li>
+<li>
+<p><strong>Anaconda Distribution:</strong></p>
+</li>
+<li>Download the Anaconda Distribution for Windows from the official
+     website: <a href="https://www.anaconda.com/products/distribution">Anaconda
+     Download</a></li>
+<li>
+<p>Follow these steps to install Anaconda without admin rights:</p>
+<ul>
+<li>During the Anaconda installation process, when you reach the
+   "Advanced Options" section, select the "Install for me only"
+   option.</li>
+<li>Choose a directory location where you have write permissions
+   (e.g., your user directory) for the installation.</li>
+<li>Complete the installation process.</li>
+</ul>
+</li>
+<li>
+<p><strong>Git Bash:</strong></p>
+</li>
+<li>Download and install Git Bash, which provides a Unix-like
+     command-line environment for Windows: <a href="https://git-scm.com/downloads">Git Bash
+     Download</a></li>
+<li>During the installation, choose an installation location within a
+     directory where you have write permissions (e.g., your user
+     directory). You should not encounter any admin rights issues when
+     installing Git Bash.</li>
+</ol>
+<p>Once you have installed these prerequisites, you'll be ready to set up
+and run this project on your Windows 10 machine, even without admin
+rights.</p>
+<h2 id="install-recommended-vs-code-extensions">Install Recommended VS Code Extensions<a class="headerlink" href="#install-recommended-vs-code-extensions" title="Permanent link">¶</a></h2>
+<p>To ensure a consistent development environment and take advantage of
+tools and configurations tailored for this project, it's advisable to
+install the extensions specified in the <code>.vscode/extensions.json</code> file.</p>
+<p>Follow the steps below:</p>
+<ol>
+<li><strong>Start by opening the project in Visual Studio Code.</strong></li>
+<li>Access the Extensions panel:<ul>
+<li>Click the square icon on the sidebar</li>
+<li>Or press <code>Ctrl+Shift+X</code></li>
+</ul>
+</li>
+<li>Once in the Extensions panel:<ul>
+<li>Type <code>@recommended</code> in the search bar. This filters and displays
+  the list of recommended extensions for the project.</li>
+</ul>
+</li>
+<li><strong>Install the extensions:</strong> For every listed recommended extension,
+   press the <code>Install</code> button to incorporate it into your VS Code.</li>
+</ol>
+<h2 id="enable-the-usage-of-conda-commands-from-the-git-bash-terminal-in-vs-code">Enable the Usage of Conda Commands from the Git Bash Terminal in VS Code<a class="headerlink" href="#enable-the-usage-of-conda-commands-from-the-git-bash-terminal-in-vs-code" title="Permanent link">¶</a></h2>
+<p>Follow the steps below to get started:</p>
+<h3 id="1-identify-anaconda-installation-path">1. Identify Anaconda Installation Path<a class="headerlink" href="#1-identify-anaconda-installation-path" title="Permanent link">¶</a></h3>
+<ul>
+<li>Open the <code>Anaconda Prompt</code> from the Start menu.</li>
+<li>Type the command below and press <code>Enter</code>:</li>
+</ul>
+<div class="highlight"><span class="filename">Anaconda Prompt</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>conda<span class="w"> </span>info
+</code></pre></div>
+<ul>
+<li>Look for the line starting with <code>base environment :</code>. This displays
+  the path to your Anaconda installation.</li>
+</ul>
+<h3 id="2-activate-conda-in-git-bash">2. Activate Conda in Git Bash<a class="headerlink" href="#2-activate-conda-in-git-bash" title="Permanent link">¶</a></h3>
+<ul>
+<li>Start <code>VS Code</code>.</li>
+<li>Open a new terminal, making sure it's <code>Git Bash</code>.</li>
+<li>Run the following command, substituting the path with your specific
+  Anaconda installation path:</li>
+</ul>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
+</code></pre></div>
+<h3 id="3-automate-conda-activation">3. Automate Conda Activation<a class="headerlink" href="#3-automate-conda-activation" title="Permanent link">¶</a></h3>
+<p>To ensure Conda activates automatically every time you launch a Git Bash
+terminal in VS Code:</p>
+<h4 id="determine-bashrc-and-bash_profile-location">Determine <code>.bashrc</code> and <code>.bash_profile</code> location<a class="headerlink" href="#determine-bashrc-and-bash_profile-location" title="Permanent link">¶</a></h4>
+<p>In the Git Bash terminal, run:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>.bashrc</code> and <code>.bash_profile</code> might be hidden. Turn on the 'view
+hidden files' option in File Explorer.</p>
+</div>
+<h4 id="if-these-files-are-absent-in-your-home-directory">If these files are absent in your home directory:<a class="headerlink" href="#if-these-files-are-absent-in-your-home-directory" title="Permanent link">¶</a></h4>
+<h5 id="a-open-git-bash">a. Open Git Bash<a class="headerlink" href="#a-open-git-bash" title="Permanent link">¶</a></h5>
+<p>Either from the Start menu or within Visual Studio Code.</p>
+<h5 id="b-create-the-bashrc-file">b. Create the <code>.bashrc</code> File<a class="headerlink" href="#b-create-the-bashrc-file" title="Permanent link">¶</a></h5>
+<p>Enter this command to generate a <code>.bashrc</code> file in your home directory:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>touch<span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>This <code>touch</code> command produces an empty <code>.bashrc</code> file if it's missing.</p>
+<h5 id="c-create-the-bash_profile-file">c. Create the <code>.bash_profile</code> File<a class="headerlink" href="#c-create-the-bash_profile-file" title="Permanent link">¶</a></h5>
+<p>To create the <code>.bash_profile</code> file, use:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>touch<span class="w"> </span>~/.bash_profile
+</code></pre></div>
+<h5 id="d-edit-the-bash_profile-file">d. Edit the <code>.bash_profile</code> File<a class="headerlink" href="#d-edit-the-bash_profile-file" title="Permanent link">¶</a></h5>
+<p>Using a text editor like <code>nano</code>, run:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>nano<span class="w"> </span>~/.bash_profile
+</code></pre></div>
+<p>Then, incorporate these lines:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">fi</span>
+</code></pre></div>
+<p>Save and exit (<code>Ctrl + X</code>, <code>Y</code>, <code>Enter</code> in <code>nano</code>).</p>
+<h5 id="e-edit-the-bashrc-file">e. Edit the <code>.bashrc</code> File<a class="headerlink" href="#e-edit-the-bashrc-file" title="Permanent link">¶</a></h5>
+<p>Edit <code>.bashrc</code> to add the Conda configuration:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>nano<span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Then, append:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
+</code></pre></div>
+<p>Again, save and exit.</p>
+<h5 id="f-apply-the-changes">f. Apply the Changes<a class="headerlink" href="#f-apply-the-changes" title="Permanent link">¶</a></h5>
+<p>Apply your changes by either restarting Git Bash or by sourcing the
+<code>.bash_profile</code> file:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nb">source</span><span class="w"> </span>~/.bash_profile
+</code></pre></div>
+<p>Every time you initiate a new Bash session, the <code>.bashrc</code> file gets
+sourced automatically due to the <code>.bash_profile</code> configuration. This
+setup loads the Conda configuration in <code>.bashrc</code>, enabling Conda command
+use.</p>
+<h3 id="4-verify-conda-activation">4. Verify Conda Activation<a class="headerlink" href="#4-verify-conda-activation" title="Permanent link">¶</a></h3>
+<ul>
+<li>Shut and reopen the Git Bash terminal in <code>VS Code</code>.</li>
+<li>Enter <code>conda activate</code> and hit <code>Enter</code>. If <code>(base)</code> appears in the
+  terminal, the base Conda environment is active.</li>
+</ul>
+<p>With these steps complete, you can now utilize Conda commands from the
+Git Bash terminal in VS Code on Windows 10. Whenever you launch a new
+Git Bash terminal in VS Code, Conda activates automatically,
+streamlining your Conda environment and package management tasks.</p>
+<h2 id="install-linux-tools-on-git-bash">Install Linux Tools on Git Bash<a class="headerlink" href="#install-linux-tools-on-git-bash" title="Permanent link">¶</a></h2>
+<p>When you lack admin rights on a Windows machine, system-wide software
+installations become tricky. Yet, for your local environment, like Git
+Bash, there's a way. For instance, to install the <code>make</code> tool, follow
+the steps below.</p>
+<h3 id="what-is-make">What is <code>make</code>?<a class="headerlink" href="#what-is-make" title="Permanent link">¶</a></h3>
+<p><code>make</code> is a utility controlling the creation of executables and other
+non-source program files.</p>
+<h3 id="steps-to-add-make-to-git-bash">Steps to Add <code>make</code> to Git Bash<a class="headerlink" href="#steps-to-add-make-to-git-bash" title="Permanent link">¶</a></h3>
+<h4 id="1-download-the-tool">1. Download the Tool<a class="headerlink" href="#1-download-the-tool" title="Permanent link">¶</a></h4>
+<p>Head over to
+<a href="https://sourceforge.net/projects/ezwinports/files/">ezwinports</a> and get
+<code>make-4.4.1-without-guile-w32-bin.zip</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Reference</p>
+<p><strong>Reference</strong>: Check this
+<a href="https://www.pascallandau.com/blog/setting-up-git-bash-mingw-msys2-on-windows/">article</a>
+for a more comprehensive setup guide.</p>
+</div>
+<h4 id="2-extract-the-download">2. Extract the Download<a class="headerlink" href="#2-extract-the-download" title="Permanent link">¶</a></h4>
+<p>Unpack the contents to, say,
+<code>C:\Users\[Username]\Tools\make-4.4.1-without-guile-w32-bin</code>.</p>
+<h4 id="3-update-the-path-in-git-bash">3. Update the <code>$PATH</code> in Git Bash<a class="headerlink" href="#3-update-the-path-in-git-bash" title="Permanent link">¶</a></h4>
+<p>Run the following commands:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'export PATH=$PATH:C:\\Users\\[Username]\\Tools\\make-4.4.1-without-guile-w32-bin\\bin'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>This is how your <code>.bashrc</code> profile should now appear:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:C:<span class="se">\\</span>Users<span class="se">\\</span><span class="o">[</span>Username<span class="o">]</span><span class="se">\\</span>Tools<span class="se">\\</span>make-4.4.1-without-guile-w32-bin<span class="se">\\</span>bin
+</code></pre></div>
+<h4 id="4-verify-installation">4. Verify Installation<a class="headerlink" href="#4-verify-installation" title="Permanent link">¶</a></h4>
+<p>At this point, you should be able to run <code>make</code> commands from Git Bash.</p>
+<h3 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Tools added this way are localized to your Git Bash environment for
+  your user profile. They won't be accessible in other command-line
+  interfaces unless their paths receive similar adjustments.</p>
+</li>
+<li>
+<p>Some tools might come with dependencies. Make it a habit to peruse
+  documentation or README files to guarantee all requisite components
+  are in place.</p>
+</li>
+</ul>
+<h4 id="install-poetry-for-dependency-management">Install Poetry for Dependency Management<a class="headerlink" href="#install-poetry-for-dependency-management" title="Permanent link">¶</a></h4>
+<p>Here are the steps to install Poetry in the NYL Windows 10 machine
+without admin access and firewall.</p>
+<h5 id="disconnect-vpn">Disconnect VPN<a class="headerlink" href="#disconnect-vpn" title="Permanent link">¶</a></h5>
+<p>Disconnect your VPN is it is connected.</p>
+<h5 id="update-conda">Update Conda<a class="headerlink" href="#update-conda" title="Permanent link">¶</a></h5>
+<p>Open the Anaconda PowerShell Prompt and update your Conda installation:</p>
+<div class="highlight"><span class="filename">Anaconda Prompt</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>conda<span class="w"> </span>update<span class="w"> </span>conda
+</code></pre></div>
+<h5 id="install-poetry-for-package-management">Install Poetry for Package Management<a class="headerlink" href="#install-poetry-for-package-management" title="Permanent link">¶</a></h5>
+<p>Following the Poetry's docs, let's install Poetry with <code>pipx</code>. First
+install <code>pipx</code>:</p>
+<div class="highlight"><span class="filename">Anaconda Prompt</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pipx
+</code></pre></div>
+<p>Install Poetry using <code>pipx</code>:</p>
+<div class="highlight"><span class="filename">Anaconda Prompt</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><span class="filename">Anaconda Prompt</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>installed<span class="w"> </span>package<span class="w"> </span>poetry<span class="w"> </span><span class="m">1</span>.6.1,<span class="w"> </span>installed<span class="w"> </span>using<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.9.18
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>These<span class="w"> </span>apps<span class="w"> </span>are<span class="w"> </span>now<span class="w"> </span>globally<span class="w"> </span>available
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>-<span class="w"> </span>poetry.exe
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a>⚠️<span class="w"> </span>Note:<span class="w"> </span><span class="s1">'C:\\Users\\[Username]\\.local\\bin'</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>PATH<span class="w"> </span>environment<span class="w"> </span>variable.<span class="w"> </span>These<span class="w"> </span>apps<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>globally<span class="w"> </span>accessible<span class="w"> </span><span class="k">until</span><span class="w"> </span>your<span class="w"> </span>PATH<span class="w"> </span>is
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>updated.<span class="w"> </span>Run<span class="w"> </span>pipx<span class="w"> </span>ensurepath<span class="w"> </span>to<span class="w"> </span>automatically<span class="w"> </span>add<span class="w"> </span>it,<span class="w"> </span>or<span class="w"> </span>manually<span class="w"> </span>modify<span class="w"> </span>your<span class="w"> </span>PATH<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>shell<span class="err">'</span>s<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>~/.bashrc<span class="o">)</span>.
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🌟<span class="w"> </span>✨
+</code></pre></div>
+<p>It looks like Poetry was installed successfully using Pipx, but the
+<code>.local/bin</code>folder where the poetry executable is installed is not in
+your PATH environment variable.</p>
+<p>Since you don't have admin access to modify the PATH globally, you need
+to update it just for your user account.</p>
+<p>Since we are using <code>.bashrc</code> and <code>.bash_profile</code> files for our shell
+configuration on Windows, here is how you can automatically add Poetry's
+path to our <code>PATH</code>. Add the following line to your <code>.bash_profile</code>:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:C:<span class="se">\\</span>Users<span class="se">\\</span><span class="o">[</span>Username<span class="o">]</span><span class="se">\\</span>.local<span class="se">\\</span>bin
+</code></pre></div>
+<p>Your <code>.bashrc</code> must looks like this:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># Add Anaconda to PATH</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="c1"># Sourcing this script initializes Conda and adds it to the PATH</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># This gives access to Conda, Python and any packages installed in the default Conda env</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1"># This give access to Conda command from Git Bash integrated in VS Code</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># Add Make to PATH</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="c1"># This adds the Make (GNU make) bin folder containing make.exe to the PATH</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1"># Now Make can be run from any directory in the Git Bash terminal integrated in VS Code</span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:C:<span class="se">\\</span>Users<span class="se">\\</span><span class="o">[</span>Username<span class="o">]</span><span class="se">\\</span>Tools<span class="se">\\</span>make-4.4.1-without-guile-w32-bin<span class="se">\\</span>bin
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="c1"># Add Poetry to PATH</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="c1"># Poetry is used for Python dependency and package management</span>
+<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="c1"># It was installed using Pipx into the ~/.local/bin folder</span>
+<a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="c1"># Adding this folder to PATH makes the poetry command globally available</span>
+<a href="#__codelineno-17-14" id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="c1"># Now Make can be run from any directory in the Git Bash terminal integrated in VS Code</span>
+<a href="#__codelineno-17-15" id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:C:<span class="se">\\</span>Users<span class="se">\\</span><span class="o">[</span>Username<span class="o">]</span><span class="se">\\</span>.local<span class="se">\\</span>bin
+<a href="#__codelineno-17-16" id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="c1"># General notes:</span>
+<a href="#__codelineno-17-17" id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="c1"># - Use single quotes for Windows paths</span>
+<a href="#__codelineno-17-18" id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="c1"># - Escape spaces and special characters in paths</span>
+<a href="#__codelineno-17-19" id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="c1"># - Export PATH additions to make commands globally available</span>
+<a href="#__codelineno-17-20" id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="c1"># - Source scripts like conda.sh to initialize environments</span>
+<a href="#__codelineno-17-21" id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="c1"># - Restart shell or run source ~/.bashrc after making changes</span>
+</code></pre></div>
+<p>Now, restart your Git Bash terminal integrated in VS Code or run <code>source
+~/.bashrc</code> and validate the Poetry command is available:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>$<span class="w"> </span>poetry<span class="w"> </span>--version
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>Poetry<span class="w"> </span><span class="o">(</span>version<span class="w"> </span><span class="m">1</span>.6.1<span class="o">)</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Notice that the Conda <code>base</code> environment must be activated to validate
+that <code>conda</code>, <code>make</code> and, <code>poetry</code> commands are available on Git Bash:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">[</span>Username<span class="o">]</span>@IAG-MAGUI1-KQ10<span class="w"> </span>MINGW64<span class="w"> </span>~/OneDrive<span class="w"> </span>-<span class="w"> </span>New<span class="w"> </span>York<span class="w"> </span>Life/Documents/Projects/service-sage-rag
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>$<span class="w"> </span>conda<span class="w"> </span>activate
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="o">[</span>Username<span class="o">]</span>@IAG-MAGUI1-KQ10<span class="w"> </span>MINGW64<span class="w"> </span>~/OneDrive<span class="w"> </span>-<span class="w"> </span>New<span class="w"> </span>York<span class="w"> </span>Life/Documents/Projects/service-sage-rag
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>$<span class="w"> </span>conda<span class="w"> </span>--version
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>conda<span class="w"> </span><span class="m">23</span>.9.0
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="o">[</span>Username<span class="o">]</span>@IAG-MAGUI1-KQ10<span class="w"> </span>MINGW64<span class="w"> </span>~/OneDrive<span class="w"> </span>-<span class="w"> </span>New<span class="w"> </span>York<span class="w"> </span>Life/Documents/Projects/service-sage-rag
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>$<span class="w"> </span>make<span class="w"> </span>--version
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>GNU<span class="w"> </span>Make<span class="w"> </span><span class="m">4</span>.4.1
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>Built<span class="w"> </span><span class="k">for</span><span class="w"> </span>Windows32
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">1988</span>-2023<span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>License<span class="w"> </span>GPLv3+:<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="w"> </span>version<span class="w"> </span><span class="m">3</span><span class="w"> </span>or<span class="w"> </span>later<span class="w"> </span>&lt;https://gnu.org/licenses/gpl.html&gt;
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software:<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>free<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>and<span class="w"> </span>redistribute<span class="w"> </span>it.
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>WARRANTY,<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>extent<span class="w"> </span>permitted<span class="w"> </span>by<span class="w"> </span>law.
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="o">[</span>Username<span class="o">]</span>@IAG-MAGUI1-KQ10<span class="w"> </span>MINGW64<span class="w"> </span>~/OneDrive<span class="w"> </span>-<span class="w"> </span>New<span class="w"> </span>York<span class="w"> </span>Life/Documents/Projects/service-sage-rag
+<a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a>$<span class="w"> </span>poetry<span class="w"> </span>--version
+<a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a>Poetry<span class="w"> </span><span class="o">(</span>version<span class="w"> </span><span class="m">1</span>.6.1<span class="o">)</span>
+<a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that it is not necessary to update the project's <code>Makefile</code>
+to execute Poetry commands using Make.</p>
+</div>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/LLMsLab/cookiecutter-rag" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
