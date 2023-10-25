@@ -1,13 +1,53 @@
 {
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.defaultInterpreterPath": "",
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-          "path": "bash",
-          "args": ["-l"]
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": [],
+            "icon": "terminal-bash"
         }
-      },
+    },
+    "terminal.integrated.profiles.linux": {
+        "Bash": {
+            "path": "/bin/bash",
+            "args": [],
+            "icon": "terminal-bash"
+        },
+        "Zsh": {
+            "path": "/bin/zsh",
+            "args": [],
+            "icon": "terminal-zsh"
+        }
+
+    },
+    "terminal.integrated.profiles.osx": {
+        "Bash": {
+            "path": "/bin/bash",
+            "args": [],
+            "icon": "terminal-bash"
+        },
+        "Zsh": {
+            "path": "/bin/zsh",
+            "args": [],
+            "icon": "terminal-zsh"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.defaultProfile.linux": "Bash",
+    "terminal.integrated.defaultProfile.osx": "Zsh",
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "vscode-icons",
     "workbench.productIconTheme": "Default",
