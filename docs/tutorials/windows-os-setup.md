@@ -25,36 +25,39 @@ get started!
 
 ### Prerequisites
 
-1. **Visual Studio Code (VS Code):**
-   - Download and install VS Code by following the instructions on the
-     official website: [VS Code
-     Download](https://code.visualstudio.com/download)
-   - During the installation process, choose an installation location
-     within a directory where you have write permissions, typically
-     within your user directory, `C:/Users/[Username]/`. You should not
-     encounter any admin rights issues during the installation of VS
-     Code.
+**Visual Studio Code (VS Code):**
 
-2. **Anaconda Distribution:**
-   - Download the Anaconda Distribution for Windows from the official
-     website: [Anaconda
-     Download](https://www.anaconda.com/products/distribution)
-   - Follow these steps to install Anaconda without admin rights:
-     - During the Anaconda installation process, when you reach the
-       "Advanced Options" section, select the "Install for me only"
-       option.
-     - Choose a directory location where you have write permissions
-       (e.g., your user directory) for the installation.
-     - Complete the installation process.
+- Download and install VS Code by following the instructions on the
+  official website: [VS Code
+  Download](https://code.visualstudio.com/download)
+- During the installation process, choose an installation location
+  within a directory where you have write permissions, typically
+  within your user directory, `C:/Users/[Username]/`. You should not
+  encounter any admin rights issues during the installation of VS
+  Code.
 
-3. **Git Bash:**
-   - Download and install Git Bash, which provides a Unix-like
-     command-line environment for Windows: [Git Bash
-     Download](https://git-scm.com/downloads)
-   - During the installation, choose an installation location within a
-     directory where you have write permissions (e.g., your user
-     directory). You should not encounter any admin rights issues when
-     installing Git Bash.
+**Anaconda Distribution:**
+
+- Download the Anaconda Distribution for Windows from the official
+  website: [Anaconda
+  Download](https://www.anaconda.com/products/distribution)
+- Follow these steps to install Anaconda without admin rights:
+    - During the Anaconda installation process, when you reach the
+      "Advanced Options" section, select the "Install for me only"
+      option.
+    - Choose a directory location where you have write permissions
+      (e.g., your user directory) for the installation.
+    - Complete the installation process.
+
+**Git Bash:**
+
+- Download and install Git Bash, which provides a Unix-like
+  command-line environment for Windows: [Git Bash
+  Download](https://git-scm.com/downloads)
+- During the installation, choose an installation location within a
+  directory where you have write permissions (e.g., your user
+  directory). You should not encounter any admin rights issues when
+  installing Git Bash.
 
 Once you have installed these prerequisites, you'll be ready to set up
 and run this project on your Windows 10 machine, even without admin
@@ -257,17 +260,17 @@ export PATH=$PATH:C:\\Users\\[Username]\\Tools\\make-4.4.1-without-guile-w32-bin
 
 At this point, you should be able to run `make` commands from Git Bash.
 
-### Important Notes
+!!! note
 
-- Tools added this way are localized to your Git Bash environment for
-  your user profile. They won't be accessible in other command-line
-  interfaces unless their paths receive similar adjustments.
+    Tools added this way are localized to your Git Bash environment for
+    your user profile. They won't be accessible in other command-line
+    interfaces unless their paths receive similar adjustments.
   
-- Some tools might come with dependencies. Make it a habit to peruse
-  documentation or README files to guarantee all requisite components
-  are in place.
+    Some tools might come with dependencies. Make it a habit to peruse
+    documentation or README files to guarantee all requisite components
+    are in place.
 
-#### Install Poetry for Dependency Management
+## Install Poetry for Dependency Management
 
 Here are the steps to install Poetry in the NYL Windows 10 machine
 without admin access and firewall.
