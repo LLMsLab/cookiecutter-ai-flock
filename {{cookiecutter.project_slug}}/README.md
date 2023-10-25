@@ -75,22 +75,27 @@ Docs](https://llmslab.github.io/cookiecutter-rag/) ⚡⚡
 
 ## 👉 Instructions
 
-Welcome to the setup guide for creating a Python environment on a
-Windows 10 OS machine without admin rights and behind a firewall. This
-guide will walk you through all the prerequisites and steps required to
-set up a Python development environment, ensuring you can work
-seamlessly even with limited permissions on your Windows 10 machine.
+For detailed steps on setting up a Python environment on a Windows 10 OS
+machine without admin rights and behind a firewall, please refer to the
+Docs page of the Cookiecutter RAG website:
 
-In the following sections, you will find instructions on installing
-essential tools like Visual Studio Code, Anaconda, and Git Bash without
-requiring administrative privileges. We'll also provide guidance on
-configuring your environment behind a firewall, ensuring a smooth setup
-process for your {{cookiecutter.package_name}} project.
+📖 [Cookiecutter RAG Windows OS Setup
+Guide](https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/)
 
-Follow these steps carefully to get your Python environment up and
-running, and you'll be well-equipped to dive into your
-{{cookiecutter.package_name}} project. Let's
-get started!
+This comprehensive guide covers all prerequisites and steps necessary to
+ensure a smooth Python development setup. It includes instructions for
+installing essential tools such as Visual Studio Code, Anaconda, and Git
+Bash without requiring administrative privileges. Additionally, it
+provides guidance on configuring your environment behind a firewall.
+
+Ensure you follow these instructions meticulously to ensure your Python
+environment is prepared effectively for your
+{{cookiecutter.package_name}} project. Dive in and best of luck with
+your setup!
+
+After completing the [Cookiecutter RAG Windows OS Setup
+Guide](https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/),
+please proceed with the following "Per-project Instructions".
 
 ## 🔄 Per-Project Instructions
 
@@ -106,9 +111,7 @@ conda activate {{cookiecutter.environment_name}}
 ### ✅ Install Dependencies
 
 ```bash
-
 make poetry_dependencies
-
 ```
 
 ### ✅ Build Documentation
