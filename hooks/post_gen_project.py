@@ -40,10 +40,10 @@ def modify_vscode_settings(cookiecutter_env_name):
             ] = f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python.exe"
             settings[
                 "ruff.path"
-            ] = f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python\\ruff.exe"
+            ] = [f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python\\ruff.exe"]
             settings[
                 "ruff.interpreter"
-            ] = f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python.exe"
+            ] = [f"C:\\Users\\{username}\\Anaconda3\\envs\\{cookiecutter_env_name}\\python.exe"]
         else:
             # Log a warning if the username could not be obtained
             logging.warning(
@@ -56,10 +56,10 @@ def modify_vscode_settings(cookiecutter_env_name):
         ] = f"/anaconda/envs/{cookiecutter_env_name}/bin/python"
         settings[
             "ruff.path"
-        ] = f"/anaconda/envs/{cookiecutter_env_name}/bin/python/ruff"
+        ] = [f"/anaconda/envs/{cookiecutter_env_name}/bin/python/ruff"]
         settings[
             "ruff.interpreter"
-        ] = f"/anaconda/envs/{cookiecutter_env_name}/bin/python"
+        ] = [f"/anaconda/envs/{cookiecutter_env_name}/bin/python"]
 
     # Open and write the modified settings to the settings.json file
     with open(settings_path, "w") as f:
