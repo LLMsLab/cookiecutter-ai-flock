@@ -77,10 +77,10 @@
         "--config=pyproject.toml"
     ],
     "ruff.path": [
-        "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python/ruff"
+        ""
     ],
     "ruff.interpreter": [
-        "/anaconda/envs/{{cookiecutter.environment_name}}/bin/python"
+        ""
     ],
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": false,
