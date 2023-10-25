@@ -456,11 +456,15 @@ make poetry_dependencies
 make docs_build
 ```
 
+> Stop the server using Ctrl + C
+
 #### ✅ Start the live-reloading docs server
 
 ```bash
 make docs_serve
 ```
+
+> At this point, close and reopen the VS Code project.
 
 #### ✅ CSpell Checker: Extracting Terms from Python Libraries
 
