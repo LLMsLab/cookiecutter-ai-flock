@@ -1,7 +1,7 @@
 # Cookicutter RAG
 
 This site contains the project documentation for the
-{{cookiecutter.project_name}} project.
+Cookiecutter RAG project.
 
 The documentation follows the best practice for
 project documentation as described by Daniele Procida
