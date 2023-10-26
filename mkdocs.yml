@@ -6,6 +6,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: "material" #readthedocs
+  logo: assets/logo.png
   icon:
     repo: simple/github
   palette:

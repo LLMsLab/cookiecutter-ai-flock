@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/logo.png" alt="Logo" width="200"/>
+</p>
+
 # Cookiecutter for Retrieval-Augmented Generation
 
 _Dive into a meticulously crafted, yet adaptable blueprint tailored for
