@@ -212,8 +212,8 @@
 <nav aria-label="If these files are absent in your home directory:" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#a-open-git-bash">
-    a. Open Git Bash
+<a class="md-nav__link" href="#a-open-the-integrated-git-bash-terminal-in-vs-code">
+    a. Open the integrated Git Bash terminal in VS Code
   </a>
 </li>
 <li class="md-nav__item">
@@ -410,8 +410,8 @@
 <nav aria-label="If these files are absent in your home directory:" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#a-open-git-bash">
-    a. Open Git Bash
+<a class="md-nav__link" href="#a-open-the-integrated-git-bash-terminal-in-vs-code">
+    a. Open the integrated Git Bash terminal in VS Code
   </a>
 </li>
 <li class="md-nav__item">
@@ -529,7 +529,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="setting-up-a-python-environment-on-windows-os">Setting Up a Python Environment on Windows OS<a class="headerlink" href="#setting-up-a-python-environment-on-windows-os" title="Permanent link">¶</a></h1>
 <p>Welcome to the setup guide for creating a Python environment on a
-Windows 10 OS machine without admin rights and behind a firewall. This
+Windows OS machine without admin rights and behind a firewall. This
 guide will walk you through all the prerequisites and steps required to
 set up a Python development environment, ensuring you can work
 seamlessly even with limited permissions on your Windows machine.</p>
@@ -545,7 +545,7 @@ get started!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Before you can get started with this project, you'll need to
-have the following software installed on your Windows 10 machine.</p>
+have the following software installed on your Windows machine.</p>
 </div>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h3>
 <p><strong>Visual Studio Code (VS Code):</strong></p>
@@ -585,7 +585,7 @@ have the following software installed on your Windows 10 machine.</p>
   installing Git Bash.</li>
 </ul>
 <p>Once you have installed these prerequisites, you'll be ready to set up
-and run this project on your Windows 10 machine, even without admin
+and run this project on your Windows machine, even without admin
 rights.</p>
 <h2 id="install-recommended-vs-code-extensions">Install Recommended VS Code Extensions<a class="headerlink" href="#install-recommended-vs-code-extensions" title="Permanent link">¶</a></h2>
 <p>To ensure a consistent development environment and take advantage of
@@ -630,10 +630,10 @@ install the extensions specified in the <code>.vscode/extensions.json</code> fil
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
 </code></pre></div>
 <h3 id="3-automate-conda-activation">3. Automate Conda Activation<a class="headerlink" href="#3-automate-conda-activation" title="Permanent link">¶</a></h3>
-<p>To ensure Conda activates automatically every time you launch a Git Bash
-terminal in VS Code:</p>
+<p>To ensure Conda activates automatically every time you launch the
+integrated Git Bash terminal in VS Code:</p>
 <h4 id="determine-bashrc-and-bash_profile-location">Determine <code>.bashrc</code> and <code>.bash_profile</code> location<a class="headerlink" href="#determine-bashrc-and-bash_profile-location" title="Permanent link">¶</a></h4>
-<p>In the Git Bash terminal, run:</p>
+<p>In the integrated Git Bash terminal of VS Code, run:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
 </code></pre></div>
 <div class="admonition note">
@@ -642,8 +642,19 @@ terminal in VS Code:</p>
 hidden files' option in File Explorer.</p>
 </div>
 <h4 id="if-these-files-are-absent-in-your-home-directory">If these files are absent in your home directory:<a class="headerlink" href="#if-these-files-are-absent-in-your-home-directory" title="Permanent link">¶</a></h4>
-<h5 id="a-open-git-bash">a. Open Git Bash<a class="headerlink" href="#a-open-git-bash" title="Permanent link">¶</a></h5>
-<p>Either from the Start menu or within Visual Studio Code.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In Windows OS, the home directory for a user is typically located at
+<code>C:/Users/[Username]/</code>, where <code>[Username]</code> is the name of the user
+account. When using tools that are Unix-based or Unix-like (e.g., Git
+Bash), the concept of the "home" directory often maps to this path.</p>
+<p>When you're in Git Bash, for instance, referencing <code>~</code> (the tilde
+symbol) will typically point to this directory. So if you run a command
+like <code>cd ~</code> in Git Bash, it would take you to <code>C:/Users/[Username]/</code>.</p>
+</div>
+<h5 id="a-open-the-integrated-git-bash-terminal-in-vs-code">a. Open the integrated Git Bash terminal in VS Code<a class="headerlink" href="#a-open-the-integrated-git-bash-terminal-in-vs-code" title="Permanent link">¶</a></h5>
+<p>You can do this by selecting the Git Bash option from the terminal
+dropdown in VS Code or by setting it as the default terminal.</p>
 <h5 id="b-create-the-bashrc-file">b. Create the <code>.bashrc</code> File<a class="headerlink" href="#b-create-the-bashrc-file" title="Permanent link">¶</a></h5>
 <p>Enter this command to generate a <code>.bashrc</code> file in your home directory:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>touch<span class="w"> </span>~/.bashrc
@@ -654,32 +665,33 @@ hidden files' option in File Explorer.</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>touch<span class="w"> </span>~/.bash_profile
 </code></pre></div>
 <h5 id="d-edit-the-bash_profile-file">d. Edit the <code>.bash_profile</code> File<a class="headerlink" href="#d-edit-the-bash_profile-file" title="Permanent link">¶</a></h5>
-<p>Using a text editor like <code>nano</code>, run:</p>
-<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>nano<span class="w"> </span>~/.bash_profile
+<p>To edit the file using VS Code's built-in editor, run:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>code<span class="w"> </span>~/.bash_profile
 </code></pre></div>
-<p>Then, incorporate these lines:</p>
+<p>Once opened in VS Code, incorporate these lines:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">fi</span>
 </code></pre></div>
-<p>Save and exit (<code>Ctrl + X</code>, <code>Y</code>, <code>Enter</code> in <code>nano</code>).</p>
+<p>Save and close the file.</p>
 <h5 id="e-edit-the-bashrc-file">e. Edit the <code>.bashrc</code> File<a class="headerlink" href="#e-edit-the-bashrc-file" title="Permanent link">¶</a></h5>
-<p>Edit <code>.bashrc</code> to add the Conda configuration:</p>
-<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>nano<span class="w"> </span>~/.bashrc
+<p>To edit the <code>.bashrc</code> file in VS Code, use:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>code<span class="w"> </span>~/.bashrc
 </code></pre></div>
 <p>Then, append:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>.<span class="w"> </span>C:/Users/<span class="o">[</span>Username<span class="o">]</span>/Anaconda3/etc/profile.d/conda.sh
 </code></pre></div>
-<p>Again, save and exit.</p>
+<p>Remember to replace <code>[Username]</code> with your actual username. Save and
+close the file once done.</p>
 <h5 id="f-apply-the-changes">f. Apply the Changes<a class="headerlink" href="#f-apply-the-changes" title="Permanent link">¶</a></h5>
-<p>Apply your changes by either restarting Git Bash or by sourcing the
-<code>.bash_profile</code> file:</p>
+<p>Apply your changes by either restarting the integrated Git Bash terminal
+in VS Code or by sourcing the <code>.bash_profile</code> file:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nb">source</span><span class="w"> </span>~/.bash_profile
 </code></pre></div>
-<p>Every time you initiate a new Bash session, the <code>.bashrc</code> file gets
-sourced automatically due to the <code>.bash_profile</code> configuration. This
-setup loads the Conda configuration in <code>.bashrc</code>, enabling Conda command
-use.</p>
+<p>Every time you initiate a new Bash session within VS Code, the <code>.bashrc</code>
+file gets sourced automatically due to the <code>.bash_profile</code>
+configuration. This setup loads the Conda configuration in <code>.bashrc</code>,
+enabling the use of Conda commands.</p>
 <h3 id="4-verify-conda-activation">4. Verify Conda Activation<a class="headerlink" href="#4-verify-conda-activation" title="Permanent link">¶</a></h3>
 <ul>
 <li>Shut and reopen the Git Bash terminal in <code>VS Code</code>.</li>
@@ -687,7 +699,7 @@ use.</p>
   terminal, the base Conda environment is active.</li>
 </ul>
 <p>With these steps complete, you can now utilize Conda commands from the
-Git Bash terminal in VS Code on Windows 10. Whenever you launch a new
+Git Bash terminal in VS Code on Windows. Whenever you launch a new
 Git Bash terminal in VS Code, Conda activates automatically,
 streamlining your Conda environment and package management tasks.</p>
 <h2 id="install-linux-tools-on-git-bash">Install Linux Tools on Git Bash<a class="headerlink" href="#install-linux-tools-on-git-bash" title="Permanent link">¶</a></h2>
@@ -733,7 +745,7 @@ documentation or README files to guarantee all requisite components
 are in place.</p>
 </div>
 <h2 id="install-poetry-for-dependency-management">Install Poetry for Dependency Management<a class="headerlink" href="#install-poetry-for-dependency-management" title="Permanent link">¶</a></h2>
-<p>Here are the steps to install Poetry in the NYL Windows 10 machine
+<p>Here are the steps to install Poetry in the NYL Windows machine
 without admin access and firewall.</p>
 <h5 id="disconnect-vpn">Disconnect VPN<a class="headerlink" href="#disconnect-vpn" title="Permanent link">¶</a></h5>
 <p>Disconnect your VPN is it is connected.</p>
@@ -823,17 +835,12 @@ that <code>conda</code>, <code>make</code> and, <code>poetry</code> commands are
 <a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a>Poetry<span class="w"> </span><span class="o">(</span>version<span class="w"> </span><span class="m">1</span>.6.1<span class="o">)</span>
 <a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Notice that it is not necessary to update the project's <code>Makefile</code>
-to execute Poetry commands using Make.</p>
-</div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 26, 2023</span>
 </small>
 </div>
 </article>
