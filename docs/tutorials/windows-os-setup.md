@@ -1,7 +1,7 @@
 # Setting Up a Python Environment on Windows OS
 
 Welcome to the setup guide for creating a Python environment on a
-Windows 10 OS machine without admin rights and behind a firewall. This
+Windows OS machine without admin rights and behind a firewall. This
 guide will walk you through all the prerequisites and steps required to
 set up a Python development environment, ensuring you can work
 seamlessly even with limited permissions on your Windows machine.
@@ -21,7 +21,7 @@ get started!
 !!! note
 
     Before you can get started with this project, you'll need to
-    have the following software installed on your Windows 10 machine.
+    have the following software installed on your Windows machine.
 
 ### Prerequisites
 
@@ -60,7 +60,7 @@ get started!
   installing Git Bash.
 
 Once you have installed these prerequisites, you'll be ready to set up
-and run this project on your Windows 10 machine, even without admin
+and run this project on your Windows machine, even without admin
 rights.
 
 ## Install Recommended VS Code Extensions
@@ -110,12 +110,12 @@ Follow the steps below to get started:
 
 ### 3. Automate Conda Activation
 
-To ensure Conda activates automatically every time you launch a Git Bash
-terminal in VS Code:
+To ensure Conda activates automatically every time you launch the
+integrated Git Bash terminal in VS Code:
 
 #### Determine `.bashrc` and `.bash_profile` location
 
-In the Git Bash terminal, run:
+In the integrated Git Bash terminal of VS Code, run:
 
 ```bash title="Bash"
 echo $HOME
@@ -128,9 +128,21 @@ echo $HOME
 
 #### If these files are absent in your home directory:
 
-##### a. Open Git Bash
+!!! info
 
-Either from the Start menu or within Visual Studio Code.
+    In Windows OS, the home directory for a user is typically located at
+    `C:/Users/[Username]/`, where `[Username]` is the name of the user
+    account. When using tools that are Unix-based or Unix-like (e.g., Git
+    Bash), the concept of the "home" directory often maps to this path.
+
+    When you're in Git Bash, for instance, referencing `~` (the tilde
+    symbol) will typically point to this directory. So if you run a command
+    like `cd ~` in Git Bash, it would take you to `C:/Users/[Username]/`.
+
+##### a. Open the integrated Git Bash terminal in VS Code
+
+You can do this by selecting the Git Bash option from the terminal
+dropdown in VS Code or by setting it as the default terminal.
 
 ##### b. Create the `.bashrc` File
 
@@ -152,13 +164,13 @@ touch ~/.bash_profile
 
 ##### d. Edit the `.bash_profile` File
 
-Using a text editor like `nano`, run:
+To edit the file using VS Code's built-in editor, run:
 
 ```bash title="Bash"
-nano ~/.bash_profile
+code ~/.bash_profile
 ```
 
-Then, incorporate these lines:
+Once opened in VS Code, incorporate these lines:
 
 ```bash title="Bash"
 if [ -f ~/.bashrc ]; then
@@ -166,14 +178,14 @@ if [ -f ~/.bashrc ]; then
 fi
 ```
 
-Save and exit (`Ctrl + X`, `Y`, `Enter` in `nano`).
+Save and close the file.
 
 ##### e. Edit the `.bashrc` File
 
-Edit `.bashrc` to add the Conda configuration:
+To edit the `.bashrc` file in VS Code, use:
 
 ```bash title="Bash"
-nano ~/.bashrc
+code ~/.bashrc
 ```
 
 Then, append:
@@ -182,21 +194,22 @@ Then, append:
 . C:/Users/[Username]/Anaconda3/etc/profile.d/conda.sh
 ```
 
-Again, save and exit.
+Remember to replace `[Username]` with your actual username. Save and
+close the file once done.
 
 ##### f. Apply the Changes
 
-Apply your changes by either restarting Git Bash or by sourcing the
-`.bash_profile` file:
+Apply your changes by either restarting the integrated Git Bash terminal
+in VS Code or by sourcing the `.bash_profile` file:
 
 ```bash title="Bash"
 source ~/.bash_profile
 ```
 
-Every time you initiate a new Bash session, the `.bashrc` file gets
-sourced automatically due to the `.bash_profile` configuration. This
-setup loads the Conda configuration in `.bashrc`, enabling Conda command
-use.
+Every time you initiate a new Bash session within VS Code, the `.bashrc`
+file gets sourced automatically due to the `.bash_profile`
+configuration. This setup loads the Conda configuration in `.bashrc`,
+enabling the use of Conda commands.
 
 ### 4. Verify Conda Activation
 
@@ -205,7 +218,7 @@ use.
   terminal, the base Conda environment is active.
 
 With these steps complete, you can now utilize Conda commands from the
-Git Bash terminal in VS Code on Windows 10. Whenever you launch a new
+Git Bash terminal in VS Code on Windows. Whenever you launch a new
 Git Bash terminal in VS Code, Conda activates automatically,
 streamlining your Conda environment and package management tasks.
 
@@ -272,7 +285,7 @@ At this point, you should be able to run `make` commands from Git Bash.
 
 ## Install Poetry for Dependency Management
 
-Here are the steps to install Poetry in the NYL Windows 10 machine
+Here are the steps to install Poetry in the NYL Windows machine
 without admin access and firewall.
 
 ##### Disconnect VPN
@@ -392,8 +405,3 @@ $ poetry --version
 Poetry (version 1.6.1)
 (base) 
 ```
-
-!!! note
-
-    Notice that it is not necessary to update the project's `Makefile`
-    to execute Poetry commands using Make.
