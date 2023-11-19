@@ -1,7 +1,7 @@
-# Cookicutter RAG
+# Cookicutter for GenAI, ML & AI
 
 This site contains the project documentation for the
-Cookiecutter RAG project.
+Cookiecutter for GenAI, ML & AI project.
 
 The documentation follows the best practice for
 project documentation as described by Daniele Procida

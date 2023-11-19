@@ -4,9 +4,9 @@
 
 Certainly! Here's your updated message with the additional text:
 
-⚡⚡ This project has been created using the [Cookiecutter RAG](https://github.com/LLMsLab/ccookiecutter-genai-ml-ai)
+⚡⚡ This project has been created using the [Cookiecutter GenAI, ML & AI](https://github.com/LLMsLab/ccookiecutter-genai-ml-ai)
 template. The following website provides information on how to use all
-the tools included in the project repository: [Cookiecutter RAG Template
+the tools included in the project repository: [Cookiecutter GenAI, ML & AI Template
 Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 
 ## 📂 Directory Structure
@@ -77,9 +77,9 @@ Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 
 For detailed steps on setting up a Python environment on a Windows 10 OS
 machine without admin rights and behind a firewall, please refer to the
-Docs page of the Cookiecutter RAG website:
+Docs page of the Cookiecutter GenAI, ML & AI website:
 
-📖 [Cookiecutter RAG Windows OS Setup
+📖 [Cookiecutter GenAI, ML & AI Windows OS Setup
 Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/)
 
 This comprehensive guide covers all prerequisites and steps necessary to
@@ -93,7 +93,7 @@ environment is prepared effectively for your
 {{cookiecutter.package_name}} project. Dive in and best of luck with
 your setup!
 
-After completing the [Cookiecutter RAG Windows OS Setup
+After completing the [Cookiecutter GenAI, ML & AI Windows OS Setup
 Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/),
 please proceed with the following "Per-project Instructions".
 

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Cookiecutter RAG"
+name = "Cookiecutter GenAI, ML & AI"
 version = "0.1.0"
 description = "A Cookiecutter template for Retreival-Agumented Generation projects"
 authors = ["Marcos Aguilera Keyser <marcosak@gmail.com>"]

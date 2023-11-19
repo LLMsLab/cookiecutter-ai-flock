@@ -2,7 +2,7 @@
   <img src="docs/assets/logo.png" alt="Logo" width="200"/>
 </p>
 
-# Cookiecutter for Retrieval-Augmented Generation
+# Cookiecutter for GenAI, ML & AI
 
 _Dive into a meticulously crafted, yet adaptable blueprint tailored for
 cutting-edge artificial intelligence projects._
