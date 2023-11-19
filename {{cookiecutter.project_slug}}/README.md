@@ -4,10 +4,10 @@
 
 Certainly! Here's your updated message with the additional text:
 
-⚡⚡ This project has been created using the [Cookiecutter RAG](https://github.com/LLMsLab/cookiecutter-rag)
+⚡⚡ This project has been created using the [Cookiecutter RAG](https://github.com/LLMsLab/ccookiecutter-genai-ml-ai)
 template. The following website provides information on how to use all
 the tools included in the project repository: [Cookiecutter RAG Template
-Docs](https://llmslab.github.io/cookiecutter-rag/) ⚡⚡
+Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 
 ## 📂 Directory Structure
 
@@ -80,7 +80,7 @@ machine without admin rights and behind a firewall, please refer to the
 Docs page of the Cookiecutter RAG website:
 
 📖 [Cookiecutter RAG Windows OS Setup
-Guide](https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/)
+Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/)
 
 This comprehensive guide covers all prerequisites and steps necessary to
 ensure a smooth Python development setup. It includes instructions for
@@ -94,7 +94,7 @@ environment is prepared effectively for your
 your setup!
 
 After completing the [Cookiecutter RAG Windows OS Setup
-Guide](https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/),
+Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/),
 please proceed with the following "Per-project Instructions".
 
 ## 🔄 Per-Project Instructions

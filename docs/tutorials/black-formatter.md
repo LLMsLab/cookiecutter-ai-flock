@@ -47,9 +47,9 @@ Here's an example of what you might see:
 ```bash
 2023-09-20 12:38:00.934 [info] Sending request 'textDocument/formatting - (5)'.
 2023-09-20 12:38:00.936 [info] Received notification 'window/logMessage'.
-2023-09-20 12:38:00.936 [info] Running: /Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11/bin/python -m black --stdin-filename /Users/markeyser/Projects/cookiecutter-rag/checkformatter.py
-2023-09-20 12:38:00.938 [info] CWD formatter: /Users/markeyser/Projects/cookiecutter-rag
-2023-09-20 12:38:00.938 [info] reformatted /Users/markeyser/Projects/cookiecutter-rag/checkformatter.py
+2023-09-20 12:38:00.936 [info] Running: /Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11/bin/python -m black --stdin-filename /Users/markeyser/Projects/ccookiecutter-genai-ml-ai/checkformatter.py
+2023-09-20 12:38:00.938 [info] CWD formatter: /Users/markeyser/Projects/ccookiecutter-genai-ml-ai
+2023-09-20 12:38:00.938 [info] reformatted /Users/markeyser/Projects/ccookiecutter-genai-ml-ai/checkformatter.py
 All done! ✨ 🍰 ✨
 1 file reformatted.
 2023-09-20 12:38:00.940 [info] Sending notification 'textDocument/didChange'.

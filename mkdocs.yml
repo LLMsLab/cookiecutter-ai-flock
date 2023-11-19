@@ -1,7 +1,7 @@
 site_name: Cookiecutter RAG
-site_url: "https://llmslab.github.io/cookiecutter-rag/"
-repo_url: "https://github.com/LLMsLab/cookiecutter-rag"
-repo_name: llmslab.github.io/cookiecutter-rag/
+site_url: "https://llmslab.github.io/ccookiecutter-genai-ml-ai/"
+repo_url: "https://github.com/LLMsLab/ccookiecutter-genai-ml-ai"
+repo_name: llmslab.github.io/ccookiecutter-genai-ml-ai/
 edit_uri: edit/main/docs/
 
 theme:
@@ -28,7 +28,7 @@ theme:
 extra:
   social:
     - icon: "fontawesome/brands/github"
-      link: "https://github.com/LLMsLab/cookiecutter-rag"
+      link: "https://github.com/LLMsLab/ccookiecutter-genai-ml-ai"
 
 markdown_extensions:
   # Include admonitions https://squidfunk.github.io/mkdocs-material/reference/admonitions/
