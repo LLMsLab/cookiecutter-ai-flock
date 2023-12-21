@@ -71,7 +71,7 @@ pip install cookiecutter
 Create a new project by running:
 
 ```shell
-cookiecutter gh:LLMsLab/ccookiecutter-genai-ml-ai
+cookiecutter gh:LLMsLab/cookiecutter-genai-ml-ai.git
 ```
 
 You will be prompted to enter details for your project, such as project
