@@ -3,58 +3,41 @@ SHELL := /bin/bash
 .DEFAULT_GOAL=help
 
 #-----------------------------------------------------------------------
-# Conda virtual environments
-#-----------------------------------------------------------------------
-# https://gist.github.com/atifraza/b1a92ae7c549dd011590209f188ed2a0
-CLONE_NAME ?= $(shell bash -c 'read -p "CloneName: " CloneName; echo $$CloneName')
-
-conda_list: # List existing Conda virtual environments
-	@conda env list
-
-conda_create: # Create Conda virtual environment with a specific Python version
-	@conda create --name {{cookiecutter.environment_name}} python=3.10.11
-
-conda_install: # Install dependencies in Conda env from requirements.txt using pip
-	@conda pip install -r requirements.txt
-
-conda_remove: # Remove a Conda virtual environment
-	@conda env remove --name {{cookiecutter.environment_name}}
-
-conda_export: # Export the current environment's packages to an environment.yml file
-	@conda env export > environment.yml
-
-conda_create_from_file: # Create a Conda environment from an environment.yml file
-	@conda env create -f environment.yml
-
-conda_update_from_file: # Update the Conda environment from an environment.yml file
-	@conda env update -f environment.yml --prune
-
-conda_packages: # List packages in the active Conda environment
-	@conda list
-
-conda_clean: # Clean unused packages and cache from Conda
-	@conda clean --all
-
-conda_clone: # Clone an existing Conda environment to a new one
-	@conda create --name $(CLONE_NAME) --clone {{cookiecutter.environment_name}}
-
-conda_update: # Update all packages in the active Conda environment
-	@conda update --all
-
-#-----------------------------------------------------------------------
 # Poetry- Python dependency management and packaging
 #-----------------------------------------------------------------------
 PKG ?= $(shell bash -c 'read -p "PackageName: " PackageName; echo $$PackageName')
+PKG_VERSION ?= $(shell bash -c 'read -p "PackageVersion: " PackageVersion; echo $$PackageVersion')
 GRP ?= $(shell bash -c 'read -p "GroupName: " GroupName; echo $$GroupName')
+PYTHON_VERSION ?= $(shell bash -c 'read -p "Enter Python version (e.g., 3.10.4): " python_version; echo $$python_version')
 
-poetry_install: # Install Poetry on the system
-	@echo "Installing Poetry..."
-	curl -sSL https://install.python-poetry.org | python3 -
+poetry_use_python: # Set a specific Python version for the project using Poetry
+	@echo "Setting Python version $(PYTHON_VERSION) for the project..."
+	@poetry env use $(PYTHON_VERSION)
 
-# FIXME: Needing refactor or cleanup -@markeyser at 9/18/2023, 1:14:06 PM
-# The following command has compatibility issues with Azure ML.
-# As a temporary measure, instructions have been added to the README.md.
-# Execute this command directly from the Bash terminal for now.
+poetry_install_dependencies: # Install project dependencies using Poetry
+	@echo "Installing project dependencies with Poetry..."
+	@poetry install
+
+poetry_activate_shell: # Activate the Poetry virtual environment
+	@echo "Activating the Poetry virtual environment..."
+	@poetry shell
+
+poetry_show_dependencies: # Show project dependencies
+	@echo "Listing project dependencies..."
+	@poetry show
+
+poetry_list_environments: # List all Poetry environments
+	@echo "Listing all Poetry environments..."
+	@poetry env list
+
+poetry_environment_path: # Get the path to the Poetry virtual environment
+	@echo "Fetching Poetry environment path..."
+	@poetry env info --path
+
+poetry_add_specific_version: # Add a specific version of a dependency
+	@echo "Adding $(PKG) with version $(PKG_VERSION)..."
+	@poetry add $(PKG)@$(PKG_VERSION)
+
 update_path: # Update PATH to include Poetry's bin directory
 	@echo "Adding Poetry's bin directory to PATH in ~/.bashrc..."
 	@echo 'export PATH="/home/azureuser/.local/bin:$$PATH"' >> ~/.bashrc
@@ -116,10 +99,6 @@ poetry_test: # Run tests using pytest (assuming pytest is a dependency)
 	@echo "Running tests..."
 	@poetry run pytest
 
-poetry_show: # Show project dependencies
-	@echo "Listing project dependencies..."
-	@poetry show
-
 poetry_env_info: # Display Poetry environment information
 	@echo "Fetching Poetry environment information..."
 	@poetry env info
@@ -127,53 +106,6 @@ poetry_env_info: # Display Poetry environment information
 poetry_env_path: # Get the path to the Poetry virtual environment
 	@echo "Fetching Poetry environment information..."
 	@poetry env info --path
-
-#-----------------------------------------------------------------------
-# Pip
-#-----------------------------------------------------------------------
-PKG ?= $(shell bash -c 'read -p "PackageName: " PackageName; echo $$PackageName')
-
-pip_install: # Install packages from requirements.txt
-	@echo "Installing packages from requirements.txt..."
-	@pip install -r requirements.txt
-
-pip_upgrade_all: # Upgrade all installed pip packages
-	@echo "Upgrading all installed pip packages..."
-	@pip freeze | cut -d = -f 1 | xargs pip install -U
-
-pip_uninstall: # Uninstall a specific pip package
-	@echo "Uninstalling package..."
-	@pip uninstall -y $(PKG)
-
-pip_show: # Show details of a specific pip package
-	@echo "Showing details for package..."
-	@pip show $(PKG)
-
-pip_outdated: # List outdated pip packages
-	@echo "Listing outdated pip packages..."
-	@pip list --outdated
-
-pip_install_pkg: # Install a specific pip package
-	@echo "Installing package..."
-	@pip install $(PKG)
-
-pip_list: # List all installed pip packages and their versions
-	@echo "Listing all installed pip packages..."
-	@pip freeze
-
-pip_check: # Check for any dependency conflicts among installed pip packages
-	@echo "Checking for pip dependency conflicts..."
-	@pip check
-
-pip_search: # Search for a pip package
-	@echo "Searching for package..."
-	@pip search $(PKG)
-
-#-----------------------------------------------------------------------
-# Make src a python package
-#-----------------------------------------------------------------------
-src_package: # Make the src folder a Python package
-	@pip install -e .
 
 #-----------------------------------------------------------------------
 # Git
@@ -212,29 +144,6 @@ git_show_branches: # Display the current branches in the repository
 	@echo "Listing all branches..."
 	@git branch
 
-#-----------------------------------------------------------------------
-# Essential Bash tools for NLP tasks (Ubuntu/Debian-based distributions)
-#-----------------------------------------------------------------------
-PACKAGES := make tree grep sed awk cut sort uniq wc tr paste split cat \
-            head tail find xargs tee parallel curl wget jq htop tmux \
-            screen git ncdu tldr csvkit rename terraform perl vim join \
-            pandoc lsof pdftotext ripgrep more less zip unzip tar gzip \
-            gunzip bzip2 xz rsync dd fdupes top ps pgrep pkill at
-
-bash_install_ds: # Install essential Bash tools for data science and general tasks
-	@sudo apt update
-	@for package in $(PACKAGES); do \
-		sudo apt install -y $$package; \
-	done
-
-bash_verify_tools: # Verify the availability of each tool
-	@for package in $(PACKAGES); do \
-		if command -v $$package > /dev/null 2>&1; then \
-			echo "$$package is installed."; \
-		else \
-			echo "$$package is NOT installed."; \
-		fi \
-	done
 #-----------------------------------------------------------------------
 # CSpell Checker: Extract terms from Python libraries listed in requirements.txt
 #-----------------------------------------------------------------------
