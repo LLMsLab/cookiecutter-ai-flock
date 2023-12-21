@@ -4,10 +4,11 @@
 
 Certainly! Here's your updated message with the additional text:
 
-⚡⚡ This project has been created using the [Cookiecutter GenAI, ML & AI](https://github.com/LLMsLab/ccookiecutter-genai-ml-ai)
-template. The following website provides information on how to use all
-the tools included in the project repository: [Cookiecutter GenAI, ML & AI Template
-Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
+⚡⚡ This project has been created using the [Cookiecutter GenAI, ML &
+AI](https://github.com/LLMsLab/ccookiecutter-genai-ml-ai) template. The
+following website provides information on how to use all the tools
+included in the project repository: [Cookiecutter GenAI, ML & AI
+Template Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 
 ## 📂 Directory Structure
 
@@ -37,6 +38,8 @@ Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 │   │   └── pull_request_template.md       <- Template for creating new pull requests.
 │   └── workflows               <- GitHub Actions workflows for CI/CD.
 │       └── black.yaml          <- Workflow for the Black code formatter.
+├── .devcontainer               <- Configurations for the VS Code Development Container.
+│   └── devcontainer.json       <- Configuration file for setting up the VS Code Development Container.
 ├── .gitignore                  <- Specifies intentionally untracked files to ignore.
 ├── .pre-commit-config.yaml     <- Configuration for pre-commit hooks to enforce coding style and checks.
 ├── .ruff_cache                 <- Cache directory for the Ruff tool.
@@ -73,133 +76,679 @@ Docs](https://llmslab.github.io/ccookiecutter-genai-ml-ai/) ⚡⚡
 └── tests                       <- Directory for test files.
 ```
 
-## 👉 Instructions
+## 👉 Introductions
 
-For detailed steps on setting up a Python environment on a Windows 10 OS
-machine without admin rights and behind a firewall, please refer to the
-Docs page of the Cookiecutter GenAI, ML & AI website:
+Welcome to our Python development project! This document serves as a
+comprehensive guide to our development environment, meticulously crafted
+to provide a seamless and efficient workflow for Python programming.
+Leveraging the power of Docker, Visual Studio Code, and a suite of
+carefully selected tools, we have established a robust platform that
+caters to the diverse needs of Python development. Here's an overview of
+what we've set up:
 
-📖 [Cookiecutter GenAI, ML & AI Windows OS Setup
-Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/)
+- **Docker Container with VS Code Dev Container Extension**: Our
+  development begins within a Docker container, created using the Visual
+  Studio Code Dev Container extension. This approach ensures an isolated
+  and consistent environment, crucial for reproducible development and
+  testing.
 
-This comprehensive guide covers all prerequisites and steps necessary to
-ensure a smooth Python development setup. It includes instructions for
-installing essential tools such as Visual Studio Code, Anaconda, and Git
-Bash without requiring administrative privileges. Additionally, it
-provides guidance on configuring your environment behind a firewall.
+- **VS Code Extensions for Python Development**: We've equipped Visual
+  Studio Code with extensions specifically chosen for Python
+  development. These tools enhance your coding experience with features
+  like intelligent code completion, linting, and debugging.
 
-Ensure you follow these instructions meticulously to ensure your Python
-environment is prepared effectively for your
-{{cookiecutter.package_name}} project. Dive in and best of luck with
-your setup!
+- **Python Version Management with `pyenv`**: To accommodate varying
+  Python version requirements, we've integrated `pyenv` into our
+  environment. This tool allows us to effortlessly switch between
+  different Python versions, ensuring compatibility across various
+  projects.
 
-After completing the [Cookiecutter GenAI, ML & AI Windows OS Setup
-Guide](https://llmslab.github.io/ccookiecutter-genai-ml-ai/tutorials/windows-os-setup/),
-please proceed with the following "Per-project Instructions".
+- **Dependency Management with Poetry**: Managing project dependencies
+  is streamlined with Poetry. It handles the definition, installation,
+  and updating of libraries, contributing to reproducible builds and
+  efficient dependency resolution.
 
-## 🔄 Per-Project Instructions
+- **Poetry Python Virtual Environment**: Our project dependencies reside
+  in a Python virtual environment managed by Poetry. This setup isolates
+  our project's dependencies, maintaining a clean global Python
+  environment.
 
-To install all project's dependencies using Poetry we continue without VPN
+- **Installation of Python Dependencies**: All necessary Python
+  dependencies are neatly installed and managed within our virtual
+  environment, ready for use in our projects.
 
-### ✅ Create and Activate a Conda's Python Virtual Environment
+- **Essential Linux Debian Tools for Development**: To augment our
+  Python development, we have included a selection of Linux Debian
+  tools. These tools support a range of development tasks, from file
+  manipulation to network operations.
 
-```bash
-make conda_create
-conda activate {{cookiecutter.environment_name}}
-```
+## **✅** Navigating and Initializing Your Development Environment
 
-### ✅ Install Dependencies
+Following the introduction to creating a new project using Cookicuttert,
+let's get started with the actual workflow. Here's how you can begin
+working on your Python project in this tailored environment:
 
-```bash
-make poetry_dependencies
-```
+### Step 1: Move into the Project's Directory
 
-### ✅ Build Documentation
-
-```bash
-make docs_build
-```
-
-### ✅ Start the live-reloading docs server
-
-```bash
-make docs_serve
-```
-
-Ensure that the documentation is being served at:
-`http://127.0.0.1:8000/{{cookiecutter.project_slug}}/`
-
-- Terminate the server by pressing `Ctrl + C`.
-- Once done, close the current VS Code session and reopen the project.
-
-### ✅ CSpell Checker: Extracting Terms from Python Libraries
-
-Enhance the CSpell checker's dictionary with terms from the Python
-libraries:
+First, you need to navigate to your project's directory. This is where
+all your project files, including your Python scripts, notebooks, and
+configuration files, are located. Open a terminal and use the `cd`
+(change directory) command to move into your project directory:
 
 ```bash
-make cspell_dictionary
+cd project-black
 ```
 
-### ✅ Secure Connection and Pushing to GitHub
+Make sure to replace `project-black` with the actual name of your
+project directory.
 
-Before sharing your project on GitHub, ensure you have a secure
-connection to the GitHub server. Here are the steps to create a GitHub
-repository, initialize your local repository, set up user information,
-change the default branch name, commit, and push your project to GitHub:
+### Step 2: Open Visual Studio Code
 
-1. **Create a GitHub Repository:** Go to [GitHub](https://github.com/)
-   and create a new repository with the name
-   `{{cookiecutter.project_slug}}`. Do not include a project description
-  or a `README.md` file.
+Once you're in your project's directory, you can open the entire
+directory in Visual Studio Code. This will allow you to access all your
+project files directly from the VS Code interface. Run the following
+command in your terminal:
 
-2. **Initialize the Repository:**
+```bash
+code .
+```
+
+The `code .` command launches Visual Studio Code and opens the current
+directory (denoted by `.`), enabling you to start working on your
+project immediately.
+
+## **✅** Install Recommended VS Code Extensions Locally 
+
+To ensure a consistent development environment and take advantage of
+tools and configurations tailored for this project, it's advisable to
+install the extensions specified in the `.vscode/extensions.json` file.
+
+To install all recommended extensions locally in Visual Studio Code,
+follow these steps:
+
+1. **Open the Extensions View**: Click on the Extensions icon in the
+   Activity Bar on the side of your VS Code window. The icon looks like
+   a square within a square.
+
+2. **Access the Recommended Extensions**: In the Extensions view, look
+   for a section titled "Recommended". This section may appear in
+   different places depending on your version of VS Code and your user
+   settings, but it is often at the bottom of the Extensions view or
+   accessible through a tab at the top.
+
+3. **Select Extensions to Install**: In the "Recommended" section, you
+   will see a list of extensions recommended for your current workspace,
+   which are typically specified in the `.vscode/extensions.json` file
+   of your project. Extensions that are not already installed will have
+   a green 'Install' button next to them.
+
+4. **Install All Extensions**: Click the 'Install' button next to each
+   recommended extension that is not already installed. If there are
+   many extensions, you will need to click each one individually, as
+   there is no built-in feature to install all recommendations at once
+   from the GUI.
+
+For an even more streamlined experience, consider using the
+`@recommended` filter in the Extensions view search bar, which will show
+you all the workspace-recommended extensions.
+
+## **✅** Developing in Containers with the VS Code Extension Dev Containers
+
+Developing within containers offers a consistent and isolated
+environment, ensuring that software runs reliably when moved from one
+computing environment to another. The Visual Studio Code Extension for
+Development Containers simplifies this process, allowing developers to
+create and manage development environments within Docker containers
+seamlessly. By utilizing a `devcontainer.json` file, developers can
+define their environment settings, dependencies, extensions, and more,
+ensuring that every team member has a consistent development setup. This
+approach is particularly beneficial for teams looking to standardize
+their development environments and avoid the common "it works on my
+machine" problem.
+
+### Section 1: Examine the Predefined Container Configuration
+
+After opening your Cookiecutter-generated project in Visual Studio Code,
+start by exploring the `.devcontainer` directory. This folder typically
+contains a `devcontainer.json` file and, depending on your setup, a
+`Dockerfile` or Docker Compose files. These files define your
+containerized development environment. Review them to understand the
+existing configuration and determine if any adjustments are needed for
+your project.
+
+### Section 2: Customize the Configuration (Optional)
+
+You may find that the predefined container configuration needs tweaking
+to suit your project's specific needs. This could involve modifying the
+`devcontainer.json` file or the associated Docker files. Customizations
+can range from simple settings adjustments to adding new software or
+extensions required for your development workflow.
+
+### Section 3: Reopen in Container
+
+With your configuration reviewed (and possibly adjusted), use the
+command palette in Visual Studio Code (`Ctrl+Shift+P` or `Cmd+Shift+P`)
+and select "Remote-Containers: Reopen in Container". This command
+instructs VS Code to build and start the container based on your
+project’s Docker configuration. The first build may take some time, but
+subsequent starts should be faster.
+
+### Section 4: Work Inside the Container
+
+Once the container is up and running, your development environment is
+ready to use. This containerized environment mirrors the configuration
+specified in the `devcontainer.json` file, ensuring consistency across
+all developers working on the project. You can now write code, debug,
+and use VS Code's features as if you were working on your local machine,
+but with the benefits of a containerized environment.
+
+### Section 5: Version Control
+
+If you've made any modifications to the `.devcontainer` folder, it's a
+good practice to commit these changes to your version control system.
+This ensures that anyone else working on the project will have access to
+the same development environment, further supporting the goal of a
+consistent and reproducible setup.
+
+## **✅** Install Recommended Extensions in a VS Code Development Container
+
+Now that you have Visual Studio Code open in your containerized
+development environment, a crucial first step is to install the
+necessary Visual Studio Code extensions. This will ensure that you have
+all the tools and functionalities you need right at your fingertips
+within the container. Here's how to proceed:
+
+1. **Open the Remote Explorer**: In Visual Studio Code, locate the
+   Remote Explorer in the sidebar. This icon is typically represented by
+   two small screens or resembles a remote window. This feature is
+   integral for managing your connections to remote environments,
+   including containers.
+
+2. **Select Your Dev Container**: Within the Remote Explorer, identify
+   and select your active development container. For your setup, it's
+   named "Python 3 @ desktop-linux". Click on this container to make it
+   the focus of your operations.
+
+3. **Access Extensions for Installation**: At the bottom right corner of
+   the Dev Container tab, you'll find a cloud icon with a download
+   arrow. This icon is your gateway to installing extensions in the
+   container. Click on it to view a list of available extensions for
+   installation.
+
+4. **Choose Extensions to Install**: A new pane will open, displaying a
+   curated list of extensions suitable for your Dev Container.
+   Extensions that you've already installed locally and are relevant to
+   your project's environment will be pre-selected. Go through this
+   list, review it, and make any necessary adjustments to your selection
+   to tailor the environment to your project's needs.
+
+5. **Confirm and Install**: Once you've selected all the desired
+   extensions, click on the "OK" button. This action initiates the
+   installation of your chosen extensions into the Dev Container.
+
+By following these steps, you'll effectively equip your development
+container with all the recommended extensions, making sure your working
+environment is both efficient and tailored to your project’s specific
+needs. This setup not only enhances your productivity but also aligns
+your development experience closely with the project's requirements.
+
+## **✅** Installing `pyenv` in Linux Debian
+
+In the realm of Python development, managing multiple versions of Python
+can be a daunting task. This is where `pyenv` becomes a vital tool for
+any developer's toolkit, especially when working in Linux environments
+like Debian. `pyenv` simplifies the process of handling various Python
+versions, allowing you to switch between them effortlessly. Below, we
+provide a comprehensive guide to installing `pyenv` on a Linux Debian
+system, ensuring you have the flexibility to work with different Python
+versions as required by your projects.
+
+> Debian Linux is often the default distribution for Docker containers
+> due to its stability and minimal footprint. It's a popular choice for
+> containerized environments because:
+>
+> - **Stability**: Debian is known for being a highly stable Linux
+>   distribution, which is crucial for development environments where
+>   consistency is key.
+> - **Lightweight**: Debian's minimal base image is advantageous for
+>   Docker containers, as it keeps the size small and the performance
+>   efficient.
+> - **Wide Package Availability**: Debian's extensive package
+>   repositories make it easy to install and run a wide range of
+>   software, which is essential for diverse development needs.
+> - **Security**: Debian has a strong focus on security, ensuring that
+>   the containers are secure by default, an important aspect for any
+>   development work.
+>
+> These characteristics make Debian a go-to choice for Docker
+> containers, especially when used in conjunction with tools like the
+> Visual Studio Code Dev Container extension, which seeks to provide a
+> reliable and versatile development environment.
+
+### 1. Install `pyenv` in Linux
+
+#### 1.1. Install all the required packages
+
+Before diving into the installation of `pyenv`, it's crucial to set up
+the necessary prerequisites. This step involves installing packages that
+are essential for `pyenv` to function correctly. Execute the following
+command in your terminal to install these packages:
+
+```shell
+# On Debian/Ubuntu/Linux Mint ------------ 
+sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev
+```
+
+#### 1.2. Grab the latest **pyenv** source tree from its Github repository
+
+With the prerequisites in place, the next step is to download `pyenv`
+from its official GitHub repository. This ensures you are getting the
+most recent version directly from the source:
+
+```shell
+git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+```
+
+#### 1.3. Set the environment variable **PYENV_ROOT**
+
+Setting the `PYENV_ROOT` environment variable is a key step in the
+installation process. This variable tells your system where `pyenv` is
+located. Additionally, modifying your `$PATH` allows the shell to locate
+the `pyenv` command. Use `nano` or your preferred text editor to add
+these configurations to your `.bashrc` file:
+
+```shell
+nano $HOME/.bashrc
+```
+
+Then add the following lines:
+
+```bash
+## pyenv configs
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+```
+
+#### 1.4. Source **$HOME/.bashrc** file or restart the shell
+
+To apply the changes made to your `.bashrc` file, you need to either
+source the file or restart your shell. This step is crucial for the
+changes to take effect:
+
+```shell
+source $HOME/.bashrc
+# or:
+exec "$SHELL"
+```
+
+### 2. How to Install Multiple Python Versions in Linux
+
+After successfully installing `pyenv`, you can now manage multiple
+Python versions with ease. The following steps outline how to view,
+install, and set different Python versions using `pyenv`:
+
+```shell
+# View all available versions with this command.
+pyenv install -l
+
+# You can now install multiple Python versions via pyenv, for example.
+pyenv install 3.10.13
+pyenv install 3.11.5
+
+# List all Python versions available to pyenv
+pyenv versions
+
+# Check the global Python version
+pyenv global
+
+# Set the global python version using the pyenv command
+pyenv global 3.10.13
+pyenv global
+```
+
+> **Reference**:[Install
+> `pyenv`](https://gist.github.com/trongnghia203/9cc8157acb1a9faad2de95c3175aa875)
+
+To verify the successful installation of `pyenv` and the default Python
+version, run these commands:
+
+```bash
+vscode ➜ /workspaces/project-black $ pyenv --version
+pyenv 2.3.35-2-g96f93fd5
+vscode ➜ /workspaces/project-black $ python --version
+Python 3.10.13
+```
+
+This section guides you through the process of installing `pyenv` on
+Linux Debian, an essential tool for managing multiple Python versions in
+your development environment. With `pyenv`, you can effortlessly switch
+between different Python versions, ensuring compatibility and
+flexibility across various projects.
+
+## **✅** Installing `pipx`
+
+`pipx` is a valuable tool for Python developers, offering a neat way to
+install and run Python applications in isolated environments. It's
+particularly useful for installing command-line tools without worrying
+about dependency conflicts or impacting the global Python environment.
+In the context of your Debian-based Dev Container, `pipx` is typically
+pre-installed. However, it's always good practice to verify its
+installation and ensure you're using the latest version. Here's how you
+can enhance this section of your documentation:
+
+### Confirming the Installation of `pipx`
+
+1. **Check `pipx` Version**: First, confirm that `pipx` is installed and
+   determine its version. Run the following command in your container's
+   terminal:
+
    ```bash
-   git init
+   pipx --version
    ```
-   This command initializes a new Git repository in your project
-   directory.
 
-3. **Set Up User Information:**
+   This command will display the installed version of `pipx`, like
+   `1.2.1`, confirming its presence in your environment.
+
+2. **Update `pipx` (Optional)**: If you wish to update `pipx` to the
+   latest version, or if it's not already installed, you can install or
+   upgrade it using `pip`, Python's package installer. This step ensures
+   that you have the most recent features and security updates:
+
    ```bash
-   git config user.name "Your Name"
-   git config user.email "your-email@example.com"
+   python3 -m pip install --user pipx
+   python3 -m pipx ensurepath
    ```
-   Replace "Your Name" and "your-email@example.com" with your own
-   information.
 
-4. **Change Default Branch Name:**
+   The `--user` flag installs `pipx` in the user's local directory,
+   avoiding any interference with system-wide Python packages.
+
+3. **Verify the Update**: After the installation or update, it's a good
+   idea to verify that `pipx` is correctly installed and functional. You
+   can do this by re-running the `pipx --version` command:
+
    ```bash
-   git branch -M development
+   pipx --version
    ```
-   This command renames the default branch from `main` to `development`.
 
-5. **First Commit to the Repository:**
+By following these steps, you not only confirm the presence of `pipx` in
+your Docker container but also ensure that it's up-to-date. This
+approach adds an extra layer of verification to your setup process,
+aligning with best practices in software development.Install Poetry
+
+## **✅** Installing Poetry
+
+Poetry is an increasingly popular tool among Python developers for its
+efficient management of project dependencies and packaging. Using `pipx`
+to install Poetry is a smart choice as it isolates Poetry in its own
+environment, preventing any conflicts with other Python packages. Below
+is an enhanced guide to ensure a smooth installation and upgrade process
+for Poetry in your development environment.
+
+### Installing Poetry with `pipx`
+
+1. **Install Poetry**: To install Poetry using `pipx`, execute the
+   following command in your container's terminal. This command installs
+   Poetry in an isolated environment, making it globally accessible
+   without affecting other Python packages.
+
    ```bash
-   git add .
-   git commit -m "Initial commit"
+   vscode ➜ /workspaces/project-black $ pipx install poetry
    ```
-   These commands stage all the files in your project directory and
-   commit them to the repository with a message of "Initial commit".
 
-6. **Push to GitHub:** Link your local repository to the GitHub
-   repository and push your local content to GitHub:
+   Upon successful installation, you should see a confirmation message
+   indicating the installed version of Poetry and the Python version
+   used, similar to:
+
+   ```
+   installed package poetry 1.7.1, installed using Python 3.10.13
+   These apps are now globally available
+     - poetry
+   done! ✨ 🌟 ✨
+   ```
+
+2. **Upgrade Poetry (Optional)**: Keeping Poetry up-to-date is important
+   to benefit from the latest features and security updates. To upgrade
+   Poetry, use the following command:
+
+   ```zsh
+   pipx upgrade poetry
+   ```
+
+   This command checks for the latest version of Poetry and upgrades it
+   if necessary. If Poetry is already at the latest version, you'll see
+   a message like:
+
+   ```
+   poetry is already at latest version 1.7.0 (location: /Users/username/.local/pipx/venvs/poetry)
+   ```
+
+### References and Resources
+
+- For detailed instructions on installing Poetry with `pipx`, refer to
+  the [official Poetry installation
+  guide](https://python-poetry.org/docs/#installing-with-pipx).
+- To deepen your understanding of how Poetry can streamline your Python
+  project's dependency management, check out this comprehensive article
+  on [Dependency Management With Python
+  Poetry](https://realpython.com/dependency-management-python-poetry/).
+
+By following these steps, you ensure that Poetry, a crucial tool for
+Python project management, is correctly installed and maintained in your
+development environment. This approach not only leverages the isolation
+benefits of `pipx` but also keeps your toolchain up-to-date and
+efficient.
+
+## **✅** Createing a Python Virtual Environment
+
+In modern Python development, managing dependencies and project
+environments efficiently is crucial. Poetry excels in this aspect,
+providing an elegant and streamlined way to handle project dependencies.
+With a `pyproject.toml` file already in place, our project is primed for
+leveraging Poetry's capabilities. This section guides you through
+setting up a Python virtual environment using Poetry, ensuring that all
+dependencies are neatly organized and isolated. This process not only
+simplifies dependency management but also aligns with best practices for
+Python development, making your project more maintainable and
+collaborative-friendly. Let’s walk through the steps to create this
+virtual environment and get your project's dependencies up and running.
+
+1. **Check the Python Environment**: It's important to ensure that
+   Poetry is using the correct Python environment. Use the `poetry env
+   info` command to verify the Python version. If it's not the one you
+   need, specify the correct version for Poetry:
+
+   ```zsh
+   poetry env use 3.10.4
+   ```
+
+   Replace `3.10.4` with your desired Python version.
+
+2. **Install Dependencies with Poetry**: Navigate to the root of your
+   project (where `pyproject.toml` is located) and run the following
+   command:
+
+   ```sh
+   poetry install
+   ```
+
+   This will create a virtual environment and install all the
+   dependencies defined in your `pyproject.toml` file. If you've
+   configured Poetry to use a specific Python version with `pyenv`, it
+   will use that version for the virtual environment.
+
+3. **Activate the Virtual Environment**: To activate the virtual
+   environment that Poetry created, use:
+
+   ```sh
+   poetry shell
+   ```
+
+   This command will spawn a shell with the virtual environment
+   activated, which means you can now run Python and any scripts or
+   tools within the context of this environment.
+
+4. **Verify Installation**: To confirm that all dependencies are
+   correctly installed, list the installed packages with:
+
+   ```sh
+   poetry show
+   ```
+
+   Alternatively, test your project's functionality to ensure everything
+   is running smoothly.
+
+Your virtual environment is now set up and ready for development. This
+isolation is key for maintaining the integrity of your project and
+ensuring that it remains consistent across different machines and
+setups.
+
+To manage your Poetry environments:
+
+- To view existing environments, run:
+
+```zsh
+poetry env list
+```
+
+To deactivate the virtual environment, you can run:
+
+```sh
+exit
+```
+
+To activate a Poetry-managed virtual environment, you have a couple of
+options depending on how you prefer to work:
+
+1. **Using `poetry shell`**:
+
+   - This command spawns a new shell subprocess, which will activate the
+     virtual environment. To use this method, just run:
+
+     ```sh
+     poetry shell
+     ```
+
+2. **Using `poetry run`**:
+
+   - If you want to run a single command within the virtual environment
+     without spawning a new shell, you can prefix your command with
+     `poetry run`. For example:
+
+     ```sh
+     poetry run python
+     ```
+
+   - This will execute the Python interpreter within the context of the
+     virtual environment.
+
+3. **Sourcing the Activate Script**:
+
+   - Poetry creates a virtual environment in a standard location. You
+     can source the activate script directly to activate the environment
+     in your current shell without creating a sub-shell.
+
+   - First, find out the path to the virtual environment by running:
+
+     ```sh
+     poetry env info --path
+     ```
+
+   - Then, source the `activate` script in the environment's bin
+     directory (on Unix systems) or `Scripts` directory (on Windows).
+     For Unix systems, it would look like this:
+
+     ```sh
+     source /path/to/virtualenv/bin/activate
+     ```
+
+     Replace `/path/to/virtualenv` with the actual path output by the
+     `poetry env info --path` command.
+
+Once activated, your shell prompt might change to indicate that the
+virtual environment is active, and you can then run Python and other
+commands in the context of that environment. When you're finished, you
+can deactivate the environment by typing `exit` if you used `poetry
+shell`, or by running the `deactivate` command if you sourced the
+`activate` script.
+
+## **✅** Automatic Activation of Poetry Virtual Environment
+
+To streamline your development workflow in Visual Studio Code using the
+Dev Container extension, you can configure VS Code to automatically
+recognize and use the Poetry-managed virtual environment for your
+project. This setup ensures that every time you open your container, the
+correct Python interpreter and tools from your virtual environment are
+readily available. Here's a detailed guide on how to achieve this:
+
+### Retrieving the Path to the Poetry Virtual Environment
+
+1. **Obtain the Virtual Environment Path**: First, you need to find the
+   path to the virtual environment created by Poetry. Open the container
+   in VS Code and run the following command in the terminal:
+
    ```bash
-   git remote add origin https://github.com/username/{{cookiecutter.project_slug}}.git
-   git push -u origin development
+   (projectblack-py3.10) vscode ➜ /workspaces/project-black $ poetry env info --path
    ```
-   Replace
-   "https://github.com/username/{{cookiecutter.project_slug}}.git" with
-   the URL of your GitHub repository.
 
-Remember, maintain a secure connection to GitHub to ensure the integrity
-and confidentiality of your project during this process.
+   This command will output the path to your virtual environment,
+   something like:
 
-## 📝Notes
+   ```
+   /home/vscode/.cache/pypoetry/virtualenvs/projectblack-sI2m5zhp-py3.10
+   ```
 
-- Remember deactivate it when you're done using `conda deactivate`.
-- This guide assumes the use of `make` commands defined in a `Makefile`.
-  If you aren't using a Makefile, replace the `make` commands with the
-  corresponding Python commands.
-- Running the `make` command displays a menu of available options, each
-  associated with a specific command for easy project management.
+### Configuring VS Code to Use the Poetry Virtual Environment
+
+2. **Update the `.vscode/settings.json` File**: With the path to your
+   virtual environment at hand, you'll need to update the
+   `.vscode/settings.json` file in your project. This file allows you to
+   customize your VS Code environment settings.
+
+3. **Set the Default Python Interpreter**: Add the following
+   configuration to your `settings.json` file. This setting informs VS
+   Code to use the Python interpreter from your Poetry virtual
+   environment by default:
+
+   ```json
+   "python.defaultInterpreterPath": "/home/vscode/.cache/pypoetry/virtualenvs/projectblack-sI2m5zhp-py3.10"
+   ```
+
+4. **Configure Additional Tools (Optional)**: If you're using other
+   tools like `ruff` (a Python linter), you may also want to configure
+   these tools to use the binaries from your virtual environment. Add
+   the following settings to your `settings.json`:
+
+   ```json
+   "ruff.path": [
+       "/home/vscode/.cache/pypoetry/virtualenvs/projectblack-sI2m5zhp-py3.10/bin/ruff"
+   ],
+   "ruff.interpreter": [
+       "/home/vscode/.cache/pypoetry/virtualenvs/projectblack-sI2m5zhp-py3.10/bin/python"
+   ],
+   ```
+
+By following these steps, you effectively tell VS Code to automatically
+use the Python interpreter and tools from the Poetry-managed virtual
+environment every time you open your container. This setup simplifies
+your workflow, ensuring that you're always working within the right
+context with all necessary dependencies at hand.
+
+## Conclusion
+
+With the environment now fully set up and ready, you're all set to dive
+into Python development. Whether you're writing scripts or exploring
+data in Jupyter notebooks, this environment is designed to support and
+enhance your development process. 
+
+This setup not only fosters a productive development experience but also
+ensures that your projects are developed within a controlled and
+consistent setting. We encourage you to explore the capabilities of this
+environment, leverage the tools at your disposal, and enjoy the
+streamlined workflow that comes with a well-configured development
+platform.
+
+Happy coding!
