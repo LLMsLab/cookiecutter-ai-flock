@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/api-reference/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/api-reference/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/explanation/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/explanation/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/how-to-guides/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/how-to-guides/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/black-formatter/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/black-formatter/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/hydra-config/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/hydra-config/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/mkdocs-docs/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/mkdocs-docs/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/poetry/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/poetry/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/turorials-intro/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/turorials-intro/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://llmslab.github.io/cookiecutter-rag/tutorials/windows-os-setup/</loc>
-         <lastmod>2023-10-26</lastmod>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/windows-os-setup/</loc>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
