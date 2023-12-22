@@ -1,6 +1,6 @@
-site_name: Cookiecutter GenAI, ML & AI
-site_url: "https://llmslab.github.io/ccookiecutter-genai-ml-ai/"
-repo_url: "https://github.com/LLMsLab/ccookiecutter-genai-ml-ai"
+site_name: Cookiecutter Ai Flock
+site_url: "https://llmslab.github.io/cookiecutter-ai-flock/"
+repo_url: "https://github.com/LLMsLab/cookiecutter-ai-flock"
 repo_name: llmslab.github.io/ccookiecutter-genai-ml-ai/
 edit_uri: edit/main/docs/
 
@@ -10,25 +10,24 @@ theme:
   icon:
     repo: simple/github
   palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: "slate"
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: "default"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - content.code.annotate
 extra:
   social:
     - icon: "fontawesome/brands/github"
-      link: "https://github.com/LLMsLab/ccookiecutter-genai-ml-ai"
+      link: "https://github.com/LLMsLab/cookiecutter-ai-flock"
 
 markdown_extensions:
   # Include admonitions https://squidfunk.github.io/mkdocs-material/reference/admonitions/
