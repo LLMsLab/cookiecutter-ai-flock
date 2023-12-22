@@ -11,6 +11,8 @@ modern AI development.
 
 <p align="center">
   <img src="docs/assets/logo-gh.png" alt="Logo" width="1000"/>
+  <br>
+  <em>The sheep in our logo represents the uniformity and consistency that our cookie-cutter template brings to AI projects, ensuring each starts with a standardized foundation, much like a flock moving together harmoniously.</em>
 </p>
 
 ## 🌟 Features
