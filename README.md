@@ -10,7 +10,7 @@ standards, and a suite of tools that aligns with the dynamic needs of
 modern AI development.
 
 <p align="center">
-  <img src="docs/assets/logo-gh.png" alt="Logo" width="200"/>
+  <img src="docs/assets/logo-gh.png" alt="Logo" width="1000"/>
 </p>
 
 ## 🌟 Features
