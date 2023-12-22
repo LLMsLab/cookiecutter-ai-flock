@@ -9,7 +9,7 @@
     // NOTE: Conda cds39 must be active first. See TECH_NOTE_03
     "python.terminal.activateEnvInCurrentTerminal": true,
     // Select default interpreter for working_on_cookiecutter project
-    "python.defaultInterpreterPath": "/Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11",
+    "python.defaultInterpreterPath": "/Users/marcos_aguilerakeyser/Library/Caches/pypoetry/virtualenvs/cookiecutteraiflock-TutnJi_R-py3.12",
     // Ensure integrated terinal load .bashrc or .bash_profile files
     // https://stackoverflow.com/questions/51820921/vscode-integrated-terminal-doesnt-load-bashrc-or-bash-profile
     "terminal.integrated.defaultProfile.linux": "zsh", // "bash"
@@ -99,11 +99,11 @@
     ],
     // Path to a custom ruff executable
     "ruff.path": [
-        "/Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11/bin/python/ruff"
+        "/Users/marcos_aguilerakeyser/Library/Caches/pypoetry/virtualenvs/cookiecutteraiflock-TutnJi_R-py3.12/bin/python/ruff"
     ],
     // Path to the Python interpreter use to run the linter sever
     "ruff.interpreter": [
-        "/Users/markeyser/Library/Caches/pypoetry/virtualenvs/cookiecutter_rag-zDtOoUN1-py3.11/bin/python"
+        "/Users/marcos_aguilerakeyser/Library/Caches/pypoetry/virtualenvs/cookiecutteraiflock-TutnJi_R-py3.12/bin/python"
     ],
     // #############################
     // ### BRAKET PAIR COLORIZATION ###
