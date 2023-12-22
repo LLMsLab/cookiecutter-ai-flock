@@ -5,10 +5,10 @@
 Certainly! Here's your updated message with the additional text:
 
 ⚡⚡ This project has been created using the [Cookiecutter GenAI, ML &
-AI](https://github.com/LLMsLab/cookiecutter-genai-ml-ai) template. The
+AI](https://github.com/LLMsLab/cookiecutter-ai-flock) template. The
 following website provides information on how to use all the tools
 included in the project repository: [Cookiecutter GenAI, ML & AI
-Template Docs](https://llmslab.github.io/cookiecutter-genai-ml-ai/) ⚡⚡
+Template Docs](https://llmslab.github.io/cookiecutter-ai-flock/) ⚡⚡
 
 ## 📂 Directory Structure
 
