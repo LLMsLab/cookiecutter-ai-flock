@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "Cookiecutter GenAI, ML & AI"
+name = "cookiecutteraiflock"
 version = "0.1.0"
-description = "A Cookiecutter template for Retreival-Agumented Generation projects"
+description = "A Cookiecutter template for AI projects"
 authors = ["Marcos Aguilera Keyser <marcosak@gmail.com>"]
 license = "MIT"
 readme = "README.md"

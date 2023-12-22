@@ -1,13 +1,13 @@
-# Cookiecutter for GenAI, ML & AI
+# Cookiecutter Ai Flock
 
-Welcome to a
-[Cookiecutter](https://www.cookiecutter.io/)
-template engineered for artificial intelligence, machine learning, and
-generative AI projects. This template isn't just a starting point; it's
-a comprehensive framework designed to guide you through the intricacies
-of AI project development.  It combines best practices, industry
-standards, and a suite of tools that aligns with the dynamic needs of
-modern AI development.
+Welcome to Cookiecutter Ai Flock, a
+[Cookiecutter](https://www.cookiecutter.io/) template engineered for
+artificial intelligence, machine learning, and generative AI projects.
+This template isn't just a starting point; it's a comprehensive
+framework designed to guide you through the intricacies of AI project
+development.  It combines best practices, industry standards, and a
+suite of tools that aligns with the dynamic needs of modern AI
+development.
 
 <p align="center">
   <img src="docs/assets/logo-gh.png" alt="Logo" width="1000"/>
@@ -73,8 +73,15 @@ pip install cookiecutter
 Create a new project by running:
 
 ```shell
-cookiecutter gh:LLMsLab/cookiecutter-genai-ml-ai.git
+cookiecutter gh:LLMsLab/cookiecutter-ai-flock.git
 ```
+
+<!-- NOTE: Needs discussion or investigation -@marcos_aguilerakeyser at 12/22/2023, 11:12:51 AM -->
+Other appraoches such as for example:
+
+`cookiecutter git@github.com-personal:LLMsLab/cookiecutter-genai-ml-ai.git`
+<!--  -->
+
 
 You will be prompted to enter details for your project, such as project
 name, OS type, author name, and more. For example:
@@ -95,7 +102,7 @@ INFO:root:Current working directory: /Users/username/Projects/my-ai-project
 This process will generate a new project with your specific
 configurations.
 
-This will create a new project based on the `cookiecutter-rag` template
+This will create a new project based on the `cookiecutter-ai-flock` template
 with your specified details.
 
 ```bash
@@ -120,7 +127,7 @@ To see installed Cookiecutter templates, use:
 ```bash
 cookiecutter --list-installed
 1 installed templates:
- * cookiecutter-rag
+ * cookiecutter-ai-flock
 ```
 
 #### Locating the `.cookiecutters` Directory on a Mac
@@ -142,15 +149,15 @@ Your cloned cookiecutters are usually stored in `~/.cookiecutters/`.
 
    ```bash
    pwd
-   /Users/username/.cookiecutters/cookiecutter-rag
+   /Users/username/.cookiecutters/cookiecutter-ai-flock
    ```
 
 #### Creating a New Project with a Template
 
-To create a project using the `cookiecutter-rag` template:
+To create a project using the `cookiecutter-ai-flock` template:
 
 ```bash
-cookiecutter /Users/username/.cookiecutters/cookiecutter-rag
+cookiecutter /Users/username/.cookiecutters/cookiecutter-ai-flock
 ```
 
 Enter the details for your project when prompted. For instance:
@@ -168,7 +175,7 @@ Enter the details for your project when prompted. For instance:
 INFO:root:Current working directory: /Users/username/Projects/my-ai-project
 ```
 
-This will create a new project based on the `cookiecutter-rag` template
+This will create a new project based on the `cookiecutter-ai-flock` template
 with your specified details.
 
 ```bash

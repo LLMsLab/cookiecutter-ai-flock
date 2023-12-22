@@ -1,7 +1,7 @@
-# Cookicutter for GenAI, ML & AI
+# Cookiecutter Ai Flock
 
 This site contains the project documentation for the
-Cookiecutter for GenAI, ML & AI project.
+Cookiecutter Ai Flock project.
 
 The documentation follows the best practice for
 project documentation as described by Daniele Procida
