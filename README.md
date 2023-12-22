@@ -1,7 +1,7 @@
 # Cookiecutter for GenAI, ML & AI
 
 Welcome to a
-[Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/readme.html)
+[Cookiecutter](https://www.cookiecutter.io/)
 template engineered for artificial intelligence, machine learning, and
 generative AI projects. This template isn't just a starting point; it's
 a comprehensive framework designed to guide you through the intricacies
