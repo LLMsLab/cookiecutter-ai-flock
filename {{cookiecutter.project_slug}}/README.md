@@ -793,6 +793,82 @@ Docker commands in the terminal:
 Alternatively, you can use the Docker Desktop interface to stop and
 remove containers.
 
+## **✅**  Getting Started with Git and GitHub
+
+Using Git for version control in your local repository and pushing to
+GitHub when you're ready is a great way to manage and share your
+project. Here's how to get started:
+
+1. **Initialize a New Git Repository:** In the root directory of your
+   project, run the following command to initialize a new Git
+   repository:
+
+   ```bash
+   git init
+   ```
+
+   This creates a new `.git` subdirectory, which stores all of your
+   project's version history.
+
+2. **Add Files to the Repository:** After initializing the repository,
+   add your project files to it. Check the status of your repository
+   with:
+
+   ```bash
+   git status
+   ```
+
+   This shows which files are untracked or modified. To add all your
+   files to the repository, use:
+
+   ```bash
+   git add .
+   ```
+
+3. **Commit Your Changes:** Commit these changes to take a snapshot of
+   your current project state. Commit with a message describing your
+   changes:
+
+   ```bash
+   git commit -m "Initial commit"
+   ```
+
+4. **Continue Developing:** Keep making changes to your files. Regularly
+   commit your changes with `git add` and `git commit`.
+
+### Pushing to GitHub
+
+Once you're ready to share your work or back it up on GitHub, follow
+these steps:
+
+1. **Create a New Repository on GitHub:**
+   - Go to [GitHub](https://github.com) and sign in.
+   - Click the '+' icon in the upper right corner and select 'New
+     repository'.
+   - Name your repository and leave it empty (no README, .gitignore, or
+     license).
+
+2. **Link Your Local Repository to GitHub:** Back in your local project,
+   link it to your GitHub repository with:
+
+   ```bash
+   git remote add origin https://github.com/yourusername/{{cookiecutter.project_slug}}.git
+   ```
+
+3. **Push Local Repository to GitHub:** Push your local repository to
+   GitHub with:
+
+   ```bash
+   git push -u origin main
+   ```
+
+   This command pushes your commits to GitHub, and the `-u` flag sets
+   the remote repository as the upstream for future pushes.
+
+Now your project is not only tracked locally with Git but also backed up
+and shareable through GitHub. Remember to push your changes regularly to
+GitHub to keep it up to date.
+
 ## Conclusion
 
 With the environment now fully set up and ready, you're all set to dive
