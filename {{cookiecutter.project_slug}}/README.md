@@ -133,10 +133,10 @@ configuration files. Open a terminal and use the `cd` (change directory)
 command to move into your project directory:
 
 ```bash
-cd my-ai-project
+cd {{cookiecutter.project_slug}}
 ```
 
-Make sure to replace `my-ai-project` with the actual name of your
+Make sure to replace `{{cookiecutter.project_slug}}` with the actual name of your
 project directory.
 
 ### Step 2: Open Visual Studio Code
@@ -335,7 +335,7 @@ the necessary prerequisites. This step involves installing packages that
 are essential for `pyenv` to function correctly. Execute the following
 command in your terminal to install these packages:
 
-```shellell
+```shell
 # On Debian/Ubuntu/Linux Mint ------------ 
 sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev
 ```
@@ -346,7 +346,7 @@ With the prerequisites in place, the next step is to download `pyenv`
 from its official GitHub repository. This ensures you are getting the
 most recent version directly from the source:
 
-```shellell
+```shell
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 ```
 
@@ -358,7 +358,7 @@ located. Additionally, modifying your `$PATH` allows the shell to locate
 the `pyenv` command. Use `nano` or your preferred text editor to add
 these configurations to your `.bashrc` file:
 
-```shellell
+```shell
 nano $HOME/.bashrc
 ```
 
@@ -380,7 +380,7 @@ To apply the changes made to your `.bashrc` file, you need to either
 source the file or restart your shell. This step is crucial for the
 changes to take effect:
 
-```shellell
+```shell
 source $HOME/.bashrc
 # or:
 exec "$SHELL"
@@ -394,34 +394,40 @@ install, and set different Python versions using `pyenv`:
 
 View all available versions with this command:
 
-```shellell
+```shell
 pyenv install -l
 ```
 
 You can now install multiple Python versions via `pyenv`, for example:
 
-```shellell
+```shell
 pyenv install 3.10.13
 pyenv install 3.11.5
 ```
 
-List all Python versions available to `pyenv`:
+List all Python versions installed by `pyenv`:
 
-```shellell
+```shell
 pyenv versions
 ```
 
 Check the global Python version:
 
-```shellell
+```shell
 pyenv global
 ```
 
 Set the global python version using the pyenv command:
 
-```shellell
+```shell
 pyenv global 3.10.13
 pyenv global
+```
+
+To uninstall a specific version, use the following command:
+
+```shell
+pyenv uninstall 3.11.5
 ```
 
 > **Reference**:[Install
@@ -430,18 +436,17 @@ pyenv global
 To verify the successful installation of `pyenv` and the default Python
 version, run these commands:
 
-```shellell
+```shell
 pyenv --version
 ```
 
 This command will display the installed version of `pyenv`, like `pyenv
    2.3.35-2-g96f93fd5`, confirming its presence in your environment.
 
-
 And,
 
-```shellell
-vscode ➜ /workspaces/my-ai-project $ python --version
+```shell
+vscode ➜ /workspaces/{{cookiecutter.project_slug}} $ python --version
 ```
 
 This command will display the installed version of `python`, like
@@ -591,7 +596,7 @@ virtual environment and get your project's dependencies up and running.
    project (where `pyproject.toml` is located) and run the following
    command:
 
-   ```shellell
+   ```shell
    poetry install
    ```
 
@@ -603,7 +608,7 @@ virtual environment and get your project's dependencies up and running.
 3. **Activate the Virtual Environment**: To activate the virtual
    environment that Poetry created, use:
 
-   ```shellell
+   ```shell
    poetry shell
    ```
 
@@ -614,7 +619,7 @@ virtual environment and get your project's dependencies up and running.
 4. **Verify Installation**: To confirm that all dependencies are
    correctly installed, list the installed packages with:
 
-   ```shellell
+   ```shell
    poetry show
    ```
 
@@ -630,13 +635,13 @@ To manage your Poetry environments:
 
 - To view existing environments, run:
 
-```shellell
+```shell
 poetry env list
 ```
 
 To deactivate the virtual environment, you can run:
 
-```shellell
+```shell
 exit
 ```
 
