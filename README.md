@@ -79,7 +79,7 @@ cookiecutter gh:LLMsLab/cookiecutter-ai-flock.git
 <!-- NOTE: Needs discussion or investigation -@marcos_aguilerakeyser at 12/22/2023, 11:12:51 AM -->
 Other appraoches such as for example:
 
-`cookiecutter git@github.com-personal:LLMsLab/cookiecutter-genai-ml-ai.git`
+`cookiecutter git@github.com-personal:LLMsLab/cookiecutter-ai-flock.git`
 <!--  -->
 
 
