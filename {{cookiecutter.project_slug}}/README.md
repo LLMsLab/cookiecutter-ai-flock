@@ -793,6 +793,101 @@ Docker commands in the terminal:
 Alternatively, you can use the Docker Desktop interface to stop and
 remove containers.
 
+## **✅** Setting Up SSH Access within a VS Code Dev Container
+
+This guide details the process of establishing SSH access for GitHub within a VS Code Dev Container, using existing SSH keys and the configuration file from your host machine.
+
+### Steps
+
+1. **Create the `.ssh` Directory:**
+   If `.ssh` does not exist in your container, create it in the home directory of the `vscode` user.
+
+   - **Command:**
+
+     ```bash
+     mkdir -p /home/vscode/.ssh
+     ```
+
+2. **Set the Correct Permissions:**
+   Apply restricted permissions to the `.ssh` directory.
+
+   - **Command:**
+
+     ```bash
+     chmod 700 /home/vscode/.ssh
+     ```
+
+3. **Transfer SSH Keys and Config from Host to Container:**
+   Copy your SSH key files and configuration from the host to the container. The `docker cp` command should be executed on the host's terminal, not inside the container. Copy the container ID from the running container on Docker Desktop.
+
+   - **Example Commands:**
+
+     ```bash
+     docker cp ~/.ssh/id_ed25519_corporate <container_id>:/home/vscode/.ssh/
+     docker cp ~/.ssh/id_ed25519_corporate.pub <container_id>:/home/vscode/.ssh/
+     docker cp ~/.ssh/id_ed25519_personal <container_id>:/home/vscode/.ssh/
+     docker cp ~/.ssh/id_ed25519_personal.pub <container_id>:/home/vscode/.ssh/
+     docker cp ~/.ssh/config <container_id>:/home/vscode/.ssh/
+     ```
+
+     And with specific paths:
+
+     ```bash
+     docker cp /Users/marcos_aguilerakeyser/.ssh/id_ed25519_corporate 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
+     docker cp /Users/marcos_aguilerakeyser/.ssh/id_ed25519_corporate.pub 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
+     docker cp /Users/marcos_aguilerakeyser/.ssh/id_ed25519_personal 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
+     docker cp /Users/marcos_aguilerakeyser/.ssh/id_ed25519_personal.pub 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
+     docker cp /Users/marcos_aguilerakeyser/.ssh/config 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
+     ```
+
+4. **Set Correct Permissions for SSH Keys and Config:**
+   Adjust permissions for the SSH keys and config file inside the container.
+
+   - **Commands:**
+
+     ```bash
+     sudo chmod 600 /home/vscode/.ssh/id_ed25519_corporate
+     sudo chmod 644 /home/vscode/.ssh/id_ed25519_corporate.pub
+     sudo chmod 600 /home/vscode/.ssh/id_ed25519_personal
+     sudo chmod 644 /home/vscode/.ssh/id_ed25519_personal.pub
+     sudo chmod 600 /home/vscode/.ssh/config
+     ```
+
+5. **Change Ownership of the SSH Files:**
+   Change file ownership to the `vscode` user.
+
+   - **Command:**
+
+     ```bash
+     sudo chown -R vscode:vscode /home/vscode/.ssh/
+     ```
+
+6. **Add SSH Keys to the Agent:**
+   Add your SSH keys to the SSH agent in the container.
+
+   - **Commands:**
+
+     ```bash
+     ssh-add /home/vscode/.ssh/id_ed25519_corporate
+     ssh-add /home/vscode/.ssh/id_ed25519_personal
+     ```
+
+7. **Test SSH Connection:**
+   Verify the setup by testing the SSH connection.
+
+   - **Command:**
+
+     ```bash
+     ssh -T git@github.com-corporate
+     ```
+
+8. **Perform Git Operations:**
+   You are now ready to execute Git operations using SSH URLs in the dev container.
+
+### Conclusion
+
+Following these steps will ensure successful SSH access within a VS Code Dev Container. This setup allows for secure and consistent Git operations using your existing SSH configurations.
+
 ## **✅**  Getting Started with Git and GitHub
 
 Using Git for version control in your local repository and pushing to
