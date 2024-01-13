@@ -765,42 +765,16 @@ context with all necessary dependencies at hand.
 ⚡⚡ **Important Note:** Before start developing in container, please
 ensure that Docker Desktop is up and running on your system.⚡⚡
 
-## **✅** Exiting Development Containers in VS Code
-
-To stop working inside a development container and return to your local
-environment using the VS Code Dev Container extension, follow these
-simple steps:
-
-1. In the VS Code window that is connected to your Dev Container, locate
-   the green bottom-left corner that indicates you are connected to a
-   remote environment.
-
-2. Click on it to reveal the remote connection options.
-
-3. Select the "Close Remote Connection" option, as shown in the provided
-   image.
-
-> Notice that there you have available the "Reopen in Container" option too.
-
-This will close the remote connection and return you to your local VS
-Code environment.
-
-**Note**: If you want to stop the container itself, you can do so using
-Docker commands in the terminal:
-   - To stop the container: `docker stop <container-name-or-id>`
-   - To remove the container: `docker rm <container-name-or-id>`
-
-Alternatively, you can use the Docker Desktop interface to stop and
-remove containers.
-
 ## **✅** Setting Up SSH Access within a VS Code Dev Container
 
-This guide details the process of establishing SSH access for GitHub within a VS Code Dev Container, using existing SSH keys and the configuration file from your host machine.
+This guide details the process of establishing SSH access for GitHub
+within a VS Code Dev Container, using existing SSH keys and the
+configuration file from your host machine.
 
 ### Steps
 
-1. **Create the `.ssh` Directory:**
-   If `.ssh` does not exist in your container, create it in the home directory of the `vscode` user.
+1. **Create the `.ssh` Directory:** If `.ssh` does not exist in your
+   container, create it in the home directory of the `vscode` user.
 
    - **Command:**
 
@@ -808,8 +782,8 @@ This guide details the process of establishing SSH access for GitHub within a VS
      mkdir -p /home/vscode/.ssh
      ```
 
-2. **Set the Correct Permissions:**
-   Apply restricted permissions to the `.ssh` directory.
+2. **Set the Correct Permissions:** Apply restricted permissions to the
+   `.ssh` directory.
 
    - **Command:**
 
@@ -817,8 +791,11 @@ This guide details the process of establishing SSH access for GitHub within a VS
      chmod 700 /home/vscode/.ssh
      ```
 
-3. **Transfer SSH Keys and Config from Host to Container:**
-   Copy your SSH key files and configuration from the host to the container. The `docker cp` command should be executed on the host's terminal, not inside the container. Copy the container ID from the running container on Docker Desktop.
+3. **Transfer SSH Keys and Config from Host to Container:** Copy your
+   SSH key files and configuration from the host to the container. The
+   `docker cp` command should be executed on the host's terminal, not
+   inside the container. Copy the container ID from the running
+   container on Docker Desktop.
 
    - **Example Commands:**
 
@@ -840,8 +817,8 @@ This guide details the process of establishing SSH access for GitHub within a VS
      docker cp /Users/marcos_aguilerakeyser/.ssh/config 2494f65196b08d17e915d82ec1c7a1f0fbda73729805741678f7b875d71b2465:/home/vscode/.ssh/
      ```
 
-4. **Set Correct Permissions for SSH Keys and Config:**
-   Adjust permissions for the SSH keys and config file inside the container.
+4. **Set Correct Permissions for SSH Keys and Config:** Adjust
+   permissions for the SSH keys and config file inside the container.
 
    - **Commands:**
 
@@ -853,8 +830,8 @@ This guide details the process of establishing SSH access for GitHub within a VS
      sudo chmod 600 /home/vscode/.ssh/config
      ```
 
-5. **Change Ownership of the SSH Files:**
-   Change file ownership to the `vscode` user.
+5. **Change Ownership of the SSH Files:** Change file ownership to the
+   `vscode` user.
 
    - **Command:**
 
@@ -862,8 +839,8 @@ This guide details the process of establishing SSH access for GitHub within a VS
      sudo chown -R vscode:vscode /home/vscode/.ssh/
      ```
 
-6. **Add SSH Keys to the Agent:**
-   Add your SSH keys to the SSH agent in the container.
+6. **Add SSH Keys to the Agent:** Add your SSH keys to the SSH agent in
+   the container.
 
    - **Commands:**
 
@@ -872,8 +849,8 @@ This guide details the process of establishing SSH access for GitHub within a VS
      ssh-add /home/vscode/.ssh/id_ed25519_personal
      ```
 
-7. **Test SSH Connection:**
-   Verify the setup by testing the SSH connection.
+7. **Test SSH Connection:** Verify the setup by testing the SSH
+   connection.
 
    - **Command:**
 
@@ -881,12 +858,14 @@ This guide details the process of establishing SSH access for GitHub within a VS
      ssh -T git@github.com-corporate
      ```
 
-8. **Perform Git Operations:**
-   You are now ready to execute Git operations using SSH URLs in the dev container.
+8. **Perform Git Operations:** You are now ready to execute Git
+   operations using SSH URLs in the dev container.
 
 ### Conclusion
 
-Following these steps will ensure successful SSH access within a VS Code Dev Container. This setup allows for secure and consistent Git operations using your existing SSH configurations.
+Following these steps will ensure successful SSH access within a VS Code
+Dev Container. This setup allows for secure and consistent Git
+operations using your existing SSH configurations.
 
 ## **✅**  Getting Started with Git and GitHub
 
@@ -963,6 +942,34 @@ these steps:
 Now your project is not only tracked locally with Git but also backed up
 and shareable through GitHub. Remember to push your changes regularly to
 GitHub to keep it up to date.
+
+## **✅** Exiting Development Containers in VS Code
+
+To stop working inside a development container and return to your local
+environment using the VS Code Dev Container extension, follow these
+simple steps:
+
+1. In the VS Code window that is connected to your Dev Container, locate
+   the green bottom-left corner that indicates you are connected to a
+   remote environment.
+
+2. Click on it to reveal the remote connection options.
+
+3. Select the "Close Remote Connection" option, as shown in the provided
+   image.
+
+> Notice that there you have available the "Reopen in Container" option too.
+
+This will close the remote connection and return you to your local VS
+Code environment.
+
+**Note**: If you want to stop the container itself, you can do so using
+Docker commands in the terminal:
+   - To stop the container: `docker stop <container-name-or-id>`
+   - To remove the container: `docker rm <container-name-or-id>`
+
+Alternatively, you can use the Docker Desktop interface to stop and
+remove containers.
 
 ## Conclusion
 
