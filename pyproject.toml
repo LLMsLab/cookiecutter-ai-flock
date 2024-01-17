@@ -53,12 +53,6 @@ ignore = ["ANN001", "ANN002", "ANN003", "ANN101", "ANN102", "ANN201", "ANN202",
 
 # Decrease the maximum line length to 79 characters.
 line-length = 79
-# To opt in to linting Jupyter Notebook
-# The include parameter is for Jupyter Notebooks and not
-# for Jupyter Notebook in VS Code. Jupyter Notebook in
-# VSCode isn't supported yet:
-# https://github.com/astral-sh/ruff-vscode/issues/256
-# See also discussion on Discord
 include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
 
 [tool.pymarkdown]
