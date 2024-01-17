@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-ai-flock/tutorials/ruff-linter/" rel="canonical"/>
+<link href="../black-formatter/" rel="prev"/>
+<link href="../poetry/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
+<title>Ruff - Cookiecutter Ai Flock</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="slate" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ruff-python-linting-for-clean-and-compliant-code">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter Ai Flock" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter Ai Flock
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Ruff
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter Ai Flock" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    Cookiecutter Ai Flock
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+        TOC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../black-formatter/">
+        Black
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Ruff
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Ruff
+      </a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting-started-with-ruff-check">
+    Getting Started with ruff check
+  </a>
+<nav aria-label="Getting Started with ruff check" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-linting-procedure">
+    Standard Linting Procedure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated-error-correction-with-fix">
+    Automated Error Correction with --fix
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizing-nursery-rules-with-preview">
+    Utilizing Nursery Rules with --preview
+  </a>
+<nav aria-label="Utilizing Nursery Rules with --preview" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-ruffs-rules">
+    Understanding Ruff's Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-linting-a-python-script">
+    Example: Linting a Python Script
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-working-with-jupyter-notebooks">
+    Example: Working with Jupyter Notebooks
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-example-and-terminal-output">
+    Real-World Example and Terminal Output
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-integration-of-ruff-in-python-development">
+    Advanced Integration of Ruff in Python Development
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-commit-hooks-for-ruff">
+    Pre-commit Hooks for Ruff
+  </a>
+<nav aria-label="Pre-commit Hooks for Ruff" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-pre-commit-hooks">
+    Setting Up Pre-commit Hooks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-pre-commit-hook-in-action">
+    Example: Pre-commit Hook in Action
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-for-continuous-linting">
+    GitHub Actions for Continuous Linting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-integration-with-ruff">
+    GitHub Actions Integration with Ruff
+  </a>
+<nav aria-label="GitHub Actions Integration with Ruff" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-workflow-for-ruff-linting">
+    GitHub Actions Workflow for Ruff Linting
+  </a>
+<nav aria-label="GitHub Actions Workflow for Ruff Linting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#workflow-setup">
+    Workflow Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ruff-linting-action-definition">
+    Ruff Linting Action Definition
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-github-action-log-for-linting-errors">
+    Example: GitHub Action Log for Linting Errors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#customizing-ruff-with-pyprojecttoml">
+    Customizing Ruff with pyproject.toml
+  </a>
+<nav aria-label="Customizing Ruff with pyproject.toml" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commentary-on-pyprojecttoml-configuration">
+    Commentary on pyproject.toml Configuration
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#further-resources">
+    Further Resources
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../poetry/">
+        Poetry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mkdocs-docs/">
+        MkDocs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hydra-config/">
+        Hydra
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../windows-os-setup/">
+        Windows OS
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+        How-To Guides
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+        API Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+        Explanation
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting-started-with-ruff-check">
+    Getting Started with ruff check
+  </a>
+<nav aria-label="Getting Started with ruff check" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-linting-procedure">
+    Standard Linting Procedure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated-error-correction-with-fix">
+    Automated Error Correction with --fix
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizing-nursery-rules-with-preview">
+    Utilizing Nursery Rules with --preview
+  </a>
+<nav aria-label="Utilizing Nursery Rules with --preview" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-ruffs-rules">
+    Understanding Ruff's Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-linting-a-python-script">
+    Example: Linting a Python Script
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-working-with-jupyter-notebooks">
+    Example: Working with Jupyter Notebooks
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-example-and-terminal-output">
+    Real-World Example and Terminal Output
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-integration-of-ruff-in-python-development">
+    Advanced Integration of Ruff in Python Development
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-commit-hooks-for-ruff">
+    Pre-commit Hooks for Ruff
+  </a>
+<nav aria-label="Pre-commit Hooks for Ruff" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-pre-commit-hooks">
+    Setting Up Pre-commit Hooks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-pre-commit-hook-in-action">
+    Example: Pre-commit Hook in Action
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-for-continuous-linting">
+    GitHub Actions for Continuous Linting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-integration-with-ruff">
+    GitHub Actions Integration with Ruff
+  </a>
+<nav aria-label="GitHub Actions Integration with Ruff" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-actions-workflow-for-ruff-linting">
+    GitHub Actions Workflow for Ruff Linting
+  </a>
+<nav aria-label="GitHub Actions Workflow for Ruff Linting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#workflow-setup">
+    Workflow Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ruff-linting-action-definition">
+    Ruff Linting Action Definition
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-github-action-log-for-linting-errors">
+    Example: GitHub Action Log for Linting Errors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#customizing-ruff-with-pyprojecttoml">
+    Customizing Ruff with pyproject.toml
+  </a>
+<nav aria-label="Customizing Ruff with pyproject.toml" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commentary-on-pyprojecttoml-configuration">
+    Commentary on pyproject.toml Configuration
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#further-resources">
+    Further Resources
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ruff-python-linting-for-clean-and-compliant-code">Ruff: Python Linting for Clean and Compliant Code<a class="headerlink" href="#ruff-python-linting-for-clean-and-compliant-code" title="Permanent link">¶</a></h1>
+<p>Ruff is a high-performance linter for Python that swiftly evaluates and
+enhances the quality of your code. With an emphasis on speed and
+practicality, Ruff assists developers in maintaining consistent coding
+styles and standards within Python scripts and Jupyter notebooks alike.</p>
+<h2 id="getting-started-with-ruff-check">Getting Started with <code>ruff check</code><a class="headerlink" href="#getting-started-with-ruff-check" title="Permanent link">¶</a></h2>
+<p>The <code>ruff check</code> command forms the backbone of Ruff, providing a quick
+and thorough analysis of your Python files to identify and flag
+potential issues.</p>
+<h3 id="standard-linting-procedure">Standard Linting Procedure<a class="headerlink" href="#standard-linting-procedure" title="Permanent link">¶</a></h3>
+<p>To initiate linting, utilize the following command pattern:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>path/to/file_or_directory
+</code></pre></div>
+<p>For example, to lint a service component within your application, you
+might use:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>project_directory/services/
+</code></pre></div>
+<h3 id="automated-error-correction-with-fix">Automated Error Correction with <code>--fix</code><a class="headerlink" href="#automated-error-correction-with-fix" title="Permanent link">¶</a></h3>
+<p>Ruff's auto-fix capability streamlines the error correction process by
+automatically resolving numerous common linting issues:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>path/to/file_or_directory
+</code></pre></div>
+<p>For instance, to apply auto-fixes to an entire application directory:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>project_directory/
+</code></pre></div>
+<h2 id="utilizing-nursery-rules-with-preview">Utilizing Nursery Rules with <code>--preview</code><a class="headerlink" href="#utilizing-nursery-rules-with-preview" title="Permanent link">¶</a></h2>
+<p>To explore beyond standard linting rules and include experimental ones,
+use the <code>--preview</code> flag:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>--fix<span class="w"> </span>path/to/file_or_directory
+</code></pre></div>
+<p>This is particularly useful when linting individual files that may
+leverage cutting-edge Python features:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>--fix<span class="w"> </span>project_directory/utils/advanced_parser.py
+</code></pre></div>
+<h3 id="understanding-ruffs-rules">Understanding Ruff's Rules<a class="headerlink" href="#understanding-ruffs-rules" title="Permanent link">¶</a></h3>
+<p>An extensive explanation of Ruff's rules, both standard and nursery, is
+available at the <a href="https://docs.astral.sh/ruff/rules/">Ruff Rules
+Documentation</a>.</p>
+<h3 id="example-linting-a-python-script">Example: Linting a Python Script<a class="headerlink" href="#example-linting-a-python-script" title="Permanent link">¶</a></h3>
+<p>Let's say you have a Python script at
+<code>project_directory/services/parser.py</code>. To lint this script, apply
+standard and nursery rules, and fix issues:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>--fix<span class="w"> </span>project_directory/services/parser.py
+</code></pre></div>
+<h3 id="example-working-with-jupyter-notebooks">Example: Working with Jupyter Notebooks<a class="headerlink" href="#example-working-with-jupyter-notebooks" title="Permanent link">¶</a></h3>
+<p>For a Jupyter notebook, <code>analysis.ipynb</code>, located in the same directory:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>--fix<span class="w"> </span>project_directory/notebooks/analysis.ipynb
+</code></pre></div>
+<p>Ruff will lint the notebook and provide feedback or fixes in a format
+compatible with Jupyter's code cells.</p>
+<h2 id="real-world-example-and-terminal-output">Real-World Example and Terminal Output<a class="headerlink" href="#real-world-example-and-terminal-output" title="Permanent link">¶</a></h2>
+<p>Here's a real-world example showcasing the execution of Ruff and the
+corresponding terminal output:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Non-compliant code with E201</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span> <span class="c1"># Violates "undocumented-public-function"</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span> <span class="c1"># Violates "whitespace-after-open-bracket" and "whitespace-before-close-bracket"</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="n">long_string</span> <span class="o">=</span> <span class="s2">"This is a very long string..."</span> <span class="c1"># Violates "line-too-long"</span>
+</code></pre></div>
+<p>Assuming you're working on <code>project_directory/models/data_model.py</code> with
+some issues, you run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>--fix<span class="w"> </span>project_directory/models/data_model.py
+</code></pre></div>
+<p>The terminal output might look like this:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>project_directory/models/data_model.py:1:1:<span class="w"> </span>D100<span class="w"> </span>Missing<span class="w"> </span>docstring<span class="w"> </span><span class="k">in</span><span class="w"> </span>public<span class="w"> </span>module
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>project_directory/models/data_model.py:5:10:<span class="w"> </span>E231<span class="w"> </span>missing<span class="w"> </span>whitespace<span class="w"> </span>after<span class="w"> </span><span class="s1">','</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>project_directory/models/data_model.py:7:1:<span class="w"> </span>E302<span class="w"> </span>expected<span class="w"> </span><span class="m">2</span><span class="w"> </span>blank<span class="w"> </span>lines,<span class="w"> </span>found<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>Found<span class="w"> </span><span class="m">5</span><span class="w"> </span>errors<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>fixed,<span class="w"> </span><span class="m">2</span><span class="w"> </span>remaining<span class="o">)</span>.
+</code></pre></div>
+<p>Each line of the output directs you to the specific issue within your
+code, providing guidance on the nature of the problem and its location.</p>
+<div class="admonition tip">
+<p class="admonition-title">Quick Code Navigation</p>
+<p>In integrated development environments like VS Code, you can use the command-click (or control-click on some systems) feature on the path in the terminal output to jump directly to the problematic line, facilitating quick fixes.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Handling Nursery Rule Warnings</p>
+<p>If you encounter a warning like:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>warning: Selection of nursery rule `E201` without the `--preview` flag is deprecated.
+</code></pre></div>
+<p>This indicates that your <code>pyproject.toml</code> includes nursery rules, which are experimental and require the <code>--preview</code> flag during execution. In our configuration, where we utilize a set of 50 rules that encompasses several nursery rules, it's essential to always use the <code>--preview</code> flag. This ensures that Ruff considers all specified rules, including the experimental ones, to maintain the integrity of your code linting strategy.</p>
+<p>Always run Ruff with the <code>--preview</code> flag to avoid deprecation warnings and adhere to the complete set of rules defined for your project:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>path/to/file_or_directory
+</code></pre></div>
+<p>By doing so, you'll leverage the full capabilities of Ruff, keeping your codebase up to date with both standard and progressive linting practices.</p>
+</div>
+<h2 id="advanced-integration-of-ruff-in-python-development">Advanced Integration of Ruff in Python Development<a class="headerlink" href="#advanced-integration-of-ruff-in-python-development" title="Permanent link">¶</a></h2>
+<p>Continuing from the foundational <code>ruff check</code> usage, let's delve into
+how Ruff can be integrated into more advanced development workflows.
+This includes setting up pre-commit hooks, utilizing GitHub Actions for
+continuous integration, and customizing Ruff to adhere to a specific set
+of rules defined in a project's <code>pyproject.toml</code>.</p>
+<h2 id="pre-commit-hooks-for-ruff">Pre-commit Hooks for Ruff<a class="headerlink" href="#pre-commit-hooks-for-ruff" title="Permanent link">¶</a></h2>
+<p>Pre-commit hooks are a powerful way to ensure that code is automatically
+linted before it's committed to your repository, helping to maintain
+code quality and consistency.</p>
+<h3 id="setting-up-pre-commit-hooks">Setting Up Pre-commit Hooks<a class="headerlink" href="#setting-up-pre-commit-hooks" title="Permanent link">¶</a></h3>
+<p>To utilize Ruff as a pre-commit hook, you'll need to add a configuration
+to your <code>.pre-commit-config.yaml</code> file:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nt">repos</span><span class="p">:</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/charliermarsh/ruff</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="s">''</span><span class="w">  </span><span class="c1"># Use the tag for the desired release</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff</span>
+</code></pre></div>
+<p>This configuration will instruct the pre-commit tool to run Ruff against
+staged files whenever <code>git commit</code> is executed.</p>
+<h3 id="example-pre-commit-hook-in-action">Example: Pre-commit Hook in Action<a class="headerlink" href="#example-pre-commit-hook-in-action" title="Permanent link">¶</a></h3>
+<p>When you attempt to commit, the hook will run, and you might see output
+like this if issues are found:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>pre-commit<span class="w"> </span>running:<span class="w"> </span>ruff
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>project_directory/services/parser.py:10:1:<span class="w"> </span>E302<span class="w"> </span>expected<span class="w"> </span><span class="m">2</span><span class="w"> </span>blank<span class="w"> </span>lines,<span class="w"> </span>found<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>Failed.<span class="w"> </span>Ruff<span class="w"> </span>found<span class="w"> </span>linting<span class="w"> </span>errors.<span class="w"> </span>Review<span class="w"> </span>the<span class="w"> </span>issues<span class="w"> </span>and<span class="w"> </span>commit<span class="w"> </span>again.
+</code></pre></div>
+<h2 id="github-actions-for-continuous-linting">GitHub Actions for Continuous Linting<a class="headerlink" href="#github-actions-for-continuous-linting" title="Permanent link">¶</a></h2>
+<p>GitHub Actions can be set up to run Ruff on every push or pull request
+to ensure that all contributions meet your coding standards.</p>
+<h2 id="github-actions-integration-with-ruff">GitHub Actions Integration with Ruff<a class="headerlink" href="#github-actions-integration-with-ruff" title="Permanent link">¶</a></h2>
+<p>To ensure the codebase maintains high-quality standards and adheres to
+our defined linting rules, we use GitHub Actions to automate the linting
+process. This section provides an up-to-date guide on how Ruff is
+integrated within our CI/CD pipeline.</p>
+<h3 id="github-actions-workflow-for-ruff-linting">GitHub Actions Workflow for Ruff Linting<a class="headerlink" href="#github-actions-workflow-for-ruff-linting" title="Permanent link">¶</a></h3>
+<p>Our GitHub Actions workflow is configured to run Ruff on every push and
+pull request. The action checks the code against a set of 50 rules,
+including several nursery rules, ensuring all contributions are up to
+the linting standards before merging into the main branch.</p>
+<h4 id="workflow-setup">Workflow Setup<a class="headerlink" href="#workflow-setup" title="Permanent link">¶</a></h4>
+<p>The workflow is defined in the <code>.github/workflows/ruff.yaml</code> file and
+consists of the following steps:</p>
+<ol>
+<li><strong>Checkout Code</strong>: Retrieves the code from the current repository
+   branch that triggered the action.</li>
+<li><strong>Set up Python</strong>: Prepares the Python environment using the version
+   specified, ensuring compatibility with Ruff.</li>
+<li><strong>Install Ruff</strong>: Installs Ruff, making it available for linting.</li>
+<li><strong>Check Code with Ruff</strong>: Runs Ruff against the specified directories
+   (<code>src/</code> and <code>notebooks/</code>) using the <code>--preview</code> flag to include
+   nursery rules from our <code>pyproject.toml</code>.</li>
+<li><strong>Fail if Linting Errors Are Detected</strong>: If Ruff detects any linting
+   errors, the action outputs an error message and fails, prompting the
+   user to lint their code locally and resolve the issues before pushing
+   to the repository.</li>
+</ol>
+<h4 id="ruff-linting-action-definition">Ruff Linting Action Definition<a class="headerlink" href="#ruff-linting-action-definition" title="Permanent link">¶</a></h4>
+<p>Here is the code snippet for the GitHub Actions workflow:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ruff Linter</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nt">jobs</span><span class="p">:</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a>
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span>
+<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.9</span>
+<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a>
+<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Ruff</span>
+<a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install ruff</span>
+<a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a>
+<a href="#__codelineno-15-20" id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check code with Ruff</span>
+<a href="#__codelineno-15-21" id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff check --preview src/ notebooks/</span>
+<a href="#__codelineno-15-22" id="__codelineno-15-22" name="__codelineno-15-22"></a>
+<a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a>
+<a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fail if linting errors are detected</span>
+<a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">        </span><span class="no">if ruff check --preview src/ notebooks/</span>
+<a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="w">          </span><span class="no">--quiet | grep -q 'error'; then</span>
+<a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="w">          </span><span class="no">echo "Linting errors detected. Please lint your code locally with Ruff and resolve all issues before pushing."</span>
+<a href="#__codelineno-15-29" id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="w">          </span><span class="no">exit 1</span>
+<a href="#__codelineno-15-30" id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="w">        </span><span class="no">else</span>
+<a href="#__codelineno-15-31" id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="w">          </span><span class="no">echo "No linting errors detected."</span>
+<a href="#__codelineno-15-32" id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="w">        </span><span class="no">fi</span>
+</code></pre></div>
+<p>With this setup, we do not automatically fix any issues with Ruff in the
+GitHub Actions workflow. Instead, we enforce that the code must be
+linted locally by the developer. This approach ensures that all team
+members are actively involved in maintaining the code quality and are
+aware of the coding standards enforced by our Ruff configuration.</p>
+<h3 id="example-github-action-log-for-linting-errors">Example: GitHub Action Log for Linting Errors<a class="headerlink" href="#example-github-action-log-for-linting-errors" title="Permanent link">¶</a></h3>
+<p>When a developer pushes code or creates a pull request, the GitHub
+Action is triggered to ensure the code meets our linting standards. If
+Ruff detects linting issues, the action will fail, and the output in the
+GitHub Actions log will resemble the following:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>Run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>--preview<span class="w"> </span>src/<span class="w"> </span>notebooks/
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>Linting<span class="w"> </span>errors<span class="w"> </span>detected.<span class="w"> </span>Please<span class="w"> </span>lint<span class="w"> </span>your<span class="w"> </span>code<span class="w"> </span>locally<span class="w"> </span>with<span class="w"> </span>Ruff<span class="w"> </span>and<span class="w"> </span>resolve<span class="w"> </span>all<span class="w"> </span>issues<span class="w"> </span>before<span class="w"> </span>pushing.
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>project_directory/models/data_model.py:1:1:<span class="w"> </span>D100<span class="w"> </span>Missing<span class="w"> </span>docstring<span class="w"> </span><span class="k">in</span><span class="w"> </span>public<span class="w"> </span>module
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>project_directory/services/parser.py:5:10:<span class="w"> </span>E231<span class="w"> </span>missing<span class="w"> </span>whitespace<span class="w"> </span>after<span class="w"> </span><span class="s1">','</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>project_directory/utils/calculations.py:7:1:<span class="w"> </span>E302<span class="w"> </span>expected<span class="w"> </span><span class="m">2</span><span class="w"> </span>blank<span class="w"> </span>lines,<span class="w"> </span>found<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>...
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>Error:<span class="w"> </span>Process<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code<span class="w"> </span><span class="m">1</span>.
+</code></pre></div>
+<p>This log provides detailed feedback about the linting errors found. The
+developer is expected to address these issues by running Ruff locally
+with the <code>--preview</code> flag, ensuring that the code is compliant with our
+established set of rules, including nursery rules, before attempting to
+push again.</p>
+<h2 id="customizing-ruff-with-pyprojecttoml">Customizing Ruff with <code>pyproject.toml</code><a class="headerlink" href="#customizing-ruff-with-pyprojecttoml" title="Permanent link">¶</a></h2>
+<p>Ruff allows for extensive customization of its linting rules through a
+<code>pyproject.toml</code> file. This enables you to specify which rules to
+enable, disable, or configure further.</p>
+<h3 id="commentary-on-pyprojecttoml-configuration">Commentary on <code>pyproject.toml</code> Configuration<a class="headerlink" href="#commentary-on-pyprojecttoml-configuration" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># pyproject.toml</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">[tool.ruff]</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># We're using a curated set of 50 rules, which you can review and adjust as needed</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span>
+</code></pre></div>
+<p>The <code>include</code> and <code>exclude</code> keys allow you to precisely control which
+rules Ruff will apply or ignore. This ensures that the linter is aligned
+with your project's standards and practices.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
+<p>By integrating Ruff with pre-commit hooks and GitHub Actions, and
+customizing its behavior with <code>pyproject.toml</code>, you can automate and
+fine-tune the linting process to fit your project's needs. This ensures
+high-quality, clean code that adheres to your defined standards,
+ultimately leading to a more robust and maintainable codebase.</p>
+<p>Remember, the set of rules within <code>pyproject.toml</code> is at the core of
+Ruff's operation within your project, and you should review and adapt
+these rules to align with your coding principles.</p>
+<h2 id="further-resources">Further Resources<a class="headerlink" href="#further-resources" title="Permanent link">¶</a></h2>
+<p>For more detailed information on using Ruff, customizing rules, and
+integrating with your development environment, please refer to the
+following:</p>
+<ul>
+<li><a href="https://docs.astral.sh/ruff/">Ruff Official Documentation</a></li>
+<li><a href="https://docs.astral.sh/ruff/rules/">Ruff Rules Documentation</a></li>
+</ul>
+<p>Leverage these resources to fully harness the capabilities of Ruff for
+your Python projects.</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 17, 2024</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/LLMsLab/cookiecutter-ai-flock" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

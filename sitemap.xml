@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/ruff-linter/</loc>
+         <lastmod>2024-01-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://llmslab.github.io/cookiecutter-ai-flock/tutorials/turorials-intro/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
