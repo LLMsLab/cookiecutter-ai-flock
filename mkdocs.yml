@@ -86,6 +86,7 @@ nav:
   - Tutorials:
     - TOC: tutorials/turorials-intro.md
     - Black: tutorials/black-formatter.md
+    - Ruff: tutorials/ruff-linter.md
     - Poetry: tutorials/poetry.md
     - MkDocs: tutorials/mkdocs-docs.md
     - Hydra: tutorials/hydra-config.md
