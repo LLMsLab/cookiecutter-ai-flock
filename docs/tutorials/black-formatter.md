@@ -225,16 +225,16 @@ Formatting multiple Python files with Black can be efficiently handled
 in a few ways, depending on your project's structure and your personal
 workflow. Here are some approaches:
 
-1. **Format Entire Directory:** If all your Python files are in a
-   specific directory (or directories), you can format them all at once
-   by running Black on the directory. For example:
+**Format Entire Directory:** If all your Python files are in a specific
+   directory (or directories), you can format them all at once by
+   running Black on the directory. For example:
 
    ```bash
    black path/to/directory/
    ```
 
-2. **Format Specific File Types:** If you have a mix of file types and
-   only want to format the Python files, you can use a command like:
+**Format Specific File Types:** If you have a mix of file types and only
+   want to format the Python files, you can use a command like:
 
    ```bash
    find . -type f -name "*.py" -exec black {} +
@@ -243,7 +243,7 @@ workflow. Here are some approaches:
    This command uses `find` to locate all `.py` files and `black` to
    format each one.
 
-3. **Integrate with Version Control:** If you're using a version control
+**Integrate with Version Control:** If you're using a version control
    system like Git, you can format only the Python files that have
    changed. This can be particularly useful in a collaborative
    environment. For example, to format all Python files that have been
