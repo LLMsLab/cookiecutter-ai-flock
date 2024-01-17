@@ -174,6 +174,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#formatting-multiple-python-files">
+    Formatting Multiple Python Files
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
     Conclusion
   </a>
@@ -273,6 +278,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#formatting-multiple-python-files">
+    Formatting Multiple Python Files
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
     Conclusion
   </a>
@@ -325,7 +335,7 @@ Notebook</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">VS Code Output Window Log</p>
 <p>When Black formats a script or a notebook, the VS Code output window for the Black
-Formatter provides a detailed log of the operation. </p>
+Formatter provides a detailed log of the operation.</p>
 </div>
 <p>Here's an example of what you might see:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="m">2023</span>-09-20<span class="w"> </span><span class="m">12</span>:38:00.934<span class="w"> </span><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span><span class="s1">'textDocument/formatting - (5)'</span>.
@@ -394,12 +404,12 @@ Python code will trigger Black to automatically format the code for you.</p>
 </div>
 <p>The pre-commit hook will detect the unformatted code and output a message:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>black....................................................................Failed
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>- hook id: black
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>- files were modified by this hook
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>reformatted sample_script.py
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>-<span class="w"> </span>hook<span class="w"> </span>id:<span class="w"> </span>black
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>-<span class="w"> </span>files<span class="w"> </span>were<span class="w"> </span>modified<span class="w"> </span>by<span class="w"> </span>this<span class="w"> </span>hook
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>reformatted<span class="w"> </span>sample_script.py
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>All done! ✨ 🍰 ✨
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>1 file reformatted.
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>reformatted.
 </code></pre></div>
 <p>Your commit will be halted, but Black will have automatically formatted
 your file. You can simply run the commit command again, and this time it
@@ -434,9 +444,9 @@ push or a pull request.</p>
 </ol>
 <p>When the GitHub Action runs, you might see an output similar to the
 following in the action's log:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>reformatted sample_script.py
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>All done! ✨ 🍰 ✨
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>1 file reformatted.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>reformatted<span class="w"> </span>sample_script.py
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>reformatted.
 </code></pre></div>
 <p>This output confirms that the action has successfully reformatted the
 code to adhere to our standards.</p>
@@ -470,6 +480,31 @@ it might space things out differently.</p>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="k">return</span> <span class="n">matrix</span>
 </code></pre></div>
+<h2 id="formatting-multiple-python-files">Formatting Multiple Python Files<a class="headerlink" href="#formatting-multiple-python-files" title="Permanent link">¶</a></h2>
+<p>Formatting multiple Python files with Black can be efficiently handled
+in a few ways, depending on your project's structure and your personal
+workflow. Here are some approaches:</p>
+<p><strong>Format Entire Directory:</strong> If all your Python files are in a specific
+   directory (or directories), you can format them all at once by
+   running Black on the directory. For example:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>black<span class="w"> </span>path/to/directory/
+</code></pre></div>
+<p><strong>Format Specific File Types:</strong> If you have a mix of file types and only
+   want to format the Python files, you can use a command like:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.py"</span><span class="w"> </span>-exec<span class="w"> </span>black<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+
+</code></pre></div>
+<p>This command uses <code>find</code> to locate all <code>.py</code> files and <code>black</code> to
+   format each one.</p>
+<p><strong>Integrate with Version Control:</strong> If you're using a version control
+   system like Git, you can format only the Python files that have
+   changed. This can be particularly useful in a collaborative
+   environment. For example, to format all Python files that have been
+   modified but not yet committed:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>--staged<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'\.py$'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>black
+</code></pre></div>
+<p>Choose the approach that best fits your workflow and project structure.
+Automation and integration with your development tools can significantly
+streamline the formatting process.</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
 <p>Black ensures consistency and readability across your codebase. With the
 integrations provided by the Cookiecutter template, it's easier than
@@ -495,7 +530,7 @@ documentation is a valuable resource.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 17, 2024</span>
 </small>
 </div>
 </article>
