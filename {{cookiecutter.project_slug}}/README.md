@@ -873,7 +873,18 @@ Using Git for version control in your local repository and pushing to
 GitHub when you're ready is a great way to manage and share your
 project. Here's how to get started:
 
-1. **Initialize a New Git Repository:** In the root directory of your
+1. **Configure Git Global Settings:** Set your Git username and email
+   globally within the container. This is important for proper
+   attribution of your commits.
+
+   - **Commands:**
+
+     ```bash
+     git config --global user.email "you@example.com"
+     git config --global user.name "Your Name"
+     ```
+
+2. **Initialize a New Git Repository:** In the root directory of your
    project, run the following command to initialize a new Git
    repository:
 
@@ -884,7 +895,7 @@ project. Here's how to get started:
    This creates a new `.git` subdirectory, which stores all of your
    project's version history.
 
-2. **Add Files to the Repository:** After initializing the repository,
+3. **Add Files to the Repository:** After initializing the repository,
    add your project files to it. Check the status of your repository
    with:
 
@@ -899,7 +910,7 @@ project. Here's how to get started:
    git add .
    ```
 
-3. **Commit Your Changes:** Commit these changes to take a snapshot of
+4. **Commit Your Changes:** Commit these changes to take a snapshot of
    your current project state. Commit with a message describing your
    changes:
 
@@ -907,7 +918,7 @@ project. Here's how to get started:
    git commit -m "Initial commit"
    ```
 
-4. **Continue Developing:** Keep making changes to your files. Regularly
+5. **Continue Developing:** Keep making changes to your files. Regularly
    commit your changes with `git add` and `git commit`.
 
 ### Pushing to GitHub
