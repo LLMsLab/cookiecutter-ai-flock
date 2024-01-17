@@ -25,9 +25,10 @@ jobs:
       run: |
         echo "Formatting .ipynb files in notebooks/"
         find notebooks/ -type f -name "*.ipynb" -exec black {} +
+
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
-        git diff --exit-code && git commit -m "Apply Black formatting" && git push
+        git diff --exit-code || (git commit -m "Apply Black formatting" && git push)
