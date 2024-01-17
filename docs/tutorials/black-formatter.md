@@ -38,10 +38,10 @@ Notebook`.
         return result
     ```
 
-!!! info "VS Code Output Window Log" 
+!!! info "VS Code Output Window Log"
     When Black formats a script or a notebook, the VS Code output window for the Black
-    Formatter provides a detailed log of the operation. 
-    
+    Formatter provides a detailed log of the operation.
+
 Here's an example of what you might see:
 
 ```bash
@@ -128,7 +128,7 @@ Python code will trigger Black to automatically format the code for you.
 
 The pre-commit hook will detect the unformatted code and output a message:
 
-```
+```bash
 black....................................................................Failed
 - hook id: black
 - files were modified by this hook
@@ -172,7 +172,7 @@ This GitHub Action serves a dual purpose:
 When the GitHub Action runs, you might see an output similar to the
 following in the action's log:
 
-```
+```bash
 reformatted sample_script.py
 All done! ✨ 🍰 ✨
 1 file reformatted.
@@ -212,12 +212,50 @@ formatted.
 If you were to format the above with Black without using the comments,
 it might put the entire matrix on a single line if it's short enough, or
 it might space things out differently.
-    
+
 ```python
 def transformation_matrix():
     matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
     return matrix
 ```
+
+## Formatting Multiple Python Files
+
+Formatting multiple Python files with Black can be efficiently handled
+in a few ways, depending on your project's structure and your personal
+workflow. Here are some approaches:
+
+1. **Format Entire Directory:** If all your Python files are in a
+   specific directory (or directories), you can format them all at once
+   by running Black on the directory. For example:
+
+   ```bash
+   black path/to/directory/
+   ```
+
+2. **Format Specific File Types:** If you have a mix of file types and
+   only want to format the Python files, you can use a command like:
+
+   ```bash
+   find . -type f -name "*.py" -exec black {} +
+   ```
+
+   This command uses `find` to locate all `.py` files and `black` to
+   format each one.
+
+3. **Integrate with Version Control:** If you're using a version control
+   system like Git, you can format only the Python files that have
+   changed. This can be particularly useful in a collaborative
+   environment. For example, to format all Python files that have been
+   modified but not yet committed:
+
+   ```bash
+   git diff --name-only --staged | grep '\.py$' | xargs black
+   ```
+
+Choose the approach that best fits your workflow and project structure.
+Automation and integration with your development tools can significantly
+streamline the formatting process.
 
 ## Conclusion
 
@@ -233,7 +271,6 @@ understand and collaborate on the project.
 
 For a deeper dive into the functionalities and best practices of using
 Black, the following resource is highly recommended:
-
 
 - [Official Black Documentation](https://black.readthedocs.io/en/stable/)
 
