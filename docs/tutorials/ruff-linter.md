@@ -328,10 +328,75 @@ following:
 Leverage these resources to fully harness the capabilities of Ruff for
 your Python projects.
 
+Selected rules:
 
-
-
-
-
-
-
+| Code | Rule Description                                              | Documentation Link                              |
+|------|---------------------------------------------------------------|-------------------------------------------------|
+| F401 | Unused imports                                                | [F401](https://docs.astral.sh/ruff/rules/#F401) |
+| F402 | Import shadowed by loop var                                   | [F402](https://docs.astral.sh/ruff/rules/#F402) |
+| F403 | `from module import *` used                                   | [F403](https://docs.astral.sh/ruff/rules/#F403) |
+| F405 | Name may be undefined, or defined from star imports           | [F405](https://docs.astral.sh/ruff/rules/#F405) |
+| F601 | Dictionary key literal repeated                               | [F601](https://docs.astral.sh/ruff/rules/#F601) |
+| F602 | Dictionary key variable repeated                              | [F602](https://docs.astral.sh/ruff/rules/#F602) |
+| F621 | Too many expressions in star-unpacking assignment             | [F621](https://docs.astral.sh/ruff/rules/#F621) |
+| F631 | Assert test is a non-empty tuple                              | [F631](https://docs.astral.sh/ruff/rules/#F631) |
+| F632 | Use `==` to compare constant literals                         | [F632](https://docs.astral.sh/ruff/rules/#F632) |
+| F701 | `break` outside loop                                          | [F701](https://docs.astral.sh/ruff/rules/#F701) |
+| F702 | `continue` not properly in loop                               | [F702](https://docs.astral.sh/ruff/rules/#F702) |
+| F704 | Yield statement outside of a function                         | [F704](https://docs.astral.sh/ruff/rules/#F704) |
+| F706 | `return` statement outside of a function/method               | [F706](https://docs.astral.sh/ruff/rules/#F706) |
+| F707 | `except` block not the last exception handler                 | [F707](https://docs.astral.sh/ruff/rules/#F707) |
+| F722 | Syntax error in forward annotation                            | [F722](https://docs.astral.sh/ruff/rules/#F722) |
+| F811 | Redefinition of unused variable from line                     | [F811](https://docs.astral.sh/ruff/rules/#F811) |
+| F821 | Undefined name                                                | [F821](https://docs.astral.sh/ruff/rules/#F821) |
+| F841 | Local variable is assigned to but never used                  | [F841](https://docs.astral.sh/ruff/rules/#F841) |
+| E101 | Indentation contains mixed spaces and tabs                    | [E101](https://docs.astral.sh/ruff/rules/#E101) |
+| E111 | Indentation is not a multiple of four                         | [E111](https://docs.astral.sh/ruff/rules/#E111) |
+| E112 | Expected an indented block                                    | [E112](https://docs.astral.sh/ruff/rules/#E112) |
+| E113 | Unexpected indentation                                        | [E113](https://docs.astral.sh/ruff/rules/#E113) |
+| E114 | Indentation is not a multiple of four (comment)               | [E114](https://docs.astral.sh/ruff/rules/#E114) |
+| E115 | Expected an indented block (comment)                          | [E115](https://docs.astral.sh/ruff/rules/#E115) |
+| E116 | Unexpected indentation (comment)                              | [E116](https://docs.astral.sh/ruff/rules/#E116) |
+| E117 | Over-indented (comment)                                       | [E117](https://docs.astral.sh/ruff/rules/#E117) |
+| E201 | Whitespace after '(' or '['                                   | [E201](https://docs.astral.sh/ruff/rules/#E201) |
+| E202 | Whitespace before ')' or ']'                                  | [E202](https://docs.astral.sh/ruff/rules/#E202) |
+| E203 | Whitespace before ':'                                         | [E203](https://docs.astral.sh/ruff/rules/#E203) |
+| E211 | Whitespace before '(' or '['                                  | [E211](https://docs.astral.sh/ruff/rules/#E211) |
+| E225 | Missing whitespace around operator                            | [E225](https://docs.astral.sh/ruff/rules/#E225) |
+| E231 | Missing whitespace after ',', ';', or ':'                     | [E231](https://docs.astral.sh/ruff/rules/#E231) |
+| E251 | Unexpected spaces around keyword / parameter equals           | [E251](https://docs.astral.sh/ruff/rules/#E251) |
+| E261 | At least two spaces before inline comment                     | [E261](https://docs.astral.sh/ruff/rules/#E261) |
+| E262 | Inline comment should start with '# '                         | [E262](https://docs.astral.sh/ruff/rules/#E262) |
+| E265 | Block comment should start with '# '                          | [E265](https://docs.astral.sh/ruff/rules/#E265) |
+| E266 | Too many leading '#' for block comment                        | [E266](https://docs.astral.sh/ruff/rules/#E266) |
+| E271 | Multiple spaces after keyword                                 | [E271](https://docs.astral.sh/ruff/rules/#E271) |
+| E272 | Multiple spaces before keyword                                | [E272](https://docs.astral.sh/ruff/rules/#E272) |
+| E273 | Tab after keyword                                             | [E273](https://docs.astral.sh/ruff/rules/#E273) |
+| E274 | Tab before keyword                                            | [E274](https://docs.astral.sh/ruff/rules/#E274) |
+| E275 | Missing whitespace after keyword                              | [E275](https://docs.astral.sh/ruff/rules/#E275) |
+| E401 | Multiple imports on one line                                  | [E401](https://docs.astral.sh/ruff/rules/#E401) |
+| E402 | Module level import not at top of file                        | [E402](https://docs.astral.sh/ruff/rules/#E402) |
+| E501 | Line too long                                                 | [E501](https://docs.astral.sh/ruff/rules/#E501) |
+| E711 | Comparison to None should be 'expr is None'                   | [E711](https://docs.astral.sh/ruff/rules/#E711) |
+| E712 | Comparison to True should be 'if cond is True:' or 'if cond:' | [E712](https://docs.astral.sh/ruff/rules/#E712) |
+| E713 | Test for membership should be 'not in'                        | [E713](https://docs.astral.sh/ruff/rules/#E713) |
+| E714 | Test for object identity should be 'is not'                   | [E714](https://docs.astral.sh/ruff/rules/#E714) |
+| E721 | Do not compare types, use 'isinstance()'                      | [E721](https://docs.astral.sh/ruff/rules/#E721) |
+| E722 | Do not use bare 'except'                                      | [E722](https://docs.astral.sh/ruff/rules/#E722) |
+| E731 | Do not assign a lambda expression, use a def                  | [E731](https://docs.astral.sh/ruff/rules/#E731) |
+| I001 | Import block is un-sorted or un-formatted                     | [I001](https://docs.astral.sh/ruff/rules/#I001) |
+| I002 | Missing required import                                       | [I002](https://docs.astral.sh/ruff/rules/#I002) |
+| N801 | Class name should use CapWords convention                     | [N801](https://docs.astral.sh/ruff/rules/#N801) |
+| N802 | Function name should be lowercase                             | [N802](https://docs.astral.sh/ruff/rules/#N802) |
+| N803 | Argument name should be lowercase                             | [N803](https://docs.astral.sh/ruff/rules/#N803) |
+| N804 | First argument of a class method should be named 'cls'        | [N804](https://docs.astral.sh/ruff/rules/#N804) |
+| N805 | First argument of a method should be named 'self'             | [N805](https://docs.astral.sh/ruff/rules/#N805) |
+| N806 | Variable in function should be lowercase                      | [N806](https://docs.astral.sh/ruff/rules/#N806) |
+| D100 | Missing docstring in public module                            | [D100](https://docs.astral.sh/ruff/rules/#D100) |
+| D101 | Missing docstring in public class                             | [D101](https://docs.astral.sh/ruff/rules/#D101) |
+| D102 | Missing docstring in public method                            | [D102](https://docs.astral.sh/ruff/rules/#D102) |
+| D103 | Missing docstring in public function                          | [D103](https://docs.astral.sh/ruff/rules/#D103) |
+| D104 | Missing docstring in public package                           | [D104](https://docs.astral.sh/ruff/rules/#D104) |
+| D105 | Missing docstring in magic method                             | [D105](https://docs.astral.sh/ruff/rules/#D105) |
+| D106 | Missing docstring in public nested class                      | [D106](https://docs.astral.sh/ruff/rules/#D106) |
+| D107 | Missing docstring in __init__                                 | [D107](https://docs.astral.sh/ruff/rules/#D107) |
