@@ -686,8 +686,8 @@ enable, disable, or configure further.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># pyproject.toml</span>
 <a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">[tool.ruff]</span>
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># We're using a curated set of 50 rules, which you can review and adjust as needed</span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">... ]</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">... ]</span>
 </code></pre></div>
 <p>The <code>include</code> and <code>exclude</code> keys allow you to precisely control which
 rules Ruff will apply or ignore. This ensures that the linter is aligned
@@ -711,12 +711,364 @@ following:</p>
 </ul>
 <p>Leverage these resources to fully harness the capabilities of Ruff for
 your Python projects.</p>
+<p>Selected rules:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Rule Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F401</td>
+<td>Unused imports</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F401">F401</a></td>
+</tr>
+<tr>
+<td>F402</td>
+<td>Import shadowed by loop var</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F402">F402</a></td>
+</tr>
+<tr>
+<td>F403</td>
+<td><code>from module import *</code> used</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F403">F403</a></td>
+</tr>
+<tr>
+<td>F405</td>
+<td>Name may be undefined, or defined from star imports</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F405">F405</a></td>
+</tr>
+<tr>
+<td>F601</td>
+<td>Dictionary key literal repeated</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F601">F601</a></td>
+</tr>
+<tr>
+<td>F602</td>
+<td>Dictionary key variable repeated</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F602">F602</a></td>
+</tr>
+<tr>
+<td>F621</td>
+<td>Too many expressions in star-unpacking assignment</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F621">F621</a></td>
+</tr>
+<tr>
+<td>F631</td>
+<td>Assert test is a non-empty tuple</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F631">F631</a></td>
+</tr>
+<tr>
+<td>F632</td>
+<td>Use <code>==</code> to compare constant literals</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F632">F632</a></td>
+</tr>
+<tr>
+<td>F701</td>
+<td><code>break</code> outside loop</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F701">F701</a></td>
+</tr>
+<tr>
+<td>F702</td>
+<td><code>continue</code> not properly in loop</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F702">F702</a></td>
+</tr>
+<tr>
+<td>F704</td>
+<td>Yield statement outside of a function</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F704">F704</a></td>
+</tr>
+<tr>
+<td>F706</td>
+<td><code>return</code> statement outside of a function/method</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F706">F706</a></td>
+</tr>
+<tr>
+<td>F707</td>
+<td><code>except</code> block not the last exception handler</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F707">F707</a></td>
+</tr>
+<tr>
+<td>F722</td>
+<td>Syntax error in forward annotation</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F722">F722</a></td>
+</tr>
+<tr>
+<td>F811</td>
+<td>Redefinition of unused variable from line</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F811">F811</a></td>
+</tr>
+<tr>
+<td>F821</td>
+<td>Undefined name</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F821">F821</a></td>
+</tr>
+<tr>
+<td>F841</td>
+<td>Local variable is assigned to but never used</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#F841">F841</a></td>
+</tr>
+<tr>
+<td>E101</td>
+<td>Indentation contains mixed spaces and tabs</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E101">E101</a></td>
+</tr>
+<tr>
+<td>E111</td>
+<td>Indentation is not a multiple of four</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E111">E111</a></td>
+</tr>
+<tr>
+<td>E112</td>
+<td>Expected an indented block</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E112">E112</a></td>
+</tr>
+<tr>
+<td>E113</td>
+<td>Unexpected indentation</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E113">E113</a></td>
+</tr>
+<tr>
+<td>E114</td>
+<td>Indentation is not a multiple of four (comment)</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E114">E114</a></td>
+</tr>
+<tr>
+<td>E115</td>
+<td>Expected an indented block (comment)</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E115">E115</a></td>
+</tr>
+<tr>
+<td>E116</td>
+<td>Unexpected indentation (comment)</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E116">E116</a></td>
+</tr>
+<tr>
+<td>E117</td>
+<td>Over-indented (comment)</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E117">E117</a></td>
+</tr>
+<tr>
+<td>E201</td>
+<td>Whitespace after '(' or '['</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E201">E201</a></td>
+</tr>
+<tr>
+<td>E202</td>
+<td>Whitespace before ')' or ']'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E202">E202</a></td>
+</tr>
+<tr>
+<td>E203</td>
+<td>Whitespace before ':'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E203">E203</a></td>
+</tr>
+<tr>
+<td>E211</td>
+<td>Whitespace before '(' or '['</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E211">E211</a></td>
+</tr>
+<tr>
+<td>E225</td>
+<td>Missing whitespace around operator</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E225">E225</a></td>
+</tr>
+<tr>
+<td>E231</td>
+<td>Missing whitespace after ',', ';', or ':'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E231">E231</a></td>
+</tr>
+<tr>
+<td>E251</td>
+<td>Unexpected spaces around keyword / parameter equals</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E251">E251</a></td>
+</tr>
+<tr>
+<td>E261</td>
+<td>At least two spaces before inline comment</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E261">E261</a></td>
+</tr>
+<tr>
+<td>E262</td>
+<td>Inline comment should start with '# '</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E262">E262</a></td>
+</tr>
+<tr>
+<td>E265</td>
+<td>Block comment should start with '# '</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E265">E265</a></td>
+</tr>
+<tr>
+<td>E266</td>
+<td>Too many leading '#' for block comment</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E266">E266</a></td>
+</tr>
+<tr>
+<td>E271</td>
+<td>Multiple spaces after keyword</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E271">E271</a></td>
+</tr>
+<tr>
+<td>E272</td>
+<td>Multiple spaces before keyword</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E272">E272</a></td>
+</tr>
+<tr>
+<td>E273</td>
+<td>Tab after keyword</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E273">E273</a></td>
+</tr>
+<tr>
+<td>E274</td>
+<td>Tab before keyword</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E274">E274</a></td>
+</tr>
+<tr>
+<td>E275</td>
+<td>Missing whitespace after keyword</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E275">E275</a></td>
+</tr>
+<tr>
+<td>E401</td>
+<td>Multiple imports on one line</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E401">E401</a></td>
+</tr>
+<tr>
+<td>E402</td>
+<td>Module level import not at top of file</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E402">E402</a></td>
+</tr>
+<tr>
+<td>E501</td>
+<td>Line too long</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E501">E501</a></td>
+</tr>
+<tr>
+<td>E711</td>
+<td>Comparison to None should be 'expr is None'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E711">E711</a></td>
+</tr>
+<tr>
+<td>E712</td>
+<td>Comparison to True should be 'if cond is True:' or 'if cond:'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E712">E712</a></td>
+</tr>
+<tr>
+<td>E713</td>
+<td>Test for membership should be 'not in'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E713">E713</a></td>
+</tr>
+<tr>
+<td>E714</td>
+<td>Test for object identity should be 'is not'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E714">E714</a></td>
+</tr>
+<tr>
+<td>E721</td>
+<td>Do not compare types, use 'isinstance()'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E721">E721</a></td>
+</tr>
+<tr>
+<td>E722</td>
+<td>Do not use bare 'except'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E722">E722</a></td>
+</tr>
+<tr>
+<td>E731</td>
+<td>Do not assign a lambda expression, use a def</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#E731">E731</a></td>
+</tr>
+<tr>
+<td>I001</td>
+<td>Import block is un-sorted or un-formatted</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#I001">I001</a></td>
+</tr>
+<tr>
+<td>I002</td>
+<td>Missing required import</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#I002">I002</a></td>
+</tr>
+<tr>
+<td>N801</td>
+<td>Class name should use CapWords convention</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N801">N801</a></td>
+</tr>
+<tr>
+<td>N802</td>
+<td>Function name should be lowercase</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N802">N802</a></td>
+</tr>
+<tr>
+<td>N803</td>
+<td>Argument name should be lowercase</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N803">N803</a></td>
+</tr>
+<tr>
+<td>N804</td>
+<td>First argument of a class method should be named 'cls'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N804">N804</a></td>
+</tr>
+<tr>
+<td>N805</td>
+<td>First argument of a method should be named 'self'</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N805">N805</a></td>
+</tr>
+<tr>
+<td>N806</td>
+<td>Variable in function should be lowercase</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#N806">N806</a></td>
+</tr>
+<tr>
+<td>D100</td>
+<td>Missing docstring in public module</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D100">D100</a></td>
+</tr>
+<tr>
+<td>D101</td>
+<td>Missing docstring in public class</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D101">D101</a></td>
+</tr>
+<tr>
+<td>D102</td>
+<td>Missing docstring in public method</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D102">D102</a></td>
+</tr>
+<tr>
+<td>D103</td>
+<td>Missing docstring in public function</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D103">D103</a></td>
+</tr>
+<tr>
+<td>D104</td>
+<td>Missing docstring in public package</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D104">D104</a></td>
+</tr>
+<tr>
+<td>D105</td>
+<td>Missing docstring in magic method</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D105">D105</a></td>
+</tr>
+<tr>
+<td>D106</td>
+<td>Missing docstring in public nested class</td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D106">D106</a></td>
+</tr>
+<tr>
+<td>D107</td>
+<td>Missing docstring in <strong>init</strong></td>
+<td><a href="https://docs.astral.sh/ruff/rules/#D107">D107</a></td>
+</tr>
+</tbody>
+</table>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 17, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 18, 2024</span>
 </small>
 </div>
 </article>
