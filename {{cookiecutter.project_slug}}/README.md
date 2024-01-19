@@ -965,14 +965,14 @@ documentation is both visually appealing and easy to navigate.
 To build the documentation for your project, use the following command:
 
 ```bash
-make mkdocs build
+mkdocs build
 ```
 
 To view your project documentation in a web format and see changes in
 real time, start the live-reloading documentation server:
 
 ```bash
-make mkdocs serve
+mkdocs serve
 ```
 
 This command starts a local web server that hosts your project's
