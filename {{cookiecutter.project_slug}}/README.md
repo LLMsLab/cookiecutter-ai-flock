@@ -954,6 +954,56 @@ Now your project is not only tracked locally with Git but also backed up
 and shareable through GitHub. Remember to push your changes regularly to
 GitHub to keep it up to date.
 
+### ✅ Build Documentation with MkDocs
+
+Our project documentation is generated using Python MkDocs, a
+user-friendly static site generator focused on Markdown files. We employ
+the Material for MkDocs theme, known for its modern and responsive
+design based on Material Design principles. This combination ensures our
+documentation is both visually appealing and easy to navigate.
+
+To build the documentation for your project, use the following command:
+
+```bash
+make docs_build
+```
+
+To view your project documentation in a web format and see changes in
+real time, start the live-reloading documentation server:
+
+```bash
+make docs_serve
+```
+
+This command starts a local web server that hosts your project's
+documentation. The 'live-reloading' feature means that any changes you
+make to the documentation source files are automatically reflected in
+the server's output without needing to manually restart it.
+
+You can access the documentation at:
+`http://127.0.0.1:8000/{{cookiecutter.project_slug}}/`
+
+To stop the server, press `Ctrl + C` in the terminal. It's recommended
+to close and reopen your current VS Code session after stopping the
+server to ensure that all changes are properly loaded when you restart.
+
+### ✅ CSpell Checker: Extracting Terms from Python Libraries
+
+Enhance the CSpell checker's dictionary with terms from the Python
+libraries:
+
+```bash
+make cspell_dictionary
+```
+
+CSpell (Code Spell Checker) is a tool used to identify spelling errors
+in your code, comments, and documentation. This command enriches
+CSpell's dictionary with terms specific to the Python libraries you're
+using in your project. This is particularly useful for avoiding false
+positives on technical terms or library-specific jargon that might not
+be in a standard dictionary. By doing this, you ensure more accurate and
+context-aware spell checking throughout your development process.
+
 ## **✅** Exiting Development Containers in VS Code
 
 To stop working inside a development container and return to your local
