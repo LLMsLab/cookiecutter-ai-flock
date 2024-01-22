@@ -7,7 +7,7 @@ license = "Internal Use Only"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10.13"
+python = ">=3.10.13,<3.12"
 unstructured = { version = "0.10.12", extras = ["pdf"] }
 chromadb = "0.4.10"
 azure-ai-ml = "1.10.0"
