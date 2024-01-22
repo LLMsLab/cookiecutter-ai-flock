@@ -374,6 +374,36 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 ```
 
+##### Exiting GNU nano Editor
+
+After editing a file in the GNU nano editor, follow these steps to exit:
+
+1. **Save and Exit:**
+   - Press `Control` + `X` to signal that you wish to exit nano.
+   - If you have made changes to the file, nano will ask whether you
+     want to save them. Press `Y` for Yes.
+   - Nano will then display the `File Name to Write:` prompt at the
+     bottom with the current file name. Press `Enter` to confirm and
+     save the changes to the specified file.
+   - Upon pressing `Enter`, if there are no permission issues or other
+     errors, nano will save the file and exit, returning you to the
+     terminal prompt.
+
+2. **Exit without Saving:**
+   - Press `Control` + `X` to signal that you wish to exit nano.
+   - If you have made changes and do not wish to save them, press `N`
+     for No when prompted to save the changes.
+   - Nano will exit without saving and return you to the terminal
+     prompt.
+
+3. **Troubleshooting:**
+   - If nano does not exit after confirming the file name, check the
+     bottom of the screen for error messages.
+   - Common issues may include file permission errors or an incorrect
+     file path.
+   - Ensure that you are pressing the `Control` key (not the `Command`
+     key on Mac) and the `Enter`/`Return` key on your keyboard.
+
 #### 1.4. Source **$HOME/.bashrc** file or restart the shell
 
 To apply the changes made to your `.bashrc` file, you need to either
