@@ -493,6 +493,63 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notebook-and-script-naming-conventions-in-ml-projects">
+<span class="md-ellipsis">
+      Notebook and Script Naming Conventions in ML Projects
+    </span>
+</a>
+<nav aria-label="Notebook and Script Naming Conventions in ML Projects" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview_4">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-convention-structure_3">
+<span class="md-ellipsis">
+      Naming Convention Structure
+    </span>
+</a>
+<nav aria-label="Naming Convention Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components_3">
+<span class="md-ellipsis">
+      Components:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidelines_3">
+<span class="md-ellipsis">
+      Guidelines:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_4">
+<span class="md-ellipsis">
+      Examples:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_4">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -823,6 +880,63 @@
 <a class="md-nav__link" href="#directory-structure">
 <span class="md-ellipsis">
       Directory Structure
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notebook-and-script-naming-conventions-in-ml-projects">
+<span class="md-ellipsis">
+      Notebook and Script Naming Conventions in ML Projects
+    </span>
+</a>
+<nav aria-label="Notebook and Script Naming Conventions in ML Projects" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview_4">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-convention-structure_3">
+<span class="md-ellipsis">
+      Naming Convention Structure
+    </span>
+</a>
+<nav aria-label="Naming Convention Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components_3">
+<span class="md-ellipsis">
+      Components:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidelines_3">
+<span class="md-ellipsis">
+      Guidelines:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_4">
+<span class="md-ellipsis">
+      Examples:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_4">
+<span class="md-ellipsis">
+      Conclusion
     </span>
 </a>
 </li>
@@ -1420,6 +1534,79 @@ especially for projects with multiple models, use subdirectories:</p>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123_metadata.json
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123.pkl_documentation.md
 </code></pre></div>
+<h2 id="notebook-and-script-naming-conventions-in-ml-projects">Notebook and Script Naming Conventions in ML Projects<a class="headerlink" href="#notebook-and-script-naming-conventions-in-ml-projects" title="Permanent link">¶</a></h2>
+<h3 id="overview_4">Overview<a class="headerlink" href="#overview_4" title="Permanent link">¶</a></h3>
+<p>Properly naming Jupyter notebooks and scripts is essential for quick
+identification, efficient management, and collaborative ease in machine
+learning projects. A systematic naming convention helps in understanding
+the file's purpose at a glance and tracking its evolution over time.</p>
+<h3 id="naming-convention-structure_3">Naming Convention Structure<a class="headerlink" href="#naming-convention-structure_3" title="Permanent link">¶</a></h3>
+<p>Names for notebooks and scripts should follow this format:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>&lt;type&gt;_&lt;topic&gt;_&lt;version&gt;_&lt;YYYYMMDD&gt;.&lt;extension&gt;
+</code></pre></div></p>
+<h4 id="components_3">Components:<a class="headerlink" href="#components_3" title="Permanent link">¶</a></h4>
+<ul>
+<li><strong>Type</strong>: A short identifier indicating the nature of the work (e.g.,
+  <code>eda</code> for exploratory data analysis, <code>preprocess</code> for data
+  preprocessing, <code>model</code> for model training).</li>
+<li><strong>Topic</strong>: A concise descriptor of the notebook's or script's main
+  focus.</li>
+<li><strong>Version</strong>: An optional version number or identifier, especially
+  useful if the notebook or script undergoes significant iterative
+  updates.</li>
+<li><strong>Date</strong>: The creation or last modified date in <code>YYYYMMDD</code> format.</li>
+<li><strong>Extension</strong>: The file extension, like <code>.ipynb</code> for Jupyter
+  notebooks, <code>.py</code> for Python scripts.</li>
+</ul>
+<h3 id="guidelines_3">Guidelines:<a class="headerlink" href="#guidelines_3" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Descriptive and Purposeful:</strong></li>
+<li>Start with a type that categorizes the file based on its primary
+     purpose in the ML workflow.</li>
+<li>
+<p>The topic should be sufficiently descriptive to convey the specific
+     focus or task of the notebook/script.</p>
+</li>
+<li>
+<p><strong>Versioning:</strong></p>
+</li>
+<li>
+<p>Include a version number if the file is part of an iterative
+     process, such as <code>v1</code>, <code>v2</code>, or more detailed semantic versioning
+     like <code>1.0</code>, <code>1.1</code>.</p>
+</li>
+<li>
+<p><strong>Date Stamp:</strong></p>
+</li>
+<li>
+<p>Adding the date (in <code>YYYYMMDD</code> format) helps in identifying the
+     most recent version or understanding the timeline of development.</p>
+</li>
+<li>
+<p><strong>Consistency:</strong></p>
+</li>
+<li>
+<p>Maintain a consistent naming convention across all notebooks and
+     scripts for ease of organization and retrieval.</p>
+</li>
+<li>
+<p><strong>Clarity and Brevity:</strong></p>
+</li>
+<li>Ensure the name is clear yet concise. Avoid overly long names but
+     provide enough information to understand the file's content and
+     purpose.</li>
+</ol>
+<h3 id="examples_4">Examples:<a class="headerlink" href="#examples_4" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>eda_customer_segmentation_v1_20240101.ipynb</code></li>
+<li><code>preprocess_data_cleaning_v2_20240215.py</code></li>
+<li><code>model_train_regression_20240310.ipynb</code></li>
+</ul>
+<h3 id="conclusion_4">Conclusion<a class="headerlink" href="#conclusion_4" title="Permanent link">¶</a></h3>
+<p>This naming convention for Jupyter notebooks and scripts will foster a
+more organized and manageable ML project environment. It aids in quickly
+locating specific files, understanding their purpose, and tracking their
+evolution over time.</p>
 <!--
 ## GitHub repositories naming convention
 
@@ -1458,19 +1645,19 @@ Branch type:
 | junk        | Throwaway branch created to experiment                |
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>t93kqi0_1_ask_parent_issue
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>t93kqi0_3_daa_gathering_data_from_sources
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>t93kqi0_5_dac_creating_new_datasets
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>t93kqi0_7_expl_exploratory_data_analysis
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>t93kqi0_9_expe_feature_engineering
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>t93kqi0_11_expe_model_training
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>t93kqi0_20_modl_tests
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>t93kqi0_40_modl_pipelines
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>t93kqi0_45_modl_parametrizing_runs
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>t93kqi0_170_modl_monitoring
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>t93kqi0_220_modl_loging
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>t93kqi0_250_modl_loging
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>t93kqi0_300_bug_wrong_data_type
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>t93kqi0_1_ask_parent_issue
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>t93kqi0_3_daa_gathering_data_from_sources
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>t93kqi0_5_dac_creating_new_datasets
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>t93kqi0_7_expl_exploratory_data_analysis
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>t93kqi0_9_expe_feature_engineering
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>t93kqi0_11_expe_model_training
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>t93kqi0_20_modl_tests
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>t93kqi0_40_modl_pipelines
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>t93kqi0_45_modl_parametrizing_runs
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>t93kqi0_170_modl_monitoring
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>t93kqi0_220_modl_loging
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>t93kqi0_250_modl_loging
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>t93kqi0_300_bug_wrong_data_type
 </code></pre></div>
 
 ## Python files naming conventions
@@ -1485,12 +1672,12 @@ name) and become produce too long names.
     ```<issue_number>_<internal_order>_<script_name>```
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="go">28_01_model_data_prep.py</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">28_02_model_selection.py</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">28_03_model_evaluation.py</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">28_04_model_final.py</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="go">28_05_model_report.py</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="go">28_06_model_pipeline.py</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">28_01_model_data_prep.py</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">28_02_model_selection.py</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">28_03_model_evaluation.py</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">28_04_model_final.py</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">28_05_model_report.py</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="go">28_06_model_pipeline.py</span>
 </code></pre></div>
 
 !!! danger
@@ -1517,8 +1704,8 @@ descriptive name. In this example, `expl` is the type of branch and
 calls.
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">02_01_expl_service_calls.py</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">02_02_expl_service_calls.py</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">02_01_expl_service_calls.py</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">02_02_expl_service_calls.py</span>
 </code></pre></div>
 
 Maybe we need to impose a limit to the length of the file names?
@@ -1535,7 +1722,7 @@ are difficult to debug.
 !!! note
     Never use `l`, `O`, or `I` single letter names as these can be mistaken
     for `1` and `0`, depending on typeface:
-    <div class="highlight"><span class="filename">Pyhton</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">O</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># This may look like you&#39;re trying to reassign 2 to zero</span>
+    <div class="highlight"><span class="filename">Pyhton</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">O</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># This may look like you&#39;re trying to reassign 2 to zero</span>
 </code></pre></div>
 
 The table below outlines some of the common naming styles in Python code
