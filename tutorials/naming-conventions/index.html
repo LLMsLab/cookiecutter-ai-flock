@@ -377,6 +377,63 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#data-files-naming-conventions-in-ml-projects">
+<span class="md-ellipsis">
+      Data Files Naming Conventions in ML Projects
+    </span>
+</a>
+<nav aria-label="Data Files Naming Conventions in ML Projects" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview_3">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-convention-structure_2">
+<span class="md-ellipsis">
+      Naming Convention Structure
+    </span>
+</a>
+<nav aria-label="Naming Convention Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components_2">
+<span class="md-ellipsis">
+      Components
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidelines_2">
+<span class="md-ellipsis">
+      Guidelines
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_2">
+<span class="md-ellipsis">
+      Examples
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_3">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#model-persistence-file-naming-conventions">
 <span class="md-ellipsis">
       Model Persistence File Naming Conventions
@@ -385,7 +442,7 @@
 <nav aria-label="Model Persistence File Naming Conventions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#examples_2">
+<a class="md-nav__link" href="#examples_3">
 <span class="md-ellipsis">
       Examples
     </span>
@@ -656,6 +713,63 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#data-files-naming-conventions-in-ml-projects">
+<span class="md-ellipsis">
+      Data Files Naming Conventions in ML Projects
+    </span>
+</a>
+<nav aria-label="Data Files Naming Conventions in ML Projects" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview_3">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-convention-structure_2">
+<span class="md-ellipsis">
+      Naming Convention Structure
+    </span>
+</a>
+<nav aria-label="Naming Convention Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components_2">
+<span class="md-ellipsis">
+      Components
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidelines_2">
+<span class="md-ellipsis">
+      Guidelines
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_2">
+<span class="md-ellipsis">
+      Examples
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_3">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#model-persistence-file-naming-conventions">
 <span class="md-ellipsis">
       Model Persistence File Naming Conventions
@@ -664,7 +778,7 @@
 <nav aria-label="Model Persistence File Naming Conventions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#examples_2">
+<a class="md-nav__link" href="#examples_3">
 <span class="md-ellipsis">
       Examples
     </span>
@@ -991,6 +1105,82 @@ the recommended structure:</p>
 well-organized and manageable data structure in your ML projects. It
 facilitates easy access, understanding, and efficient data handling,
 crucial for the success of any ML project.</p>
+<h2 id="data-files-naming-conventions-in-ml-projects">Data Files Naming Conventions in ML Projects<a class="headerlink" href="#data-files-naming-conventions-in-ml-projects" title="Permanent link">¶</a></h2>
+<h3 id="overview_3">Overview<a class="headerlink" href="#overview_3" title="Permanent link">¶</a></h3>
+<p>Proper naming conventions for data files are essential in Machine
+Learning (ML) projects to ensure easy identification, management, and
+tracking of datasets. This guide provides a structured approach to
+naming data files, particularly when handling multiple versions,
+subsets, or types of data.</p>
+<h3 id="naming-convention-structure_2">Naming Convention Structure<a class="headerlink" href="#naming-convention-structure_2" title="Permanent link">¶</a></h3>
+<p>Data file names should follow this format:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>&lt;dataset_name&gt;_&lt;version&gt;_&lt;creation_date&gt;_&lt;description&gt;.&lt;extension&gt;
+</code></pre></div></p>
+<h4 id="components_2">Components<a class="headerlink" href="#components_2" title="Permanent link">¶</a></h4>
+<ul>
+<li><strong>Dataset Name</strong>: A concise identifier for the dataset.</li>
+<li><strong>Version</strong>: Version number or identifier of the dataset.</li>
+<li><strong>Creation Date</strong>: Date when the dataset was created or last modified,
+  in the format <code>YYYYMMDD</code>.</li>
+<li><strong>Description</strong>: A brief, clear description of the dataset or its
+  specific subset.</li>
+<li><strong>Extension</strong>: The appropriate file extension (e.g., <code>.csv</code>, <code>.xlsx</code>,
+  <code>.json</code>).</li>
+</ul>
+<h3 id="guidelines_2">Guidelines<a class="headerlink" href="#guidelines_2" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Clarity and Descriptiveness:</strong></li>
+<li>
+<p>Ensure the name is descriptive enough to give an immediate
+     understanding of the dataset’s content and scope.</p>
+</li>
+<li>
+<p><strong>Consistency:</strong></p>
+</li>
+<li>
+<p>Maintain consistency in the naming convention across all data
+     files. This includes consistent use of underscores, date formats,
+     and versioning systems.</p>
+</li>
+<li>
+<p><strong>Versioning:</strong></p>
+</li>
+<li>
+<p>Use a logical versioning system, like semantic versioning (e.g.,
+     <code>v1.0</code>, <code>v1.1</code>, <code>v2.0</code>) or sequential numbering (<code>01</code>, <code>02</code>, etc.).</p>
+</li>
+<li>
+<p><strong>Date Format:</strong></p>
+</li>
+<li>
+<p>Stick to a standard date format (<code>YYYYMMDD</code>). This avoids ambiguity
+     and makes it easy to sort files chronologically.</p>
+</li>
+<li>
+<p><strong>Concise Descriptions:</strong></p>
+</li>
+<li>
+<p>Keep the description part brief yet informative. Avoid overly long
+     names but provide enough context to distinguish the dataset.</p>
+</li>
+<li>
+<p><strong>File Extensions:</strong></p>
+</li>
+<li>Use appropriate file extensions to indicate the file type, which
+     helps in quickly identifying the software or tools needed to open
+     them.</li>
+</ol>
+<h3 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>customer_data_v1.0_20240101_initial.csv</code></li>
+<li><code>sales_report_v2.2_20240305_updated.xlsx</code></li>
+<li><code>image_dataset_v1.0_20240220_raw.json</code></li>
+</ul>
+<h3 id="conclusion_3">Conclusion<a class="headerlink" href="#conclusion_3" title="Permanent link">¶</a></h3>
+<p>Adhering to these naming conventions for data files in ML projects will
+significantly enhance data manageability. It ensures ease of access,
+effective version control, and clear understanding, facilitating
+efficient data analysis and collaboration within the team.</p>
 <h2 id="model-persistence-file-naming-conventions">Model Persistence File Naming Conventions<a class="headerlink" href="#model-persistence-file-naming-conventions" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Model Persistence File</p>
@@ -1027,7 +1217,7 @@ type, and a timestamp.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">¶</a></h3>
+<h3 id="examples_3">Examples<a class="headerlink" href="#examples_3" title="Permanent link">¶</a></h3>
 <ul>
 <li><code>service_sage_v1.2.0_linearReg_20240123.pkl</code> - Indicates a linear
   regression model from the Service Sage project, version 1.2.0, updated
@@ -1065,56 +1255,56 @@ regression model using Scikit-Learn, then saves the model along with a
 JSON file containing metadata. The metadata includes information such as
 the model's parameters, performance metrics, and training data
 characteristics.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">json</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kn">import</span> <span class="nn">joblib</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1"># Load sample data</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">data</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># Split the data into training and testing sets</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="c1"># Train a linear regression model</span>
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="c1"># Predict using the model</span>
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>
-<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1"># Calculate performance metrics</span>
-<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>
-<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="c1"># Save the model</span>
-<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="n">model_filename</span> <span class="o">=</span> <span class="s1">'linear_regression_model.pkl'</span>
-<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_filename</span><span class="p">)</span>
-<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a>
-<a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="c1"># Metadata</span>
-<a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
-<a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a>    <span class="s1">'model_name'</span><span class="p">:</span> <span class="s1">'Linear Regression'</span><span class="p">,</span>
-<a href="#__codelineno-3-34" id="__codelineno-3-34" name="__codelineno-3-34"></a>    <span class="s1">'timestamp'</span><span class="p">:</span> <span class="s1">'20240123'</span><span class="p">,</span>
-<a href="#__codelineno-3-35" id="__codelineno-3-35" name="__codelineno-3-35"></a>    <span class="s1">'model_parameters'</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
-<a href="#__codelineno-3-36" id="__codelineno-3-36" name="__codelineno-3-36"></a>    <span class="s1">'performance_metrics'</span><span class="p">:</span> <span class="p">{</span>
-<a href="#__codelineno-3-37" id="__codelineno-3-37" name="__codelineno-3-37"></a>        <span class="s1">'mean_squared_error'</span><span class="p">:</span> <span class="n">mse</span><span class="p">,</span>
-<a href="#__codelineno-3-38" id="__codelineno-3-38" name="__codelineno-3-38"></a>        <span class="s1">'r2_score'</span><span class="p">:</span> <span class="n">r2</span>
-<a href="#__codelineno-3-39" id="__codelineno-3-39" name="__codelineno-3-39"></a>    <span class="p">},</span>
-<a href="#__codelineno-3-40" id="__codelineno-3-40" name="__codelineno-3-40"></a>    <span class="s1">'data_description'</span><span class="p">:</span> <span class="s1">'Boston housing dataset'</span><span class="p">,</span>
-<a href="#__codelineno-3-41" id="__codelineno-3-41" name="__codelineno-3-41"></a>    <span class="s1">'feature_names'</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<a href="#__codelineno-3-42" id="__codelineno-3-42" name="__codelineno-3-42"></a>    <span class="s1">'target_name'</span><span class="p">:</span> <span class="s1">'Housing Price'</span>
-<a href="#__codelineno-3-43" id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="p">}</span>
-<a href="#__codelineno-3-44" id="__codelineno-3-44" name="__codelineno-3-44"></a>
-<a href="#__codelineno-3-45" id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="c1"># Save metadata to a JSON file</span>
-<a href="#__codelineno-3-46" id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="n">metadata_filename</span> <span class="o">=</span> <span class="s1">'service_sage_v1.2.0_linearReg_20240123_metadata.json'</span>
-<a href="#__codelineno-3-47" id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a href="#__codelineno-3-48" id="__codelineno-3-48" name="__codelineno-3-48"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<a href="#__codelineno-3-49" id="__codelineno-3-49" name="__codelineno-3-49"></a>
-<a href="#__codelineno-3-50" id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model and metadata saved as </span><span class="si">{</span><span class="n">model_filename</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">metadata_filename</span><span class="si">}</span><span class="s2"> respectively."</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">json</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kn">import</span> <span class="nn">joblib</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1"># Load sample data</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="n">data</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># Split the data into training and testing sets</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># Train a linear regression model</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="c1"># Predict using the model</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="c1"># Calculate performance metrics</span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a>
+<a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="c1"># Save the model</span>
+<a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="n">model_filename</span> <span class="o">=</span> <span class="s1">'linear_regression_model.pkl'</span>
+<a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_filename</span><span class="p">)</span>
+<a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a>
+<a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="c1"># Metadata</span>
+<a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+<a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a>    <span class="s1">'model_name'</span><span class="p">:</span> <span class="s1">'Linear Regression'</span><span class="p">,</span>
+<a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a>    <span class="s1">'timestamp'</span><span class="p">:</span> <span class="s1">'20240123'</span><span class="p">,</span>
+<a href="#__codelineno-4-35" id="__codelineno-4-35" name="__codelineno-4-35"></a>    <span class="s1">'model_parameters'</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+<a href="#__codelineno-4-36" id="__codelineno-4-36" name="__codelineno-4-36"></a>    <span class="s1">'performance_metrics'</span><span class="p">:</span> <span class="p">{</span>
+<a href="#__codelineno-4-37" id="__codelineno-4-37" name="__codelineno-4-37"></a>        <span class="s1">'mean_squared_error'</span><span class="p">:</span> <span class="n">mse</span><span class="p">,</span>
+<a href="#__codelineno-4-38" id="__codelineno-4-38" name="__codelineno-4-38"></a>        <span class="s1">'r2_score'</span><span class="p">:</span> <span class="n">r2</span>
+<a href="#__codelineno-4-39" id="__codelineno-4-39" name="__codelineno-4-39"></a>    <span class="p">},</span>
+<a href="#__codelineno-4-40" id="__codelineno-4-40" name="__codelineno-4-40"></a>    <span class="s1">'data_description'</span><span class="p">:</span> <span class="s1">'Boston housing dataset'</span><span class="p">,</span>
+<a href="#__codelineno-4-41" id="__codelineno-4-41" name="__codelineno-4-41"></a>    <span class="s1">'feature_names'</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<a href="#__codelineno-4-42" id="__codelineno-4-42" name="__codelineno-4-42"></a>    <span class="s1">'target_name'</span><span class="p">:</span> <span class="s1">'Housing Price'</span>
+<a href="#__codelineno-4-43" id="__codelineno-4-43" name="__codelineno-4-43"></a><span class="p">}</span>
+<a href="#__codelineno-4-44" id="__codelineno-4-44" name="__codelineno-4-44"></a>
+<a href="#__codelineno-4-45" id="__codelineno-4-45" name="__codelineno-4-45"></a><span class="c1"># Save metadata to a JSON file</span>
+<a href="#__codelineno-4-46" id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="n">metadata_filename</span> <span class="o">=</span> <span class="s1">'service_sage_v1.2.0_linearReg_20240123_metadata.json'</span>
+<a href="#__codelineno-4-47" id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a href="#__codelineno-4-48" id="__codelineno-4-48" name="__codelineno-4-48"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a href="#__codelineno-4-49" id="__codelineno-4-49" name="__codelineno-4-49"></a>
+<a href="#__codelineno-4-50" id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model and metadata saved as </span><span class="si">{</span><span class="n">model_filename</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">metadata_filename</span><span class="si">}</span><span class="s2"> respectively."</span><span class="p">)</span>
 </code></pre></div>
 <p>In this script:</p>
 <ul>
@@ -1133,25 +1323,25 @@ details.</p>
 <p>Assuming the script has been run as provided, the output of the JSON
 file (<code>service_sage_v1.2.0_linearReg_20240123_metadata.json</code>) would
 hypothetically look like this:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">{</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nt">"model_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linear Regression"</span><span class="p">,</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20240123"</span><span class="p">,</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nt">"model_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="nt">"copy_X"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="nt">"fit_intercept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="nt">"n_jobs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="nt">"normalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="nt">"performance_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="nt">"mean_squared_error"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.291119474973684</span><span class="p">,</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="nt">"r2_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6687594935356314</span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="nt">"data_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boston housing dataset"</span><span class="p">,</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="nt">"feature_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="s2">"CRIM"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"INDUS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CHAS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NOX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RM"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DIS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RAD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TAX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PTRATIO"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LSTAT"</span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="p">],</span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="nt">"target_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Housing Price"</span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="nt">"model_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linear Regression"</span><span class="p">,</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20240123"</span><span class="p">,</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="nt">"model_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="nt">"copy_X"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="nt">"fit_intercept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="nt">"n_jobs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="nt">"normalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">},</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="nt">"performance_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="nt">"mean_squared_error"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.291119474973684</span><span class="p">,</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="nt">"r2_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6687594935356314</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="p">},</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="nt">"data_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boston housing dataset"</span><span class="p">,</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="nt">"feature_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="s2">"CRIM"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"INDUS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CHAS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NOX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RM"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DIS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RAD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TAX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PTRATIO"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LSTAT"</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="p">],</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="nt">"target_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Housing Price"</span>
+<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
 </code></pre></div>
 <p>In this hypothetical example:</p>
 <ul>
@@ -1174,47 +1364,47 @@ documents the process and output of the Python script for training a
 linear regression model and generating its metadata file. This
 documentation can be included in your project repository to explain the
 model and metadata creation process.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gh"># Linear Regression Model Documentation</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="gu">## Overview</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>This document describes the process of training a Linear Regression model using the Boston housing dataset. It also details the generation of a metadata file that accompanies the model, capturing essential information about the model parameters, performance metrics, and data characteristics.
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="gu">## Model Training</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>The model is trained using the Boston housing dataset from Scikit-Learn. We perform a basic train-test split, train a Linear Regression model using the training data, and then evaluate its performance on the test data.
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="gu">### Data</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Dataset Used**</span>: Boston Housing Dataset
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Features**</span>: CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Target**</span>: Housing Price
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="gu">## Model Parameters</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>The model is trained with the following parameters:
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="k">-</span><span class="w"> </span><span class="gs">**fit_intercept**</span>: true
-<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="k">-</span><span class="w"> </span><span class="gs">**normalize**</span>: false
-<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="k">-</span><span class="w"> </span><span class="gs">**copy_X**</span>: true
-<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="k">-</span><span class="w"> </span><span class="gs">**n_jobs**</span>: null
-<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>
-<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a>These parameters are the default settings for Scikit-Learn's LinearRegression model.
-<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a>
-<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="gu">## Performance Metrics</span>
-<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>The model's performance is evaluated using the following metrics:
-<a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Mean Squared Error (MSE)**</span>
-<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="k">-</span><span class="w"> </span><span class="gs">**R-squared (R2)**</span>
-<a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a>
-<a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>The values for these metrics are computed based on the model's predictions on the test set.
-<a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a>
-<a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="gu">## Metadata File</span>
-<a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a>Alongside the model, a metadata file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123_metadata.json`</span>) is generated. This JSON file includes:
-<a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Model Name**</span>: Linear Regression
-<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Timestamp**</span>: Date when the model is trained and metadata is generated.
-<a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Model Parameters**</span>: A list of parameters used to train the model.
-<a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Performance Metrics**</span>: MSE and R2 values calculated from the test set.
-<a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Data Description**</span>: Brief description of the dataset used.
-<a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Feature Names**</span>: List of feature names from the dataset.
-<a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Target Name**</span>: Name of the target variable.
-<a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a>
-<a href="#__codelineno-5-40" id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="gu">## File Generation</span>
-<a href="#__codelineno-5-41" id="__codelineno-5-41" name="__codelineno-5-41"></a>The model is saved as a pickle file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123.pkl`</span>), and the metadata is stored in a JSON file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123_metadata.json`</span>). These files provide a snapshot of the model at the time of training, along with relevant information about its performance and configuration.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="gh"># Linear Regression Model Documentation</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gu">## Overview</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>This document describes the process of training a Linear Regression model using the Boston housing dataset. It also details the generation of a metadata file that accompanies the model, capturing essential information about the model parameters, performance metrics, and data characteristics.
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="gu">## Model Training</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>The model is trained using the Boston housing dataset from Scikit-Learn. We perform a basic train-test split, train a Linear Regression model using the training data, and then evaluate its performance on the test data.
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="gu">### Data</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Dataset Used**</span>: Boston Housing Dataset
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Features**</span>: CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Target**</span>: Housing Price
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="gu">## Model Parameters</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>The model is trained with the following parameters:
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="k">-</span><span class="w"> </span><span class="gs">**fit_intercept**</span>: true
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="k">-</span><span class="w"> </span><span class="gs">**normalize**</span>: false
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="k">-</span><span class="w"> </span><span class="gs">**copy_X**</span>: true
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="k">-</span><span class="w"> </span><span class="gs">**n_jobs**</span>: null
+<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>These parameters are the default settings for Scikit-Learn's LinearRegression model.
+<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="gu">## Performance Metrics</span>
+<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>The model's performance is evaluated using the following metrics:
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Mean Squared Error (MSE)**</span>
+<a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="k">-</span><span class="w"> </span><span class="gs">**R-squared (R2)**</span>
+<a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a>The values for these metrics are computed based on the model's predictions on the test set.
+<a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="gu">## Metadata File</span>
+<a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a>Alongside the model, a metadata file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123_metadata.json`</span>) is generated. This JSON file includes:
+<a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Model Name**</span>: Linear Regression
+<a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Timestamp**</span>: Date when the model is trained and metadata is generated.
+<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Model Parameters**</span>: A list of parameters used to train the model.
+<a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Performance Metrics**</span>: MSE and R2 values calculated from the test set.
+<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Data Description**</span>: Brief description of the dataset used.
+<a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Feature Names**</span>: List of feature names from the dataset.
+<a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Target Name**</span>: Name of the target variable.
+<a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a>
+<a href="#__codelineno-6-40" id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="gu">## File Generation</span>
+<a href="#__codelineno-6-41" id="__codelineno-6-41" name="__codelineno-6-41"></a>The model is saved as a pickle file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123.pkl`</span>), and the metadata is stored in a JSON file (<span class="sb">`service_sage_v1.2.0_linearReg_20240123_metadata.json`</span>). These files provide a snapshot of the model at the time of training, along with relevant information about its performance and configuration.
 </code></pre></div>
 <p>This Markdown file offers a concise yet comprehensive overview of the
 model training and metadata generation process, suitable for inclusion
@@ -1224,11 +1414,11 @@ generated metadata file.</p>
 <h3 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">¶</a></h3>
 <p>Store related files in the same directory. For better organization,
 especially for projects with multiple models, use subdirectories:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>/models
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span>/service_sage_v1.2.0_linearReg_20240123
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123.pkl
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123_metadata.json
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123.pkl_documentation.md
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>/models
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span>/service_sage_v1.2.0_linearReg_20240123
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123.pkl
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123_metadata.json
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span>service_sage_v1.2.0_linearReg_20240123.pkl_documentation.md
 </code></pre></div>
 <!--
 ## GitHub repositories naming convention
@@ -1268,19 +1458,19 @@ Branch type:
 | junk        | Throwaway branch created to experiment                |
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>t93kqi0_1_ask_parent_issue
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>t93kqi0_3_daa_gathering_data_from_sources
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>t93kqi0_5_dac_creating_new_datasets
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>t93kqi0_7_expl_exploratory_data_analysis
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>t93kqi0_9_expe_feature_engineering
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>t93kqi0_11_expe_model_training
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>t93kqi0_20_modl_tests
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>t93kqi0_40_modl_pipelines
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>t93kqi0_45_modl_parametrizing_runs
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>t93kqi0_170_modl_monitoring
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>t93kqi0_220_modl_loging
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>t93kqi0_250_modl_loging
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>t93kqi0_300_bug_wrong_data_type
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>t93kqi0_1_ask_parent_issue
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>t93kqi0_3_daa_gathering_data_from_sources
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>t93kqi0_5_dac_creating_new_datasets
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>t93kqi0_7_expl_exploratory_data_analysis
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>t93kqi0_9_expe_feature_engineering
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>t93kqi0_11_expe_model_training
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>t93kqi0_20_modl_tests
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>t93kqi0_40_modl_pipelines
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>t93kqi0_45_modl_parametrizing_runs
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>t93kqi0_170_modl_monitoring
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>t93kqi0_220_modl_loging
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>t93kqi0_250_modl_loging
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>t93kqi0_300_bug_wrong_data_type
 </code></pre></div>
 
 ## Python files naming conventions
@@ -1295,12 +1485,12 @@ name) and become produce too long names.
     ```<issue_number>_<internal_order>_<script_name>```
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">28_01_model_data_prep.py</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">28_02_model_selection.py</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">28_03_model_evaluation.py</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">28_04_model_final.py</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">28_05_model_report.py</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="go">28_06_model_pipeline.py</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="go">28_01_model_data_prep.py</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">28_02_model_selection.py</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">28_03_model_evaluation.py</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">28_04_model_final.py</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="go">28_05_model_report.py</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="go">28_06_model_pipeline.py</span>
 </code></pre></div>
 
 !!! danger
@@ -1327,8 +1517,8 @@ descriptive name. In this example, `expl` is the type of branch and
 calls.
 
 !!! example
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="go">02_01_expl_service_calls.py</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">02_02_expl_service_calls.py</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">02_01_expl_service_calls.py</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">02_02_expl_service_calls.py</span>
 </code></pre></div>
 
 Maybe we need to impose a limit to the length of the file names?
@@ -1345,7 +1535,7 @@ are difficult to debug.
 !!! note
     Never use `l`, `O`, or `I` single letter names as these can be mistaken
     for `1` and `0`, depending on typeface:
-    <div class="highlight"><span class="filename">Pyhton</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">O</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># This may look like you&#39;re trying to reassign 2 to zero</span>
+    <div class="highlight"><span class="filename">Pyhton</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">O</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># This may look like you&#39;re trying to reassign 2 to zero</span>
 </code></pre></div>
 
 The table below outlines some of the common naming styles in Python code
