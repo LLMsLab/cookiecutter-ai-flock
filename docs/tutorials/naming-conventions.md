@@ -11,6 +11,82 @@ TODO:
 - Create a pre-commit hook to enforce using branch and file naming conventions
 -->
 
+## Git Branch Naming Standards for ML Projects
+
+### Overview
+
+In the realm of machine learning projects, maintaining an organized and
+clear Git repository is crucial. Adopting a consistent branch naming
+convention is key to achieving this. It aids in quickly identifying the
+purpose and scope of different branches, facilitating smoother
+collaboration and navigation within the repository.
+
+### Naming Convention Structure
+
+A branch name should follow this format:
+
+```text
+<category>/<description>_<optional_issue_number>
+```
+
+#### Components
+
+- **Category**: This is a short, predefined keyword that categorizes the
+  branch according to its primary purpose or the type of work being
+  done.
+- **Description**: A brief, yet descriptive name indicating the specific
+  task, feature, or area of work the branch focuses on.
+- **Optional Issue Number**: The associated issue tracking number, if
+  applicable, to link the branch to a specific task or issue in your
+  project management tool.
+
+#### Categories
+
+The branch category helps in quickly identifying the type of work or the
+area of the project that the branch is concerned with. Common categories
+include:
+
+| Category      | Description                                               |
+|---------------|-----------------------------------------------------------|
+| `feature`     | Branches where new features or enhancements are developed |
+| `bugfix`      | Branches dedicated to fixing bugs                         |
+| `data`        | Work involving data handling, such as acquisition or processing |
+| `experiment`  | Experimental and exploratory development                  |
+| `model`       | Tasks related to model development, testing, or deployment |
+| `docs`        | Updates or additions to documentation                     |
+| `refactor`    | Code refactoring for optimization without changing behavior |
+| `test`        | Development and updating of tests                         |
+| `chore`       | Routine tasks, minor tweaks, or maintenance work          |
+
+### Examples
+
+Here are some example branch names following this convention:
+
+- `feature/user-authentication`
+- `data/dataset-enhancement_15`
+- `model/performance-improvement_22`
+- `bugfix/data-loading-error_45`
+- `docs/api-documentation-update`
+- `refactor/code-optimization`
+- `test/new-model-tests`
+
+### Guidelines
+
+- All branch names should be in lowercase to maintain consistency.
+- Use hyphens to separate words within the descriptive part of the
+  branch name.
+- The branch name should be concise yet sufficiently descriptive to
+  convey the purpose clearly at a glance.
+- Linking the branch to an issue number is optional but highly
+  encouraged for better tracking, especially in large projects.
+
+### Conclusion
+
+Following these branch naming standards will ensure that our ML project
+repositories remain well-organized and accessible. It aids team members
+in quickly understanding the purpose of each branch and facilitates
+efficient collaboration and project management.
+
 ## Model Persistence File Naming Conventions
 
 !!! info "Model Persistence File"
