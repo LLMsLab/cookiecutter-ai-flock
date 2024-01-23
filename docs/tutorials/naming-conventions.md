@@ -156,6 +156,85 @@ repositories remain well-organized and accessible. It aids team members
 in quickly understanding the purpose of each branch and facilitates
 efficient collaboration and project management.
 
+## Naming Conventions for Data Folders in ML Projects
+
+### Overview
+
+In Machine Learning (ML) projects, organizing and managing data
+efficiently is crucial. Adopting a clear and consistent naming
+convention for data folders not only facilitates better data management
+but also enhances collaboration and project understanding. Below are
+guidelines for naming data folders in ML projects.
+
+### Folder Structure and Naming Convention
+
+The data folder structure should be organized into distinct categories,
+each serving a specific purpose in the data processing pipeline. Here’s
+the recommended structure:
+
+```text
+data
+├── raw                   # Original, immutable data dump
+├── external              # Data from third-party sources
+├── interim               # Intermediate data, partially processed
+├── processed             # Fully processed data, ready for analysis
+└── features              # Engineered features ready for model training
+```
+
+#### Guidelines for Naming
+
+1. **Descriptive and Clear:**
+   - Folder names should be self-explanatory, indicating clearly what
+     type of data they contain.
+
+2. **Consistent Format:**
+   - Use a consistent naming format across all folders. The recommended
+     format is all lowercase with words separated by hyphens for
+     readability.
+
+3. **Standard Categories:**
+   - Stick to standard naming categories (`raw`, `external`, `interim`,
+     `processed`, `features`) as they are widely recognized in data
+     science and ML communities.
+
+4. **Avoid Overly Specific Names:**
+   - While being descriptive, avoid overly specific names which might
+     become irrelevant as the project evolves. The name should be broad
+     enough to encompass various data types that might fall into that
+     category.
+
+### Explanation of Categories
+
+- **Raw**: 
+   - Contains the original datasets. Data in this folder is immutable
+     and serves as a backup for all processing steps.
+
+- **External**: 
+   - For data sourced from outside the original dataset. This includes
+     third-party data, external APIs, or any supplementary data.
+
+- **Interim**: 
+   - Holds data that is in the process of being cleaned or transformed.
+     Useful for datasets that are not final but are needed in
+     intermediate stages.
+
+- **Processed**: 
+   - Contains the final version of the dataset, which is ready for
+     analysis or modeling. Data in this folder is cleaned, formatted,
+     and pre-processed.
+
+- **Features**: 
+   - Dedicated to storing feature sets that are used in machine learning
+     models. This includes transformed data, new features, and selected
+     features.
+
+### Conclusion
+
+Adhering to this naming convention for data folders will ensure a
+well-organized and manageable data structure in your ML projects. It
+facilitates easy access, understanding, and efficient data handling,
+crucial for the success of any ML project.
+
 ## Model Persistence File Naming Conventions
 
 !!! info "Model Persistence File"
