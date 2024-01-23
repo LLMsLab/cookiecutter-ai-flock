@@ -90,6 +90,10 @@ nav:
     - Poetry: tutorials/poetry.md
     - MkDocs: tutorials/mkdocs-docs.md
     - Hydra: tutorials/hydra-config.md
+    - Gitignore: tutorials/gitignore.md
+    - Data: tutorials/data.md
+    - DVC: tutorials/data-version-control.md
+    - Naming Convetions: tutorials/naming-conventions.md
     - Windows OS: tutorials/windows-os-setup.md
   - How-To Guides: how-to-guides.md
   - API Reference: api-reference.md
