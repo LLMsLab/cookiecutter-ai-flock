@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-ai-flock/tutorials/data/" rel="canonical"/>
+<link href="../gitignore/" rel="prev"/>
+<link href="../data-version-control/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
+<title>Data - Cookiecutter Ai Flock</title>
+<link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#how-to-organize-projects-data">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter Ai Flock" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter Ai Flock
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Data
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter Ai Flock" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    Cookiecutter Ai Flock
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Tutorials
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+<span class="md-ellipsis">
+    TOC
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../black-formatter/">
+<span class="md-ellipsis">
+    Black
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ruff-linter/">
+<span class="md-ellipsis">
+    Ruff
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../poetry/">
+<span class="md-ellipsis">
+    Poetry
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mkdocs-docs/">
+<span class="md-ellipsis">
+    MkDocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hydra-config/">
+<span class="md-ellipsis">
+    Hydra
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gitignore/">
+<span class="md-ellipsis">
+    Gitignore
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Data
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Data
+  </span>
+</a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-files">
+<span class="md-ellipsis">
+      Data files
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#centralized-data-folders-whether-to-use-them-or-not">
+<span class="md-ellipsis">
+      Centralized data folders: whether to use them or not
+    </span>
+</a>
+<nav aria-label="Centralized data folders: whether to use them or not" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-vs-code-on-a-project-with-a-centralized-shared-data-folder">
+<span class="md-ellipsis">
+      Using VS Code on a project with a centralized shared data folder
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata-and-documentation">
+<span class="md-ellipsis">
+      Metadata and Documentation
+    </span>
+</a>
+<nav aria-label="Metadata and Documentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importance-of-metadata-and-documentation">
+<span class="md-ellipsis">
+      Importance of Metadata and Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recommendations-for-effective-metadata-and-documentation">
+<span class="md-ellipsis">
+      Recommendations for Effective Metadata and Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-of-metadata-creation">
+<span class="md-ellipsis">
+      Example of Metadata Creation
+    </span>
+</a>
+<nav aria-label="Example of Metadata Creation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-json-metadata-for-a-csv-file">
+<span class="md-ellipsis">
+      Example: JSON Metadata for a CSV File
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automating-the-metadata-generation">
+<span class="md-ellipsis">
+      Automating the Metadata Generation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notes">
+<span class="md-ellipsis">
+      Notes:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-documentation-example">
+<span class="md-ellipsis">
+      Data Documentation Example
+    </span>
+</a>
+<nav aria-label="Data Documentation Example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-details">
+<span class="md-ellipsis">
+      File Details
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-dictionary">
+<span class="md-ellipsis">
+      Data Dictionary
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preprocessing-steps">
+<span class="md-ellipsis">
+      Preprocessing Steps
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-notes">
+<span class="md-ellipsis">
+      Usage Notes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versioning">
+<span class="md-ellipsis">
+      Versioning
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-version-control/">
+<span class="md-ellipsis">
+    DVC
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../naming-conventions/">
+<span class="md-ellipsis">
+    Naming Convetions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../windows-os-setup/">
+<span class="md-ellipsis">
+    Windows OS
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+<span class="md-ellipsis">
+    How-To Guides
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+<span class="md-ellipsis">
+    API Reference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+<span class="md-ellipsis">
+    Explanation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-files">
+<span class="md-ellipsis">
+      Data files
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#centralized-data-folders-whether-to-use-them-or-not">
+<span class="md-ellipsis">
+      Centralized data folders: whether to use them or not
+    </span>
+</a>
+<nav aria-label="Centralized data folders: whether to use them or not" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-vs-code-on-a-project-with-a-centralized-shared-data-folder">
+<span class="md-ellipsis">
+      Using VS Code on a project with a centralized shared data folder
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata-and-documentation">
+<span class="md-ellipsis">
+      Metadata and Documentation
+    </span>
+</a>
+<nav aria-label="Metadata and Documentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importance-of-metadata-and-documentation">
+<span class="md-ellipsis">
+      Importance of Metadata and Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recommendations-for-effective-metadata-and-documentation">
+<span class="md-ellipsis">
+      Recommendations for Effective Metadata and Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-of-metadata-creation">
+<span class="md-ellipsis">
+      Example of Metadata Creation
+    </span>
+</a>
+<nav aria-label="Example of Metadata Creation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-json-metadata-for-a-csv-file">
+<span class="md-ellipsis">
+      Example: JSON Metadata for a CSV File
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automating-the-metadata-generation">
+<span class="md-ellipsis">
+      Automating the Metadata Generation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notes">
+<span class="md-ellipsis">
+      Notes:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-documentation-example">
+<span class="md-ellipsis">
+      Data Documentation Example
+    </span>
+</a>
+<nav aria-label="Data Documentation Example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-details">
+<span class="md-ellipsis">
+      File Details
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-dictionary">
+<span class="md-ellipsis">
+      Data Dictionary
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preprocessing-steps">
+<span class="md-ellipsis">
+      Preprocessing Steps
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-notes">
+<span class="md-ellipsis">
+      Usage Notes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versioning">
+<span class="md-ellipsis">
+      Versioning
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="how-to-organize-projects-data">How to organize project's data<a class="headerlink" href="#how-to-organize-projects-data" title="Permanent link">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not a best practice to save sensitive or large project data on
+GitHub. GitHub is designed for source code management and version
+control, and while it does allow for limited file storage, it's not
+designed for storing large binary files or sensitive information.</p>
+</div>
+<h2 id="data-files">Data files<a class="headerlink" href="#data-files" title="Permanent link">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p>Store project's data on the remote Data Hub Linux server.</p>
+</div>
+<p>Creating separate folders for raw, external, interim, and processed data
+is the best practice for organizing and managing data in a project.
+This approach helps to maintain a clear and organized structure for the
+data, and can also help to ensure that the different stages of data
+processing are clearly defined and documented.</p>
+<div class="highlight"><span class="filename">Data directory structure</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>├── data
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>│   ├── raw                 # The original, immutable data dump
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── external            # Data from third-party sources
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>│   ├── interim             # Intermediate data that has been transformed
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│   ├── processed           # Processed data
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>│   └── model_output        # Model output objects
+</code></pre></div>
+<p>Here's an overview of what each folder might contain:</p>
+<ul>
+<li><strong>Raw data folder</strong>: This folder would contain the original,
+unprocessed data that has been obtained from various sources. It should
+not be modified in any way, so that the original data remains intact.</li>
+<li><strong>Interim data folder</strong>: This folder would contain any intermediate
+data generated during the data processing stage. This might include data
+that has been partially cleaned or transformed, but is not yet in its
+final form.</li>
+<li><strong>Processed data folder</strong>: This folder would contain the final,
+cleaned, and transformed data that is ready for analysis or modeling.</li>
+</ul>
+<p>Having a clear and organized structure for the data can help to ensure
+that it is properly managed throughout the project and that any
+necessary modifications or transformations can be easily traced and
+recorded. Additionally, it can also make it easier for other team
+members or stakeholders to understand and access the data as needed.</p>
+<h2 id="centralized-data-folders-whether-to-use-them-or-not">Centralized data folders: whether to use them or not<a class="headerlink" href="#centralized-data-folders-whether-to-use-them-or-not" title="Permanent link">¶</a></h2>
+<p>The answer to this question depends on the specific requirements of the
+project and the organization's data management policies.</p>
+<p>In some cases, it may be appropriate for data scientists to keep a copy
+of the project's data on their local machines for ease of access and
+local processing. This can be especially useful when working with large
+data sets that may not be feasible to store and transfer over the
+network.</p>
+<p>However, in most cases, it is a best practice to use a centralized
+shared data folder that is stored on a networked storage system or a
+cloud-based data storage service. This allows all team members to access
+the data, and ensures that the data is stored in a secure and organized
+manner. Additionally, using a centralized data folder can help to avoid
+duplication and ensure that everyone is working with the same version of
+the data.</p>
+<p>Regardless of the approach used, it's important to establish clear
+guidelines and protocols for data management and access, and to ensure
+that data security and privacy concerns are properly addressed. This may
+involve implementing access controls, encryption, and backup and
+recovery measures.</p>
+<h3 id="using-vs-code-on-a-project-with-a-centralized-shared-data-folder">Using VS Code on a project with a centralized shared data folder<a class="headerlink" href="#using-vs-code-on-a-project-with-a-centralized-shared-data-folder" title="Permanent link">¶</a></h3>
+<p>Step 4 of the <a href="getting-started.md">Getting Started</a> guide involves
+creating a shared data directory for the project. To make the data
+accessible and visible in VS Code, symbolic links need to be created.</p>
+<div class="admonition info">
+<p class="admonition-title">What is a symbolic link?</p>
+<p>The purpose of a symbolic link (symlink) in Linux is to create a
+shortcut or alias to a file or directory. A symlink acts as a reference
+to the original file, allowing multiple paths to access the same data.
+This can be useful for creating shortcuts to frequently used files,
+linking to files in different directories, and creating backups of
+important files.</p>
+</div>
+<p>Here's a shell script that creates symbolic links for the specified
+folders:</p>
+<div class="highlight"><span class="filename">symlink_data_folders.sh</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">folders</span><span class="o">=(</span>raw<span class="w"> </span>external<span class="w"> </span>interim<span class="w"> </span>processed<span class="w"> </span>model_output<span class="o">)</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">for</span><span class="w"> </span>folder<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">folders</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span>ln<span class="w"> </span>-s<span class="w"> </span>/path/to/original/<span class="s2">"</span><span class="nv">$folder</span><span class="s2">"</span><span class="w"> </span>/path/to/link/<span class="s2">"</span><span class="nv">$folder</span><span class="s2">"</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">done</span>
+</code></pre></div>
+<p>Where the path to the original folder corresponds to the project's
+shared data folder:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>/nyl/data/tenants/insurance/cdsamktg/mediamix/data
+</code></pre></div>
+<p>And the link folder corresponds to the location of the project's data
+folder on the cloned Git repository on server user space:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>/nyl/data/home/t93kqi0/projects/Media-Mix/data/"$folder"
+</code></pre></div>
+<div class="highlight"><span class="filename">symlink_data_folders.sh</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nv">folders</span><span class="o">=(</span>raw<span class="w"> </span>external<span class="w"> </span>interim<span class="w"> </span>processed<span class="w"> </span>model_output<span class="o">)</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span>folder<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">folders</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span>ln<span class="w"> </span>-s<span class="w"> </span>/nyl/data/tenants/insurance/cdsamktg/mediamix/data/<span class="s2">"</span><span class="nv">$folder</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">  </span>/nyl/data/home/t93kqi0/projects/Media-Mix/data/<span class="s2">"</span><span class="nv">$folder</span><span class="s2">"</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">done</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The link <code>data</code> folder must be empty before running the
+<code>symlink_data_folders.sh</code> script.</p>
+</div>
+<p>Now all shared data in each sub-directory of the <code>data</code> shared folder
+must be visible from the VS Code Explorer pane.</p>
+<!--
+TODO: Tasks pending completion -@t93kqi0 at 12/28/2022, 4:45:20 PM
+Review this document for a non-shared folder approach
+- [Ref to NYL document](https://newyorklife.sharepoint.com/:p:/s/CDSAiInternal-Projects/EfmrK_CtXKtNlOysRX7wUYEBnaTXP4mAccBIwMW892HtMg?e=0vQ61H)
+
+## Reference
+
+- [Creating a symlink from one folder to another with different names?](https://askubuntu.com/questions/600714/creating-a-symlink-from-one-folder-to-another-with-different-names)
+-->
+<h2 id="metadata-and-documentation">Metadata and Documentation<a class="headerlink" href="#metadata-and-documentation" title="Permanent link">¶</a></h2>
+<p>Discussing the importance of Metadata and Documentation in the context
+of your data science project is crucial. Here's a detailed breakdown:</p>
+<h3 id="importance-of-metadata-and-documentation">Importance of Metadata and Documentation<a class="headerlink" href="#importance-of-metadata-and-documentation" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>Contextual Understanding</strong>: Metadata provides context to the data.
+   It includes details like the source of the data, when and how it was
+   collected, its format, and any changes it has undergone. This
+   information is essential for anyone trying to understand or use the
+   data effectively.</p>
+</li>
+<li>
+<p><strong>Reproducibility and Traceability</strong>: Proper documentation ensures
+   that data processing steps can be replicated and understood by
+   others. This is particularly important in data science, where
+   reproducibility is a key aspect of project credibility and
+   validation.</p>
+</li>
+<li>
+<p><strong>Data Quality Insights</strong>: Metadata can include information about
+   data quality, such as accuracy, completeness, and consistency. This
+   is valuable for assessing the reliability of the data and
+   understanding its limitations.</p>
+</li>
+<li>
+<p><strong>Compliance and Auditing</strong>: In many industries, there are regulatory
+   requirements for data management. Detailed metadata and documentation
+   help in complying with these regulations and make audits more
+   manageable.</p>
+</li>
+</ol>
+<h3 id="recommendations-for-effective-metadata-and-documentation">Recommendations for Effective Metadata and Documentation<a class="headerlink" href="#recommendations-for-effective-metadata-and-documentation" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>Standardized Format</strong>: Adopt a standardized format or template for
+   metadata and documentation. This could be a structured file like JSON
+   or XML for metadata, and markdown or structured text files for
+   documentation.</p>
+</li>
+<li>
+<p><strong>Automated Generation</strong>: Where possible, automate the generation of
+   metadata. For instance, when data is imported or processed, scripts
+   can automatically capture and record key information.</p>
+</li>
+<li>
+<p><strong>Versioning of Data and Metadata</strong>: Just like the data, its metadata
+   should also be version-controlled. This is important as the data
+   evolves over time due to various processing steps.</p>
+</li>
+<li>
+<p><strong>Inclusion of Key Elements</strong>: Ensure that metadata includes
+   essential elements like data source, date of acquisition, data
+   format, any preprocessing steps applied, data schema (if applicable),
+   and information on confidentiality or sensitivity.</p>
+</li>
+<li>
+<p><strong>Accessibility</strong>: Store metadata and documentation in an easily
+   accessible location. It should be clearly linked to the corresponding
+   data.</p>
+</li>
+<li>
+<p><strong>Training and Guidelines</strong>: Provide team members with training or
+   guidelines on how to create and maintain proper documentation and
+   metadata. This ensures consistency and compliance with established
+   standards.</p>
+</li>
+<li>
+<p><strong>Regular Updates</strong>: Just as data changes, so should its
+   documentation. It's important to update documentation whenever the
+   data or its handling procedures change.</p>
+</li>
+<li>
+<p><strong>Use of Tools</strong>: Leverage tools that support metadata management and
+   documentation. For instance, data cataloging tools can be very
+   helpful in larger organizations for maintaining a central repository
+   of metadata.</p>
+</li>
+<li>
+<p><strong>Collaboration and Reviews</strong>: Encourage regular reviews of metadata
+   and documentation by different team members. This not only improves
+   the quality but also ensures that the data remains understandable and
+   usable by everyone.</p>
+</li>
+<li>
+<p><strong>Integration with Data Pipeline</strong>: Integrate metadata generation
+    and documentation updates into your data processing pipelines. This
+    ensures that changes in data are automatically reflected in the
+    metadata and documentation.</p>
+</li>
+</ol>
+<p>In summary, comprehensive and up-to-date metadata and documentation are
+fundamental to the effective management, use, and understanding of data
+in any data science project. They facilitate better collaboration,
+ensure compliance with standards and regulations, and significantly
+contribute to the overall integrity and usability of the data.</p>
+<h2 id="example-of-metadata-creation">Example of Metadata Creation<a class="headerlink" href="#example-of-metadata-creation" title="Permanent link">¶</a></h2>
+<p>Using a JSON file to store metadata for a CSV file is an efficient way
+to keep track of important information about your data. Below is an
+example of how this can be done, along with a method to automate the
+process.</p>
+<h3 id="example-json-metadata-for-a-csv-file">Example: JSON Metadata for a CSV File<a class="headerlink" href="#example-json-metadata-for-a-csv-file" title="Permanent link">¶</a></h3>
+<p>Suppose you have a CSV file named <code>sales_data.csv</code>. The metadata for
+this file could include information such as the source of the data, the
+date of creation, the number of rows and columns, column names, and any
+preprocessing steps applied.</p>
+<p>Here's an example of what the JSON metadata might look like:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales_data.csv"</span><span class="p">,</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="nt">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-22"</span><span class="p">,</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal Sales System"</span><span class="p">,</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span><span class="nt">"number_of_rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">  </span><span class="nt">"number_of_columns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">  </span><span class="nt">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date of sale"</span><span class="p">},</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product_ID"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unique identifier for the product"</span><span class="p">},</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quantity"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Integer"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number of products sold"</span><span class="p">},</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Price"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Float"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sale price per unit"</span><span class="p">},</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total_Sales"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Float"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total sales amount"</span><span class="p">}</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">  </span><span class="p">],</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">  </span><span class="nt">"preprocessing"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="p">{</span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data Cleaning"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed null values and corrected data formats"</span><span class="p">},</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="p">{</span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normalization"</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normalized the Price column using min-max scaling"</span><span class="p">}</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">  </span><span class="p">],</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data updated monthly. Last update included Q4 2023 sales data."</span>
+<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="automating-the-metadata-generation">Automating the Metadata Generation<a class="headerlink" href="#automating-the-metadata-generation" title="Permanent link">¶</a></h3>
+<p>To automate the process of generating this metadata, you can use a
+script in Python. This script will:</p>
+<ol>
+<li>Read the CSV file.</li>
+<li>Extract relevant information such as the number of rows and columns,
+   column names, etc.</li>
+<li>Generate and save the metadata in a JSON file.</li>
+</ol>
+<p>Here's a simple Python script to achieve this:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">json</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">def</span> <span class="nf">generate_metadata</span><span class="p">(</span><span class="n">csv_file_path</span><span class="p">):</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="c1"># Read the CSV file</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_file_path</span><span class="p">)</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="c1"># Extracting information</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="n">file_name</span> <span class="o">=</span> <span class="n">csv_file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>    <span class="n">creation_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="n">number_of_rows</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>    <span class="n">number_of_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>    <span class="n">columns</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)}</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>    <span class="c1"># Metadata dictionary</span>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>        <span class="s2">"file_name"</span><span class="p">:</span> <span class="n">file_name</span><span class="p">,</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>        <span class="s2">"creation_date"</span><span class="p">:</span> <span class="n">creation_date</span><span class="p">,</span>
+<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>        <span class="s2">"source"</span><span class="p">:</span> <span class="s2">"Specify the data source"</span><span class="p">,</span>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>        <span class="s2">"number_of_rows"</span><span class="p">:</span> <span class="n">number_of_rows</span><span class="p">,</span>
+<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a>        <span class="s2">"number_of_columns"</span><span class="p">:</span> <span class="n">number_of_columns</span><span class="p">,</span>
+<a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a>        <span class="s2">"columns"</span><span class="p">:</span> <span class="n">columns</span><span class="p">,</span>
+<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>        <span class="s2">"preprocessing"</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># Add any preprocessing steps manually or through code</span>
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a>        <span class="s2">"notes"</span><span class="p">:</span> <span class="s2">"Add any additional notes here"</span>
+<a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a>    <span class="p">}</span>
+<a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a>    <span class="c1"># Saving metadata to a JSON file</span>
+<a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.csv'</span><span class="p">,</span> <span class="s1">'_metadata.json'</span><span class="p">),</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a>
+<a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="c1"># Example usage</span>
+<a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="n">generate_metadata</span><span class="p">(</span><span class="s1">'path/to/your/sales_data.csv'</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="notes">Notes:<a class="headerlink" href="#notes" title="Permanent link">¶</a></h3>
+<ul>
+<li>The <code>preprocessing</code> section is left empty in the script. This is
+  because preprocessing steps can vary widely and might need to be added
+  manually or captured through additional scripting logic based on your
+  specific data pipeline.</li>
+<li>The script assumes a basic understanding of the data's source and
+  nature. Adjustments may be required based on the specific context of
+  your data.</li>
+<li>The script uses the <code>pandas</code> library for data handling. Ensure this
+  library is installed in your Python environment (<code>pip install
+  pandas</code>).</li>
+</ul>
+<p>This automated approach can save significant time and reduce errors in
+metadata creation, especially for large datasets or frequent data
+updates.</p>
+<h2 id="data-documentation-example">Data Documentation Example<a class="headerlink" href="#data-documentation-example" title="Permanent link">¶</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h3>
+<p>This document describes the <code>sales_data.csv</code> dataset, which contains
+records of sales transactions for a retail company. The dataset is
+updated monthly and includes detailed information about each sale,
+including the date, product details, and sale amounts.</p>
+<h3 id="file-details">File Details<a class="headerlink" href="#file-details" title="Permanent link">¶</a></h3>
+<p>The file is named <code>sales_data_documentation.md</code> which clearly indicates
+its purpose and content.</p>
+<ul>
+<li><strong>File Name</strong>: <code>sales_data.csv</code></li>
+<li><strong>Creation Date</strong>: 2024-01-22</li>
+<li><strong>Last Updated</strong>: 2024-01-22</li>
+<li><strong>Total Records</strong>: 1200</li>
+<li><strong>Source</strong>: Internal Sales System</li>
+</ul>
+<h3 id="data-dictionary">Data Dictionary<a class="headerlink" href="#data-dictionary" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>Date</td>
+<td>Date of sale (format: YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>Product_ID</td>
+<td>String</td>
+<td>Unique identifier for the product</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>Integer</td>
+<td>Number of products sold</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>Float</td>
+<td>Sale price per unit (in USD)</td>
+</tr>
+<tr>
+<td>Total_Sales</td>
+<td>Float</td>
+<td>Total sales amount (in USD)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="preprocessing-steps">Preprocessing Steps<a class="headerlink" href="#preprocessing-steps" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Data Cleaning</strong></li>
+<li>Null values in the <code>Price</code> and <code>Quantity</code> columns were removed.</li>
+<li>
+<p>Date formats were standardized to <code>YYYY-MM-DD</code>.</p>
+</li>
+<li>
+<p><strong>Normalization</strong></p>
+</li>
+<li>The <code>Price</code> column was normalized using min-max scaling.</li>
+</ol>
+<h3 id="usage-notes">Usage Notes<a class="headerlink" href="#usage-notes" title="Permanent link">¶</a></h3>
+<ul>
+<li>The dataset is intended for internal use only.</li>
+<li>Data is confidential and should not be shared outside the organization
+  without proper authorization.</li>
+<li>For any discrepancies or data requests, contact the Data Management
+  Team.</li>
+</ul>
+<h3 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">¶</a></h3>
+<ul>
+<li>Current Version: 1.2</li>
+<li>Previous Versions:</li>
+<li>1.1 - Included Q3 2023 sales data.</li>
+<li>1.0 - Initial dataset creation.</li>
+</ul>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/LLMsLab/cookiecutter-ai-flock" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

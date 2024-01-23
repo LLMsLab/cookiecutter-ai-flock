@@ -1,0 +1,1230 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://llmslab.github.io/cookiecutter-ai-flock/tutorials/data-version-control/" rel="canonical"/>
+<link href="../data/" rel="prev"/>
+<link href="../naming-conventions/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
+<title>DVC - Cookiecutter Ai Flock</title>
+<link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#data-version-control">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cookiecutter Ai Flock" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cookiecutter Ai Flock
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              DVC
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cookiecutter Ai Flock" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cookiecutter Ai Flock">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    Cookiecutter Ai Flock
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/LLMsLab/cookiecutter-ai-flock" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</div>
+<div class="md-source__repository">
+    llmslab.github.io/ccookiecutter-genai-ml-ai/
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Tutorials
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../turorials-intro/">
+<span class="md-ellipsis">
+    TOC
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../black-formatter/">
+<span class="md-ellipsis">
+    Black
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ruff-linter/">
+<span class="md-ellipsis">
+    Ruff
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../poetry/">
+<span class="md-ellipsis">
+    Poetry
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mkdocs-docs/">
+<span class="md-ellipsis">
+    MkDocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hydra-config/">
+<span class="md-ellipsis">
+    Hydra
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gitignore/">
+<span class="md-ellipsis">
+    Gitignore
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/">
+<span class="md-ellipsis">
+    Data
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    DVC
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    DVC
+  </span>
+</a>
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-dvc-for-data-version-control">
+<span class="md-ellipsis">
+      Using DVC for Data Version Control
+    </span>
+</a>
+<nav aria-label="Using DVC for Data Version Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-dvc">
+<span class="md-ellipsis">
+      Why DVC?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-dvc-for-data-version-control">
+<span class="md-ellipsis">
+      Setting Up DVC for Data Version Control
+    </span>
+</a>
+<nav aria-label="Setting Up DVC for Data Version Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-initialize-dvc-in-your-project">
+<span class="md-ellipsis">
+      Step 1: Initialize DVC in Your Project
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-set-up-remote-storage">
+<span class="md-ellipsis">
+      Step 2: Set Up Remote Storage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-add-data-to-dvc">
+<span class="md-ellipsis">
+      Step 3: Add Data to DVC
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-commit-changes-to-version-control">
+<span class="md-ellipsis">
+      Step 4: Commit Changes to Version Control
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-5-push-data-to-remote-storage">
+<span class="md-ellipsis">
+      Step 5: Push Data to Remote Storage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-data-updates-with-dvc-an-example">
+<span class="md-ellipsis">
+      Local Data Updates with DVC: An Example
+    </span>
+</a>
+<nav aria-label="Local Data Updates with DVC: An Example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario">
+<span class="md-ellipsis">
+      Scenario
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-dvc-detects-changes">
+<span class="md-ellipsis">
+      How DVC Detects Changes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-commands-to-track-new-data-version">
+<span class="md-ellipsis">
+      Example Commands to Track New Data Version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-purpose-of-this-process">
+<span class="md-ellipsis">
+      The Purpose of This Process
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-data-updates-with-dvc-the-process">
+<span class="md-ellipsis">
+      Cloud Data Updates with DVC: The Process
+    </span>
+</a>
+<nav aria-label="Cloud Data Updates with DVC: The Process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario_1">
+<span class="md-ellipsis">
+      Scenario
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detecting-changes-in-cloud-data">
+<span class="md-ellipsis">
+      Detecting Changes in Cloud Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-cloud-data-in-dvc">
+<span class="md-ellipsis">
+      Updating Cloud Data in DVC
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-purpose-of-this-process-for-cloud-data">
+<span class="md-ellipsis">
+      The Purpose of This Process for Cloud Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-differences-from-local-data">
+<span class="md-ellipsis">
+      Key Differences from Local Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_1">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#communication-of-data-version-in-a-collaborative-setting">
+<span class="md-ellipsis">
+      Communication of Data Version in a Collaborative Setting
+    </span>
+</a>
+<nav aria-label="Communication of Data Version in a Collaborative Setting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-branches-to-manage-data-versions">
+<span class="md-ellipsis">
+      Using Branches to Manage Data Versions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#collaborative-tools-and-integrations">
+<span class="md-ellipsis">
+      Collaborative Tools and Integrations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#workflow-for-collaborative-data-updates-using-dvc-and-github">
+<span class="md-ellipsis">
+      Workflow for Collaborative Data Updates Using DVC and GitHub
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-happens-during-the-sync">
+<span class="md-ellipsis">
+      What Happens During the Sync?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ensuring-consistency">
+<span class="md-ellipsis">
+      Ensuring Consistency
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_2">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-read-the-diagram">
+<span class="md-ellipsis">
+      How to Read the Diagram
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizing-the-dvc-extension-in-vs-code-for-data-management">
+<span class="md-ellipsis">
+      Utilizing the DVC Extension in VS Code for Data Management
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../naming-conventions/">
+<span class="md-ellipsis">
+    Naming Convetions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../windows-os-setup/">
+<span class="md-ellipsis">
+    Windows OS
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../how-to-guides/">
+<span class="md-ellipsis">
+    How-To Guides
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api-reference/">
+<span class="md-ellipsis">
+    API Reference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../explanation/">
+<span class="md-ellipsis">
+    Explanation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-dvc-for-data-version-control">
+<span class="md-ellipsis">
+      Using DVC for Data Version Control
+    </span>
+</a>
+<nav aria-label="Using DVC for Data Version Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-dvc">
+<span class="md-ellipsis">
+      Why DVC?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-dvc-for-data-version-control">
+<span class="md-ellipsis">
+      Setting Up DVC for Data Version Control
+    </span>
+</a>
+<nav aria-label="Setting Up DVC for Data Version Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-initialize-dvc-in-your-project">
+<span class="md-ellipsis">
+      Step 1: Initialize DVC in Your Project
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-set-up-remote-storage">
+<span class="md-ellipsis">
+      Step 2: Set Up Remote Storage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-add-data-to-dvc">
+<span class="md-ellipsis">
+      Step 3: Add Data to DVC
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-commit-changes-to-version-control">
+<span class="md-ellipsis">
+      Step 4: Commit Changes to Version Control
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-5-push-data-to-remote-storage">
+<span class="md-ellipsis">
+      Step 5: Push Data to Remote Storage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-data-updates-with-dvc-an-example">
+<span class="md-ellipsis">
+      Local Data Updates with DVC: An Example
+    </span>
+</a>
+<nav aria-label="Local Data Updates with DVC: An Example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario">
+<span class="md-ellipsis">
+      Scenario
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-dvc-detects-changes">
+<span class="md-ellipsis">
+      How DVC Detects Changes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-commands-to-track-new-data-version">
+<span class="md-ellipsis">
+      Example Commands to Track New Data Version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-purpose-of-this-process">
+<span class="md-ellipsis">
+      The Purpose of This Process
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-data-updates-with-dvc-the-process">
+<span class="md-ellipsis">
+      Cloud Data Updates with DVC: The Process
+    </span>
+</a>
+<nav aria-label="Cloud Data Updates with DVC: The Process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario_1">
+<span class="md-ellipsis">
+      Scenario
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detecting-changes-in-cloud-data">
+<span class="md-ellipsis">
+      Detecting Changes in Cloud Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-cloud-data-in-dvc">
+<span class="md-ellipsis">
+      Updating Cloud Data in DVC
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-purpose-of-this-process-for-cloud-data">
+<span class="md-ellipsis">
+      The Purpose of This Process for Cloud Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-differences-from-local-data">
+<span class="md-ellipsis">
+      Key Differences from Local Data
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_1">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#communication-of-data-version-in-a-collaborative-setting">
+<span class="md-ellipsis">
+      Communication of Data Version in a Collaborative Setting
+    </span>
+</a>
+<nav aria-label="Communication of Data Version in a Collaborative Setting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-branches-to-manage-data-versions">
+<span class="md-ellipsis">
+      Using Branches to Manage Data Versions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#collaborative-tools-and-integrations">
+<span class="md-ellipsis">
+      Collaborative Tools and Integrations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#workflow-for-collaborative-data-updates-using-dvc-and-github">
+<span class="md-ellipsis">
+      Workflow for Collaborative Data Updates Using DVC and GitHub
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-happens-during-the-sync">
+<span class="md-ellipsis">
+      What Happens During the Sync?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ensuring-consistency">
+<span class="md-ellipsis">
+      Ensuring Consistency
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion_2">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-read-the-diagram">
+<span class="md-ellipsis">
+      How to Read the Diagram
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizing-the-dvc-extension-in-vs-code-for-data-management">
+<span class="md-ellipsis">
+      Utilizing the DVC Extension in VS Code for Data Management
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="data-version-control">Data Version control<a class="headerlink" href="#data-version-control" title="Permanent link">¶</a></h1>
+<h2 id="using-dvc-for-data-version-control">Using DVC for Data Version Control<a class="headerlink" href="#using-dvc-for-data-version-control" title="Permanent link">¶</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h3>
+<p>In the realm of data science and machine learning, managing and
+versioning large datasets effectively is crucial for maintaining the
+integrity and reproducibility of projects. Data Version Control (DVC) is
+an essential tool that provides robust mechanisms for data versioning.
+By integrating DVC into our workflow, we gain a high level of control
+over our data assets, ensuring that our datasets are managed in a
+consistent, traceable, and efficient manner.</p>
+<p>DVC is designed to complement the traditional code version control
+systems, allowing us to handle large data files and datasets with ease.
+It enables our team to track changes in data, manage different versions
+of datasets, and link specific data versions to our experiments and
+model versions. This capability is vital for ensuring that our projects
+are reproducible and that we can easily revert or branch data as needed,
+just like we do with our code.</p>
+<h3 id="why-dvc">Why DVC?<a class="headerlink" href="#why-dvc" title="Permanent link">¶</a></h3>
+<p>DVC stands out as a tool specifically tailored for data management in
+several key ways:</p>
+<ul>
+<li><strong>Versioning Large Datasets</strong>: It provides a Git-like interface for
+  data files, enabling us to track changes and maintain a history of
+  modifications.</li>
+<li><strong>Reproducibility</strong>: By binding specific versions of data to our
+  project stages, DVC ensures that we can always replicate our results
+  with the exact data used in any given experiment.</li>
+<li><strong>Collaboration</strong>: With DVC, sharing data changes becomes more
+  manageable, allowing for synchronized and consistent data usage across
+  the team.</li>
+</ul>
+<p>Integrating DVC into our data management strategy solidifies our
+commitment to maintaining best practices in data handling, ensuring that
+our projects are not only innovative but also methodically sound and
+reproducible.</p>
+<h2 id="setting-up-dvc-for-data-version-control">Setting Up DVC for Data Version Control<a class="headerlink" href="#setting-up-dvc-for-data-version-control" title="Permanent link">¶</a></h2>
+<p>Integrating Data Version Control (DVC) into our workflow is a
+straightforward process. DVC is versatile and supports various storage
+options including cloud services like Azure and AWS, as well as local
+storage. Here’s how you can set it up:</p>
+<h3 id="step-1-initialize-dvc-in-your-project">Step 1: Initialize DVC in Your Project<a class="headerlink" href="#step-1-initialize-dvc-in-your-project" title="Permanent link">¶</a></h3>
+<p>Navigate to your project repository and initialize DVC:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>dvc<span class="w"> </span>init
+</code></pre></div>
+<p>This command creates a <code>.dvc</code> directory, signifying that DVC is now
+tracking the data in this repository.</p>
+<h3 id="step-2-set-up-remote-storage">Step 2: Set Up Remote Storage<a class="headerlink" href="#step-2-set-up-remote-storage" title="Permanent link">¶</a></h3>
+<p>DVC supports various storage backends. Depending on where you want to
+host your data (Azure, AWS, or locally), the setup will differ slightly.</p>
+<ul>
+<li>
+<p><strong>For Azure Blob Storage</strong>:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>dvc<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>myremote<span class="w"> </span>azure://mycontainer/path
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>dvc<span class="w"> </span>remote<span class="w"> </span>modify<span class="w"> </span>myremote<span class="w"> </span>connection_string<span class="w"> </span><span class="s1">'myconnectionstring'</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>For AWS S3</strong>:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>dvc<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>myremote<span class="w"> </span>s3://mybucket/path
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># Configure AWS credentials via environment variables, AWS credentials file, or IAM roles.</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>For Local Storage</strong>:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>dvc<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>myremote<span class="w"> </span>/path/to/local/storage
+</code></pre></div></p>
+</li>
+</ul>
+<p>In these commands, <code>myremote</code> is the name of the remote storage, which
+you can change to something more descriptive of your specific setup.</p>
+<h3 id="step-3-add-data-to-dvc">Step 3: Add Data to DVC<a class="headerlink" href="#step-3-add-data-to-dvc" title="Permanent link">¶</a></h3>
+<p>Add your data files or directories to DVC. This tells DVC to track the
+specified files or directories:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>dvc<span class="w"> </span>add<span class="w"> </span>data/dataset.csv
+</code></pre></div>
+<h3 id="step-4-commit-changes-to-version-control">Step 4: Commit Changes to Version Control<a class="headerlink" href="#step-4-commit-changes-to-version-control" title="Permanent link">¶</a></h3>
+<p>After adding files or directories to DVC, commit the changes to both DVC
+and Git. This synchronizes the data tracking with your version control
+system:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>git<span class="w"> </span>add<span class="w"> </span>data/dataset.csv.dvc<span class="w"> </span>data/.gitignore
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add dataset with DVC"</span>
+</code></pre></div>
+<h3 id="step-5-push-data-to-remote-storage">Step 5: Push Data to Remote Storage<a class="headerlink" href="#step-5-push-data-to-remote-storage" title="Permanent link">¶</a></h3>
+<p>Finally, push your data to the configured remote storage. This ensures
+that your data is backed up and can be shared with others:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>dvc<span class="w"> </span>push
+</code></pre></div>
+<h2 id="local-data-updates-with-dvc-an-example">Local Data Updates with DVC: An Example<a class="headerlink" href="#local-data-updates-with-dvc-an-example" title="Permanent link">¶</a></h2>
+<h3 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h3>
+<p>Imagine you have a dataset file named <code>dataset.csv</code> that you're already
+tracking with DVC. You've made some updates to this file - perhaps
+you've added more data, removed some entries, or modified existing data.</p>
+<h3 id="how-dvc-detects-changes">How DVC Detects Changes<a class="headerlink" href="#how-dvc-detects-changes" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>DVC's Checksum Mechanism</strong>:</li>
+<li>DVC uses a checksum (a type of hash value) to track the version of
+     each file. When you first run <code>dvc add dataset.csv</code>, DVC calculates
+     and stores this file's checksum in the corresponding <code>.dvc</code> file.</li>
+<li>
+<p>When you modify <code>dataset.csv</code>, its checksum changes. DVC detects
+     that the current checksum of the file doesn't match the one stored
+     in the <code>.dvc</code> file, indicating that the file has been altered.</p>
+</li>
+<li>
+<p><strong>Communicating Changes to the User</strong>:</p>
+</li>
+<li>To see which files have changed, you can use the command <code>dvc
+     status</code>. This command compares the current checksums of files with
+     those stored in <code>.dvc</code> files.</li>
+<li>If there are changes, DVC will list the files that have been
+     modified. For example, it might show <code>dataset.csv</code> as 'modified.'</li>
+</ol>
+<h3 id="example-commands-to-track-new-data-version">Example Commands to Track New Data Version<a class="headerlink" href="#example-commands-to-track-new-data-version" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Add the Updated File to DVC</strong>:</li>
+<li>Run <code>dvc add dataset.csv</code> again. This updates the <code>.dvc</code> file with
+     the new checksum for the modified <code>dataset.csv</code>.</li>
+<li>
+<p>This command is crucial as it tells DVC to track this new version
+     of the file.</p>
+</li>
+<li>
+<p><strong>Commit the Changes to Version Control</strong>:</p>
+</li>
+<li>
+<p>After updating the <code>.dvc</code> file, commit these changes to your Git
+     repository:
+     <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>add<span class="w"> </span>dataset.csv.dvc
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Update dataset.csv with new data"</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Push the Changes</strong>:</p>
+</li>
+<li>Use <code>dvc push</code> to upload the new version of <code>dataset.csv</code> to your
+     remote DVC storage. This ensures that the updated data is backed up
+     and available for others.</li>
+</ol>
+<h3 id="the-purpose-of-this-process">The Purpose of This Process<a class="headerlink" href="#the-purpose-of-this-process" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Reproducibility</strong>: By tracking every change to your data, you ensure
+  that every stage of your project can be reproduced, using the exact
+  version of the data that was used originally.</li>
+<li><strong>Collaboration</strong>: This process makes sure that all team members are
+  aware of the data changes and can access the exact same data versions,
+  leading to consistent results across different environments.</li>
+<li><strong>Traceability</strong>: Keeping track of data changes allows you to trace
+  back to any point in the project’s history, understand what data was
+  used, and why certain decisions were made.</li>
+</ul>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h3>
+<p>In summary, DVC’s mechanism of detecting changes through checksums,
+combined with its integration with Git, allows you to effectively
+version your data. This ensures that your datasets are consistently
+managed and that changes are transparent and traceable across your team.
+The process of updating data, running <code>dvc add</code>, committing changes, and
+pushing to remote storage is essential for maintaining the integrity and
+reproducibility of your data science projects.</p>
+<p>The process for handling data updates with DVC is similar for both local
+and cloud-based data, but there are some key differences to consider,
+particularly in how changes are detected and synchronized.</p>
+<h2 id="cloud-data-updates-with-dvc-the-process">Cloud Data Updates with DVC: The Process<a class="headerlink" href="#cloud-data-updates-with-dvc-the-process" title="Permanent link">¶</a></h2>
+<h3 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link">¶</a></h3>
+<p>Suppose your data is hosted on a cloud storage service (like AWS S3,
+Azure Blob Storage, etc.), and you've updated the dataset directly in
+the cloud, bypassing your local machine.</p>
+<h3 id="detecting-changes-in-cloud-data">Detecting Changes in Cloud Data<a class="headerlink" href="#detecting-changes-in-cloud-data" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Local vs. Cloud State</strong>:</li>
+<li>DVC does not automatically detect changes made directly in the
+     cloud storage. Instead, it relies on the local <code>.dvc</code> files to
+     track the data state.</li>
+<li>
+<p>To understand what's changed in the cloud, you need to manually
+     synchronize your local DVC environment with the cloud.</p>
+</li>
+<li>
+<p><strong>Synchronizing Local and Cloud</strong>:</p>
+</li>
+<li>Run <code>dvc pull</code>. This command checks the remote storage for any
+     changes or new versions of the files and downloads them to your
+     local machine.</li>
+<li>When you execute <code>dvc pull</code>, DVC compares the checksums from the
+     cloud with those stored locally in your <code>.dvc</code> files. If there are
+     differences, DVC retrieves the updated files.</li>
+</ol>
+<h3 id="updating-cloud-data-in-dvc">Updating Cloud Data in DVC<a class="headerlink" href="#updating-cloud-data-in-dvc" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Pull the Updated Data</strong>:</li>
+<li>
+<p>After detecting changes in the cloud, use <code>dvc pull</code> to update your
+     local copy with the latest version from the cloud.</p>
+</li>
+<li>
+<p><strong>Track and Commit the Changes Locally</strong>:</p>
+</li>
+<li>
+<p>If you want to version these updates (which is a best practice),
+     you should <code>dvc add</code> the updated files and commit the changes to
+     your Git repository, just like with local updates:
+     <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>dvc<span class="w"> </span>add<span class="w"> </span>dataset.csv
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>git<span class="w"> </span>add<span class="w"> </span>dataset.csv.dvc
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Update dataset.csv with cloud changes"</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Push the Changes to Remote Storage</strong>:</p>
+</li>
+<li>In case there are any further local changes or if you need to
+     synchronize the <code>.dvc</code> files, use <code>dvc push</code>.</li>
+</ol>
+<h3 id="the-purpose-of-this-process-for-cloud-data">The Purpose of This Process for Cloud Data<a class="headerlink" href="#the-purpose-of-this-process-for-cloud-data" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Consistency and Reproducibility</strong>: Even when data is stored and
+  updated in the cloud, it’s crucial to maintain consistency and
+  reproducibility by tracking these changes through DVC.</li>
+<li><strong>Collaborative Work</strong>: This process ensures that all team members are
+  working with the latest version of the data, regardless of where it is
+  stored or updated.</li>
+<li><strong>Version Control Integration</strong>: By integrating DVC with cloud storage
+  and your local Git repository, you maintain a robust version control
+  system for your data.</li>
+</ul>
+<h3 id="key-differences-from-local-data">Key Differences from Local Data<a class="headerlink" href="#key-differences-from-local-data" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Manual Synchronization Required</strong>: Unlike local data changes, which
+  you can detect by running <code>dvc status</code>, changes in the cloud require a
+  manual <code>dvc pull</code> to synchronize.</li>
+<li><strong>Local Tracking of Cloud Changes</strong>: It's important to track cloud
+  changes locally using DVC and Git to maintain version control and
+  project history.</li>
+</ul>
+<h3 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">¶</a></h3>
+<p>While the core principles of data versioning with DVC remain the same,
+cloud data updates involve an additional step of manually synchronizing
+your local environment with the cloud. This ensures that your data
+management practices are consistent, transparent, and aligned with the
+collaborative needs of your project.</p>
+<h2 id="communication-of-data-version-in-a-collaborative-setting">Communication of Data Version in a Collaborative Setting<a class="headerlink" href="#communication-of-data-version-in-a-collaborative-setting" title="Permanent link">¶</a></h2>
+<p>When working collaboratively on a project using DVC and GitHub,
+communication and transparency about data and model versions are key.
+Here's how your colleagues can be made aware of the specific data
+version used in a particular branch of the project for training a
+machine learning model:</p>
+<ol>
+<li><strong>Commit Messages and Pull Requests</strong>:</li>
+<li>When you commit changes (including DVC-tracked files) to a branch
+     and push to GitHub, write clear and descriptive commit messages.
+     For example: "Update dataset.csv to version 2.1 for model
+     training".</li>
+<li>
+<p>If you're using Pull Requests (PRs), ensure the description clearly
+     states the changes in the data and the rationale behind these
+     changes. This helps team members understand the context of the
+     update.</p>
+</li>
+<li>
+<p><strong>DVC Files in Git</strong>:</p>
+</li>
+<li>DVC tracks data changes using <code>.dvc</code> files which are committed to
+     Git. These files contain metadata about the data file versions.</li>
+<li>
+<p>When you push these changes to GitHub, your colleagues can see the
+     updated <code>.dvc</code> files in the commits or PRs. By examining these
+     files, they can identify which version of the data you used.</p>
+</li>
+<li>
+<p><strong>DVC Pull to Sync Data</strong>:</p>
+</li>
+<li>After pulling the latest changes from GitHub, your colleagues
+     should run <code>dvc pull</code> to synchronize their local data with the
+     version tracked in the branch.</li>
+<li>
+<p>This ensures that they are working with the exact same data version
+     that you used for training your model.</p>
+</li>
+<li>
+<p><strong>Automated Notifications</strong>:</p>
+</li>
+<li>Utilize features in GitHub like notifications, watching a
+     repository, or setting up automated alerts to inform team members
+     of new commits or PRs.</li>
+<li>
+<p>Team members who are closely following the project can stay updated
+     about changes in real-time.</p>
+</li>
+<li>
+<p><strong>Project Documentation</strong>:</p>
+</li>
+<li>
+<p>Maintain a section in your project's documentation or README file
+     about the data versions being used. Update this section whenever a
+     significant change is made to the dataset.</p>
+</li>
+<li>
+<p><strong>Regular Team Meetings or Updates</strong>:</p>
+</li>
+<li>In regular team meetings or through periodic updates (like emails
+     or team chat channels), summarize key changes in the project,
+     including updates to data and models.</li>
+</ol>
+<h3 id="using-branches-to-manage-data-versions">Using Branches to Manage Data Versions<a class="headerlink" href="#using-branches-to-manage-data-versions" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Branch-Specific Data Versions</strong>: In Git, different branches can be
+  used to experiment with different data versions or model
+  configurations. This allows you to isolate changes in a controlled
+  environment.</li>
+<li><strong>Communicate Branch Purpose</strong>: Clearly communicate the purpose of
+  each branch in your project documentation or in the branch name
+  itself, e.g., <code>feature/new-data-set-2.1</code>.</li>
+</ul>
+<h3 id="collaborative-tools-and-integrations">Collaborative Tools and Integrations<a class="headerlink" href="#collaborative-tools-and-integrations" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Integration with Slack or Other Communication Tools</strong>: Consider
+  integrating GitHub with tools like Slack to automatically post updates
+  about commits, PRs, and branch changes.</li>
+<li><strong>Code Review Practices</strong>: Encourage thorough code reviews, where
+  reviewers not only look at code changes but also at updates in data
+  (as indicated by changes in <code>.dvc</code> files).</li>
+</ul>
+<h3 id="workflow-for-collaborative-data-updates-using-dvc-and-github">Workflow for Collaborative Data Updates Using DVC and GitHub<a class="headerlink" href="#workflow-for-collaborative-data-updates-using-dvc-and-github" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Local Data Update</strong>:</li>
+<li>
+<p>You update your dataset locally. This could be any modification
+     like adding new data, editing existing data, etc.</p>
+</li>
+<li>
+<p><strong>Tracking Changes with DVC</strong>:</p>
+</li>
+<li>
+<p>Use DVC to track these changes. Run <code>dvc add &lt;file_or_directory&gt;</code>
+     to update the DVC tracking for the changed data. This updates the
+     <code>.dvc</code> file corresponding to the data, which now reflects the new
+     state of your dataset.</p>
+</li>
+<li>
+<p><strong>Committing and Pushing to GitHub</strong>:</p>
+</li>
+<li>Commit the changes to your Git repository, including the updated
+     <code>.dvc</code> file and any other modified files. Your commit message
+     should clearly describe the changes made.</li>
+<li>
+<p>Push these commits to a branch in your GitHub repository.</p>
+</li>
+<li>
+<p><strong>Team Member's Syncing Process</strong>:</p>
+</li>
+<li>Your colleagues, upon learning about the update (via pull request,
+     notification, or any other communication channel), will first pull
+     the latest changes from the GitHub repository. This includes the
+     updated <code>.dvc</code> files but not the actual data.</li>
+<li>They then run <code>dvc pull</code> in their local environment. This command
+     fetches the updated data files from the DVC remote storage and
+     replaces the older version of the data in their local workspace
+     with the version you just pushed.</li>
+</ol>
+<h3 id="what-happens-during-the-sync">What Happens During the Sync?<a class="headerlink" href="#what-happens-during-the-sync" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>DVC Remote Storage</strong>: The updated data resides in the DVC remote
+  storage (which could be on cloud services like AWS S3, Azure Blob
+  Storage, or a local server). When you push changes with DVC, the
+  updated data is transferred to this remote storage.</li>
+<li><strong>Rewriting Local Data</strong>: When your colleagues run <code>dvc pull</code>, DVC
+  fetches the specific version of the data associated with the latest
+  commit from the remote storage. Their local data files are then
+  updated (rewritten) to match this version.</li>
+</ul>
+<h3 id="ensuring-consistency">Ensuring Consistency<a class="headerlink" href="#ensuring-consistency" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Version Control of Data</strong>: The <code>.dvc</code> files in your Git repository
+  ensure that everyone is aware of which version of the data should be
+  used with the current codebase.</li>
+<li><strong>No Direct Data Overwrite in Git</strong>: It's important to note that the
+  data files themselves are not stored or directly overwritten in the
+  Git repository. The synchronization of the actual data files happens
+  through DVC commands (<code>dvc push</code> and <code>dvc pull</code>), while Git handles
+  the version control through <code>.dvc</code> files.</li>
+</ul>
+<h3 id="conclusion_2">Conclusion<a class="headerlink" href="#conclusion_2" title="Permanent link">¶</a></h3>
+<p>In summary, by using DVC in conjunction with Git, you can update
+datasets on your local machine and track these changes. When you push
+these changes to GitHub, your colleagues can then update their local
+copies to match your data version, ensuring everyone in the team is
+working with the same dataset. This process is crucial for maintaining
+consistency, reproducibility, and effective collaboration in data-driven
+projects.</p>
+<pre class="mermaid"><code>graph TB
+    A[Local Data Update] --&gt;|DVC add| B[Track Changes with DVC]
+    B --&gt; |Git commit &amp; push| C[Push to GitHub]
+    C --&gt;|Colleague Git pull| D[Team Member Git Sync]
+    D --&gt;|DVC pull| E[Team Member DVC Sync]
+    E --&gt; F[Local Data Updated to New Version]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style C fill:#f96,stroke:#333,stroke-width:2px,color:black
+    style D fill:#9f6,stroke:#333,stroke-width:2px,color:black
+    style E fill:#6f9,stroke:#333,stroke-width:2px,color:black
+    style F fill:#9ff,stroke:#333,stroke-width:2px,color:black</code></pre>
+<h3 id="how-to-read-the-diagram">How to Read the Diagram<a class="headerlink" href="#how-to-read-the-diagram" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Local Data Update</strong>: This is where you make changes to your dataset
+  locally.</li>
+<li><strong>Track Changes with DVC</strong>: After updating the data, you use <code>dvc add</code>
+  to track these changes.</li>
+<li><strong>Push to GitHub</strong>: Commit the updated <code>.dvc</code> file and push these
+  changes to GitHub.</li>
+<li><strong>Team Member Git Sync</strong>: Your colleagues pull the latest changes from
+  the GitHub repository.</li>
+<li><strong>Team Member DVC Sync</strong>: They run <code>dvc pull</code> to synchronize their
+  local data with the updated version stored in DVC remote storage.</li>
+<li><strong>Local Data Updated to New Version</strong>: At this point, your colleagues
+  have the same data version as you do.</li>
+</ul>
+<h2 id="utilizing-the-dvc-extension-in-vs-code-for-data-management">Utilizing the DVC Extension in VS Code for Data Management<a class="headerlink" href="#utilizing-the-dvc-extension-in-vs-code-for-data-management" title="Permanent link">¶</a></h2>
+<p>Once the DVC extension is installed in VS Code, managing your data
+becomes more streamlined and integrated within your development
+environment. Here’s how you can effectively use the extension for data
+management:</p>
+<ol>
+<li>
+<p><strong>View DVC Tracked Files</strong>: Access the DVC extension's sidebar in VS
+   Code to see a list of all DVC-tracked files and stages in your
+   project. This offers a clear overview of your data files and their
+   status.</p>
+</li>
+<li>
+<p><strong>Execute DVC Commands</strong>: Directly interact with your data through
+   the VS Code interface. Right-click on the DVC-tracked files or stages
+   to run common DVC commands such as <code>dvc pull</code>, <code>dvc push</code>, or <code>dvc
+   repro</code>. This feature simplifies executing DVC commands and reduces
+   the need to switch between the terminal and the code editor.</p>
+</li>
+<li>
+<p><strong>Monitor Pipeline Status</strong>: The extension provides a visualization
+   of your DVC pipelines. You can track the progress and status of
+   different stages in your data pipelines, making it easier to identify
+   and resolve issues.</p>
+</li>
+<li>
+<p><strong>Manage Experiments</strong>: If you are using DVC for machine learning
+   experiments, the extension allows you to browse, compare, and manage
+   these experiments directly within VS Code.</p>
+</li>
+</ol>
+<p>By incorporating these features into your workflow, the DVC extension
+for VS Code enhances your efficiency in managing data versions and
+pipelines, contributing to a more productive and organized project
+environment.</p>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/LLMsLab/cookiecutter-ai-flock" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
