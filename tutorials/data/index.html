@@ -205,17 +205,13 @@
       Folder Structure and Naming Convention
     </span>
 </a>
-<nav aria-label="Folder Structure and Naming Convention" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#guidelines-for-naming">
+<a class="md-nav__link" href="#explanation-of-categories">
 <span class="md-ellipsis">
-      Guidelines for Naming
+      Explanation of Categories
     </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -424,17 +420,13 @@
       Folder Structure and Naming Convention
     </span>
 </a>
-<nav aria-label="Folder Structure and Naming Convention" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#guidelines-for-naming">
+<a class="md-nav__link" href="#explanation-of-categories">
 <span class="md-ellipsis">
-      Guidelines for Naming
+      Explanation of Categories
     </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -603,37 +595,43 @@ the recommended structure:</p>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>├── processed             # Fully processed data, ready for analysis
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>└── features              # Engineered features ready for model training
 </code></pre></div>
-<h4 id="guidelines-for-naming">Guidelines for Naming<a class="headerlink" href="#guidelines-for-naming" title="Permanent link">¶</a></h4>
-<ol>
-<li><strong>Descriptive and Clear:</strong></li>
+<h3 id="explanation-of-categories">Explanation of Categories<a class="headerlink" href="#explanation-of-categories" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Raw</strong>: </li>
 <li>
-<p>Folder names should be self-explanatory, indicating clearly what
-     type of data they contain.</p>
+<p>Contains the original datasets. Data in this folder is immutable
+     and serves as a backup for all processing steps.</p>
 </li>
 <li>
-<p><strong>Consistent Format:</strong></p>
+<p><strong>External</strong>: </p>
 </li>
 <li>
-<p>Use a consistent naming format across all folders. The recommended
-     format is all lowercase with words separated by hyphens for
-     readability.</p>
+<p>For data sourced from outside the original dataset. This includes
+     third-party data, external APIs, or any supplementary data.</p>
 </li>
 <li>
-<p><strong>Standard Categories:</strong></p>
+<p><strong>Interim</strong>: </p>
 </li>
 <li>
-<p>Stick to standard naming categories (<code>raw</code>, <code>external</code>, <code>interim</code>,
-     <code>processed</code>, <code>features</code>) as they are widely recognized in data
-     science and ML communities.</p>
+<p>Holds data that is in the process of being cleaned or transformed.
+     Useful for datasets that are not final but are needed in
+     intermediate stages.</p>
 </li>
 <li>
-<p><strong>Avoid Overly Specific Names:</strong></p>
+<p><strong>Processed</strong>: </p>
 </li>
-<li>While being descriptive, avoid overly specific names which might
-     become irrelevant as the project evolves. The name should be broad
-     enough to encompass various data types that might fall into that
-     category.</li>
-</ol>
+<li>
+<p>Contains the final version of the dataset, which is ready for
+     analysis or modeling. Data in this folder is cleaned, formatted,
+     and pre-processed.</p>
+</li>
+<li>
+<p><strong>Features</strong>: </p>
+</li>
+<li>Dedicated to storing feature sets that are used in machine learning
+     models. This includes transformed data, new features, and selected
+     features.</li>
+</ul>
 <p>Having a clear and organized structure for the data can help to ensure
 that it is properly managed throughout the project and that any
 necessary modifications or transformations can be easily traced and
