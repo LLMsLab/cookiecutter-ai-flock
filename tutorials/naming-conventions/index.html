@@ -1067,6 +1067,40 @@ TODO:
 - Include a table to describe the branch type briefly
 - Create a pre-commit hook to enforce using branch and file naming conventions
 -->
+<p>In the intricate world of Data Science and Machine Learning (ML), the
+ability to navigate through vast amounts of code, data files, and
+documentation efficiently is pivotal to the success and maintainability
+of projects. Proper naming conventions are more than a mere aspect of
+stylistic preference; they form the backbone of project organization and
+play a critical role in ensuring that team members and automated systems
+can quickly understand and manage various project components.</p>
+<p>This document presents a comprehensive set of guidelines designed to
+bring order and clarity to the diverse assets of data science and ML
+projects. From the way we name our GitHub repositories to the structure
+of our data directories, each convention has been thoughtfully crafted
+to align with industry best practices and the unique demands of ML
+workflows.</p>
+<p>We delve into the specifics of naming branches, which enables
+contributors to discern the purpose of each branch at a glance, thereby
+streamlining collaboration and review processes. We also cover the
+conventions for data files, including the systematic versioning and
+timestamping that allow for the efficient tracking of dataset iterations
+and history.</p>
+<p>Model persistence files, the artifacts of our computational efforts, are
+given a structured naming framework that facilitates version control and
+model identification across different stages of a project. Furthermore,
+we extend these principles to the naming of Jupyter notebooks and
+scripts, recognizing their role as both developmental tools and as part
+of the project's documentation.</p>
+<p>In addition to defining these standards, we are committed to enforcing
+them through automated means. This document outlines how GitHub Actions
+can be leveraged to ensure adherence to these conventions, providing
+examples and setup instructions for integrating these checks into your
+continuous integration and deployment pipelines.</p>
+<p>By adhering to the naming conventions and enforcement strategies
+outlined in this document, teams can achieve a level of operational
+harmony that not only optimizes current project workflows but also paves
+the way for future scalability and knowledge transfer.</p>
 <h2 id="github-repository-naming-conventions-for-data-science-projects">GitHub Repository Naming Conventions for Data Science Projects<a class="headerlink" href="#github-repository-naming-conventions-for-data-science-projects" title="Permanent link">¶</a></h2>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h3>
 <p>Choosing the right naming convention for GitHub repositories in data
@@ -1776,143 +1810,192 @@ to the established naming conventions.</p>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="nt">GITHUB_REF</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.ref }}</span>
 </code></pre></div>
 <h3 id="example-python-script-structure">Example Python Script Structure<a class="headerlink" href="#example-python-script-structure" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">os</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">import</span> <span class="nn">sys</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">import</span> <span class="nn">re</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">def</span> <span class="nf">validate_ml_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="sd">"""</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="sd">    Check if the filename adheres to the ML project's naming convention.</span>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="sd">    Parameters</span>
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="sd">    ----------</span>
-<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="sd">    filename : str</span>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="sd">        The name of the file to be checked.</span>
-<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="sd">    Returns</span>
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="sd">    -------</span>
-<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="sd">    bool</span>
-<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="sd">        True if the filename matches the naming convention, False</span>
-<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="sd">        otherwise.</span>
-<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a>
-<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="sd">    Notes</span>
-<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="sd">    -----</span>
-<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="sd">    The naming convention expected:</span>
-<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="sd">    '&lt;type&gt;_&lt;topic&gt;_&lt;version&gt;_&lt;YYYYMMDD&gt;.&lt;extension&gt;' Where: - &lt;type&gt; is</span>
-<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="sd">    a flexible, user-defined category (e.g., 'eda', 'preprocess').  -</span>
-<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="sd">    &lt;topic&gt; is a concise descriptor of the main focus.  - &lt;version&gt; is</span>
-<a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="sd">    an optional version identifier.  - &lt;YYYYMMDD&gt; is the creation or</span>
-<a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="sd">    last modified date.  - &lt;extension&gt; is either '.ipynb' for Jupyter</span>
-<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="sd">    notebooks or '.py' for Python scripts.</span>
-<a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="sd">    """</span>
-<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a>    <span class="c1"># Regex pattern with a more flexible 'type' component</span>
-<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_\w+(_v\d+)?_\d</span><span class="si">{8}</span><span class="s2">\.[ipynb|py]$"</span><span class="p">)</span>
-<a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="sd">"""</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="sd">This module `validate_naming.py` is part of a GitHub Actions workflow</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="sd">designed to enforce naming conventions across various assets in a</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="sd">machine learning project. It includes functions to validate the naming</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="sd">of Jupyter notebooks, Python scripts, model persistence files, data</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="sd">files, and Git branches.</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="sd">The module contains the following key functions: -</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="sd">`validate_ml_file_naming`: Checks naming conventions for Jupyter</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="sd">notebooks and Python scripts.  - `validate_model_file_naming`: Ensures</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="sd">model file names adhere to the specified naming standards.  -</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="sd">`validate_data_file_naming`: Validates data file names against the</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="sd">project's naming conventions.  - `validate_git_branch_naming`: Checks if</span>
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="sd">the Git branch names follow the predefined naming patterns.</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="sd">The script is executed as part of a GitHub Actions workflow and is</span>
+<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="sd">essential for maintaining consistency, readability, and organization of</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="sd">files in the repository.</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>
+<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="sd">Note: - This script is meant to be run as a GitHub Action and relies on</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="sd">environmental variables provided by GitHub workflows.  - Regular</span>
+<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="sd">expressions are used for pattern matching to validate the naming</span>
+<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="sd">conventions.</span>
+<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="sd">"""</span>
+<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a>
+<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="kn">import</span> <span class="nn">os</span>
+<a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="kn">import</span> <span class="nn">re</span>
+<a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a>
+<a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a>
+<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="k">def</span> <span class="nf">validate_ml_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="sd">    Check if the filename adheres to the ML project's naming convention.</span>
 <a href="#__codelineno-10-34" id="__codelineno-10-34" name="__codelineno-10-34"></a>
-<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a>
-<a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="k">def</span> <span class="nf">validate_model_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="w">    </span><span class="sd">"""</span>
-<a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="sd">    Check if the filename adheres to the model persistence file naming</span>
-<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="sd">    convention.</span>
-<a href="#__codelineno-10-40" id="__codelineno-10-40" name="__codelineno-10-40"></a>
-<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="sd">    Parameters</span>
-<a href="#__codelineno-10-42" id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="sd">    ----------</span>
-<a href="#__codelineno-10-43" id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="sd">    filename : str</span>
-<a href="#__codelineno-10-44" id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="sd">        The name of the model file to be checked.</span>
+<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="sd">    Parameters</span>
+<a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="sd">    ----------</span>
+<a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="sd">    filename : str</span>
+<a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="sd">        The name of the file to be checked.</span>
+<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a>
+<a href="#__codelineno-10-40" id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="sd">    Returns</span>
+<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="sd">    -------</span>
+<a href="#__codelineno-10-42" id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="sd">    bool</span>
+<a href="#__codelineno-10-43" id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="sd">        True if the filename matches the naming convention, False</span>
+<a href="#__codelineno-10-44" id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="sd">        otherwise.</span>
 <a href="#__codelineno-10-45" id="__codelineno-10-45" name="__codelineno-10-45"></a>
-<a href="#__codelineno-10-46" id="__codelineno-10-46" name="__codelineno-10-46"></a><span class="sd">    Returns</span>
-<a href="#__codelineno-10-47" id="__codelineno-10-47" name="__codelineno-10-47"></a><span class="sd">    -------</span>
-<a href="#__codelineno-10-48" id="__codelineno-10-48" name="__codelineno-10-48"></a><span class="sd">    bool</span>
-<a href="#__codelineno-10-49" id="__codelineno-10-49" name="__codelineno-10-49"></a><span class="sd">        True if the filename matches the naming convention, False</span>
-<a href="#__codelineno-10-50" id="__codelineno-10-50" name="__codelineno-10-50"></a><span class="sd">        otherwise.</span>
-<a href="#__codelineno-10-51" id="__codelineno-10-51" name="__codelineno-10-51"></a>
-<a href="#__codelineno-10-52" id="__codelineno-10-52" name="__codelineno-10-52"></a><span class="sd">    Notes</span>
-<a href="#__codelineno-10-53" id="__codelineno-10-53" name="__codelineno-10-53"></a><span class="sd">    -----</span>
-<a href="#__codelineno-10-54" id="__codelineno-10-54" name="__codelineno-10-54"></a><span class="sd">    The naming convention for model persistence files is:</span>
-<a href="#__codelineno-10-55" id="__codelineno-10-55" name="__codelineno-10-55"></a><span class="sd">    '&lt;project_name&gt;_&lt;model_version&gt;_&lt;model_type&gt;_&lt;timestamp&gt;.pkl' This</span>
-<a href="#__codelineno-10-56" id="__codelineno-10-56" name="__codelineno-10-56"></a><span class="sd">    includes: - `project_name`: Name of the project.  - `model_version`:</span>
-<a href="#__codelineno-10-57" id="__codelineno-10-57" name="__codelineno-10-57"></a><span class="sd">    Version of the model, following semantic versioning.  -</span>
-<a href="#__codelineno-10-58" id="__codelineno-10-58" name="__codelineno-10-58"></a><span class="sd">    `model_type`: Type or name of the model.  - `timestamp`: Date when</span>
-<a href="#__codelineno-10-59" id="__codelineno-10-59" name="__codelineno-10-59"></a><span class="sd">    the model was saved (YYYYMMDD format).</span>
-<a href="#__codelineno-10-60" id="__codelineno-10-60" name="__codelineno-10-60"></a><span class="sd">    """</span>
-<a href="#__codelineno-10-61" id="__codelineno-10-61" name="__codelineno-10-61"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_(v\d+\.\d+\.\d+)_\w+_\d</span><span class="si">{8}</span><span class="s2">\.pkl$"</span><span class="p">)</span>
-<a href="#__codelineno-10-62" id="__codelineno-10-62" name="__codelineno-10-62"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<a href="#__codelineno-10-63" id="__codelineno-10-63" name="__codelineno-10-63"></a>
-<a href="#__codelineno-10-64" id="__codelineno-10-64" name="__codelineno-10-64"></a>
-<a href="#__codelineno-10-65" id="__codelineno-10-65" name="__codelineno-10-65"></a><span class="k">def</span> <span class="nf">validate_data_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<a href="#__codelineno-10-66" id="__codelineno-10-66" name="__codelineno-10-66"></a><span class="w">    </span><span class="sd">"""</span>
-<a href="#__codelineno-10-67" id="__codelineno-10-67" name="__codelineno-10-67"></a><span class="sd">    Check if the filename adheres to the data file naming convention.</span>
-<a href="#__codelineno-10-68" id="__codelineno-10-68" name="__codelineno-10-68"></a>
-<a href="#__codelineno-10-69" id="__codelineno-10-69" name="__codelineno-10-69"></a><span class="sd">    Parameters</span>
-<a href="#__codelineno-10-70" id="__codelineno-10-70" name="__codelineno-10-70"></a><span class="sd">    ----------</span>
-<a href="#__codelineno-10-71" id="__codelineno-10-71" name="__codelineno-10-71"></a><span class="sd">    filename : str</span>
-<a href="#__codelineno-10-72" id="__codelineno-10-72" name="__codelineno-10-72"></a><span class="sd">        The name of the data file to be checked.</span>
-<a href="#__codelineno-10-73" id="__codelineno-10-73" name="__codelineno-10-73"></a>
-<a href="#__codelineno-10-74" id="__codelineno-10-74" name="__codelineno-10-74"></a><span class="sd">    Returns</span>
-<a href="#__codelineno-10-75" id="__codelineno-10-75" name="__codelineno-10-75"></a><span class="sd">    -------</span>
-<a href="#__codelineno-10-76" id="__codelineno-10-76" name="__codelineno-10-76"></a><span class="sd">    bool</span>
-<a href="#__codelineno-10-77" id="__codelineno-10-77" name="__codelineno-10-77"></a><span class="sd">        True if the filename matches the naming convention, False</span>
-<a href="#__codelineno-10-78" id="__codelineno-10-78" name="__codelineno-10-78"></a><span class="sd">        otherwise.</span>
-<a href="#__codelineno-10-79" id="__codelineno-10-79" name="__codelineno-10-79"></a>
-<a href="#__codelineno-10-80" id="__codelineno-10-80" name="__codelineno-10-80"></a><span class="sd">    Notes</span>
-<a href="#__codelineno-10-81" id="__codelineno-10-81" name="__codelineno-10-81"></a><span class="sd">    -----</span>
-<a href="#__codelineno-10-82" id="__codelineno-10-82" name="__codelineno-10-82"></a><span class="sd">    The naming convention for data files is:</span>
-<a href="#__codelineno-10-83" id="__codelineno-10-83" name="__codelineno-10-83"></a><span class="sd">    '&lt;dataset_name&gt;_&lt;version&gt;_&lt;creation_date&gt;_&lt;description&gt;.&lt;extension&gt;'</span>
-<a href="#__codelineno-10-84" id="__codelineno-10-84" name="__codelineno-10-84"></a><span class="sd">    This includes: - `dataset_name`: Identifier for the dataset.  -</span>
-<a href="#__codelineno-10-85" id="__codelineno-10-85" name="__codelineno-10-85"></a><span class="sd">    `version`: Version of the dataset, following semantic versioning or</span>
-<a href="#__codelineno-10-86" id="__codelineno-10-86" name="__codelineno-10-86"></a><span class="sd">    numbering.  - `creation_date`: Date of creation or last modification</span>
-<a href="#__codelineno-10-87" id="__codelineno-10-87" name="__codelineno-10-87"></a><span class="sd">    (YYYYMMDD format).  - `description`: Brief description of the</span>
-<a href="#__codelineno-10-88" id="__codelineno-10-88" name="__codelineno-10-88"></a><span class="sd">    dataset or subset.  - `extension`: File extension indicating the</span>
-<a href="#__codelineno-10-89" id="__codelineno-10-89" name="__codelineno-10-89"></a><span class="sd">    file type (e.g., 'csv', 'xlsx', 'json').</span>
-<a href="#__codelineno-10-90" id="__codelineno-10-90" name="__codelineno-10-90"></a><span class="sd">    """</span>
-<a href="#__codelineno-10-91" id="__codelineno-10-91" name="__codelineno-10-91"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_(v\d+\.\d+\.\d+|\d+)_\d</span><span class="si">{8}</span><span class="s2">_\w+\.\w+$"</span><span class="p">)</span>
-<a href="#__codelineno-10-92" id="__codelineno-10-92" name="__codelineno-10-92"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a href="#__codelineno-10-46" id="__codelineno-10-46" name="__codelineno-10-46"></a><span class="sd">    Notes</span>
+<a href="#__codelineno-10-47" id="__codelineno-10-47" name="__codelineno-10-47"></a><span class="sd">    -----</span>
+<a href="#__codelineno-10-48" id="__codelineno-10-48" name="__codelineno-10-48"></a><span class="sd">    The naming convention expected:</span>
+<a href="#__codelineno-10-49" id="__codelineno-10-49" name="__codelineno-10-49"></a><span class="sd">    '&lt;type&gt;_&lt;topic&gt;_&lt;version&gt;_&lt;YYYYMMDD&gt;.&lt;extension&gt;' Where: - &lt;type&gt; is</span>
+<a href="#__codelineno-10-50" id="__codelineno-10-50" name="__codelineno-10-50"></a><span class="sd">    a flexible, user-defined category (e.g., 'eda', 'preprocess').  -</span>
+<a href="#__codelineno-10-51" id="__codelineno-10-51" name="__codelineno-10-51"></a><span class="sd">    &lt;topic&gt; is a concise descriptor of the main focus.  - &lt;version&gt; is</span>
+<a href="#__codelineno-10-52" id="__codelineno-10-52" name="__codelineno-10-52"></a><span class="sd">    an optional version identifier.  - &lt;YYYYMMDD&gt; is the creation or</span>
+<a href="#__codelineno-10-53" id="__codelineno-10-53" name="__codelineno-10-53"></a><span class="sd">    last modified date.  - &lt;extension&gt; is either '.ipynb' for Jupyter</span>
+<a href="#__codelineno-10-54" id="__codelineno-10-54" name="__codelineno-10-54"></a><span class="sd">    notebooks or '.py' for Python scripts.</span>
+<a href="#__codelineno-10-55" id="__codelineno-10-55" name="__codelineno-10-55"></a><span class="sd">    """</span>
+<a href="#__codelineno-10-56" id="__codelineno-10-56" name="__codelineno-10-56"></a>    <span class="c1"># Regex pattern with a more flexible 'type' component</span>
+<a href="#__codelineno-10-57" id="__codelineno-10-57" name="__codelineno-10-57"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_\w+(_v\d+)?_\d</span><span class="si">{8}</span><span class="s2">\.[ipynb|py]$"</span><span class="p">)</span>
+<a href="#__codelineno-10-58" id="__codelineno-10-58" name="__codelineno-10-58"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a href="#__codelineno-10-59" id="__codelineno-10-59" name="__codelineno-10-59"></a>
+<a href="#__codelineno-10-60" id="__codelineno-10-60" name="__codelineno-10-60"></a>
+<a href="#__codelineno-10-61" id="__codelineno-10-61" name="__codelineno-10-61"></a><span class="k">def</span> <span class="nf">validate_model_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<a href="#__codelineno-10-62" id="__codelineno-10-62" name="__codelineno-10-62"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-10-63" id="__codelineno-10-63" name="__codelineno-10-63"></a><span class="sd">    Check if the filename adheres to the model persistence file naming</span>
+<a href="#__codelineno-10-64" id="__codelineno-10-64" name="__codelineno-10-64"></a><span class="sd">    convention.</span>
+<a href="#__codelineno-10-65" id="__codelineno-10-65" name="__codelineno-10-65"></a>
+<a href="#__codelineno-10-66" id="__codelineno-10-66" name="__codelineno-10-66"></a><span class="sd">    Parameters</span>
+<a href="#__codelineno-10-67" id="__codelineno-10-67" name="__codelineno-10-67"></a><span class="sd">    ----------</span>
+<a href="#__codelineno-10-68" id="__codelineno-10-68" name="__codelineno-10-68"></a><span class="sd">    filename : str</span>
+<a href="#__codelineno-10-69" id="__codelineno-10-69" name="__codelineno-10-69"></a><span class="sd">        The name of the model file to be checked.</span>
+<a href="#__codelineno-10-70" id="__codelineno-10-70" name="__codelineno-10-70"></a>
+<a href="#__codelineno-10-71" id="__codelineno-10-71" name="__codelineno-10-71"></a><span class="sd">    Returns</span>
+<a href="#__codelineno-10-72" id="__codelineno-10-72" name="__codelineno-10-72"></a><span class="sd">    -------</span>
+<a href="#__codelineno-10-73" id="__codelineno-10-73" name="__codelineno-10-73"></a><span class="sd">    bool</span>
+<a href="#__codelineno-10-74" id="__codelineno-10-74" name="__codelineno-10-74"></a><span class="sd">        True if the filename matches the naming convention, False</span>
+<a href="#__codelineno-10-75" id="__codelineno-10-75" name="__codelineno-10-75"></a><span class="sd">        otherwise.</span>
+<a href="#__codelineno-10-76" id="__codelineno-10-76" name="__codelineno-10-76"></a>
+<a href="#__codelineno-10-77" id="__codelineno-10-77" name="__codelineno-10-77"></a><span class="sd">    Notes</span>
+<a href="#__codelineno-10-78" id="__codelineno-10-78" name="__codelineno-10-78"></a><span class="sd">    -----</span>
+<a href="#__codelineno-10-79" id="__codelineno-10-79" name="__codelineno-10-79"></a><span class="sd">    The naming convention for model persistence files is:</span>
+<a href="#__codelineno-10-80" id="__codelineno-10-80" name="__codelineno-10-80"></a><span class="sd">    '&lt;project_name&gt;_&lt;model_version&gt;_&lt;model_type&gt;_&lt;timestamp&gt;.pkl' This</span>
+<a href="#__codelineno-10-81" id="__codelineno-10-81" name="__codelineno-10-81"></a><span class="sd">    includes: - `project_name`: Name of the project.  - `model_version`:</span>
+<a href="#__codelineno-10-82" id="__codelineno-10-82" name="__codelineno-10-82"></a><span class="sd">    Version of the model, following semantic versioning.  -</span>
+<a href="#__codelineno-10-83" id="__codelineno-10-83" name="__codelineno-10-83"></a><span class="sd">    `model_type`: Type or name of the model.  - `timestamp`: Date when</span>
+<a href="#__codelineno-10-84" id="__codelineno-10-84" name="__codelineno-10-84"></a><span class="sd">    the model was saved (YYYYMMDD format).</span>
+<a href="#__codelineno-10-85" id="__codelineno-10-85" name="__codelineno-10-85"></a><span class="sd">    """</span>
+<a href="#__codelineno-10-86" id="__codelineno-10-86" name="__codelineno-10-86"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_(v\d+\.\d+\.\d+)_\w+_\d</span><span class="si">{8}</span><span class="s2">\.pkl$"</span><span class="p">)</span>
+<a href="#__codelineno-10-87" id="__codelineno-10-87" name="__codelineno-10-87"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a href="#__codelineno-10-88" id="__codelineno-10-88" name="__codelineno-10-88"></a>
+<a href="#__codelineno-10-89" id="__codelineno-10-89" name="__codelineno-10-89"></a>
+<a href="#__codelineno-10-90" id="__codelineno-10-90" name="__codelineno-10-90"></a><span class="k">def</span> <span class="nf">validate_data_file_naming</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<a href="#__codelineno-10-91" id="__codelineno-10-91" name="__codelineno-10-91"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-10-92" id="__codelineno-10-92" name="__codelineno-10-92"></a><span class="sd">    Check if the filename adheres to the data file naming convention.</span>
 <a href="#__codelineno-10-93" id="__codelineno-10-93" name="__codelineno-10-93"></a>
-<a href="#__codelineno-10-94" id="__codelineno-10-94" name="__codelineno-10-94"></a>
-<a href="#__codelineno-10-95" id="__codelineno-10-95" name="__codelineno-10-95"></a><span class="k">def</span> <span class="nf">validate_git_branch_naming</span><span class="p">():</span>
-<a href="#__codelineno-10-96" id="__codelineno-10-96" name="__codelineno-10-96"></a><span class="w">    </span><span class="sd">"""</span>
-<a href="#__codelineno-10-97" id="__codelineno-10-97" name="__codelineno-10-97"></a><span class="sd">    Check if the Git branch name adheres to the naming convention.</span>
-<a href="#__codelineno-10-98" id="__codelineno-10-98" name="__codelineno-10-98"></a><span class="sd">    """</span>
-<a href="#__codelineno-10-99" id="__codelineno-10-99" name="__codelineno-10-99"></a>    <span class="n">branch_ref</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_REF"</span><span class="p">)</span>
-<a href="#__codelineno-10-100" id="__codelineno-10-100" name="__codelineno-10-100"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">branch_ref</span><span class="p">:</span>
-<a href="#__codelineno-10-101" id="__codelineno-10-101" name="__codelineno-10-101"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"No branch reference found."</span><span class="p">)</span>
-<a href="#__codelineno-10-102" id="__codelineno-10-102" name="__codelineno-10-102"></a>        <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Might not be a branch push, so don't fail the check.</span>
-<a href="#__codelineno-10-103" id="__codelineno-10-103" name="__codelineno-10-103"></a>
-<a href="#__codelineno-10-104" id="__codelineno-10-104" name="__codelineno-10-104"></a>    <span class="c1"># Extract the branch name from refs/heads/your-branch-name</span>
-<a href="#__codelineno-10-105" id="__codelineno-10-105" name="__codelineno-10-105"></a>    <span class="n">branch_name</span> <span class="o">=</span> <span class="n">branch_ref</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a href="#__codelineno-10-106" id="__codelineno-10-106" name="__codelineno-10-106"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<a href="#__codelineno-10-107" id="__codelineno-10-107" name="__codelineno-10-107"></a>        <span class="sa">r</span><span class="s2">"^(feature|bugfix|data|experiment|model|docs|refactor|test|chore)/[\w-]+(_\d+)?$"</span>
-<a href="#__codelineno-10-108" id="__codelineno-10-108" name="__codelineno-10-108"></a>    <span class="p">)</span>
-<a href="#__codelineno-10-109" id="__codelineno-10-109" name="__codelineno-10-109"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">branch_name</span><span class="p">)</span>
-<a href="#__codelineno-10-110" id="__codelineno-10-110" name="__codelineno-10-110"></a>
-<a href="#__codelineno-10-111" id="__codelineno-10-111" name="__codelineno-10-111"></a>
-<a href="#__codelineno-10-112" id="__codelineno-10-112" name="__codelineno-10-112"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-<a href="#__codelineno-10-113" id="__codelineno-10-113" name="__codelineno-10-113"></a>    <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
-<a href="#__codelineno-10-114" id="__codelineno-10-114" name="__codelineno-10-114"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_git_branch_naming</span><span class="p">():</span>
-<a href="#__codelineno-10-115" id="__codelineno-10-115" name="__codelineno-10-115"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid Git branch naming convention."</span><span class="p">)</span>
-<a href="#__codelineno-10-116" id="__codelineno-10-116" name="__codelineno-10-116"></a>        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-<a href="#__codelineno-10-117" id="__codelineno-10-117" name="__codelineno-10-117"></a>
-<a href="#__codelineno-10-118" id="__codelineno-10-118" name="__codelineno-10-118"></a>    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">"."</span><span class="p">):</span>
-<a href="#__codelineno-10-119" id="__codelineno-10-119" name="__codelineno-10-119"></a>        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-<a href="#__codelineno-10-120" id="__codelineno-10-120" name="__codelineno-10-120"></a>            <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pkl"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validate_model_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-<a href="#__codelineno-10-121" id="__codelineno-10-121" name="__codelineno-10-121"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid model file naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a href="#__codelineno-10-122" id="__codelineno-10-122" name="__codelineno-10-122"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-<a href="#__codelineno-10-123" id="__codelineno-10-123" name="__codelineno-10-123"></a>            <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">".ipynb"</span><span class="p">,</span> <span class="s2">".py"</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validate_ml_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-<a href="#__codelineno-10-124" id="__codelineno-10-124" name="__codelineno-10-124"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid notebook/script naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a href="#__codelineno-10-125" id="__codelineno-10-125" name="__codelineno-10-125"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-<a href="#__codelineno-10-126" id="__codelineno-10-126" name="__codelineno-10-126"></a>            <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span>
-<a href="#__codelineno-10-127" id="__codelineno-10-127" name="__codelineno-10-127"></a>                <span class="p">(</span><span class="s2">".csv"</span><span class="p">,</span> <span class="s2">".xlsx"</span><span class="p">,</span> <span class="s2">".json"</span><span class="p">)</span>
-<a href="#__codelineno-10-128" id="__codelineno-10-128" name="__codelineno-10-128"></a>            <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validate_data_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-<a href="#__codelineno-10-129" id="__codelineno-10-129" name="__codelineno-10-129"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid data file naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a href="#__codelineno-10-130" id="__codelineno-10-130" name="__codelineno-10-130"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-<a href="#__codelineno-10-131" id="__codelineno-10-131" name="__codelineno-10-131"></a>
-<a href="#__codelineno-10-132" id="__codelineno-10-132" name="__codelineno-10-132"></a>    <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
-<a href="#__codelineno-10-133" id="__codelineno-10-133" name="__codelineno-10-133"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-10-134" id="__codelineno-10-134" name="__codelineno-10-134"></a>
+<a href="#__codelineno-10-94" id="__codelineno-10-94" name="__codelineno-10-94"></a><span class="sd">    Parameters</span>
+<a href="#__codelineno-10-95" id="__codelineno-10-95" name="__codelineno-10-95"></a><span class="sd">    ----------</span>
+<a href="#__codelineno-10-96" id="__codelineno-10-96" name="__codelineno-10-96"></a><span class="sd">    filename : str</span>
+<a href="#__codelineno-10-97" id="__codelineno-10-97" name="__codelineno-10-97"></a><span class="sd">        The name of the data file to be checked.</span>
+<a href="#__codelineno-10-98" id="__codelineno-10-98" name="__codelineno-10-98"></a>
+<a href="#__codelineno-10-99" id="__codelineno-10-99" name="__codelineno-10-99"></a><span class="sd">    Returns</span>
+<a href="#__codelineno-10-100" id="__codelineno-10-100" name="__codelineno-10-100"></a><span class="sd">    -------</span>
+<a href="#__codelineno-10-101" id="__codelineno-10-101" name="__codelineno-10-101"></a><span class="sd">    bool</span>
+<a href="#__codelineno-10-102" id="__codelineno-10-102" name="__codelineno-10-102"></a><span class="sd">        True if the filename matches the naming convention, False</span>
+<a href="#__codelineno-10-103" id="__codelineno-10-103" name="__codelineno-10-103"></a><span class="sd">        otherwise.</span>
+<a href="#__codelineno-10-104" id="__codelineno-10-104" name="__codelineno-10-104"></a>
+<a href="#__codelineno-10-105" id="__codelineno-10-105" name="__codelineno-10-105"></a><span class="sd">    Notes</span>
+<a href="#__codelineno-10-106" id="__codelineno-10-106" name="__codelineno-10-106"></a><span class="sd">    -----</span>
+<a href="#__codelineno-10-107" id="__codelineno-10-107" name="__codelineno-10-107"></a><span class="sd">    The naming convention for data files is:</span>
+<a href="#__codelineno-10-108" id="__codelineno-10-108" name="__codelineno-10-108"></a><span class="sd">    '&lt;dataset_name&gt;_&lt;version&gt;_&lt;creation_date&gt;_&lt;description&gt;.&lt;extension&gt;'</span>
+<a href="#__codelineno-10-109" id="__codelineno-10-109" name="__codelineno-10-109"></a><span class="sd">    This includes: - `dataset_name`: Identifier for the dataset.  -</span>
+<a href="#__codelineno-10-110" id="__codelineno-10-110" name="__codelineno-10-110"></a><span class="sd">    `version`: Version of the dataset, following semantic versioning or</span>
+<a href="#__codelineno-10-111" id="__codelineno-10-111" name="__codelineno-10-111"></a><span class="sd">    numbering.  - `creation_date`: Date of creation or last modification</span>
+<a href="#__codelineno-10-112" id="__codelineno-10-112" name="__codelineno-10-112"></a><span class="sd">    (YYYYMMDD format).  - `description`: Brief description of the</span>
+<a href="#__codelineno-10-113" id="__codelineno-10-113" name="__codelineno-10-113"></a><span class="sd">    dataset or subset.  - `extension`: File extension indicating the</span>
+<a href="#__codelineno-10-114" id="__codelineno-10-114" name="__codelineno-10-114"></a><span class="sd">    file type (e.g., 'csv', 'xlsx', 'json').</span>
+<a href="#__codelineno-10-115" id="__codelineno-10-115" name="__codelineno-10-115"></a><span class="sd">    """</span>
+<a href="#__codelineno-10-116" id="__codelineno-10-116" name="__codelineno-10-116"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^\w+_(v\d+\.\d+\.\d+|\d+)_\d</span><span class="si">{8}</span><span class="s2">_\w+\.\w+$"</span><span class="p">)</span>
+<a href="#__codelineno-10-117" id="__codelineno-10-117" name="__codelineno-10-117"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a href="#__codelineno-10-118" id="__codelineno-10-118" name="__codelineno-10-118"></a>
+<a href="#__codelineno-10-119" id="__codelineno-10-119" name="__codelineno-10-119"></a>
+<a href="#__codelineno-10-120" id="__codelineno-10-120" name="__codelineno-10-120"></a><span class="k">def</span> <span class="nf">validate_git_branch_naming</span><span class="p">():</span>
+<a href="#__codelineno-10-121" id="__codelineno-10-121" name="__codelineno-10-121"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-10-122" id="__codelineno-10-122" name="__codelineno-10-122"></a><span class="sd">    Check if the Git branch name adheres to the naming convention.</span>
+<a href="#__codelineno-10-123" id="__codelineno-10-123" name="__codelineno-10-123"></a><span class="sd">    """</span>
+<a href="#__codelineno-10-124" id="__codelineno-10-124" name="__codelineno-10-124"></a>    <span class="n">branch_ref</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_REF"</span><span class="p">)</span>
+<a href="#__codelineno-10-125" id="__codelineno-10-125" name="__codelineno-10-125"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">branch_ref</span><span class="p">:</span>
+<a href="#__codelineno-10-126" id="__codelineno-10-126" name="__codelineno-10-126"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"No branch reference found."</span><span class="p">)</span>
+<a href="#__codelineno-10-127" id="__codelineno-10-127" name="__codelineno-10-127"></a>        <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Might not be a branch push, so don't fail the check.</span>
+<a href="#__codelineno-10-128" id="__codelineno-10-128" name="__codelineno-10-128"></a>
+<a href="#__codelineno-10-129" id="__codelineno-10-129" name="__codelineno-10-129"></a>    <span class="c1"># Extract the branch name from refs/heads/your-branch-name</span>
+<a href="#__codelineno-10-130" id="__codelineno-10-130" name="__codelineno-10-130"></a>    <span class="n">branch_name</span> <span class="o">=</span> <span class="n">branch_ref</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a href="#__codelineno-10-131" id="__codelineno-10-131" name="__codelineno-10-131"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<a href="#__codelineno-10-132" id="__codelineno-10-132" name="__codelineno-10-132"></a>        <span class="sa">r</span><span class="s2">"^(feature|bugfix|data|experiment|model|docs|refactor|test|chore)/[\w-]+(_\d+)?$"</span>
+<a href="#__codelineno-10-133" id="__codelineno-10-133" name="__codelineno-10-133"></a>    <span class="p">)</span>
+<a href="#__codelineno-10-134" id="__codelineno-10-134" name="__codelineno-10-134"></a>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">branch_name</span><span class="p">)</span>
 <a href="#__codelineno-10-135" id="__codelineno-10-135" name="__codelineno-10-135"></a>
-<a href="#__codelineno-10-136" id="__codelineno-10-136" name="__codelineno-10-136"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<a href="#__codelineno-10-137" id="__codelineno-10-137" name="__codelineno-10-137"></a>    <span class="n">main</span><span class="p">()</span>
+<a href="#__codelineno-10-136" id="__codelineno-10-136" name="__codelineno-10-136"></a>
+<a href="#__codelineno-10-137" id="__codelineno-10-137" name="__codelineno-10-137"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<a href="#__codelineno-10-138" id="__codelineno-10-138" name="__codelineno-10-138"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-10-139" id="__codelineno-10-139" name="__codelineno-10-139"></a><span class="sd">    The main function to validate naming conventions in a machine</span>
+<a href="#__codelineno-10-140" id="__codelineno-10-140" name="__codelineno-10-140"></a><span class="sd">    learning project.</span>
+<a href="#__codelineno-10-141" id="__codelineno-10-141" name="__codelineno-10-141"></a>
+<a href="#__codelineno-10-142" id="__codelineno-10-142" name="__codelineno-10-142"></a><span class="sd">    This function executes a series of naming convention checks on</span>
+<a href="#__codelineno-10-143" id="__codelineno-10-143" name="__codelineno-10-143"></a><span class="sd">    various file types, including model files, Jupyter notebooks, Python</span>
+<a href="#__codelineno-10-144" id="__codelineno-10-144" name="__codelineno-10-144"></a><span class="sd">    scripts, and data files. It also validates Git branch names. If any</span>
+<a href="#__codelineno-10-145" id="__codelineno-10-145" name="__codelineno-10-145"></a><span class="sd">    file or branch name does not adhere to the predefined naming</span>
+<a href="#__codelineno-10-146" id="__codelineno-10-146" name="__codelineno-10-146"></a><span class="sd">    conventions, the function flags an error.</span>
+<a href="#__codelineno-10-147" id="__codelineno-10-147" name="__codelineno-10-147"></a>
+<a href="#__codelineno-10-148" id="__codelineno-10-148" name="__codelineno-10-148"></a><span class="sd">    The checks are performed as follows: - For Git branch names, using</span>
+<a href="#__codelineno-10-149" id="__codelineno-10-149" name="__codelineno-10-149"></a><span class="sd">    the `validate_git_branch_naming` function.  - For model files</span>
+<a href="#__codelineno-10-150" id="__codelineno-10-150" name="__codelineno-10-150"></a><span class="sd">    (*.pkl), using the `validate_model_file_naming` function.  - For</span>
+<a href="#__codelineno-10-151" id="__codelineno-10-151" name="__codelineno-10-151"></a><span class="sd">    Jupyter notebooks and Python scripts (*.ipynb, *.py), using the</span>
+<a href="#__codelineno-10-152" id="__codelineno-10-152" name="__codelineno-10-152"></a><span class="sd">      `validate_ml_file_naming` function.</span>
+<a href="#__codelineno-10-153" id="__codelineno-10-153" name="__codelineno-10-153"></a><span class="sd">    - For data files (*.csv, *.xlsx, *.json), using the</span>
+<a href="#__codelineno-10-154" id="__codelineno-10-154" name="__codelineno-10-154"></a><span class="sd">      `validate_data_file_naming` function.</span>
+<a href="#__codelineno-10-155" id="__codelineno-10-155" name="__codelineno-10-155"></a>
+<a href="#__codelineno-10-156" id="__codelineno-10-156" name="__codelineno-10-156"></a><span class="sd">    If any naming convention violations are found, the script exits with</span>
+<a href="#__codelineno-10-157" id="__codelineno-10-157" name="__codelineno-10-157"></a><span class="sd">    a status code of 1, indicating an error. This is used in the context</span>
+<a href="#__codelineno-10-158" id="__codelineno-10-158" name="__codelineno-10-158"></a><span class="sd">    of GitHub Actions workflows to flag naming convention violations in</span>
+<a href="#__codelineno-10-159" id="__codelineno-10-159" name="__codelineno-10-159"></a><span class="sd">    pull requests or pushes.</span>
+<a href="#__codelineno-10-160" id="__codelineno-10-160" name="__codelineno-10-160"></a><span class="sd">    """</span>
+<a href="#__codelineno-10-161" id="__codelineno-10-161" name="__codelineno-10-161"></a>    <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+<a href="#__codelineno-10-162" id="__codelineno-10-162" name="__codelineno-10-162"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_git_branch_naming</span><span class="p">():</span>
+<a href="#__codelineno-10-163" id="__codelineno-10-163" name="__codelineno-10-163"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid Git branch naming convention."</span><span class="p">)</span>
+<a href="#__codelineno-10-164" id="__codelineno-10-164" name="__codelineno-10-164"></a>        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-10-165" id="__codelineno-10-165" name="__codelineno-10-165"></a>
+<a href="#__codelineno-10-166" id="__codelineno-10-166" name="__codelineno-10-166"></a>    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">"."</span><span class="p">):</span>
+<a href="#__codelineno-10-167" id="__codelineno-10-167" name="__codelineno-10-167"></a>        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+<a href="#__codelineno-10-168" id="__codelineno-10-168" name="__codelineno-10-168"></a>            <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pkl"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validate_model_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<a href="#__codelineno-10-169" id="__codelineno-10-169" name="__codelineno-10-169"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid model file naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-10-170" id="__codelineno-10-170" name="__codelineno-10-170"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-10-171" id="__codelineno-10-171" name="__codelineno-10-171"></a>            <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">".ipynb"</span><span class="p">,</span> <span class="s2">".py"</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> \
+<a href="#__codelineno-10-172" id="__codelineno-10-172" name="__codelineno-10-172"></a>                <span class="n">validate_ml_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<a href="#__codelineno-10-173" id="__codelineno-10-173" name="__codelineno-10-173"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid notebook/script naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-10-174" id="__codelineno-10-174" name="__codelineno-10-174"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-10-175" id="__codelineno-10-175" name="__codelineno-10-175"></a>            <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">".csv"</span><span class="p">,</span> <span class="s2">".xlsx"</span><span class="p">,</span> <span class="s2">".json"</span><span class="p">))</span> <span class="ow">and</span> \
+<a href="#__codelineno-10-176" id="__codelineno-10-176" name="__codelineno-10-176"></a>                 <span class="ow">not</span> <span class="n">validate_data_file_naming</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<a href="#__codelineno-10-177" id="__codelineno-10-177" name="__codelineno-10-177"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid data file naming convention: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-10-178" id="__codelineno-10-178" name="__codelineno-10-178"></a>                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-10-179" id="__codelineno-10-179" name="__codelineno-10-179"></a>
+<a href="#__codelineno-10-180" id="__codelineno-10-180" name="__codelineno-10-180"></a>
+<a href="#__codelineno-10-181" id="__codelineno-10-181" name="__codelineno-10-181"></a>    <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+<a href="#__codelineno-10-182" id="__codelineno-10-182" name="__codelineno-10-182"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-10-183" id="__codelineno-10-183" name="__codelineno-10-183"></a>
+<a href="#__codelineno-10-184" id="__codelineno-10-184" name="__codelineno-10-184"></a>
+<a href="#__codelineno-10-185" id="__codelineno-10-185" name="__codelineno-10-185"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<a href="#__codelineno-10-186" id="__codelineno-10-186" name="__codelineno-10-186"></a>    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="conclusion_5">Conclusion<a class="headerlink" href="#conclusion_5" title="Permanent link">¶</a></h3>
 <p>Implementing this GitHub Actions workflow ensures that all team members
