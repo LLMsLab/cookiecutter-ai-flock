@@ -34,27 +34,30 @@ data
 └── features              # Engineered features ready for model training
 ```
 
-#### Guidelines for Naming
+### Explanation of Categories
 
-1. **Descriptive and Clear:**
-   - Folder names should be self-explanatory, indicating clearly what
-     type of data they contain.
+- **Raw**: 
+   - Contains the original datasets. Data in this folder is immutable
+     and serves as a backup for all processing steps.
 
-2. **Consistent Format:**
-   - Use a consistent naming format across all folders. The recommended
-     format is all lowercase with words separated by hyphens for
-     readability.
+- **External**: 
+   - For data sourced from outside the original dataset. This includes
+     third-party data, external APIs, or any supplementary data.
 
-3. **Standard Categories:**
-   - Stick to standard naming categories (`raw`, `external`, `interim`,
-     `processed`, `features`) as they are widely recognized in data
-     science and ML communities.
+- **Interim**: 
+   - Holds data that is in the process of being cleaned or transformed.
+     Useful for datasets that are not final but are needed in
+     intermediate stages.
 
-4. **Avoid Overly Specific Names:**
-   - While being descriptive, avoid overly specific names which might
-     become irrelevant as the project evolves. The name should be broad
-     enough to encompass various data types that might fall into that
-     category.
+- **Processed**: 
+   - Contains the final version of the dataset, which is ready for
+     analysis or modeling. Data in this folder is cleaned, formatted,
+     and pre-processed.
+
+- **Features**: 
+   - Dedicated to storing feature sets that are used in machine learning
+     models. This includes transformed data, new features, and selected
+     features.
 
 Having a clear and organized structure for the data can help to ensure
 that it is properly managed throughout the project and that any
