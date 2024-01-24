@@ -11,6 +11,46 @@ TODO:
 - Create a pre-commit hook to enforce using branch and file naming conventions
 -->
 
+In the intricate world of Data Science and Machine Learning (ML), the
+ability to navigate through vast amounts of code, data files, and
+documentation efficiently is pivotal to the success and maintainability
+of projects. Proper naming conventions are more than a mere aspect of
+stylistic preference; they form the backbone of project organization and
+play a critical role in ensuring that team members and automated systems
+can quickly understand and manage various project components.
+
+This document presents a comprehensive set of guidelines designed to
+bring order and clarity to the diverse assets of data science and ML
+projects. From the way we name our GitHub repositories to the structure
+of our data directories, each convention has been thoughtfully crafted
+to align with industry best practices and the unique demands of ML
+workflows.
+
+We delve into the specifics of naming branches, which enables
+contributors to discern the purpose of each branch at a glance, thereby
+streamlining collaboration and review processes. We also cover the
+conventions for data files, including the systematic versioning and
+timestamping that allow for the efficient tracking of dataset iterations
+and history.
+
+Model persistence files, the artifacts of our computational efforts, are
+given a structured naming framework that facilitates version control and
+model identification across different stages of a project. Furthermore,
+we extend these principles to the naming of Jupyter notebooks and
+scripts, recognizing their role as both developmental tools and as part
+of the project's documentation.
+
+In addition to defining these standards, we are committed to enforcing
+them through automated means. This document outlines how GitHub Actions
+can be leveraged to ensure adherence to these conventions, providing
+examples and setup instructions for integrating these checks into your
+continuous integration and deployment pipelines.
+
+By adhering to the naming conventions and enforcement strategies
+outlined in this document, teams can achieve a level of operational
+harmony that not only optimizes current project workflows but also paves
+the way for future scalability and knowledge transfer.
+
 ## GitHub Repository Naming Conventions for Data Science Projects
 
 ### Overview
