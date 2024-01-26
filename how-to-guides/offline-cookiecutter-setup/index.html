@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://llmslab.github.io/cookiecutter-ai-flock/tutorials/mkdocs-docs/" rel="canonical"/>
-<link href="../poetry/" rel="prev"/>
-<link href="../hydra-config/" rel="next"/>
+<link href="https://llmslab.github.io/cookiecutter-ai-flock/how-to-guides/offline-cookiecutter-setup/" rel="canonical"/>
+<link href="../how-to-guides-intro/" rel="prev"/>
+<link href="../../api-reference/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
-<title>MkDocs - Cookiecutter Ai Flock</title>
+<title>Offline Cookiecutter Setup - Cookiecutter Ai Flock</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#project-documentation-with-mkdocs">
+<a class="md-skip" href="#using-cookiecutter-without-direct-github-command">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              MkDocs
+              Offline Cookiecutter Setup
             
           </span>
 </div>
@@ -109,45 +109,118 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     Tutorials
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             Tutorials
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../turorials-intro/">
+<a class="md-nav__link" href="../../tutorials/turorials-intro/">
 <span class="md-ellipsis">
     TOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../black-formatter/">
+<a class="md-nav__link" href="../../tutorials/black-formatter/">
 <span class="md-ellipsis">
     Black
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ruff-linter/">
+<a class="md-nav__link" href="../../tutorials/ruff-linter/">
 <span class="md-ellipsis">
     Ruff
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../poetry/">
+<a class="md-nav__link" href="../../tutorials/poetry/">
 <span class="md-ellipsis">
     Poetry
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/mkdocs-docs/">
+<span class="md-ellipsis">
+    MkDocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/hydra-config/">
+<span class="md-ellipsis">
+    Hydra
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/gitignore/">
+<span class="md-ellipsis">
+    Gitignore
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/data/">
+<span class="md-ellipsis">
+    Data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/data-version-control/">
+<span class="md-ellipsis">
+    DVC
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/naming-conventions/">
+<span class="md-ellipsis">
+    Naming Convetions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorials/windows-os-setup/">
+<span class="md-ellipsis">
+    Windows OS
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    How-To Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            How-To Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../how-to-guides-intro/">
+<span class="md-ellipsis">
+    TOC
   </span>
 </a>
 </li>
@@ -155,13 +228,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    MkDocs
+    Offline Cookiecutter Setup
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    MkDocs
+    Offline Cookiecutter Setup
   </span>
 </a>
 <nav aria-label="On this page" class="md-nav md-nav--secondary">
@@ -171,144 +244,53 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#local-development-with-mkdocs">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Local Development with MkDocs
+      Prerequisites
     </span>
 </a>
-<nav aria-label="Local Development with MkDocs" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps">
+<span class="md-ellipsis">
+      Steps
+    </span>
+</a>
+<nav aria-label="Steps" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#building-and-serving-your-documentation">
+<a class="md-nav__link" href="#1-downloading-the-cookiecutter-template">
 <span class="md-ellipsis">
-      Building and Serving Your Documentation
+      1. Downloading the Cookiecutter Template
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-setting-up-your-environment">
+<span class="md-ellipsis">
+      2. Setting Up Your Environment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-creating-your-project">
+<span class="md-ellipsis">
+      3. Creating Your Project
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-finalizing-the-project">
+<span class="md-ellipsis">
+      4. Finalizing the Project
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-to-github-pages">
-<span class="md-ellipsis">
-      Deploying to GitHub Pages
-    </span>
-</a>
-<nav aria-label="Deploying to GitHub Pages" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-github-pages-on-github">
-<span class="md-ellipsis">
-      Setting Up GitHub Pages on GitHub
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-your-documentation">
-<span class="md-ellipsis">
-      Deploying Your Documentation
-    </span>
-</a>
-</li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-mkdocsyml">
-<span class="md-ellipsis">
-      Understanding mkdocs.yml
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#further-reading-and-resources">
-<span class="md-ellipsis">
-      Further Reading and Resources
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../hydra-config/">
-<span class="md-ellipsis">
-    Hydra
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../gitignore/">
-<span class="md-ellipsis">
-    Gitignore
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../data/">
-<span class="md-ellipsis">
-    Data
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../data-version-control/">
-<span class="md-ellipsis">
-    DVC
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../naming-conventions/">
-<span class="md-ellipsis">
-    Naming Convetions
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../windows-os-setup/">
-<span class="md-ellipsis">
-    Windows OS
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
-    How-To Guides
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
-            How-To Guides
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../how-to-guides/how-to-guides-intro/">
-<span class="md-ellipsis">
-    TOC
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../how-to-guides/offline-cookiecutter-setup/">
-<span class="md-ellipsis">
-    Offline Cookiecutter Setup
-  </span>
-</a>
 </li>
 </ul>
 </nav>
@@ -342,68 +324,50 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#local-development-with-mkdocs">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Local Development with MkDocs
+      Prerequisites
     </span>
 </a>
-<nav aria-label="Local Development with MkDocs" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps">
+<span class="md-ellipsis">
+      Steps
+    </span>
+</a>
+<nav aria-label="Steps" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#building-and-serving-your-documentation">
+<a class="md-nav__link" href="#1-downloading-the-cookiecutter-template">
 <span class="md-ellipsis">
-      Building and Serving Your Documentation
+      1. Downloading the Cookiecutter Template
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-setting-up-your-environment">
+<span class="md-ellipsis">
+      2. Setting Up Your Environment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-creating-your-project">
+<span class="md-ellipsis">
+      3. Creating Your Project
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-finalizing-the-project">
+<span class="md-ellipsis">
+      4. Finalizing the Project
     </span>
 </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-to-github-pages">
-<span class="md-ellipsis">
-      Deploying to GitHub Pages
-    </span>
-</a>
-<nav aria-label="Deploying to GitHub Pages" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-github-pages-on-github">
-<span class="md-ellipsis">
-      Setting Up GitHub Pages on GitHub
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-your-documentation">
-<span class="md-ellipsis">
-      Deploying Your Documentation
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-mkdocsyml">
-<span class="md-ellipsis">
-      Understanding mkdocs.yml
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#further-reading-and-resources">
-<span class="md-ellipsis">
-      Further Reading and Resources
-    </span>
-</a>
 </li>
 </ul>
 </nav>
@@ -412,114 +376,59 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="project-documentation-with-mkdocs">Project Documentation With MkDocs<a class="headerlink" href="#project-documentation-with-mkdocs" title="Permanent link">¶</a></h1>
-<p>MkDocs is a powerful tool for building project documentation. With the
-Materials theme, it becomes even more robust, offering a plethora of
-features to make your documentation stand out. This tutorial focuses on
-key commands and features to help you build and deploy your
-documentation effectively.</p>
-<h2 id="local-development-with-mkdocs">Local Development with MkDocs<a class="headerlink" href="#local-development-with-mkdocs" title="Permanent link">¶</a></h2>
-<p>When you're working on documentation in VS Code, MkDocs provides
-commands to build and serve your site locally. Here's how:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This tutorial assumes that all necessary libraries and extensions are already installed as per the provided <code>pyproject.toml</code> and <code>mkdocs.yml</code> files.</p>
+<h1 id="using-cookiecutter-without-direct-github-command">Using Cookiecutter Without Direct GitHub Command<a class="headerlink" href="#using-cookiecutter-without-direct-github-command" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Goal</p>
+<p>Learn how to manually download and use a Cookiecutter template from GitHub when direct command line access to GitHub (<code>cookiecutter gh:...</code>) is not available.</p>
 </div>
-<h3 id="building-and-serving-your-documentation">Building and Serving Your Documentation<a class="headerlink" href="#building-and-serving-your-documentation" title="Permanent link">¶</a></h3>
-<p>To build your documentation locally, you can run the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>mkdocs<span class="w"> </span>build
-</code></pre></div>
-<p>This command will generate a <code>site</code> folder containing the HTML files for
-your documentation.</p>
-<p>To serve your documentation and view it in a web browser, use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdocs<span class="w"> </span>serve
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">Local Development in Action</p>
-<p><strong>Before Running Commands</strong>:
-Your <code>docs</code> folder contains Markdown files.</p>
-<p><strong>After Running Commands</strong>: 
-You'll have a <code>site</code> folder containing HTML files, and you can view your documentation at <code>http://127.0.0.1:8000/</code>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Stopping the Local MkDocs Server</p>
-<p>To stop the local MkDocs server, simply press <code>Ctrl + C</code> in the terminal window where <code>mkdocs serve</code> is running. This will shut down the site and free up the port it was using.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Alternative Commands for Unix-like Systems</p>
-<p>If you want to run the MkDocs server on an alternative port or need to kill the process occupying port 8000, you can use the following commands from the Makefile:</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
-<li>
-<p><strong>Start MkDocs on an Alternative Port</strong>: 
-  <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>make<span class="w"> </span>docs_serve_alt_port
-</code></pre></div>
-  This command starts the MkDocs server on port 8001.</p>
-</li>
-<li>
-<p><strong>Kill Process on Port 8000</strong>: 
-  <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>make<span class="w"> </span>docs_kill_port
-</code></pre></div>
-  This command kills any process that is occupying port 8000.</p>
-</li>
+<li>Basic understanding of command line operations.</li>
+<li>Python and pip installed on your system.</li>
+<li>Access to GitHub through a web browser.</li>
 </ul>
-<p>These commands are useful if you encounter port conflicts or need to run multiple instances of the MkDocs server. They should work on Unix-like systems, including both macOS and Linux.</p>
-</div>
-<h2 id="deploying-to-github-pages">Deploying to GitHub Pages<a class="headerlink" href="#deploying-to-github-pages" title="Permanent link">¶</a></h2>
-<h3 id="setting-up-github-pages-on-github">Setting Up GitHub Pages on GitHub<a class="headerlink" href="#setting-up-github-pages-on-github" title="Permanent link">¶</a></h3>
-<p>Before deploying your documentation, you'll need to configure GitHub Pages.</p>
-<div class="admonition info">
-<p class="admonition-title">Steps to Configure GitHub Pages</p>
-<ol>
-<li><strong>Make sure the <code>gh-pages</code> branch exists</strong>: Create it by running <code>git checkout -b gh-pages</code> if it doesn't exist.</li>
-<li><strong>Navigate to your GitHub repository</strong>: Go to the repository where your MkDocs project is hosted.</li>
-<li><strong>Access Repository Settings</strong>: Click on the "Settings" tab.</li>
-<li><strong>Go to Pages Settings</strong>: In the sidebar, click on "Pages."</li>
-<li><strong>Select Publishing Source</strong>: Choose <code>gh-pages</code> from the branch dropdown menu.</li>
-<li><strong>Select Folder</strong>: Choose <code>docs</code> from the folder dropdown menu.</li>
-<li><strong>Save Changes</strong>: Click "Save."</li>
-</ol>
-</div>
-<h3 id="deploying-your-documentation">Deploying Your Documentation<a class="headerlink" href="#deploying-your-documentation" title="Permanent link">¶</a></h3>
-<p>To deploy your documentation to GitHub Pages, run:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdocs<span class="w"> </span>gh-deploy
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">Deployment in Action</p>
-<p>After running the command, your site will be available at <code>https://&lt;your-github-username&gt;.github.io/&lt;repository-name&gt;/</code>.</p>
-</div>
-<h2 id="understanding-mkdocsyml">Understanding <code>mkdocs.yml</code><a class="headerlink" href="#understanding-mkdocsyml" title="Permanent link">¶</a></h2>
-<p>Your <code>mkdocs.yml</code> file is the backbone of your MkDocs project. It specifies the theme, plugins, and other settings.</p>
-<div class="admonition info">
-<p class="admonition-title">Key Components of <code>mkdocs.yml</code></p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h2>
+<h3 id="1-downloading-the-cookiecutter-template">1. Downloading the Cookiecutter Template<a class="headerlink" href="#1-downloading-the-cookiecutter-template" title="Permanent link">¶</a></h3>
+<details class="note" open="open">
+<summary>Find and Download the Repository</summary>
 <ul>
-<li><code>theme</code>: Specifies the theme, in this case, Materials.</li>
-<li><code>markdown_extensions</code>: Lists the Markdown extensions used.</li>
-<li><code>plugins</code>: Lists the plugins used in the project.</li>
+<li><strong>Find the Repository:</strong> Visit the GitHub page of the desired Cookiecutter template, e.g., <code>LLMsLab/cookiecutter-ai-flock</code>.</li>
+<li><strong>Download the Repository:</strong> Click on the 'Code' button, select 'Download ZIP', save, and extract it to a known location on your computer.</li>
 </ul>
+</details>
+<h3 id="2-setting-up-your-environment">2. Setting Up Your Environment<a class="headerlink" href="#2-setting-up-your-environment" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install Cookiecutter if not already installed</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Navigate to your desired project directory</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>path/to/your/Projects
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Replace <code>path/to/your/Projects</code> with the actual path where you want to create your project.</p>
 </div>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
-<p>MkDocs with the Materials theme offers a robust solution for building
-and deploying beautiful, functional documentation. Whether you're
-working locally in VS Code or deploying to GitHub Pages, the process is
-streamlined and efficient.</p>
-<h2 id="further-reading-and-resources">Further Reading and Resources<a class="headerlink" href="#further-reading-and-resources" title="Permanent link">¶</a></h2>
-<p>For a deeper understanding of MkDocs and its various features, the
-following resources are highly recommended:</p>
-<ul>
-<li><a href="https://www.mkdocs.org/">Official MkDocs Documentation</a></li>
-<li><a href="https://squidfunk.github.io/mkdocs-material/">Materials for MkDocs</a></li>
-<li><a href="https://realpython.com/python-project-documentation-with-mkdocs/">Python Project Documentation with MkDocs - Real Python</a></li>
-</ul>
-<p>These resources provide comprehensive guides to MkDocs' features,
-configuration options, and methods for extending its capabilities. They
-are valuable for both newcomers and those looking to explore more
-advanced features.</p>
+<h3 id="3-creating-your-project">3. Creating Your Project<a class="headerlink" href="#3-creating-your-project" title="Permanent link">¶</a></h3>
+<details class="success" open="open">
+<summary>Run Cookiecutter and Input Project Details</summary>
+<p>Run Cookiecutter and provide the path to the unzipped template folder:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>cookiecutter<span class="w"> </span>path/to/unzipped/cookiecutter-ai-flock
+</code></pre></div>
+<p>Replace <code>path/to/unzipped/cookiecutter-ai-flock</code> with the actual path to the unzipped template. Follow the prompts to input details for your new project.</p>
+</details>
+<h3 id="4-finalizing-the-project">4. Finalizing the Project<a class="headerlink" href="#4-finalizing-the-project" title="Permanent link">¶</a></h3>
+<p>After running the command, a new directory with your project name will
+be created. Navigate to this directory to perform any additional setup
+required by the template.</p>
+<div class="admonition check">
+<p class="admonition-title">Conclusion</p>
+<p>You've successfully used a Cookiecutter template without direct GitHub command line integration. This approach is useful in environments with restricted internet access or limitations in using GitHub tools directly.</p>
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 26, 2024</span>
 </span>
 </aside>
 </article>
