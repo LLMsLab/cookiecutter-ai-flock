@@ -32,6 +32,6 @@ can be found in the [API Reference](api-reference.md) section.
 ## Table Of Contents
 
 1. [Explanation](explanation.md)
-2. [How-To Guides](how-to-guides.md)
+2. [How-To Guides](how-to-guides/how-to-guides-intro.md)
 3. [Tutorials](tutorials/turorials-intro.md)
 4. [API Reference](api-reference.md)
