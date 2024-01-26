@@ -124,77 +124,184 @@ technical domain.
 
 ### Overview
 
-In the realm of machine learning projects, maintaining an organized and
-clear Git repository is crucial. Adopting a consistent branch naming
-convention is key to achieving this. It aids in quickly identifying the
-purpose and scope of different branches, facilitating smoother
-collaboration and navigation within the repository.
+For machine learning projects, the clarity of the Git repository is
+non-negotiable. A consistent approach to branch naming is fundamental to
+this clarity. It enables rapid identification of the branch's purpose,
+streamlining collaboration and making navigation within the repository
+more intuitive.
 
 ### Naming Convention Structure
 
-A branch name should follow this format:
+Branch names must be constructed as follows:
 
 ```text
-<category>/<description>_<optional_issue_number>
+<category>/<description>-<issue_number_or_jira_key>
 ```
 
 #### Components
 
-- **Category**: This is a short, predefined keyword that categorizes the
-  branch according to its primary purpose or the type of work being
-  done.
-- **Description**: A brief, yet descriptive name indicating the specific
-  task, feature, or area of work the branch focuses on.
-- **Optional Issue Number**: The associated issue tracking number, if
-  applicable, to link the branch to a specific task or issue in your
-  project management tool.
+- **Category**: A concise keyword that delineates the branch based on
+  the nature of the work being conducted.
+- **Description**: A succinct, yet informative descriptor of the
+  specific task, feature, or focus of the branch.
+- **Issue Number or Jira Key**: This is a mandatory inclusion that
+  connects the branch to a corresponding task or issue in your project
+  management tool, be it GitHub or Jira.
 
 #### Categories
 
-The branch category helps in quickly identifying the type of work or the
-area of the project that the branch is concerned with. Common categories
-include:
+Categories provide immediate context regarding the branch's domain of
+work. Standard categories include:
 
-| Category      | Description                                               |
-|---------------|-----------------------------------------------------------|
-| `feature`     | Branches where new features or enhancements are developed |
-| `bugfix`      | Branches dedicated to fixing bugs                         |
-| `data`        | Work involving data handling, such as acquisition or processing |
-| `experiment`  | Experimental and exploratory development                  |
-| `model`       | Tasks related to model development, testing, or deployment |
-| `docs`        | Updates or additions to documentation                     |
-| `refactor`    | Code refactoring for optimization without changing behavior |
-| `test`        | Development and updating of tests                         |
-| `chore`       | Routine tasks, minor tweaks, or maintenance work          |
+| Category      | Description                                                   |
+|---------------|---------------------------------------------------------------|
+| `feature`     | New feature development or enhancements                       |
+| `bugfix`      | Targeted branches for bug resolution                          |
+| `data`        | Data management activities, like acquisition or processing    |
+| `experiment`  | Exploratory or experimental development                       |
+| `model`       | Model creation, testing, or deployment                        |
+| `docs`        | Documentation creation or updates                             |
+| `refactor`    | Code restructuring to improve performance without altering functionality |
+| `test`        | Test development or modification                              |
+| `chore`       | Routine tasks or minor updates                                |
 
 ### Examples
 
-Here are some example branch names following this convention:
+Below are examples of branch names that adhere to our standards:
 
-- `feature/user-authentication`
-- `data/dataset-enhancement_15`
-- `model/performance-improvement_22`
-- `bugfix/data-loading-error_45`
+- `feature/user-authentication-DATA123`
+- `data/dataset-enhancement-GH15`
+- `model/performance-improvement-DATA22`
+- `bugfix/data-loading-error-GH45`
 - `docs/api-documentation-update`
-- `refactor/code-optimization`
-- `test/new-model-tests`
+- `refactor/code-optimization-DATA78`
+- `test/new-model-tests-GH27`
 
 ### Guidelines
 
-- All branch names should be in lowercase to maintain consistency.
-- Use hyphens to separate words within the descriptive part of the
-  branch name.
-- The branch name should be concise yet sufficiently descriptive to
-  convey the purpose clearly at a glance.
-- Linking the branch to an issue number is optional but highly
-  encouraged for better tracking, especially in large projects.
+- Maintain lowercase lettering in all branch names for uniformity.
+- Use hyphens to separate words within the branch name, ensuring
+  readability.
+- Keep branch names brief, yet descriptive enough to clearly articulate
+  their intent at a glance.
+- Including the issue number or Jira key in the branch name is not
+  optional; it is a required practice for traceability and coherence.
 
 ### Conclusion
 
-Following these branch naming standards will ensure that our ML project
-repositories remain well-organized and accessible. It aids team members
-in quickly understanding the purpose of each branch and facilitates
-efficient collaboration and project management.
+Adhering to these branch naming conventions is imperative for the
+organization and accessibility of our ML project repositories. It
+supports our team in promptly discerning the intent of each branch,
+enhancing effective collaboration and project oversight.
+
+## Git Commit Message Standards for ML Projects
+
+### Introduction
+
+Clear and informative commit messages are a cornerstone of effective
+team collaboration in machine learning projects. To enhance this aspect
+of our workflow, we incorporate tools that facilitate the creation of
+standardized commit messages and link them to their respective task
+management entries. This section details the standards and tools to
+assist with writing commit messages that include GitHub issue numbers or
+Jira keys.
+
+### Commit Message Structure
+
+Commit messages should adhere to the following format:
+
+```text
+<type>(<scope>): <subject> [#issue_number | #jira_key]
+
+<body>
+
+<footer>
+```
+
+#### Components
+
+- **Type**: The category of change you're committing.
+- **Scope**: The particular area of the codebase affected by the
+  changes.
+- **Subject**: A brief description of the changes, including the issue
+  tracker reference.
+- **Body**: An in-depth explanation of the changes and the reasoning
+  behind them.
+- **Footer**: Any additional notes or references.
+
+### Commit Types
+
+Consistency in the types of changes committed is key for readability and
+organization. Here's a table of types to use in commit messages, similar
+to those used for branch naming:
+
+| Type         | Description                                                       |
+|--------------|-------------------------------------------------------------------|
+| `feat`       | Introducing new features or enhancements                          |
+| `fix`        | Bug fixes                                                         |
+| `data`       | Modifications in data processing or management                    |
+| `experiment` | Changes to experimental or exploratory code                       |
+| `model`      | Changes related to model development, testing, or deployment      |
+| `docs`       | Documentation additions or updates                                |
+| `refactor`   | Code changes that enhance performance without altering functionality |
+| `test`       | Test writing or fixing                                            |
+| `chore`      | Routine tasks or updates not impacting the production code        |
+
+
+### Best Practices
+
+1.  **Make it Concise**: The subject line should be succinct yet
+    descriptive. It’s the first line of communication and often what
+    people will see in their notifications or logs.
+2.  **Use the Imperative Mood**: Write your commit message as if you are
+    giving an order or instruction. For example, “fix” instead of
+    “fixed” or “fixes”.
+3.  **Capitalize the Subject Line**: Start the subject line with a
+    capital letter.
+4.  **Do Not End the Subject Line with a Period**: The subject line is a
+    title or headline; it doesn’t need a period at the end.
+5.  **Separate Subject from Body with a Blank Line**: This helps various
+    tools (e.g., log, shortlog) to correctly identify the subject from
+    the rest of the content.
+6.  **Use the Body to Explain the "What" and "Why"**: Not just the
+    "how". The code itself explains “how” a change has been made; the
+    commit message should explain what and why.
+7.  **Reference Issues and Pull Requests Liberally**: When applicable,
+    include links to the related issues and pull requests, which
+    provides additional context.
+
+### VS Code Extensions for Commit Messages
+
+To support our commit message standards, we recommend using the
+following Visual Studio Code extensions:
+
+- **Gitmoji for VS Code**: An extension that allows you to include emoji
+  in your commit messages, which can help to quickly identify the
+  purpose or nature of a change. It's available on the VS Code
+  Marketplace:
+  [Gitmoji](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode).
+
+- **Conventional Commits**: This extension helps to enforce the
+  structure of a commit message, ensuring that each part of our commit
+  message standard is followed. It offers prompts and snippets to guide
+  you in creating a well-formatted message.
+
+### Reference for Best Practices
+
+For an in-depth understanding of best practices for git commit messages,
+refer to the following article: [Git Commit Message Best
+Practices](https://www.gitkraken.com/learn/git/best-practices/git-commit-message).
+This article provides a comprehensive guide and rationale behind the
+composition of effective commit messages.
+
+### Conclusion
+
+By utilizing the outlined commit message structure, type guidelines, and
+recommended VS Code extensions, our team can ensure a uniform and
+informative history in our repository. Commit messages become more than
+a formality; they transform into a rich log that conveys the what, why,
+and how of our development process, enhancing clarity and streamlining
+collaboration.
 
 ## Naming Conventions for Data Folders in ML Projects
 
