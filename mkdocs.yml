@@ -95,6 +95,8 @@ nav:
     - DVC: tutorials/data-version-control.md
     - Naming Convetions: tutorials/naming-conventions.md
     - Windows OS: tutorials/windows-os-setup.md
-  - How-To Guides: how-to-guides.md
+  - How-To Guides:
+    - TOC: how-to-guides/how-to-guides-intro.md
+    - Offline Cookiecutter Setup: how-to-guides/offline-cookiecutter-setup.md
   - API Reference: api-reference.md
   - Explanation: explanation.md
