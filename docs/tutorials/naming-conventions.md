@@ -281,10 +281,12 @@ following Visual Studio Code extensions:
   Marketplace:
   [Gitmoji](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode).
 
-- **Conventional Commits**: This extension helps to enforce the
-  structure of a commit message, ensuring that each part of our commit
-  message standard is followed. It offers prompts and snippets to guide
-  you in creating a well-formatted message.
+- **[Commit Message
+  Editor](https://marketplace.visualstudio.com/items?itemName=adam-bender.commit-message-editor)**:
+  This extension helps to enforce the structure of a commit message,
+  ensuring that each part of our commit message standard is followed. It
+  offers prompts and snippets to guide you in creating a well-formatted
+  message.
 
 ### Reference for Best Practices
 
