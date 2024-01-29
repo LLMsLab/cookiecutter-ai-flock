@@ -1,0 +1,20 @@
+/*
+@media (min-width: 76.25em) {
+    .md-main__inner {
+      background-image: url('../logo-gh.png'); /* Adjust the path as needed */
+      background-size: auto auto; /* Maintain the original image size */
+      background-position: center top; /* Align the background image to the top */
+      background-repeat: no-repeat;
+      background-attachment: scroll; /* This will keep the image fixed during scroll */
+      padding-top: 600px; /* Adjust this value based on the actual height of your background image */
+    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 76.25em) {
+    .md-main__inner {
+      background-image: none; /* Optionally remove the background image on smaller screens */
+      padding-top: 0; /* Reset padding for smaller screens */
+    }
+}
+*/

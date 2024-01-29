@@ -1,0 +1,25 @@
+/* Define the base color for the custom admonition */
+:root {
+    --md-admonition-icon--custom: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>');
+    --md-admonition-color--custom: 41, 43, 53; /* Replace with your grid's RGB color */
+  }
+  
+  /* Style the custom admonition block */
+  .md-typeset .admonition-custom,
+  .md-typeset details.custom {
+    border-color: rgb(var(--md-admonition-color--custom));
+  }
+  
+  /* Style the custom admonition title */
+  .md-typeset .admonition-custom > .admonition-title,
+  .md-typeset .custom > summary {
+    background-color: rgba(var(--md-admonition-color--custom), 0.1);
+  }
+  
+  /* Style the custom admonition icon */
+  .md-typeset .admonition-custom > .admonition-title::before,
+  .md-typeset .custom > summary::before {
+    background-color: rgb(var(--md-admonition-color--custom));
+    -webkit-mask-image: var(--md-admonition-icon--custom);
+    mask-image: var(--md-admonition-icon--custom);
+  }
