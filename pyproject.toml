@@ -8,6 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10.13"
+mkdocs-glightbox = "^0.3.7"
 
 [tool.poetry.dev-dependencies]
 black = { version = "23.7.0", extras = ["jupyter"] }
