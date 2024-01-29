@@ -69,10 +69,12 @@ markdown_extensions:
 plugins:
   - mkdocstrings
   - mermaid2
+  - glightbox
   - git-revision-date-localized:
       fallback_to_build_date: true
 
 extra_javascript:
+  - https://fonts.googleapis.com/icon?family=Material+Icons
   - https://unpkg.com/mermaid/dist/mermaid.min.js
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -80,23 +82,46 @@ extra_javascript:
 # Custom admonitions
 extra_css:
   - stylesheets/extra.css
+  - assets/css/custom.css
 
 nav:
   - Home: index.md
   - Tutorials:
-    - TOC: tutorials/turorials-intro.md
-    - Black: tutorials/black-formatter.md
-    - Ruff: tutorials/ruff-linter.md
-    - Poetry: tutorials/poetry.md
-    - MkDocs: tutorials/mkdocs-docs.md
-    - Hydra: tutorials/hydra-config.md
-    - Gitignore: tutorials/gitignore.md
-    - Data: tutorials/data.md
-    - DVC: tutorials/data-version-control.md
-    - Naming Convetions: tutorials/naming-conventions.md
-    - Windows OS: tutorials/windows-os-setup.md
+      - TOC: tutorials/toc-tutorials.md
+      - Black Formatter: tutorials/black-formatter.md
+      - Ruff Linter: tutorials/ruff-linter.md
+      - Poetry Package Management: tutorials/poetry.md
+      - MkDocs Documentation: tutorials/mkdocs-docs.md
+      - Hydra Configuration: tutorials/hydra-config.md
+      - Gitignore File Creation: tutorials/gitignore.md
+      - Managing Data: tutorials/data.md
+      - Data Version Control: tutorials/data-version-control.md
+      - DVC Local Workflow: tutorials/dvc-local.md
+      - DVC Cloud Storage: tutorials/dvc-cloud.md
+      - DVC for Collaboration: tutorials/dvc-collaboration.md
+      - Naming Conventions Tutorial: tutorials/naming-conventions.md
+      - Windows OS Setup: tutorials/windows-os-setup.md
+      - Markdown Documentation for ML Models: tutorials/markdown-ml-model-documentation.md
   - How-To Guides:
-    - TOC: how-to-guides/how-to-guides-intro.md
-    - Offline Cookiecutter Setup: how-to-guides/offline-cookiecutter-setup.md
-  - API Reference: api-reference.md
-  - Explanation: explanation.md
+      - TOC: how-to-guides/toc-how-to-guides.md
+      - DVC Setup: how-to-guides/dvc-set-up.md
+      - DVC Communication: how-to-guides/dvc-communication.md
+      - DVC VS Code Extension: how-to-guides/dvc-vscode-extension.md
+      - Offline Cookiecutter Setup: how-to-guides/offline-cookiecutter-setup.md
+      - Git Branch Naming Standards: how-to-guides/git-branch-naming-standards.md
+      - Commit Message Standards in ML Projects: how-to-guides/commit-message-standards-ml.md
+      - ML Data Folder Naming Guide: how-to-guides/ml-data-folder-naming.md
+      - Data Files Naming Conventions: how-to-guides/ml-data-naming-conventions.md
+      - Automating Metadata Creation: how-to-guides/machine-learning-metadata-automation.md
+      - Enforcing Naming Conventions with GitHub Actions: how-to-guides/github-actions-naming-convention.md
+  - Explanation:
+      - TOC: explanation/toc-explanation.md
+      - Understanding DVC: explanation/dvc-understanding-dvs.md
+      - Git Branches in DVC: explanation/dvc-git-branches.md
+      - Effective GitHub Naming Conventions: explanation/github-naming-conventions.md
+      - Notebook and Script Naming Conventions in ML Projects: explanation/ml-naming-conventions.md
+      - Model Persistence File Naming Conventions: explanation/model-persistence-naming-conventions.md
+      - Introduction to Naming Conventions for AI Project Assets: explanation/naming-conventions.md
+  - API Reference:
+      - TOC: api-reference/toc-api-reference.md
+
